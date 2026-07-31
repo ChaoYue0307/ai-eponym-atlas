@@ -3,17 +3,24 @@ import BookOpen from 'lucide-react/dist/esm/icons/book-open.mjs'
 import type { Locale } from '../copy'
 import { copy } from '../copy'
 import { catalogStats } from '../data/catalog'
-import { navigate } from '../hooks/useHashRoute'
+import { buildHash, navigate } from '../hooks/useHashRoute'
 import { ConceptConstellation } from './ConceptConstellation'
 import { SectionRule } from './SectionRule'
 
 export function Hero({ locale }: { locale: Locale }) {
   const t = copy[locale].hero
+  const rankingParams = new URLSearchParams({
+    view: 'people',
+    layout: 'ranking',
+    lang: locale,
+  })
+  const atlasParams = new URLSearchParams({ lang: locale })
+  const jacobianParams = new URLSearchParams({ lang: locale })
   const stats = [
     { value: catalogStats.people, label: t.stats.people },
     { value: catalogStats.concepts, label: t.stats.concepts },
+    { value: catalogStats.personConceptLinks, label: t.stats.links },
     { value: catalogStats.fields, label: t.stats.fields },
-    { value: catalogStats.sourceCitations, label: t.stats.sources },
   ]
 
   return (
@@ -35,13 +42,26 @@ export function Hero({ locale }: { locale: Locale }) {
             </div>
           ))}
         </dl>
+        <a
+          className="hero__stats-link"
+          href={buildHash('/atlas', rankingParams)}
+          onClick={(event) => {
+            event.preventDefault()
+            navigate('/atlas', rankingParams)
+          }}
+        >
+          {locale === 'zh'
+            ? `为什么 ${catalogStats.people} 位人物会对应 ${catalogStats.concepts} 个概念？`
+            : `Why do ${catalogStats.people} people map to ${catalogStats.concepts} concepts?`}
+          <ArrowRight aria-hidden="true" />
+        </a>
         <div className="hero__actions">
           <a
             className="button button--primary"
-            href="#/atlas"
+            href={buildHash('/atlas', atlasParams)}
             onClick={(event) => {
               event.preventDefault()
-              navigate('/atlas')
+              navigate('/atlas', atlasParams)
             }}
           >
             {t.primary}
@@ -49,10 +69,10 @@ export function Hero({ locale }: { locale: Locale }) {
           </a>
           <a
             className="button button--secondary"
-            href="#/concept/jacobian-matrix"
+            href={buildHash('/concept/jacobian-matrix', jacobianParams)}
             onClick={(event) => {
               event.preventDefault()
-              navigate('/concept/jacobian-matrix')
+              navigate('/concept/jacobian-matrix', jacobianParams)
             }}
           >
             {t.secondary}

@@ -253,6 +253,10 @@ export function AboutPage({ locale }: { locale: Locale }) {
             <dd>{locale === 'zh' ? '个概念' : 'concepts'}</dd>
           </div>
           <div>
+            <dt>{catalogStats.personConceptLinks}</dt>
+            <dd>{locale === 'zh' ? '条人物—概念连接' : 'person–concept links'}</dd>
+          </div>
+          <div>
             <dt>{catalogStats.sourceCitations}</dt>
             <dd>{locale === 'zh' ? '条引用链接' : 'citation links'}</dd>
           </div>

@@ -16,6 +16,11 @@ describe('hash routes', () => {
     })
     expect(conceptRoute.params.get('path')).toBe('geometry-to-gradients')
     expect(routePath(conceptRoute)).toBe('/concept/jacobian-matrix')
+
+    const rankingRoute = parseRoute('#/atlas?view=people&layout=ranking&lang=zh')
+    expect(rankingRoute.name).toBe('atlas')
+    expect(rankingRoute.params.get('view')).toBe('people')
+    expect(rankingRoute.params.get('layout')).toBe('ranking')
   })
 
   it('keeps unknown and empty routes on the homepage', () => {

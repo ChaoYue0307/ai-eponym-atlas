@@ -5,6 +5,14 @@ All notable editorial and product changes are recorded here. The catalog's
 
 ## 0.3.0 — 2026-07-31
 
+- Added a complete, searchable people-coverage ranking with 117 profile rows,
+  direct count bars, competition ties, category-aware recomputation, and
+  shareable URL state.
+- Added a reader-facing relationship audit that distinguishes 120 unique
+  concepts from 149 person–concept links, explains 26 shared eponyms, and shows
+  the audited 96/15/2/3/1 per-person distribution.
+- Added automated invariants for the count equation, every ranking row,
+  histogram totals, link-weighted totals, and category-filtered ranking.
 - Rebuilt the homepage around three clear reader intentions and a curated set
   of six widely useful concepts instead of mounting the complete atlas at once.
 - Added four learning paths with concept-by-concept progress,

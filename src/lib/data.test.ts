@@ -24,6 +24,7 @@ import {
 import { connectCircleBoundaries } from "./constellationGeometry";
 import { buildEgoGraph } from "./graph";
 import { layoutNodes, mergeGraphs } from "./graphLayout";
+import { conceptCountDistribution } from "./personConceptStats";
 
 describe("atlas data integrity", () => {
   it("has a substantial catalog with unique ids", () => {
@@ -38,6 +39,15 @@ describe("atlas data integrity", () => {
   it("derives reader-facing coverage totals from the catalog", () => {
     expect(catalogStats.people).toBe(people.length);
     expect(catalogStats.concepts).toBe(concepts.length);
+    expect(catalogStats.personConceptLinks).toBe(
+      people.reduce((total, person) => total + person.concepts.length, 0),
+    );
+    expect(catalogStats.sharedConcepts).toBe(
+      concepts.filter((concept) => concept.personIds.length > 1).length,
+    );
+    expect(catalogStats.singleConceptPeople + catalogStats.multiConceptPeople).toBe(
+      people.length,
+    );
     expect(catalogStats.fields).toBe(categories.length);
     expect(catalogStats.verifiedPortraits).toBe(
       people.filter((person) => person.portrait !== undefined).length,
@@ -287,6 +297,12 @@ describe("atlas data integrity", () => {
 
     expect(readme).toContain(`**${concepts.length}** concepts`);
     expect(readme).toContain(`**${people.length}** people`);
+    expect(readme).toContain(
+      `**${catalogStats.personConceptLinks}** person–concept links`,
+    );
+    expect(readme).toContain(
+      `**${people.length} people + ${catalogStats.additionalPersonLinks} additional concept links = ${catalogStats.personConceptLinks} person–concept links**`,
+    );
     expect(readme).toContain(`**${sourceCount}** citation links`);
     expect(readme).toContain(`**${catalogStats.uniqueSources}** unique source URLs`);
     expect(readme).toContain(`**${portraitCount}** verified portraits`);
@@ -296,6 +312,20 @@ describe("atlas data integrity", () => {
     );
     expect(readme).toMatch(
       /\[!\[[^\]]+\]\(\.\/docs\/images\/atlas-overview\.jpg\)\]\(https:\/\/chaoyue0307\.github\.io\/ai-eponym-atlas\/\)/,
+    );
+    expect(readme).toMatch(
+      /\[!\[[^\]]+\]\(\.\/docs\/images\/people-concept-ranking\.jpg\)\]\(https:\/\/chaoyue0307\.github\.io\/ai-eponym-atlas\/#\/atlas\?view=people&layout=ranking\)/,
+    );
+
+    const coverage = readFileSync(resolve("docs/COVERAGE.md"), "utf8");
+    const peopleWith = (conceptCount: number) =>
+      conceptCountDistribution.find((bin) => bin.conceptCount === conceptCount)
+        ?.peopleCount ?? 0;
+    expect(coverage).toContain(
+      `**${catalogStats.personConceptLinks} person–concept links** across ${people.length} people and ${concepts.length}`,
+    );
+    expect(coverage).toContain(
+      `**${peopleWith(1)} people have one catalogued concept, ${peopleWith(2)} have\ntwo, ${peopleWith(3)} have three, ${peopleWith(4)} have four, and ${peopleWith(5)} has five.**`,
     );
 
     const localReferences = new Set([
@@ -320,6 +350,7 @@ describe("atlas data integrity", () => {
       "learning-paths.jpg",
       "relationship-graph.jpg",
       "person-profile-mobile.jpg",
+      "people-concept-ranking.jpg",
     ]) {
       const path = resolve("docs", "images", screenshot);
       expect(existsSync(path), screenshot).toBe(true);

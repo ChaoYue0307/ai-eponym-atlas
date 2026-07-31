@@ -14,6 +14,7 @@ flowchart LR
     M["content/people-media.json<br/>identity · portraits · licenses"]
     C["src/data/catalog.ts<br/>typed catalog + indexes"]
     R["src/lib/personProfile.ts<br/>derived profile selector"]
+    S["src/lib/personConceptStats.ts<br/>coverage counts + rankings"]
     T["timeline + constellation data"]
     U["React UI<br/>atlas · details · graph · timeline"]
     Q["Vitest integrity checks"]
@@ -23,8 +24,10 @@ flowchart LR
     E --> C
     M --> C
     C --> R
+    C --> S
     C --> U
     R --> U
+    S --> U
     T --> U
     C --> Q
     T --> Q
@@ -61,6 +64,7 @@ used to disambiguate the person, not a complete biographical source.
 | Atlas search and filters | `src/components/AtlasExplorer.tsx`, `src/lib/search.ts` |
 | Guided learning paths | `src/components/LearningPathsPage.tsx`, `src/components/HomeGuide.tsx`, `src/data/learningPaths.ts` |
 | Concept and person details | `src/components/ConceptDetail.tsx`, `src/components/PersonDetail.tsx`, `src/lib/personProfile.ts` |
+| People coverage statistics | `src/components/PeopleCoverageSummary.tsx`, `src/components/PeopleRanking.tsx`, `src/lib/personConceptStats.ts` |
 | Relationship graph | `src/components/GraphExplorer.tsx`, `src/components/GraphExplorer.css`, `src/lib/graph.ts`, `src/lib/graphLayout.ts`, `src/lib/graphViewport.ts` |
 | Timeline | `src/components/TimelineView.tsx`, `src/components/TimelineView.css`, `src/data/timeline.ts` |
 | Localization | `src/copy.ts` and catalog locale fields |
@@ -79,7 +83,7 @@ route. The same build step generates the complete sitemap.
 | Route | View |
 | --- | --- |
 | `#/` | Homepage, reader entry points, and a curated starting set |
-| `#/atlas` | Searchable concept and people atlas |
+| `#/atlas` | Searchable concept and people atlas; `view=people&layout=ranking` opens the complete coverage ranking |
 | `#/paths` | Four guided, pedagogical concept sequences |
 | `#/concept/:id` | Concept detail |
 | `#/person/:id` | Person profile with a localized introduction and facts, terms carrying the name, deduplicated AI applications, and concept-grouped evidence |
@@ -91,6 +95,12 @@ Graph state encodes focus, depth, visible entity types, and selection. Timeline
 state encodes event kind, era, and selected event. Replacing the current hash
 entry during interaction keeps each view copyable and restorable without
 polluting browser history.
+
+The people ranking derives its rows, link totals, histogram, shared-concept
+count, category-specific counts, and competition ranks from the canonical
+relationships at runtime. Search narrows visible rows without renumbering the
+underlying category ranking; selecting a field recomputes counts within that
+field. No ranking total is duplicated in JSON or UI copy.
 
 ## Visual truth and generated assets / 图形真实性
 
@@ -116,6 +126,8 @@ static discovery-page generation, and bundle budgets. Tests cover:
 - strict KaTeX parsing, guided-path IDs, and locale-aware routes;
 - complete person-profile derivation, application deduplication, and source
   grouping;
+- exact people-to-concept link totals, distribution bins, tie-aware ranking,
+  and category-filtered recomputation;
 - portrait identity, provenance, license, and local-file records;
 - relationship-graph semantics and collision-free two-hop layouts;
 - graph camera bounds, viewport transforms, and deterministic layout;

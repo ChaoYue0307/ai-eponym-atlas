@@ -25,6 +25,8 @@
   <a href="https://chaoyue0307.github.io/ai-eponym-atlas/#/graph">🔗 Explore relationships</a>
   ·
   <a href="https://chaoyue0307.github.io/ai-eponym-atlas/#/timeline">🕰️ Follow the timeline</a>
+  ·
+  <a href="https://chaoyue0307.github.io/ai-eponym-atlas/#/atlas?view=people&layout=ranking">📊 Compare catalog coverage</a>
 </p>
 
 AI Eponym Atlas explains mathematical and technical concepts named after people
@@ -42,7 +44,7 @@ Catalog snapshot: **2026-07-31** / 目录快照：**2026-07-31**
 
 | Coverage / 覆盖 | Evidence / 证据 | Experience / 体验 |
 | :---: | :---: | :---: |
-| **120** concepts / 概念<br>**117** people / 人物 | **247** citation links / 引用链接<br>**235** unique source URLs / 唯一来源<br>**78** verified portraits / 核验肖像 | **9** fields / 领域<br>**4** learning paths / 学习路径 |
+| **120** concepts / 概念<br>**117** people / 人物<br>**149** person–concept links / 人物—概念连接 | **247** citation links / 引用链接<br>**235** unique source URLs / 唯一来源<br>**78** verified portraits / 核验肖像 | **9** fields / 领域<br>**4** learning paths / 学习路径 |
 
 Every concept has at least two reference links. References are attached at the
 concept level and may support a definition, naming history, implementation, or
@@ -58,6 +60,27 @@ and **39 clearly labelled monogram fallbacks**; it does not generate historical
 likenesses.
 
 117 个人物页均提供简明介绍、本地化生卒年份与地区信息、承载其姓名的相关术语、去重后的 AI 应用，以及按概念分组的证据。图谱采用 **78 幅经核验的真实肖像**与 **39 个明确标注的姓名首字母占位符**，不生成历史人物形象。
+
+### 🔢 Why 117 people map to 120 concepts / 为什么 117 位人物对应 120 个概念
+
+The audit distinguishes **unique records** from **relationships**. A person can
+be linked to several concept entries, while one joint eponym—such as
+Gauss–Newton or BFGS—can link to several namesakes. The current catalog is
+internally consistent:
+
+- **117 people + 32 additional concept links = 149 person–concept links**
+- **149 links − 29 additional co-namesake links = 120 unique concepts**
+- **96** people currently have 1 catalogued concept; **15** have 2; **2** have
+  3; **3** have 4; and **1** has 5.
+
+核验时需要区分“独立条目”和“关联关系”：一个人物可以对应多个概念，一个复合人名概念也可以关联多位人物。当前目录共有 **149 条人物—概念连接**；96 位人物目前只有 1 个已收录概念，说明目录更重广度，仍有继续加深的空间，并非计数错误。
+
+[![People-to-concept coverage audit with 117 people, 120 unique concepts, 149 links, a five-bin distribution, and the start of the complete ranking](./docs/images/people-concept-ranking.jpg)](https://chaoyue0307.github.io/ai-eponym-atlas/#/atlas?view=people&layout=ranking)
+
+The [live ranking](https://chaoyue0307.github.io/ai-eponym-atlas/#/atlas?view=people&layout=ranking)
+contains all 117 people, supports search and field filters, and opens every
+linked person or concept. It measures this catalog's current coverage—not
+historical importance or a person's total contributions.
 
 ## 🧠 What the names don't tell you / 名字没有告诉你的内容
 
@@ -133,6 +156,7 @@ sources. [Read the source and image policy →](./docs/PORTRAITS.md)
 | 🔗 **Relationship graph** — Follow people, related concepts, and concrete applications. | 📚 **Evidence-aware history** — Keep definition, naming history, and AI evidence distinct. |
 | 🕰️ **Historical timeline** — Separate a person's life, publication, later naming, and AI adoption. | 🧾 **Canonical terminology** — Keep formal names, aliases, and plain-language labels together. |
 | 👤 **People profiles** — Connect concise introductions and localized facts to the terms carrying each name, AI uses, and evidence. | ♿ **Keyboard and mobile friendly** — Explore every view with a keyboard or on a small screen. |
+| 📊 **Coverage ranking** — Compare all 117 people by current catalog entries, with search and field-aware counts. | 🔢 **Relationship audit** — See why 120 unique concepts form 149 people-to-concept links. |
 
 ### ✅ Three practical ways to use it / 三种实用方式
 
@@ -248,6 +272,7 @@ flowchart TD
     P["🖼️ people-media.json<br/>identity · portrait · license"]
     C["Typed catalog<br/>validation · indexes · stable IDs"]
     R["👤 Person profile selector<br/>namesake terms · AI uses · evidence"]
+    S["📊 Coverage statistics<br/>counts · distribution · ranking"]
     G["🔗 Relationship graph<br/>semantic + visual layers"]
     T["🕰️ Historical timeline<br/>events + eras + URL state"]
     U["🌐 React interface<br/>responsive · accessible"]
@@ -257,9 +282,11 @@ flowchart TD
     E --> C
     P --> C
     C --> R
+    C --> S
     C --> G
     C --> T
     R --> U
+    S --> U
     G --> U
     T --> U
     C --> Q
@@ -315,6 +342,7 @@ batch of placeholders.
 - [x] Searchable atlas with profiles, connections, chronology,
   sources, and sourced historical portraits.
 - [x] Guided learning paths with shareable concept-by-concept progress.
+- [x] Audited people-to-concept counts with a searchable, field-aware ranking.
 - [ ] Typed prerequisite, variant, generalization, duality, and
   easy-to-confuse relationships.
 - [ ] Minimal worked examples, boundary conditions, and evidence-role metadata.

@@ -128,6 +128,24 @@ export const categories: readonly ConceptCategory[] = Object.freeze(
 export const catalogStats = Object.freeze({
   people: people.length,
   concepts: concepts.length,
+  personConceptLinks: people.reduce(
+    (total, person) => total + person.concepts.length,
+    0,
+  ),
+  multiConceptPeople: people.filter((person) => person.concepts.length > 1)
+    .length,
+  singleConceptPeople: people.filter((person) => person.concepts.length === 1)
+    .length,
+  sharedConcepts: concepts.filter((concept) => concept.personIds.length > 1)
+    .length,
+  additionalPersonLinks: people.reduce(
+    (total, person) => total + Math.max(0, person.concepts.length - 1),
+    0,
+  ),
+  additionalNamesakeLinks: concepts.reduce(
+    (total, concept) => total + Math.max(0, concept.personIds.length - 1),
+    0,
+  ),
   fields: categories.length,
   verifiedPortraits: people.filter((person) => person.portrait !== undefined)
     .length,

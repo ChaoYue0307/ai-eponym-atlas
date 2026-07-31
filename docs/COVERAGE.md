@@ -89,6 +89,49 @@ be verified.
 
 每个人物页都包含简明介绍、本地化生卒年份与地区信息、承载其姓名的相关术语、去重后的 AI 应用，以及按概念分组的证据。当前媒体覆盖包括 **78 幅经核验的真实肖像**和 **39 个明确标注的姓名首字母占位符**；无法核验可复用肖像时，图谱不会生成历史人物形象。
 
+## Relationship-depth audit / 关系深度核验
+
+People and concepts form a many-to-many graph, not a pairwise ledger. The
+current snapshot has **149 person–concept links** across 117 people and 120
+unique concepts. Of the concepts, 94 have one namesake, 24 have two, KKT has
+three, and BFGS has four. All forward and reverse references are synchronized;
+the close people/concept totals are not a broken count.
+
+Depth is nevertheless uneven. **96 people have one catalogued concept, 15 have
+two, 2 have three, 3 have four, and 1 has five.** This means the current release
+is a broad, representative atlas rather than an exhaustive inventory of every
+eponym associated with every person.
+
+人物与概念构成多对多图，而不是一一配对表。当前 117 位人物与 120 个独立概念之间共有 **149 条连接**；正向与反向引用全部一致，人数与概念数接近并非统计错误。不过，96 位人物目前只有一个条目，说明目录覆盖重广度、深度仍不均衡。
+
+优先补充的候选条目如下；英文采用可核验的规范术语，中文用于快速定位其功能：
+
+| 已收录人物 / Existing namesakes | 候选概念 / Candidate concepts |
+| --- | --- |
+| Gauss, Markov / 高斯、马尔可夫 | Gaussian elimination / 高斯消元；Gauss–Markov theorem / 高斯–马尔可夫定理；Markov random field / 马尔可夫随机场；Markov chain Monte Carlo / 马尔可夫链蒙特卡洛；Gaussian Markov random field / 高斯马尔可夫随机场 |
+| Bayes, Laplace / 贝叶斯、拉普拉斯 | Naive Bayes / 朴素贝叶斯；Bayesian optimization / 贝叶斯优化；Bayes risk / 贝叶斯风险；Laplace distribution / 拉普拉斯分布；Laplace mechanism / 拉普拉斯机制；Laplacian Eigenmaps / 拉普拉斯特征映射 |
+| Fisher, Rao, Rényi / 费舍尔、拉奥、雷尼 | Fisher–Rao metric / 费舍尔–拉奥度量；Fisher divergence / 费舍尔散度；Fisher kernel / 费舍尔核；Rényi divergence / 雷尼散度；Rényi differential privacy / 雷尼差分隐私 |
+| Dirichlet, Poisson / 狄利克雷、泊松 | Dirichlet process / 狄利克雷过程；latent Dirichlet allocation / 潜在狄利克雷分配；Poisson process / 泊松过程；Poisson regression / 泊松回归 |
+| Langevin, Itô / 朗之万、伊藤 | Langevin Monte Carlo / 朗之万蒙特卡洛；stochastic-gradient Langevin dynamics / 随机梯度朗之万动力学；Itô integral and calculus / 伊藤积分与微积分 |
+| Riemann, Lie, Fréchet / 黎曼、李、弗雷歇 | Riemannian metric / 黎曼度量；Riemannian optimization / 黎曼优化；Lie algebra / 李代数；Fréchet mean / 弗雷歇均值；Fréchet distance / 弗雷歇距离 |
+| Vaserstein, Sinkhorn, Cramér / 瓦瑟斯坦、辛克霍恩、克拉梅 | Wasserstein barycenter / 瓦瑟斯坦重心；Sinkhorn divergence / 辛克霍恩散度；Cramér distance / 克拉梅距离 |
+| Hilbert, Schmidt, Hadamard, Gabor / 希尔伯特、施密特、阿达马、伽博 | Hilbert–Schmidt independence criterion / 希尔伯特–施密特独立性准则；Hadamard transform / 阿达马变换；Gabor transform / 伽博变换 |
+| Shannon, von Neumann, Turing / 香农、冯·诺依曼、图灵 | Shannon source-coding theorem / 香农信源编码定理；Shannon capacity / 香农容量；von Neumann minimax theorem / 冯·诺依曼极小极大定理；universal Turing machine / 通用图灵机；Turing completeness / 图灵完备性 |
+| Broyden / 布罗伊登 | Broyden's method / 布罗伊登法 |
+
+候选状态不会增加已发布统计。每项仍须通过证据底线、归因核查、双语解释和具体 AI 用途核验后才能进入目录。后继变体会作为独立归因主张核查；收录某个衍生方法，并不表示人名来源者本人提出了所有后来的变体或 AI 用法。
+
+Candidate status does not increase the published total. Each item must still
+meet the evidence floor, attribution check, localized explanation standard,
+and concrete AI-use requirement before becoming a catalog entry. Derivative
+methods are checked as separate attribution claims; inclusion never implies
+that the namesake authored every later variant or AI use. Useful starting
+sources include [Rényi differential privacy](https://research.google/pubs/r%C3%A9nyi-differential-privacy/),
+[stochastic-gradient Langevin dynamics](https://icml.cc/2011/papers/398_icmlpaper.pdf),
+[Sinkhorn divergence](https://proceedings.mlr.press/v89/feydy19a),
+[Fréchet means in representation learning](https://proceedings.mlr.press/v119/lou20a.html),
+and [Broyden methods in equilibrium GNNs](https://proceedings.mlr.press/v139/li21o/li21o.pdf).
+
 ## Explicit exclusions / 明确排除
 
 The following are useful AI terms but are not person eponyms:

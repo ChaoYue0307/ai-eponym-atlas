@@ -136,6 +136,19 @@ grouping must not imply that they source every biographical statement.
 - Mobile presents the year and type above a full-width event body so the first
   milestone enters the first viewport.
 
+### People coverage ranking
+
+- Distinguish unique people, unique concepts, and person–concept links before
+  presenting any rank. Never imply a one-to-one mapping.
+- Use a semantic ordered list with direct numeric labels; cobalt bars provide
+  comparison but never carry information on their own.
+- Competition ranks preserve ties. Counts mean distinct entries in the current
+  catalog, not historical importance, authorship, or total output.
+- Search narrows visible rows while field filters recompute counts within the
+  selected field. Both states remain shareable in the URL.
+- On mobile, keep rank, portrait, name, exact count, linked terms, and bar in
+  normal reading order without horizontal scrolling.
+
 ## Images and generated assets
 
 - Real people use source-verified, openly licensed portraits only. The current

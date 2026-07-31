@@ -423,9 +423,35 @@ p {
   display: grid;
   max-width: 560px;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  margin: 0 0 28px;
+  margin: 0 0 12px;
   padding: 15px 0;
   border-block: 1px solid var(--line);
+}
+
+.hero__stats-link {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 18px;
+  color: var(--blue);
+  font-size: 0.78rem;
+  font-weight: 650;
+}
+
+.hero__stats-link:hover {
+  color: var(--blue-dark);
+}
+
+.hero__stats-link svg {
+  width: 15px;
+  height: 15px;
+  stroke-width: 1.8;
+  transition: transform var(--transition);
+}
+
+.hero__stats-link:hover svg {
+  transform: translateX(2px);
 }
 
 .hero__stat {
@@ -1264,6 +1290,426 @@ html[lang='zh-CN'] .hero__stat dt {
 .results-meta svg {
   width: 15px;
   height: 15px;
+}
+
+.people-layout-bar {
+  display: flex;
+  min-height: 76px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--line);
+  background: var(--paper-subtle);
+}
+
+.people-layout-bar > div:first-child {
+  display: grid;
+  gap: 3px;
+}
+
+.people-layout-bar strong {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.people-layout-bar > div:first-child > span {
+  color: var(--muted);
+  font-size: 0.73rem;
+}
+
+.people-layout-switch {
+  flex: 0 0 auto;
+}
+
+.people-layout-switch svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 1.7;
+}
+
+.atlas-shell--ranking {
+  align-items: stretch;
+}
+
+.atlas-shell--ranking .atlas-results {
+  min-width: 0;
+}
+
+.people-ranking-view {
+  min-width: 0;
+}
+
+.people-coverage {
+  padding: 46px clamp(20px, 4vw, 56px) 52px;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.people-coverage__header {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.9fr) minmax(360px, 1.1fr);
+  align-items: end;
+  gap: clamp(36px, 6vw, 88px);
+}
+
+.people-coverage__header .section-number {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.people-coverage__header h2,
+.people-ranking__header h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 3.4vw, 3.7rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+}
+
+.people-coverage__header > p {
+  max-width: 640px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.68;
+}
+
+.people-coverage__metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 38px 0 0;
+  padding: 24px 0;
+  border-block: 1px solid var(--line-strong);
+}
+
+.people-coverage__metrics > div {
+  min-width: 0;
+  padding: 0 24px;
+  border-left: 1px solid var(--line);
+}
+
+.people-coverage__metrics > div:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.people-coverage__metrics dt {
+  color: var(--blue);
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3vw, 3.1rem);
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.people-coverage__metrics dd {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 0.7rem;
+  line-height: 1.35;
+}
+
+.coverage-equation {
+  padding: 30px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.coverage-equation__visual {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 36px;
+}
+
+.coverage-equation__line {
+  display: grid;
+  grid-template-columns: minmax(78px, 1fr) 24px minmax(112px, 1.35fr) 24px minmax(96px, 1fr);
+  align-items: center;
+  gap: 5px;
+}
+
+.coverage-equation__term {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  text-align: center;
+}
+
+.coverage-equation__term strong {
+  color: var(--blue);
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.coverage-equation__term small {
+  max-width: 142px;
+  color: var(--muted);
+  font-size: 0.64rem;
+  line-height: 1.35;
+}
+
+.coverage-equation__operator {
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.people-distribution {
+  padding-top: 34px;
+}
+
+.people-distribution__heading {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(260px, 0.75fr);
+  align-items: end;
+  gap: 48px;
+}
+
+.people-distribution h3 {
+  margin: 0 0 6px;
+  font-family: var(--serif);
+  font-size: 1.55rem;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.people-distribution__heading p,
+.people-distribution__heading aside {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.73rem;
+  line-height: 1.55;
+}
+
+.people-distribution__heading aside {
+  padding-left: 16px;
+  border-left: 2px solid var(--blue);
+}
+
+.people-distribution ul {
+  display: grid;
+  gap: 12px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.people-distribution li {
+  display: grid;
+  grid-template-columns: 92px minmax(160px, 1fr) 34px 54px;
+  align-items: center;
+  gap: 12px;
+}
+
+.people-distribution__label,
+.people-distribution li small {
+  color: var(--muted);
+  font-size: 0.68rem;
+}
+
+.people-distribution__track,
+.people-ranking__bar {
+  position: relative;
+  display: block;
+  height: 9px;
+  overflow: hidden;
+  background: var(--blue-pale);
+}
+
+.people-distribution__track > span {
+  display: block;
+  width: max(4px, var(--distribution-size));
+  height: 100%;
+  background: var(--blue);
+}
+
+.people-distribution li strong,
+.people-ranking__count {
+  font-variant-numeric: tabular-nums;
+}
+
+.people-distribution li small {
+  text-align: right;
+}
+
+.people-ranking {
+  padding: 48px clamp(20px, 4vw, 56px) 64px;
+}
+
+.people-ranking__header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 28px;
+}
+
+.people-ranking__header h2 {
+  font-size: clamp(2rem, 3vw, 3.1rem);
+}
+
+.people-ranking__header > div > p {
+  max-width: 650px;
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.people-ranking__result-count {
+  flex: 0 0 auto;
+  margin: 0;
+  color: var(--blue);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+}
+
+.people-ranking__columns,
+.people-ranking li {
+  display: grid;
+  grid-template-columns: 52px minmax(190px, 0.78fr) minmax(280px, 1.35fr) minmax(150px, 0.8fr) 42px;
+  align-items: center;
+  gap: 16px;
+}
+
+.people-ranking__columns {
+  min-height: 38px;
+  border-block: 1px solid var(--line-strong);
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.people-ranking__columns span:last-child {
+  text-align: right;
+}
+
+.people-ranking ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.people-ranking li {
+  min-height: 80px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  content-visibility: auto;
+  contain-intrinsic-size: 80px;
+}
+
+.people-ranking li:hover {
+  background: var(--paper-subtle);
+}
+
+.people-ranking__rank {
+  color: var(--blue);
+  font-family: var(--mono);
+  font-size: 0.67rem;
+}
+
+.people-ranking__person {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 11px;
+}
+
+.people-ranking__person:hover strong,
+.people-ranking__concepts a:hover {
+  color: var(--blue);
+}
+
+.people-ranking__person > span:last-child {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+
+.people-ranking__person strong {
+  overflow: hidden;
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.people-ranking__person small {
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 0.65rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.people-ranking__concepts {
+  min-width: 0;
+  color: var(--muted);
+  font-size: 0.7rem;
+  line-height: 1.52;
+}
+
+.people-ranking__concepts a {
+  color: var(--ink);
+}
+
+.people-ranking__bar {
+  min-height: 44px;
+  height: 44px;
+  background: transparent;
+}
+
+.people-ranking__bar::before {
+  position: absolute;
+  top: 17px;
+  right: 0;
+  left: 0;
+  height: 10px;
+  background: var(--blue-pale);
+  content: '';
+}
+
+.people-ranking__bar > span {
+  position: absolute;
+  z-index: 1;
+  top: 17px;
+  left: 0;
+  width: var(--ranking-size);
+  height: 10px;
+  background: var(--blue);
+  transition: width 260ms ease;
+}
+
+.people-ranking__count {
+  color: var(--blue-dark);
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  text-align: right;
+}
+
+.people-ranking__empty {
+  display: grid;
+  min-height: 240px;
+  place-items: center;
+  border-block: 1px solid var(--line);
+  color: var(--muted);
+  text-align: center;
+}
+
+.people-ranking__empty p {
+  margin: 0;
 }
 
 .result-list {
@@ -4201,6 +4647,193 @@ html[lang='zh-CN'] .hero__stat dt {
 .timeline-page.timeline-v2 .timeline-v2-event.is-selected .timeline-v2-event__toggle > svg {
   color: var(--blue);
   transform: rotate(90deg);
+}
+
+@media (max-width: 960px) {
+  .hero__stats-link {
+    margin-bottom: 20px;
+  }
+
+  .people-layout-bar {
+    min-height: 82px;
+    padding: 12px;
+  }
+
+  .people-coverage,
+  .people-ranking {
+    padding-right: var(--page-gutter);
+    padding-left: var(--page-gutter);
+  }
+
+  .people-coverage__header,
+  .people-distribution__heading {
+    display: block;
+  }
+
+  .people-coverage__header > p,
+  .people-distribution__heading aside {
+    margin-top: 22px;
+  }
+
+  .coverage-equation__visual {
+    gap: 24px;
+  }
+
+  .people-ranking__columns,
+  .people-ranking li {
+    grid-template-columns: 46px minmax(170px, 0.75fr) minmax(230px, 1.25fr) minmax(120px, 0.65fr) 36px;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 720px) {
+  .people-layout-bar {
+    display: grid;
+    gap: 12px;
+  }
+
+  .people-layout-switch {
+    width: 100%;
+  }
+
+  .people-layout-switch button {
+    flex: 1;
+  }
+
+  .people-coverage {
+    padding-top: 36px;
+    padding-bottom: 42px;
+  }
+
+  .people-coverage__header h2 {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .people-coverage__metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 0;
+  }
+
+  .people-coverage__metrics > div,
+  .people-coverage__metrics > div:first-child {
+    min-height: 102px;
+    padding: 20px 14px;
+    border-left: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .people-coverage__metrics > div:nth-child(odd) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .people-coverage__metrics > div:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+
+  .coverage-equation__visual {
+    grid-template-columns: 1fr;
+  }
+
+  .coverage-equation__line {
+    grid-template-columns: minmax(64px, 1fr) 20px minmax(92px, 1.2fr) 20px minmax(72px, 1fr);
+  }
+
+  .coverage-equation__term strong {
+    font-size: 1.65rem;
+  }
+
+  .coverage-equation__term small {
+    font-size: 0.72rem;
+  }
+
+  .people-distribution li {
+    grid-template-columns: 76px minmax(100px, 1fr) 28px 44px;
+    gap: 8px;
+  }
+
+  .people-distribution__label,
+  .people-distribution li small {
+    font-size: 0.72rem;
+  }
+
+  .people-ranking {
+    padding-top: 38px;
+    padding-bottom: 48px;
+  }
+
+  .people-ranking__header {
+    display: block;
+  }
+
+  .people-ranking__result-count {
+    margin-top: 14px;
+  }
+
+  .people-ranking__columns {
+    display: none;
+  }
+
+  .people-ranking li {
+    grid-template-columns: 42px minmax(0, 1fr) 34px;
+    gap: 7px 10px;
+    min-height: 126px;
+    padding: 16px 0;
+    contain-intrinsic-size: 126px;
+  }
+
+  .people-ranking__rank {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: start;
+    padding-top: 11px;
+  }
+
+  .people-ranking__person {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .people-ranking__person small {
+    font-size: 0.7rem;
+  }
+
+  .people-ranking__count {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .people-ranking__concepts {
+    grid-column: 2 / -1;
+    grid-row: 2;
+  }
+
+  .people-ranking__bar {
+    grid-column: 2 / -1;
+    grid-row: 3;
+    min-height: 30px;
+    height: 30px;
+  }
+
+  .people-ranking__bar::before,
+  .people-ranking__bar > span {
+    top: 10px;
+  }
+}
+
+@media (max-width: 420px) {
+  .people-layout-bar > div:first-child > span {
+    display: none;
+  }
+
+  .people-distribution li {
+    grid-template-columns: 70px minmax(76px, 1fr) 24px 38px;
+  }
+
+  .people-ranking__person strong {
+    font-size: 0.94rem;
+  }
+
 }
 
 @media (prefers-reduced-data: reduce), (forced-colors: active) {

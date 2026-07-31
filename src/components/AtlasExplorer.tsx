@@ -1,7 +1,9 @@
 import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right.mjs'
+import BarChart3 from 'lucide-react/dist/esm/icons/bar-chart-3.mjs'
 import Command from 'lucide-react/dist/esm/icons/command.mjs'
 import Filter from 'lucide-react/dist/esm/icons/filter.mjs'
 import Grid2X2 from 'lucide-react/dist/esm/icons/grid-2x2.mjs'
+import List from 'lucide-react/dist/esm/icons/list.mjs'
 import Search from 'lucide-react/dist/esm/icons/search.mjs'
 import Sparkles from 'lucide-react/dist/esm/icons/sparkles.mjs'
 import UserRound from 'lucide-react/dist/esm/icons/user-round.mjs'
@@ -16,12 +18,21 @@ import {
 } from 'react'
 import type { Locale } from '../copy'
 import { copy } from '../copy'
-import { categories, concepts, conceptsById, people, peopleById } from '../data/catalog'
+import {
+  catalogStats,
+  categories,
+  concepts,
+  conceptsById,
+  people,
+  peopleById,
+} from '../data/catalog'
 import { navigate } from '../hooks/useHashRoute'
 import { formatLifespan } from '../lib/lifespan'
 import { formatRegion } from '../lib/personProfile'
 import { searchCatalog, type SearchMode } from '../lib/search'
 import { ConceptDetail } from './ConceptDetail'
+import { PeopleCoverageSummary } from './PeopleCoverageSummary'
+import { PeopleRanking } from './PeopleRanking'
 import { PersonPortrait } from './PersonPortrait'
 import { SectionRule } from './SectionRule'
 
@@ -29,6 +40,8 @@ type AtlasExplorerProps = {
   locale: Locale
   params?: URLSearchParams
 }
+
+type PeopleLayout = 'directory' | 'ranking'
 
 const categoryLabels: Record<string, { en: string; zh: string }> = {
   algebra: { en: 'Algebra & spaces', zh: '代数与空间' },
@@ -80,13 +93,35 @@ export function AtlasExplorer({ locale, params }: AtlasExplorerProps) {
   const filterTriggerRef = useRef<HTMLButtonElement>(null)
   const filterRailRef = useRef<HTMLElement>(null)
   const initialMode = params?.get('view') === 'people' ? 'people' : 'concepts'
+  const initialLayout: PeopleLayout =
+    params?.get('layout') === 'ranking' ? 'ranking' : 'directory'
   const [mode, setMode] = useState<SearchMode>(initialMode)
+  const [peopleLayout, setPeopleLayout] = useState<PeopleLayout>(initialLayout)
   const [query, setQuery] = useState(params?.get('q') ?? '')
   const [category, setCategory] = useState(params?.get('category') ?? '')
   const [focusId, setFocusId] = useState(params?.get('focus') ?? '')
   const [mobileDetailOpen, setMobileDetailOpen] = useState(Boolean(params?.get('focus')))
   const [filtersOpen, setFiltersOpen] = useState(false)
   const deferredQuery = useDeferredValue(query)
+  const paramsKey = params?.toString() ?? ''
+
+  useEffect(() => {
+    const nextMode: SearchMode = params?.get('view') === 'people' ? 'people' : 'concepts'
+    const nextLayout: PeopleLayout =
+      nextMode === 'people' && params?.get('layout') === 'ranking'
+        ? 'ranking'
+        : 'directory'
+    const nextQuery = params?.get('q') ?? ''
+    const nextCategory = params?.get('category') ?? ''
+    const nextFocusId = params?.get('focus') ?? ''
+
+    setMode(nextMode)
+    setPeopleLayout(nextLayout)
+    setQuery(nextQuery)
+    setCategory(nextCategory)
+    setFocusId(nextFocusId)
+    setMobileDetailOpen(Boolean(nextFocusId))
+  }, [paramsKey])
 
   const results = useMemo(
     () => searchCatalog(deferredQuery, mode, category ? { category } : undefined),
@@ -177,14 +212,28 @@ export function AtlasExplorer({ locale, params }: AtlasExplorerProps) {
     }
   }, [filtersOpen])
 
-  useEffect(() => {
+  const replaceRouteState = (patch: {
+    mode?: SearchMode
+    peopleLayout?: PeopleLayout
+    query?: string
+    category?: string
+    focusId?: string
+  }) => {
+    const nextMode = patch.mode ?? mode
+    const nextLayout = patch.peopleLayout ?? peopleLayout
+    const nextQuery = patch.query ?? query
+    const nextCategory = patch.category ?? category
+    const nextFocusId = patch.focusId ?? focusId
     const nextParams = new URLSearchParams()
-    if (mode !== 'concepts') nextParams.set('view', mode)
-    if (query) nextParams.set('q', query)
-    if (category) nextParams.set('category', category)
-    if (focusId) nextParams.set('focus', focusId)
+    if (nextMode !== 'concepts') nextParams.set('view', nextMode)
+    if (nextMode === 'people' && nextLayout === 'ranking') {
+      nextParams.set('layout', nextLayout)
+    }
+    if (nextQuery) nextParams.set('q', nextQuery)
+    if (nextCategory) nextParams.set('category', nextCategory)
+    if (nextFocusId) nextParams.set('focus', nextFocusId)
     navigate('/atlas', nextParams, true)
-  }, [category, focusId, mode, query])
+  }
 
   const selectMode = (nextMode: SearchMode) => {
     startTransition(() => {
@@ -192,6 +241,7 @@ export function AtlasExplorer({ locale, params }: AtlasExplorerProps) {
       setFocusId('')
       setMobileDetailOpen(false)
     })
+    replaceRouteState({ mode: nextMode, focusId: '' })
   }
 
   const chooseResult = (kind: 'concept' | 'person', id: string) => {
@@ -205,6 +255,7 @@ export function AtlasExplorer({ locale, params }: AtlasExplorerProps) {
     }
     setFocusId(id)
     setMobileDetailOpen(true)
+    replaceRouteState({ focusId: id })
   }
 
   const surprise = () => {
@@ -214,6 +265,9 @@ export function AtlasExplorer({ locale, params }: AtlasExplorerProps) {
   }
 
   const selectedConcept = focusId ? conceptsById.get(focusId) : undefined
+  const visiblePersonIds = results
+    .filter((result) => result.kind === 'person')
+    .map((result) => result.id)
 
   return (
     <section
@@ -230,7 +284,7 @@ export function AtlasExplorer({ locale, params }: AtlasExplorerProps) {
       <div
         className={`atlas-shell${selectedConcept ? ' atlas-shell--detail-open' : ''}${
           mobileDetailOpen ? ' atlas-shell--mobile-detail-open' : ''
-        }`}
+        }${mode === 'people' && peopleLayout === 'ranking' ? ' atlas-shell--ranking' : ''}`}
       >
         {filtersOpen ? (
           <button
@@ -262,8 +316,10 @@ export function AtlasExplorer({ locale, params }: AtlasExplorerProps) {
           <button
             type="button"
             className={!category ? 'is-active' : ''}
+            aria-pressed={!category}
             onClick={() => {
               setCategory('')
+              replaceRouteState({ category: '' })
               setFiltersOpen(false)
             }}
           >
@@ -276,8 +332,10 @@ export function AtlasExplorer({ locale, params }: AtlasExplorerProps) {
               type="button"
               key={item}
               className={category === item ? 'is-active' : ''}
+              aria-pressed={category === item}
               onClick={() => {
                 startTransition(() => setCategory(item))
+                replaceRouteState({ category: item })
                 setFiltersOpen(false)
               }}
             >
@@ -307,7 +365,11 @@ export function AtlasExplorer({ locale, params }: AtlasExplorerProps) {
                 ref={searchRef}
                 type="search"
                 value={query}
-                onChange={(event) => setQuery(event.target.value)}
+                onChange={(event) => {
+                  const nextQuery = event.target.value
+                  setQuery(nextQuery)
+                  replaceRouteState({ query: nextQuery })
+                }}
                 placeholder={t.search}
                 autoComplete="off"
               />
@@ -353,16 +415,74 @@ export function AtlasExplorer({ locale, params }: AtlasExplorerProps) {
             </button>
           </div>
 
-          <div className="results-meta" aria-live="polite">
-            <span>
-              {results.length} {t.results}
-            </span>
-            <button type="button" onClick={surprise} disabled={!results.length}>
-              <Sparkles aria-hidden="true" />
-              {t.surprise}
-            </button>
-          </div>
+          {mode === 'people' ? (
+            <div className="people-layout-bar">
+              <div>
+                <strong>
+                  {locale === 'zh' ? '全目录：' : 'Whole catalog: '}
+                  {catalogStats.people} {locale === 'zh' ? '位人物' : 'people'} ·{' '}
+                  {catalogStats.personConceptLinks}{' '}
+                  {locale === 'zh' ? '条人物—概念连接' : 'person–concept links'}
+                </strong>
+                <span>{t.rankingHint}</span>
+              </div>
+              <div
+                className="segmented-control people-layout-switch"
+                aria-label={t.peopleViews}
+              >
+                <button
+                  type="button"
+                  className={peopleLayout === 'directory' ? 'is-active' : ''}
+                  onClick={() => {
+                    setPeopleLayout('directory')
+                    replaceRouteState({ peopleLayout: 'directory' })
+                  }}
+                  aria-pressed={peopleLayout === 'directory'}
+                >
+                  <List aria-hidden="true" />
+                  {t.directory}
+                </button>
+                <button
+                  type="button"
+                  className={peopleLayout === 'ranking' ? 'is-active' : ''}
+                  onClick={() => {
+                    setPeopleLayout('ranking')
+                    replaceRouteState({ peopleLayout: 'ranking' })
+                  }}
+                  aria-pressed={peopleLayout === 'ranking'}
+                >
+                  <BarChart3 aria-hidden="true" />
+                  {t.ranking}
+                </button>
+              </div>
+            </div>
+          ) : null}
 
+          {mode !== 'people' || peopleLayout === 'directory' ? (
+            <div className="results-meta" aria-live="polite">
+              <span>
+                {results.length} {t.results}
+              </span>
+              <button type="button" onClick={surprise} disabled={!results.length}>
+                <Sparkles aria-hidden="true" />
+                {t.surprise}
+              </button>
+            </div>
+          ) : null}
+
+          {mode === 'people' && peopleLayout === 'ranking' ? (
+            <div className="people-ranking-view" aria-busy={query !== deferredQuery}>
+              <PeopleCoverageSummary locale={locale} />
+              <PeopleRanking
+                locale={locale}
+                category={category || undefined}
+                categoryLabel={
+                  category ? categoryLabels[category]?.[locale] : undefined
+                }
+                visiblePersonIds={visiblePersonIds}
+              />
+            </div>
+          ) : (
           <ul className="result-list" aria-busy={query !== deferredQuery}>
             {results.length ? (
               results.map((result) => {
@@ -474,6 +594,7 @@ export function AtlasExplorer({ locale, params }: AtlasExplorerProps) {
                   onClick={() => {
                     setQuery('')
                     setCategory('')
+                    replaceRouteState({ query: '', category: '' })
                   }}
                 >
                   {t.clear}
@@ -481,6 +602,7 @@ export function AtlasExplorer({ locale, params }: AtlasExplorerProps) {
               </li>
             )}
           </ul>
+          )}
         </div>
 
         {selectedConcept ? (
@@ -491,8 +613,12 @@ export function AtlasExplorer({ locale, params }: AtlasExplorerProps) {
             onClose={() => {
               setFocusId('')
               setMobileDetailOpen(false)
+              replaceRouteState({ focusId: '' })
             }}
-            onSelectConcept={setFocusId}
+            onSelectConcept={(conceptId) => {
+              setFocusId(conceptId)
+              replaceRouteState({ focusId: conceptId })
+            }}
           />
         ) : null}
       </div>
