@@ -1,5 +1,4 @@
 import ArrowUpRight from 'lucide-react/dist/esm/icons/arrow-up-right.mjs'
-import GitFork from 'lucide-react/dist/esm/icons/git-fork.mjs'
 import type { Locale } from '../copy'
 import { concepts, meta, people } from '../data/catalog'
 import { navigate } from '../hooks/useHashRoute'
@@ -35,8 +34,8 @@ const principles = [
     en: 'Evidence you can follow',
     zh: '可以继续追查的证据',
     bodyEn:
-      'Follow separate sources for the formal definition, historical attribution, and modern AI uses.',
-    bodyZh: '形式化定义、历史归属与现代 AI 用途分别链接到相应来源。',
+      'Follow sources for the formal definition, the history behind the name, and modern AI uses.',
+    bodyZh: '形式化定义、名字背后的历史与现代 AI 用途都附有可继续查阅的来源。',
   },
 ]
 
@@ -83,10 +82,10 @@ const anatomyItems = [
   },
   {
     number: '06',
-    label: { en: 'Attribution', zh: '归因' },
+    label: { en: 'Name & history', zh: '名字与历史' },
     body: {
-      en: "Distinguish Jacobi's work from the later matrix terminology",
-      zh: '区分 Jacobi 的工作与后世矩阵术语',
+      en: "See how Jacobi's work relates to the later matrix terminology",
+      zh: '理解 Jacobi 的工作如何与后来的矩阵术语相连',
     },
   },
 ] as const
@@ -102,8 +101,8 @@ export function AboutPage({ locale }: { locale: Locale }) {
         <SectionRule />
         <p>
           {locale === 'zh'
-            ? '每个条目都把人名术语连回它回答的问题、背后的数学、历史脉络与 AI 用途。'
-            : 'Each entry connects a named term to the question it answers, the mathematics behind it, its history, and its uses in AI.'}
+            ? '先看人名术语解决什么问题，再理解背后的数学、历史脉络与 AI 用途。'
+            : 'Start with the question a named term answers, then move through its mathematics, history, and uses in AI.'}
         </p>
       </header>
 
@@ -111,7 +110,9 @@ export function AboutPage({ locale }: { locale: Locale }) {
         <div className="method-principles__heading">
           <p className="section-number">{locale === 'zh' ? '你会读到什么' : "WHAT YOU'LL FIND"}</p>
           <h2 id="principles-title">
-            {locale === 'zh' ? '每个概念都按清晰的路径展开' : 'A clear path through every concept'}
+            {locale === 'zh'
+              ? '把陌生人名变成可用的概念'
+              : 'Turn an unfamiliar name into a usable idea'}
           </h2>
         </div>
         <ol>
@@ -129,14 +130,18 @@ export function AboutPage({ locale }: { locale: Locale }) {
 
       <section className="entry-anatomy" aria-labelledby="entry-anatomy-title">
         <div className="entry-anatomy__title">
-          <p className="section-number">{locale === 'zh' ? '如何阅读概念' : 'HOW TO READ A CONCEPT'}</p>
+          <p className="section-number">
+            {locale === 'zh' ? '分层理解一个概念' : 'READ A CONCEPT IN LAYERS'}
+          </p>
           <h2 id="entry-anatomy-title">
-            {locale === 'zh' ? '先建立直觉，再深入定义与证据' : 'Start with intuition, then go deeper'}
+            {locale === 'zh'
+              ? '先问问题，需要时再看公式'
+              : 'Question first. Formula when you need it.'}
           </h2>
           <p>
             {locale === 'zh'
-              ? '所有概念都按同一顺序展开，方便你快速定位，也能继续深入。'
-              : 'Every concept follows the same sequence, so you can orient quickly and continue as far as you need.'}
+              ? '从核心问题与直觉出发，再深入定义、历史、AI 用途与来源。'
+              : 'Move from the question and intuition to the definition, history, AI uses, and sources.'}
           </p>
         </div>
         <div className="entry-anatomy__example">
@@ -151,7 +156,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
             </div>
           ))}
           <button type="button" onClick={() => navigate('/concept/jacobian-matrix')}>
-            {locale === 'zh' ? '阅读完整条目' : 'Read the full entry'}
+            {locale === 'zh' ? '探索雅可比矩阵' : 'Explore the Jacobian matrix'}
             <ArrowUpRight aria-hidden="true" />
           </button>
         </div>
@@ -159,12 +164,16 @@ export function AboutPage({ locale }: { locale: Locale }) {
 
       <section className="coverage-band">
         <div>
-          <p className="section-number">{locale === 'zh' ? '收录范围' : 'COVERAGE'} · {meta.lastUpdated}</p>
-          <h2>{locale === 'zh' ? '从基础概念到现代 AI 应用。' : 'From foundations to modern AI applications.'}</h2>
+          <p className="section-number">{locale === 'zh' ? '探索范围' : 'EXPLORE THE RANGE'}</p>
+          <h2>
+            {locale === 'zh'
+              ? '从基础数学走向现代 AI。'
+              : 'From foundational mathematics to modern AI.'}
+          </h2>
           <p>
             {locale === 'zh'
-              ? '涵盖核心数学、专门工具与 2020–2026 年间的 AI 应用；上方日期表示本版内容的最近核查时间。'
-              : 'Coverage spans core mathematics, specialist tools, and AI work from 2020–2026; the date above shows when this edition was last reviewed.'}
+              ? `从核心数学读到专门工具与近年的 AI 应用，需要深入时可继续查阅参考来源。来源与活跃 AI 用途核查至 ${meta.lastUpdated}。`
+              : `Move from core mathematics to specialist tools and recent AI applications, with references ready when you want to go deeper. Sources and active AI uses reviewed through ${meta.lastUpdated}.`}
           </p>
         </div>
         <dl>
@@ -178,30 +187,9 @@ export function AboutPage({ locale }: { locale: Locale }) {
           </div>
           <div>
             <dt>{concepts.reduce((sum, concept) => sum + concept.sourceLinks.length, 0)}</dt>
-            <dd>{locale === 'zh' ? '条来源' : 'source links'}</dd>
+            <dd>{locale === 'zh' ? '条参考来源' : 'references'}</dd>
           </div>
         </dl>
-      </section>
-
-      <section className="contribute-band">
-        <div>
-          <p className="section-number">OPEN SOURCE</p>
-          <h2>{locale === 'zh' ? '你遇到的下一个名字，可以成为下一条记录。' : 'The next name you meet can become the next entry.'}</h2>
-        </div>
-        <p>
-          {locale === 'zh'
-            ? '新增条目需要双语解释、明确归因、具体 AI 用途与可核查来源。贡献规范里有完整模板。'
-            : 'New entries need bilingual explanations, careful attribution, concrete AI uses, and verifiable sources. The contribution guide includes the full template.'}
-        </p>
-        <a
-          className="button button--primary"
-          href="https://github.com/ChaoYue0307/ai-eponym-atlas"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <GitFork aria-hidden="true" />
-          {locale === 'zh' ? '在 GitHub 参与贡献' : 'Contribute on GitHub'}
-        </a>
       </section>
     </main>
   )

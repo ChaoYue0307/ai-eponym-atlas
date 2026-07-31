@@ -52,7 +52,7 @@
     {
       "name": "Follow the timeline",
       "short_name": "Timeline",
-      "description": "Open the proportional history of eponyms in modern AI.",
+      "description": "Follow how eponymous ideas moved from mathematics into modern AI.",
       "url": "./#/timeline",
       "icons": [
         {

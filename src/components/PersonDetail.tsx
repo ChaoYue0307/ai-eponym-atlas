@@ -48,12 +48,12 @@ export function PersonDetail({ personId, locale }: { personId: string; locale: L
         </div>
         <div className="person-page__intro">
           <p className="person-page__intro-label">
-            {locale === 'zh' ? '人物简介' : 'Brief introduction'}
+            {locale === 'zh' ? '生平与贡献' : 'Life & work'}
           </p>
           <p className="person-page__summary">{person.summary[locale]}</p>
           {person.profileUrl ? (
             <a href={person.profileUrl} target="_blank" rel="noreferrer">
-              {locale === 'zh' ? '查看 Wikidata 人物资料' : 'View Wikidata profile'}
+              {locale === 'zh' ? '在 Wikidata 了解更多' : 'Learn more on Wikidata'}
               <ExternalLink aria-hidden="true" />
             </a>
           ) : null}
@@ -63,8 +63,8 @@ export function PersonDetail({ personId, locale }: { personId: string; locale: L
         <p className="section-number">01</p>
         <h2>
           {locale === 'zh'
-            ? '你会在现代 AI 文献中看到这些名字'
-            : 'Where this name appears in modern AI'}
+            ? '现代 AI 中的相关人名概念'
+            : 'Named concepts in modern AI'}
         </h2>
         <div className="person-concept-list">
           {namedConcepts.map((concept) => (
@@ -87,11 +87,15 @@ export function PersonDetail({ personId, locale }: { personId: string; locale: L
       </section>
       <section className="person-page__method-note">
         <p className="section-number">02</p>
-        <h2>{locale === 'zh' ? '关于归因' : 'A note on attribution'}</h2>
+        <h2>
+          {locale === 'zh'
+            ? '命名不等于独立发明'
+            : 'A name is not proof of sole invention'}
+        </h2>
         <p>
           {locale === 'zh'
-            ? '图谱中的连接表示命名关系，不自动等同于“独立发明”。每个概念条目会说明直接贡献、后世形式化、推广与命名惯例。'
-            : 'A connection in this atlas records a naming relationship, not an automatic claim of sole invention. Each concept distinguishes direct work, later formalization, popularization, and naming convention.'}
+            ? '人名记录的是命名关系，并不能单独证明某人独立发明了概念。发现、形式化、推广与后世命名可能分别来自不同的人。'
+            : 'A name marks an attribution relationship; it does not by itself prove sole invention. Discovery, formalization, popularization, and later naming may involve different people.'}
         </p>
         <a
           href="#/about"
@@ -100,7 +104,7 @@ export function PersonDetail({ personId, locale }: { personId: string; locale: L
             navigate('/about')
           }}
         >
-          {locale === 'zh' ? '了解人名归属' : 'Learn how names are attributed'}
+          {locale === 'zh' ? '了解名字背后的历史' : 'Explore the history behind the names'}
           <ExternalLink aria-hidden="true" />
         </a>
       </section>

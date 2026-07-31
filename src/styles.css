@@ -2295,8 +2295,7 @@ p {
   background: var(--paper-subtle);
 }
 
-.coverage-band h2,
-.contribute-band h2 {
+.coverage-band h2 {
   max-width: 720px;
   font-family: var(--serif);
   font-size: clamp(2.3rem, 4vw, 4.2rem);
@@ -2331,29 +2330,6 @@ p {
   margin: 8px 0 0;
   color: var(--muted);
   font-size: 0.72rem;
-}
-
-.contribute-band {
-  display: grid;
-  max-width: var(--max-width);
-  grid-template-columns: minmax(480px, 1.2fr) minmax(300px, 0.8fr);
-  align-items: end;
-  gap: 38px 70px;
-  margin: 0 auto;
-  padding: 80px var(--page-gutter);
-}
-
-.contribute-band > div {
-  grid-row: span 2;
-}
-
-.contribute-band > p {
-  margin: 0;
-  color: var(--muted);
-}
-
-.contribute-band .button {
-  justify-self: start;
 }
 
 /* Footer */
@@ -3023,16 +2999,6 @@ p {
 
   .coverage-band dt {
     font-size: 2.6rem;
-  }
-
-  .contribute-band {
-    display: block;
-    padding-top: 60px;
-    padding-bottom: 60px;
-  }
-
-  .contribute-band > p {
-    margin-bottom: 28px;
   }
 
   .site-footer {

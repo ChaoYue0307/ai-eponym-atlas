@@ -15,7 +15,7 @@ describe("formatLifespan", () => {
         { born: "1941", died: null, lifeStatus: "missing" },
         "en",
       ),
-    ).toBe("1941–missing (see profile)");
+    ).toBe("Born 1941 · missing");
   });
 
   it("keeps a known death year when a birth year is unresolved", () => {

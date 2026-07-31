@@ -6,15 +6,15 @@
     "zhSubtitle": "从直觉、数学、历史与关联出发，理解这些概念如何用于现代 AI。",
     "tagline": "Understand the ideas behind the names in AI.",
     "description": {
-      "en": "A bilingual, structured atlas of eponymous mathematical and technical concepts widely used in artificial intelligence.",
-      "zh": "一份双语、结构化的图谱，解释广泛用于人工智能的数学与技术人名概念。"
+      "en": "Explore widely used mathematical and technical concepts named after people—their meanings, histories, connections, and uses in AI.",
+      "zh": "探索广泛用于人工智能、以人物命名的数学与技术概念，理解它们的含义、历史、关联与实际用途。"
     },
     "schemaVersion": "1.1.0",
     "lastUpdated": "2026-07-31",
     "licenseRecommendation": "CC BY 4.0 for content; MIT for code",
     "editorialNote": {
-      "en": "An eponym records naming history, not necessarily sole discovery. Attribution notes distinguish a person's original work from later terms named in their honor.",
-      "zh": "人名术语记录的是命名史，并不必然意味着某人独立发现。每条归因说明会区分本人工作与后世以其名字命名的概念。"
+      "en": "An eponym preserves a naming relationship, not proof of sole discovery. Original work, later formalization, popularization, and naming may belong to different people.",
+      "zh": "人名术语保存的是命名关系，并不能证明某人独立发现了概念。原始工作、后世形式化、推广与命名可能分别来自不同的人。"
     }
   },
   "people": [
@@ -2696,7 +2696,7 @@
       "relatedConceptIds": ["students-t-distribution", "mann-whitney-u-test"],
       "aliases": ["Wilcoxon paired test", "signed-rank test"],
       "tags": ["nonparametric", "paired-test", "evaluation"],
-      "attributionNote": {"en": "Wilcoxon introduced both paired and unpaired rank tests in 1945; terminology can be confusing, so this entry is specifically the paired signed-rank test.", "zh": "Wilcoxon 1945 年同时提出配对与非配对秩检验；本条特指配对符号秩检验。"},
+      "attributionNote": {"en": "Wilcoxon introduced both paired and unpaired rank tests in 1945; the paired version is the Wilcoxon signed-rank test, while the unpaired version is the rank-sum test.", "zh": "Wilcoxon 在 1945 年同时提出配对与非配对秩检验；配对版本称为 Wilcoxon 符号秩检验，非配对版本称为秩和检验。"},
       "sourceLinks": [{"label": "Wilcoxon (1945) — Individual Comparisons by Ranking Methods", "url": "https://doi.org/10.2307/3001968"}, {"label": "NIST Handbook — signed rank test", "url": "https://www.itl.nist.gov/div898/handbook/prc/section4/prc478.htm"}]
     },
     {
@@ -3129,7 +3129,7 @@
       "aliases": ["VC dimension", "VC-dimension"],
       "tags": ["learning-theory", "generalization", "capacity", "PAC"],
       "attributionNote": {"en": "Developed jointly by Vapnik and Chervonenkis in uniform-convergence theory; it is not a physical dimension and does not by itself fully predict modern deep-network generalization.", "zh": "由 Vapnik 与 Chervonenkis 在一致收敛理论中共同发展；它不是物理维度，也不能单独完整预测现代深度网络的泛化。"},
-      "sourceLinks": [{"label": "Vapnik & Chervonenkis (1971)", "url": "https://doi.org/10.1137/1116025"}, {"label": "ML Anthology — verified paper record", "url": "https://mlanthology.org/misc/1971/vapnik1971misc-uniform/"}]
+      "sourceLinks": [{"label": "Vapnik & Chervonenkis (1971)", "url": "https://doi.org/10.1137/1116025"}, {"label": "ML Anthology — Vapnik & Chervonenkis (1971)", "url": "https://mlanthology.org/misc/1971/vapnik1971misc-uniform/"}]
     },
     {
       "id": "dirichlet-distribution",

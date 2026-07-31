@@ -7,8 +7,6 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/ChaoYue0307/ai-eponym-atlas/actions/workflows/ci.yml"><img alt="CI status" src="https://github.com/ChaoYue0307/ai-eponym-atlas/actions/workflows/ci.yml/badge.svg"></a>
-  <a href="https://github.com/ChaoYue0307/ai-eponym-atlas/actions/workflows/deploy-pages.yml"><img alt="GitHub Pages deployment status" src="https://github.com/ChaoYue0307/ai-eponym-atlas/actions/workflows/deploy-pages.yml/badge.svg"></a>
   <a href="./LICENSE"><img alt="Code license: MIT" src="https://img.shields.io/badge/code-MIT-003fc7.svg"></a>
   <a href="./CONTENT_LICENSE"><img alt="Content license: CC BY 4.0" src="https://img.shields.io/badge/content-CC%20BY%204.0-bd3424.svg"></a>
 </p>
@@ -25,8 +23,6 @@
   <a href="https://chaoyue0307.github.io/ai-eponym-atlas/#/graph">🔗 Explore relationships</a>
   ·
   <a href="https://chaoyue0307.github.io/ai-eponym-atlas/#/timeline">🕰️ Follow the timeline</a>
-  ·
-  <a href="./CONTRIBUTING.md">🤝 Contribute</a>
 </p>
 
 AI Eponym Atlas is a bilingual reference for mathematical and technical
@@ -38,9 +34,9 @@ AI Eponym Atlas 是一份双语参考图谱，逐一解释以人物命名、并�
 
 ---
 
-## 📊 At a glance / 项目概览
+## 📊 What's inside / 图谱内容
 
-Updated **2026-07-31**
+Sources and applications reviewed through **2026-07-31** / 来源与应用核查至 **2026-07-31**
 
 | Coverage / 覆盖 | Evidence / 证据 | Experience / 体验 |
 | :---: | :---: | :---: |
@@ -51,13 +47,13 @@ links to its source and license.
 
 每个概念至少有两条直接来源，每幅历史人物肖像都标注原始来源与许可信息。
 
-## 🧠 Why this exists / 为什么做
+## 🧠 What the names don't tell you / 名字没有告诉你的内容
 
 Cartesian, Gaussian, Bayesian, Markov, Fourier, Jacobian, Hessian, Hilbert,
 Shannon—these names preserve intellectual history, but the names themselves
 say almost nothing about what the concepts do.
 
-Each entry turns an unfamiliar name into a path you can follow:
+An unfamiliar name becomes a path you can follow:
 
 ```mermaid
 flowchart LR
@@ -71,13 +67,12 @@ flowchart LR
     H --> S
 ```
 
-The goal is not to erase historical names or invent replacement terminology.
-It is to make each name an entry point into understanding rather than a
-distraction from it.
+You can keep the historical term without letting it interrupt understanding:
+begin with its function, then continue to the mathematics, history, and AI use.
 
-目标不是抹去人名或创造一套替代术语，而是让名字成为理解的入口，而不是阅读的障碍。
+保留历史名称，也不必让它打断理解：先看概念做什么，再进入数学定义、历史脉络与 AI 用途。
 
-## 🖼️ See it in action / 产品实景
+## 🖼️ Choose how you explore / 选择探索方式
 
 ![The live AI Eponym Atlas homepage showing its meaning-first hero, interactive concept constellation, filters, search, and a Jacobian detail panel](./docs/images/atlas-overview.jpg)
 
@@ -132,7 +127,8 @@ sources. [Read the source and image policy →](./docs/PORTRAITS.md)
 
 ## 🧭 Jacobian matrix, decoded / 读懂雅可比矩阵
 
-For example, the atlas does not stop at “Jacobian is named after Jacobi”:
+Start with the question the Jacobian answers, then connect its intuition to the
+definition and uses:
 
 | Layer | Jacobian matrix / 雅可比矩阵 |
 | --- | --- |
@@ -144,14 +140,14 @@ For example, the atlas does not stop at “Jacobian is named after Jacobi”:
 | **History / 历史** | Jacobi's determinant work is direct; the full derivative-matrix terminology is later. |
 | **Evidence / 证据** | Definition/history and modern use are supported by separate direct sources. |
 
-Functional labels are teaching aids, not replacement terminology. Intuitions
-must remain consistent with the formal definition and state their limits.
+Use the functional label to get oriented, not as a substitute for the formal
+term. Check each intuition against the definition and its stated limits.
 
-功能标签只是教学辅助，不替代正式术语；直觉必须与形式化定义一致，并保留适用边界。
+功能标签用于快速定位，不替代正式术语；理解直觉时，也要对照定义与适用边界。
 
-## 🎯 Scope and currency / 收录边界与时效
+## 🎯 What is covered / 收录内容
 
-The atlas prioritizes concepts that:
+You will find concepts that:
 
 1. are wholly or partly named after a person;
 2. have a clear technical definition in mathematics, statistics, computing,
@@ -159,34 +155,47 @@ The atlas prioritizes concepts that:
 3. have direct use or important background value in modern AI; and
 4. can be verified with reliable sources.
 
-Current expanded coverage includes diffusion and stochastic generative
-modeling, optimal transport, LLM preference and ranking models, associative
-memory, dynamical and geometric learning, numerical linear algebra,
-statistical bounds, sequence decoding, and classical vision.
+Explore eponyms used in generative modeling, optimal transport, preference and
+ranking models, associative memory, dynamical and geometric learning, numerical
+linear algebra, statistical bounds, sequence decoding, and classical vision.
+Active AI uses were reviewed through **2026-07-31**; foundational concepts retain
+original or authoritative references.
 
-The date at the top of this README shows when the catalog was last reviewed.
-Foundational claims retain foundational sources; fast-moving AI uses link to
-recent primary work where practical.
+你可以探索生成建模、最优传输、偏好与排序模型、联想记忆、动力与几何学习、数值线性代数、统计界、序列解码和经典视觉中的人名概念。活跃 AI 用途核查至 **2026-07-31**；基础概念保留原始或权威来源。
 
 > [Read the complete inclusion, exclusion, evidence, preprint, and currency policy →](./docs/COVERAGE.md)
 
 <details>
-<summary><strong>Methodological limits / 方法边界</strong></summary>
+<summary><strong>Reading historical attributions / 如何理解历史归因</strong></summary>
 
 - An eponym records naming history, not necessarily sole discovery.
 - A modern name may postdate the original work by decades.
 - Independent discovery, disputed attribution, and regional naming differences
   are preserved rather than flattened.
 - “Widely used in AI” changes over time and must be supported by concrete use.
-- Functional labels are editorial explanations and may improve over time.
-- The atlas is a research and learning index, not a substitute for textbooks
-  or primary literature.
+- Functional labels clarify a concept's role but are not standard terminology.
+- Use the atlas as a guide to sources, not as a substitute for textbooks or
+  primary literature.
 
 人名术语记录的是命名史，并不必然意味着某人独立发现。命名可能晚于原始工作，不同地区和学科也可能采用不同名称。“广泛用于 AI”会随时间变化，因此必须用具体应用证据支持。
 
 </details>
 
-## 🚀 Quick start / 快速开始
+---
+
+## 🛠️ For contributors and maintainers / 贡献与维护
+
+Everything below covers local development, data structure, documentation, and
+ways to contribute.
+
+以下内容面向贡献者与维护者，包括本地开发、数据结构、文档和参与方式。
+
+<p>
+  <a href="https://github.com/ChaoYue0307/ai-eponym-atlas/actions/workflows/ci.yml"><img alt="CI status" src="https://github.com/ChaoYue0307/ai-eponym-atlas/actions/workflows/ci.yml/badge.svg"></a>
+  <a href="https://github.com/ChaoYue0307/ai-eponym-atlas/actions/workflows/deploy-pages.yml"><img alt="GitHub Pages deployment status" src="https://github.com/ChaoYue0307/ai-eponym-atlas/actions/workflows/deploy-pages.yml/badge.svg"></a>
+</p>
+
+### 🚀 Quick start / 快速开始
 
 Requirements: **Node.js 20.19+** and npm. No environment variables are required
 for local development.
@@ -209,7 +218,7 @@ Vite prints the local URL, normally `http://localhost:5173`.
 | `npm run preview` | Preview the production build locally |
 | `npm run portraits:sync` | Rebuild bounded local portrait assets from audited metadata |
 
-## 🧱 How the repository works / 仓库结构
+### 🧱 How the repository works / 仓库结构
 
 ```mermaid
 flowchart TD
@@ -239,7 +248,7 @@ catalog rather than being duplicated inside UI components.
 
 > [Read the detailed architecture and source-tree guide →](./docs/ARCHITECTURE.md)
 
-## 📚 Documentation / 文档
+### 📚 Documentation / 文档
 
 | Guide | What it covers |
 | --- | --- |
@@ -255,7 +264,7 @@ catalog rather than being duplicated inside UI components.
 | [Code of Conduct](./CODE_OF_CONDUCT.md) | Community participation expectations |
 | [Security](./SECURITY.md) | Private vulnerability reporting and supported scope |
 
-## 🤝 Contributing
+### 🤝 Contributing
 
 Contributions are welcome across new concepts, corrections, primary sources,
 translation, verified portraits, accessibility, and product features.
@@ -270,7 +279,7 @@ batch of placeholders.
 
 一个范围小但证据完整的贡献，比一批只有标题的占位条目更有价值。
 
-## 🗺️ Roadmap
+### 🗺️ Roadmap
 
 - [x] Searchable bilingual atlas with profiles, connections, chronology,
   sources, and sourced historical portraits.
@@ -299,9 +308,7 @@ licenses. Contributions are released under the corresponding repository terms.
 
 ## 🙏 Acknowledgements / 致谢
 
-This project began with a simple question:
-
-> When a term is only a person's name, how can a reader immediately recover
-> its meaning?
+Thank you to everyone who verifies definitions, adds historical context,
+improves translations, connects ideas, and explains their uses in AI.
 
 感谢每一位帮助核查定义、补充历史、改进翻译、连接概念和解释 AI 用途的贡献者。

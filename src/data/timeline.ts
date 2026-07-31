@@ -542,7 +542,7 @@ const curatedTimeline: TimelineEvent[] = [
     ],
     sourceLinks: [
       {
-        label: "LMSYS — Chatbot Arena methodology",
+        label: "LMSYS — Chatbot Arena",
         url: "https://www.lmsys.org/blog/2023-12-07-leaderboard/",
       },
       {
@@ -584,12 +584,12 @@ const curatedTimeline: TimelineEvent[] = [
     eraId: "modern",
     kind: "ai-adoption",
     title: {
-      en: "Eponymous mathematics remains active across frontier AI",
-      zh: "人名数学继续活跃在前沿 AI",
+      en: "Classical mathematical ideas power new AI methods",
+      zh: "经典数学思想进入新一代 AI 方法",
     },
     description: {
-      en: "New work on modern Hopfield memory, Koopman dynamics, Wasserstein policy optimization, Sinkhorn transport, Schrödinger bridges, and Bradley–Terry reward models shows that these are living tools, not historical trivia.",
-      zh: "现代 Hopfield 记忆、Koopman 动力学、Wasserstein 策略优化、Sinkhorn 运输、Schrödinger bridge 与 Bradley–Terry 奖励模型的新研究表明：这些不是历史冷知识，而是仍在使用的工具。",
+      en: "Modern Hopfield memory, Koopman dynamics, Wasserstein policy optimization, Sinkhorn transport, Schrödinger bridges, and Bradley–Terry reward models all appear in current AI research.",
+      zh: "现代 Hopfield 记忆、Koopman 动力学、Wasserstein 策略优化、Sinkhorn 运输、Schrödinger bridge 与 Bradley–Terry 奖励模型均已进入当代 AI 研究。",
     },
     personIds: [
       "john-hopfield",

@@ -282,13 +282,13 @@ export function GraphCanvas({
         >
           <title id="ego-graph-title">
             {locale === 'zh'
-              ? `${focusedConcept.zhTerm}的${depth}跳概念关系图，显示 ${visibleNodeCount} / ${availableNodeCount} 个节点`
-              : `${focusedConcept.term} ${depth === 1 ? 'one-hop' : 'two-hop'} graph showing ${visibleNodeCount} of ${availableNodeCount} nodes`}
+              ? `${focusedConcept.zhTerm}的${depth}跳概念关系图，包含 ${visibleNodeCount} 个相关节点`
+              : `${focusedConcept.term} ${depth === 1 ? 'one-hop' : 'two-hop'} graph with ${visibleNodeCount} related nodes`}
           </title>
           <desc id="ego-graph-description">
             {locale === 'zh'
               ? '矩形表示概念，圆形表示人物，六边形表示 AI 应用。选择节点会突出它通向当前概念的最短路径，并在关系面板中显示说明。'
-              : 'Rectangles are concepts, circles are people, and hexagons are AI applications. Selecting a node highlights its shortest path to the focus concept and opens its explanation in the relationship panel.'}
+              : 'Rectangles are concepts, circles are people, and hexagons are AI applications. Selecting a node highlights its shortest path to the selected concept and explains it in the relationship panel.'}
           </desc>
           <defs>
             <marker
@@ -534,20 +534,20 @@ export function GraphCanvas({
       <p className="graph-canvas__count" aria-live="polite">
         <strong>
           {locale === 'zh'
-            ? `显示 ${visibleNodeCount} / ${availableNodeCount} 个节点`
-            : `Showing ${visibleNodeCount} of ${availableNodeCount} nodes`}
+            ? `显示 ${visibleNodeCount} 个相关节点`
+            : `${visibleNodeCount} related nodes shown`}
         </strong>
         {hiddenNodeCount > 0 ? (
           <span>
             {locale === 'zh'
-              ? `为保持可读性，${hiddenNodeCount} 个可达节点可从相关节点的完整列表继续探索。`
-              : `${hiddenNodeCount} reachable nodes remain explorable through related-node lists.`}
+              ? `可在关系列表中继续查看另外 ${hiddenNodeCount} 个相关节点。`
+              : `Explore ${hiddenNodeCount} more related nodes in the list.`}
           </span>
         ) : (
           <span>
             {locale === 'zh'
-              ? '所有可达节点均已显示。'
-              : 'All reachable nodes are visible.'}
+              ? '相关节点已全部显示。'
+              : 'All related nodes are shown.'}
           </span>
         )}
       </p>

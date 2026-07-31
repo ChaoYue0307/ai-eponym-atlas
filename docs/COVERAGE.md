@@ -115,9 +115,9 @@ webpage is not assumed to prove all three.
 
 每个概念至少应有两条直接来源：一条原始论文或权威定义，以及一条支持归因、实现或具体 AI 用途的独立来源。快速变化的条目在条件允许时还应包含近年的一手 AI 论文。定义、历史和应用是不同主张，不能默认一张网页同时证明全部内容。
 
-## Known gaps / 已知缺口
+## Topics not yet covered in depth / 尚待深入的主题
 
-The next coverage passes should deepen, rather than merely inflate, the atlas:
+Coverage is currently thinner in:
 
 - deeper coverage of optimization duality, variance reduction, and advanced
   non-smooth methods;
@@ -129,4 +129,4 @@ The next coverage passes should deepen, rather than merely inflate, the atlas:
 - broader review of naming traditions outside the dominant European and North
   American historical canon.
 
-后续扩充会优先补强优化对偶、方差缩减与高级非光滑方法、几何深度学习表示论、因果推断与校准、科学机器学习数值方法，以及人物级来源、最小示例和带类型关系；同时需要更系统地审视欧美主导史观之外的命名传统。
+目前较薄弱的方向包括优化对偶、方差缩减与高级非光滑方法、几何深度学习表示论、因果推断与校准、科学机器学习数值方法，以及人物级来源、最小示例和带类型关系；欧美主导史观之外的命名传统也仍需更系统的梳理。

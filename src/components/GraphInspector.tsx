@@ -71,7 +71,7 @@ export function GraphInspector({
             {selectedNode.isFocus
               ? locale === 'zh'
                 ? '当前概念'
-                : 'Focus concept'
+                : 'Selected concept'
               : selectedNode.kind === 'person'
                 ? locale === 'zh'
                   ? '人物'
@@ -175,7 +175,7 @@ export function GraphInspector({
             onClick={() => onRefocusConcept(selectedNode.conceptId)}
           >
             <LocateFixed aria-hidden="true" />
-            {locale === 'zh' ? '以此概念为中心' : 'Refocus graph'}
+            {locale === 'zh' ? '从这个概念继续探索' : 'Explore from this concept'}
           </button>
         ) : null}
         <button
@@ -194,11 +194,11 @@ export function GraphInspector({
           <ExternalLink aria-hidden="true" />
           {selectedNode.kind === 'person'
             ? locale === 'zh'
-              ? '查看人物条目'
-              : 'Open biography'
+              ? '了解这位人物'
+              : 'Explore this person'
             : locale === 'zh'
-              ? '查看完整概念条目'
-              : 'Open full entry'}
+              ? '深入了解这个概念'
+              : 'Explore this concept'}
         </button>
       </footer>
     </aside>

@@ -368,7 +368,9 @@ export function GraphExplorer({ locale, params }: GraphExplorerProps) {
   return (
     <main className="graph-page graph-v2">
       <header className="page-intro page-intro--graph">
-        <p className="section-number">02 — GRAPH</p>
+        <p className="section-number">
+          {locale === 'zh' ? '02 — 概念关系图' : '02 — CONCEPT GRAPH'}
+        </p>
         <h1>{t.title}</h1>
         <SectionRule />
         <p>{t.description}</p>

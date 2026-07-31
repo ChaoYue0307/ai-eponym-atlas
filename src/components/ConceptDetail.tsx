@@ -78,6 +78,13 @@ export function ConceptDetail({
     }
   }
 
+  const correctionUrl =
+    'https://github.com/ChaoYue0307/ai-eponym-atlas/issues/new?' +
+    new URLSearchParams({
+      title: `Correction: ${concept.term}`,
+      body: `Concept: ${concept.term} (${concept.id})\n\nWhat should be corrected?\n\nSupporting source:\n`,
+    }).toString()
+
   const copyLink = async () => {
     const url = new URL(window.location.href)
     url.hash = `#/concept/${concept.id}`
@@ -261,7 +268,7 @@ export function ConceptDetail({
         ) : (
           <a
             className="button button--primary"
-            href="https://github.com/ChaoYue0307/ai-eponym-atlas/edit/main/content/eponyms.json"
+            href={correctionUrl}
             target="_blank"
             rel="noreferrer"
           >

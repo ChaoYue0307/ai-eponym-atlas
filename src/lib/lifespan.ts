@@ -11,9 +11,7 @@ export function formatLifespan(
 ): string {
   if (person.lifeStatus === "missing") {
     const born = person.born ?? "?";
-    return locale === "zh"
-      ? `${born}–失踪（年份见人物简介）`
-      : `${born}–missing (see profile)`;
+    return locale === "zh" ? `${born} 年生 · 失踪` : `Born ${born} · missing`;
   }
 
   if (person.born === null && person.died === null) {

@@ -88,8 +88,7 @@ be read as a relationship encoded by the atlas.
 | Field | Record |
 | --- | --- |
 | File | `public/og-card.jpg` |
-| Approved direction | Option 1 — **Semantic Meridian** |
-| Direction board | `docs/brand/semantic-meridian-option-1.jpg` |
+| Identity | **Semantic Meridian** |
 | Purpose | Open Graph and large Twitter/X link preview |
 | Generated | 2026-07-31 with ChatGPT built-in image generation |
 | Source output | 1717 × 916 PNG after applying the approved direction |
@@ -97,9 +96,9 @@ be read as a relationship encoded by the atlas.
 | Text verification | English title, Chinese title, tagline, and URL checked against repository copy |
 | Informational role | Decorative project identity only; it is not mathematical or historical evidence |
 
-The approved mark uses black **A** and **E** letterforms, a tall cobalt **I**, an
-open diagonal meridian, and one vermilion diamond inside a fine square rule. It
-is cropped from the approved direction board into `brand-mark.png`,
+The mark uses black **A** and **E** letterforms, a tall cobalt **I**, an open
+diagonal meridian, and one vermilion diamond inside a fine square rule. It is
+cropped from the identity board into `brand-mark.png`,
 `icon-192.png`, `icon-512.png`, and `apple-touch-icon.png`. The blue **I** keeps
 all three initials legible at small sizes and avoids an A–E-only reading.
 

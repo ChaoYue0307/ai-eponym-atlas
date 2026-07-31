@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "lastVerified": "2026-07-31",
   "sourcePolicy": {
-    "en": "Portraits are accepted only after identity and reuse terms are verified from Wikidata and the Wikimedia Commons file page. Entries without a sufficiently reliable open portrait keep the monogram fallback.",
-    "zh": "肖像仅在通过 Wikidata 与 Wikimedia Commons 文件页核验人物身份和再利用条款后收录；没有足够可靠开放肖像的条目继续使用姓名首字母占位。"
+    "en": "Portraits link to Wikidata and the corresponding Wikimedia Commons file page for identity, creator, license, and reuse details. When no reliable open portrait is available, initials identify the person instead.",
+    "zh": "人物肖像均链接至 Wikidata 与对应的 Wikimedia Commons 文件页，便于查看身份、作者、许可与再利用信息；没有可靠开放肖像时，以姓名首字母代替。"
   },
   "profiles": [
     {

@@ -37,8 +37,8 @@
     <main id="fallback">
       <p>Loading AI Eponym Atlas…</p>
       <noscript>
-        JavaScript is required to open this page.
-        <a href="/ai-eponym-atlas/">Return to the atlas</a>.
+        JavaScript is required to explore the concepts.
+        <a href="/ai-eponym-atlas/">Return home</a>.
       </noscript>
     </main>
 
@@ -68,9 +68,8 @@
           })
           .catch(() => {
             fallback.innerHTML =
-              `<h1>Page not found</h1>` +
-              `<p>The atlas could not be loaded from this address.</p>` +
-              `<p><a href="${basePath}">Return to AI Eponym Atlas</a></p>`;
+              `<h1>We couldn’t find that page.</h1>` +
+              `<p><a href="${basePath}">Return home</a></p>`;
           });
       })();
     </script>

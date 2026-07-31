@@ -196,8 +196,8 @@ export function AtlasExplorer({ locale, params, homePreview = false }: AtlasExpl
             <span aria-hidden="true">✦</span>
             <p>
               {locale === 'zh'
-                ? '功能标签是教学辅助，不替代标准数学术语。'
-                : 'Plain-language labels are teaching aids, not replacement terminology.'}
+                ? '先用一句话理解概念；技术交流时仍使用正式术语。'
+                : 'Use the plain-language meaning to get oriented; use the formal term in technical work.'}
             </p>
           </div>
         </aside>
@@ -220,7 +220,10 @@ export function AtlasExplorer({ locale, params, homePreview = false }: AtlasExpl
                 K
               </span>
             </label>
-            <div className="mode-switch" aria-label="Browse mode">
+            <div
+              className="mode-switch"
+              aria-label={locale === 'zh' ? '选择浏览内容' : 'Choose what to browse'}
+            >
               <button
                 type="button"
                 className={mode === 'concepts' ? 'is-active' : ''}
@@ -291,7 +294,7 @@ export function AtlasExplorer({ locale, params, homePreview = false }: AtlasExpl
                         <small>{formatLifespan(person, locale)}</small>
                       </span>
                       <span className="result-row__application">
-                        {locale === 'zh' ? '相关术语' : 'Known here for'}
+                        {locale === 'zh' ? '相关术语' : 'Named concepts'}
                         <small>{knownConcepts}</small>
                       </span>
                       <ArrowRight className="result-row__arrow" aria-hidden="true" />
