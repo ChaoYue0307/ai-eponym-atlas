@@ -101,8 +101,10 @@ historical evidence, or portraits of real people.
 - **Portrait:** one reusable treatment with monogram fallback and visible
   attribution on profile surfaces.
 - **Person profile:** bilingual introduction and localized lifespan/region facts
-  lead into linked core contributions, deduplicated AI applications, and
+  lead into terms carrying the person's name, deduplicated AI applications, and
   evidence grouped under the concept whose claims it supports.
+- **Learning path:** an open, ruled sequence with visible progress and previous
+  and next steps; pedagogical order must never be presented as historical causality.
 
 Person pages keep identity evidence and concept evidence distinct. Wikidata is
 labelled as an identity record, not a complete biography. Concept links support

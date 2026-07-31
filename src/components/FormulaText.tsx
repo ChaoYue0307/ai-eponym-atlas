@@ -22,7 +22,7 @@ export function FormulaText({ value }: FormulaTextProps) {
               key={`${part}-${index}`}
               dangerouslySetInnerHTML={{
                 __html: katex.renderToString(part, {
-                  throwOnError: false,
+                  throwOnError: true,
                   output: 'htmlAndMathml',
                 }),
               }}

@@ -1,4 +1,5 @@
 import ArrowLeft from 'lucide-react/dist/esm/icons/arrow-left.mjs'
+import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right.mjs'
 import ArrowUpRight from 'lucide-react/dist/esm/icons/arrow-up-right.mjs'
 import Copy from 'lucide-react/dist/esm/icons/copy.mjs'
 import ExternalLink from 'lucide-react/dist/esm/icons/external-link.mjs'
@@ -8,7 +9,8 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import type { Locale } from '../copy'
 import { copy } from '../copy'
 import { conceptsById, peopleById } from '../data/catalog'
-import { navigate } from '../hooks/useHashRoute'
+import { learningPaths } from '../data/learningPaths'
+import { buildHash, navigate } from '../hooks/useHashRoute'
 import { formatLifespan } from '../lib/lifespan'
 import { FormulaText } from './FormulaText'
 import { PersonPortrait } from './PersonPortrait'
@@ -19,6 +21,7 @@ type ConceptDetailProps = {
   embedded?: boolean
   onClose?: () => void
   onSelectConcept?: (conceptId: string) => void
+  params?: URLSearchParams
 }
 
 function getLocaleText(value: { en: string; zh: string }, locale: Locale) {
@@ -31,6 +34,7 @@ export function ConceptDetail({
   embedded = false,
   onClose,
   onSelectConcept,
+  params,
 }: ConceptDetailProps) {
   const concept = conceptsById.get(conceptId)
   const t = copy[locale].detail
@@ -61,6 +65,14 @@ export function ConceptDetail({
     [concept],
   )
 
+  const learningPath = useMemo(() => {
+    const pathId = params?.get('path')
+    if (!pathId) return undefined
+    return learningPaths.find(
+      (path) => path.id === pathId && path.conceptIds.includes(conceptId),
+    )
+  }, [conceptId, params])
+
   if (!concept) {
     return (
       <main className="not-found">
@@ -81,19 +93,29 @@ export function ConceptDetail({
   const correctionUrl =
     'https://github.com/ChaoYue0307/ai-eponym-atlas/issues/new?' +
     new URLSearchParams({
-      title: `Correction: ${concept.term}`,
-      body: `Concept: ${concept.term} (${concept.id})\n\nWhat should be corrected?\n\nSupporting source:\n`,
+      template: 'correction.yml',
+      title: `[Correction]: ${concept.term}`,
     }).toString()
 
   const copyLink = async () => {
-    const url = new URL(window.location.href)
-    url.hash = `#/concept/${concept.id}`
+    const url = learningPath
+      ? (() => {
+          const currentUrl = new URL(window.location.href)
+          currentUrl.hash = buildHash(
+            `/concept/${concept.id}`,
+            new URLSearchParams({ path: learningPath.id }),
+          )
+          return currentUrl.toString()
+        })()
+      : `https://chaoyue0307.github.io/ai-eponym-atlas/${
+          locale === 'zh' ? 'zh/' : ''
+        }concept/${concept.id}/`
     try {
-      await navigator.clipboard.writeText(url.toString())
+      await navigator.clipboard.writeText(url)
       setCopied(true)
       window.setTimeout(() => setCopied(false), 1800)
     } catch {
-      window.prompt(locale === 'zh' ? '复制这个链接：' : 'Copy this link:', url.toString())
+      window.prompt(locale === 'zh' ? '复制这个链接：' : 'Copy this link:', url)
     }
   }
 
@@ -153,6 +175,56 @@ export function ConceptDetail({
           {copy[locale].atlas.plainLabel}
         </p>
       </header>
+
+      {!embedded && learningPath ? (
+        <nav
+          className="concept-path-context"
+          aria-label={locale === 'zh' ? '学习路径进度' : 'Learning path progress'}
+        >
+          {(() => {
+            const currentIndex = learningPath.conceptIds.indexOf(concept.id)
+            const previousId = learningPath.conceptIds[currentIndex - 1]
+            const nextId = learningPath.conceptIds[currentIndex + 1]
+            const routeParams = new URLSearchParams({ path: learningPath.id })
+            return (
+              <>
+                <div>
+                  <span>
+                    {locale === 'zh'
+                      ? `学习路径 · 第 ${currentIndex + 1}/${learningPath.conceptIds.length} 步`
+                      : `Learning path · Step ${currentIndex + 1} of ${learningPath.conceptIds.length}`}
+                  </span>
+                  <strong>{learningPath.title[locale]}</strong>
+                </div>
+                <div className="concept-path-context__actions">
+                  {previousId ? (
+                    <a href={buildHash(`/concept/${previousId}`, routeParams)}>
+                      <ArrowLeft aria-hidden="true" />
+                      {locale === 'zh' ? '上一步' : 'Previous'}
+                    </a>
+                  ) : (
+                    <a href={buildHash('/paths')}>
+                      <ArrowLeft aria-hidden="true" />
+                      {locale === 'zh' ? '全部路径' : 'All paths'}
+                    </a>
+                  )}
+                  {nextId ? (
+                    <a href={buildHash(`/concept/${nextId}`, routeParams)}>
+                      {locale === 'zh' ? '下一步' : 'Next'}
+                      <ArrowRight aria-hidden="true" />
+                    </a>
+                  ) : (
+                    <a href={buildHash('/paths')}>
+                      {locale === 'zh' ? '完成路径' : 'Finish path'}
+                      <ArrowRight aria-hidden="true" />
+                    </a>
+                  )}
+                </div>
+              </>
+            )
+          })()}
+        </nav>
+      ) : null}
 
       <div className="concept-detail__primary">
         <section>

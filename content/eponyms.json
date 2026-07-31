@@ -5823,7 +5823,7 @@
         "en": "Give every node a color, replace it with a fingerprint of its current color and neighbor-color multiset, and compare the stabilized color counts.",
         "zh": "给每个节点着色，再用“当前颜色加邻居颜色多重集”的指纹替换它，最后比较稳定后的颜色计数。"
       },
-      "formalDefinition": "$c_{t+1}(v)=\\operatorname{HASH}\\!\\left(c_t(v),\\multiset{c_t(u):u\\in N(v)}\\right)$; differing color histograms certify non-isomorphism.",
+      "formalDefinition": "$c_{t+1}(v)=\\operatorname{HASH}\\!\\left(c_t(v),\\left\\{\\!\\left\\{c_t(u):u\\in N(v)\\right\\}\\!\\right\\}\\right)$; differing color histograms certify non-isomorphism.",
       "aiApplications": [
         {
           "en": "Characterizing the expressive power of message-passing GNNs",

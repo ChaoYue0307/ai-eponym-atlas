@@ -1,20 +1,21 @@
 {
   "name": "ai-eponym-atlas",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "type": "module",
-  "description": "A structured atlas of mathematical and AI concepts named after people.",
+  "description": "A bilingual atlas of mathematical and technical eponyms used in or foundational to AI.",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "tsc -b --pretty false",
+    "build": "tsc -b && vite build && node scripts/generate-static-pages.mjs && node scripts/check-bundle-budget.mjs",
+    "typecheck": "tsc -b --pretty false",
+    "lint": "npm run typecheck",
     "lint:docs": "markdownlint-cli2",
     "links:check": "node scripts/check-source-links.mjs",
     "portraits:audit": "node scripts/audit-portrait-candidates.mjs",
     "test": "vitest",
     "portraits:sync": "node scripts/sync-portrait-assets.mjs",
     "preview": "vite preview",
-    "check": "npm run lint && npm run lint:docs && npm test -- --run && npm run build"
+    "check": "npm run typecheck && npm run lint:docs && npm test -- --run && npm run build"
   },
   "dependencies": {
     "katex": "^0.18.1",

@@ -15,29 +15,76 @@ const principles = [
   },
   {
     id: 'boundary',
-    en: 'Intuition and its limits',
-    zh: '直觉与它的边界',
+    en: 'Intuition, then precision',
+    zh: '先直觉，后精确',
     bodyEn:
-      'Use the shortcut to get oriented, then check where the analogy stops matching the mathematics.',
-    bodyZh: '用直觉快速入门，再查看类比在什么条件下不再成立。',
+      'Use the intuition to get oriented, then compare it with the formal definition rather than treating it as a substitute.',
+    bodyZh: '用直觉快速定位，再与形式化定义对照，而不是把类比当作定义本身。',
   },
   {
     id: 'history',
-    en: 'A fuller history',
-    zh: '更完整的历史',
+    en: 'Attribution with context',
+    zh: '带语境的命名归因',
     bodyEn:
-      'See discovery, publication, formalization, popularization, and later naming as distinct parts of the story.',
-    bodyZh: '把发现、发表、形式化、推广与后世命名作为不同的历史环节来理解。',
+      'Read how a person\'s work connects to the term, including later extensions or naming that should not be mistaken for sole invention.',
+    bodyZh: '理解人物工作与术语之间的联系，并区分后世延伸或命名与独立发明。',
   },
   {
     id: 'evidence',
-    en: 'Evidence you can follow',
-    zh: '可以继续追查的证据',
+    en: 'Sources for deeper checking',
+    zh: '继续核查的来源',
     bodyEn:
-      'Follow sources for the formal definition, the history behind the name, and modern AI uses.',
-    bodyZh: '形式化定义、名字背后的历史与现代 AI 用途都附有可继续查阅的来源。',
+      'Each concept links at least two references. A source may support only one part of an entry, so follow the relevant link before relying on a claim.',
+    bodyZh: '每个概念至少链接两条参考来源；单个来源可能只支持条目的一部分，重要主张请沿相关链接继续核查。',
   },
 ]
+
+const editorialStandards = [
+  {
+    id: 'scope',
+    number: '01',
+    title: { en: 'A defined scope', zh: '明确的收录边界' },
+    body: {
+      en: 'Entries cover terms wholly or partly named after people when they have a stable technical meaning and a concrete use—or important foundational role—in AI. The people include mathematicians, statisticians, physicists, engineers, computer scientists, and others.',
+      zh: '条目收录全部或部分以人物命名、具有稳定技术含义，并在 AI 中有具体用途或重要基础作用的术语。相关人物包括数学家、统计学家、物理学家、工程师、计算机科学家等。',
+    },
+    href: 'https://github.com/ChaoYue0307/ai-eponym-atlas/blob/main/docs/COVERAGE.md',
+    link: { en: 'Read the coverage policy', zh: '查看收录与时效性说明' },
+  },
+  {
+    id: 'evidence',
+    number: '02',
+    title: { en: 'Evidence with boundaries', zh: '有边界的证据' },
+    body: {
+      en: 'Every concept includes at least two references. Definition, naming history, implementation, and modern AI use are different claims; one convenient source should not be assumed to prove them all.',
+      zh: '每个概念至少包含两条参考来源。定义、命名历史、实现与现代 AI 用途是不同主张，不能默认一条来源能够同时证明全部内容。',
+    },
+    href: 'https://github.com/ChaoYue0307/ai-eponym-atlas/blob/main/docs/COVERAGE.md#evidence-floor--%E8%AF%81%E6%8D%AE%E5%BA%95%E7%BA%BF',
+    link: { en: 'See the evidence standard', zh: '查看证据标准' },
+  },
+  {
+    id: 'portraits',
+    number: '03',
+    title: { en: 'Portraits without guesswork', zh: '不猜测人物长相' },
+    body: {
+      en: 'A historical portrait appears only when both the person and the image\'s reuse terms can be checked. Otherwise initials are shown; generated historical likenesses are not used.',
+      zh: '只有人物身份与图片再利用条款都可核验时才展示历史肖像；否则使用姓名首字母，且不生成历史人物形象。',
+    },
+    href: 'https://github.com/ChaoYue0307/ai-eponym-atlas/blob/main/docs/PORTRAITS.md',
+    link: { en: 'Read the portrait policy', zh: '查看肖像来源与许可' },
+  },
+  {
+    id: 'corrections',
+    number: '04',
+    title: { en: 'Corrections stay open', zh: '欢迎有依据的更正' },
+    body: {
+      en: 'If a definition, attribution, translation, date, source, or image needs correction, identify the page and include a supporting reference.',
+      zh: '如果定义、归因、翻译、日期、来源或图片需要更正，请注明相关页面并附上支持材料。',
+    },
+    href: 'https://github.com/ChaoYue0307/ai-eponym-atlas/issues/new?template=correction.yml',
+    link: { en: 'Suggest a correction', zh: '提出更正建议' },
+  },
+] as const
 
 const anatomyItems = [
   {
@@ -101,7 +148,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
     <main className="about-page">
       <header className="page-intro about-page__intro">
         <p className="section-number">
-          <span>04 —</span>
+          <span>05 —</span>
           <span className="section-number__emoji" aria-hidden="true">🧭</span>
           <span>{locale === 'zh' ? '阅读指南' : 'HOW TO READ'}</span>
         </p>
@@ -192,8 +239,8 @@ export function AboutPage({ locale }: { locale: Locale }) {
           </h2>
           <p>
             {locale === 'zh'
-              ? `从核心数学读到专门工具与近年的 AI 应用，需要深入时可继续查阅参考来源。来源与活跃 AI 用途核查至 ${meta.lastUpdated}。`
-              : `Move from core mathematics to specialist tools and recent AI applications, with references ready when you want to go deeper. Sources and active AI uses reviewed through ${meta.lastUpdated}.`}
+              ? `从核心数学读到专门工具与近年的 AI 应用，每个条目都提供可继续核查的参考链接。当前目录快照日期为 ${meta.lastUpdated}。`
+              : `Move from core mathematics to specialist tools and recent AI applications, with references ready for further checking. This catalog snapshot is dated ${meta.lastUpdated}.`}
           </p>
         </div>
         <dl>
@@ -207,9 +254,48 @@ export function AboutPage({ locale }: { locale: Locale }) {
           </div>
           <div>
             <dt>{catalogStats.sourceCitations}</dt>
-            <dd>{locale === 'zh' ? '条参考来源' : 'references'}</dd>
+            <dd>{locale === 'zh' ? '条引用链接' : 'citation links'}</dd>
           </div>
         </dl>
+      </section>
+
+      <section className="editorial-standards" aria-labelledby="editorial-standards-title">
+        <div className="editorial-standards__heading">
+          <p className="section-number">
+            <span className="section-number__emoji" aria-hidden="true">🛡️</span>
+            <span>{locale === 'zh' ? '阅读证据' : 'READ THE EVIDENCE'}</span>
+          </p>
+          <h2 id="editorial-standards-title">
+            {locale === 'zh' ? '知道哪些内容可以核查。' : 'Know what you can verify.'}
+          </h2>
+          <p>
+            {locale === 'zh'
+              ? '请把数学定义、命名归因、AI 用途与肖像来源作为不同主张阅读，并核对与每项主张相关的来源。'
+              : 'Treat mathematical definitions, naming attribution, AI uses, and portrait provenance as separate claims, and check the source relevant to each.'}
+          </p>
+        </div>
+        <div className="editorial-standards__list">
+          {editorialStandards.map((standard) => (
+            <article className="editorial-standard" key={standard.id}>
+              <span className="editorial-standard__number" aria-hidden="true">
+                {standard.number}
+              </span>
+              <div className="editorial-standard__content">
+                <h3>{standard.title[locale]}</h3>
+                <p>{standard.body[locale]}</p>
+                <a
+                  className="editorial-standard__link"
+                  href={standard.href}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {standard.link[locale]}
+                  <ArrowUpRight aria-hidden="true" />
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
     </main>
   )

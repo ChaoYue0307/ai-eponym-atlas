@@ -20,6 +20,8 @@
 <p align="center">
   <a href="https://chaoyue0307.github.io/ai-eponym-atlas/"><strong>🌐 Open the live atlas</strong></a>
   ·
+  <a href="https://chaoyue0307.github.io/ai-eponym-atlas/#/paths">🧭 Follow a learning path</a>
+  ·
   <a href="https://chaoyue0307.github.io/ai-eponym-atlas/#/graph">🔗 Explore relationships</a>
   ·
   <a href="https://chaoyue0307.github.io/ai-eponym-atlas/#/timeline">🕰️ Follow the timeline</a>
@@ -36,24 +38,26 @@ AI Eponym Atlas 是一份双语参考图谱，逐一解释以人物命名、并�
 
 ## 📊 What's inside / 图谱内容
 
-Sources and applications reviewed through **2026-07-31** / 来源与应用核查至 **2026-07-31**
+Catalog snapshot: **2026-07-31** / 目录快照：**2026-07-31**
 
 | Coverage / 覆盖 | Evidence / 证据 | Experience / 体验 |
 | :---: | :---: | :---: |
-| **120** concepts / 概念<br>**117** people / 人物 | **247** cited sources / 直接来源<br>**78** verified portraits / 核验肖像 | **9** fields / 领域<br>中文 + English |
+| **120** concepts / 概念<br>**117** people / 人物 | **247** citation links / 引用链接<br>**235** unique source URLs / 唯一来源<br>**78** verified portraits / 核验肖像 | **9** fields / 领域<br>中文 + English |
 
-Every concept has at least two direct references, and every historical portrait
-links to its source and license.
+Every concept has at least two reference links. References are attached at the
+concept level and may support a definition, naming history, implementation, or
+AI use; follow the relevant source before relying on a specific claim. Every
+historical portrait links to its source and license.
 
-每个概念至少有两条直接来源，每幅历史人物肖像都标注原始来源与许可信息。
+每个概念至少有两条参考链接。链接附在概念层级，可能分别支持定义、命名史、实现或 AI 用途；重要主张请继续核对相关来源。每幅历史人物肖像都标注原始来源与许可信息。
 
 All 117 people profiles pair a bilingual introduction with localized lifespan
-and region facts, linked core contributions, deduplicated AI applications, and
+and region facts, linked terms carrying their names, deduplicated AI applications, and
 evidence grouped by concept. The atlas uses **78 verified real portraits** and
 **39 clearly labelled monogram fallbacks**; it does not generate historical
 likenesses.
 
-117 个人物页均提供双语简介、本地化生卒年份与地区信息、可继续阅读的核心贡献、去重后的 AI 应用，以及按概念分组的证据。图谱采用 **78 幅经核验的真实肖像**与 **39 个明确标注的姓名首字母占位符**，不生成历史人物形象。
+117 个人物页均提供双语简介、本地化生卒年份与地区信息、承载其姓名的相关术语、去重后的 AI 应用，以及按概念分组的证据。图谱采用 **78 幅经核验的真实肖像**与 **39 个明确标注的姓名首字母占位符**，不生成历史人物形象。
 
 ## 🧠 What the names don't tell you / 名字没有告诉你的内容
 
@@ -82,7 +86,12 @@ begin with its function, then continue to the mathematics, history, and AI use.
 
 ## 🧭 Choose how you explore / 选择探索方式
 
-[![The live AI Eponym Atlas homepage showing its meaning-first hero, interactive concept constellation, filters, search, and a Jacobian detail panel](./docs/images/atlas-overview.jpg)](https://chaoyue0307.github.io/ai-eponym-atlas/)
+[![The live AI Eponym Atlas homepage showing its meaning-first hero, coverage totals, interactive constellation, reader routes, and six starting concepts](./docs/images/atlas-overview.jpg)](https://chaoyue0307.github.io/ai-eponym-atlas/)
+
+[![Four guided learning paths connecting geometry to gradients, evidence to uncertainty, signals to representations, and noise to generative models](./docs/images/learning-paths.jpg)](https://chaoyue0307.github.io/ai-eponym-atlas/#/paths)
+
+**Guided learning paths** connect short sequences of concepts in a pedagogical
+order—without presenting that order as historical causality.
 
 <table>
   <tr>
@@ -107,7 +116,7 @@ begin with its function, then continue to the mathematics, history, and AI use.
   </tr>
   <tr>
     <td><strong>Historical timeline</strong><br>Follow publications, later naming, and AI adoption across more than four centuries.</td>
-    <td><strong>People profiles</strong><br>Read a bilingual introduction and localized facts, then follow core contributions, deduplicated AI uses, and concept-grouped evidence.</td>
+    <td><strong>People profiles</strong><br>Read a bilingual introduction and localized facts, then follow terms carrying the name, AI uses, and concept-grouped evidence.</td>
   </tr>
 </table>
 
@@ -119,17 +128,18 @@ sources. [Read the source and image policy →](./docs/PORTRAITS.md)
 | Explore / 探索 | Understand / 理解 |
 | --- | --- |
 | 🔎 **Meaning-first search** — Search terms, people, aliases, functions, and AI uses. | 💡 **15-second intuition** — Start with the question and intuition before the formula. |
+| 🧭 **Guided learning paths** — Follow four short sequences with visible step-by-step progress. | 🧱 **Layered explanations** — Move from question and function to definition, history, use, and evidence. |
 | 🧭 **Faceted atlas** — Browse 9 mathematical and AI fields in concept or people mode. | ∑ **Formal definitions** — Read renderable notation and precise mathematical definitions. |
 | 🔗 **Relationship graph** — Follow people, related concepts, and concrete applications. | 📚 **Evidence-aware history** — Keep definition, naming history, and AI evidence distinct. |
 | 🕰️ **Historical timeline** — Separate a person's life, publication, later naming, and AI adoption. | 🌏 **Bilingual reading** — Maintain Chinese and English terminology together. |
-| 👤 **People profiles** — Connect bilingual introductions and localized facts to core contributions, AI uses, and evidence. | ♿ **Keyboard and mobile friendly** — Explore every view with a keyboard or on a small screen. |
+| 👤 **People profiles** — Connect bilingual introductions and localized facts to the terms carrying each name, AI uses, and evidence. | ♿ **Keyboard and mobile friendly** — Explore every view with a keyboard or on a small screen. |
 
 ### ✅ Three practical ways to use it / 三种实用方式
 
 1. **While reading papers:** search the unfamiliar term and read its question,
    functional label, and intuition first.
-2. **While learning systematically:** move through fields, people, the
-   relationship graph, and the timeline.
+2. **While learning systematically:** follow a guided path, then use the graph
+   and timeline to widen the context.
 3. **While writing or teaching:** verify spelling, notation, attribution, and
    sources before following the references to primary material.
 
@@ -146,10 +156,10 @@ definition and uses:
 | **Definition / 定义** | For $f:\mathbb R^n\to\mathbb R^m$, $J_f(x)_{ij}=\partial f_i/\partial x_j$. |
 | **AI uses / AI 用途** | Backpropagation, automatic differentiation, robotics, normalizing flows, and sensitivity analysis. |
 | **History / 历史** | Jacobi's determinant work is direct; the full derivative-matrix terminology is later. |
-| **Evidence / 证据** | Definition/history and modern use are supported by separate direct sources. |
+| **Evidence / 证据** | Concept-level references let you check definition, naming history, and modern use as separate claims. |
 
 Use the functional label to get oriented, not as a substitute for the formal
-term. Check each intuition against the definition and its stated limits.
+term. Check each intuition against the formal definition and its assumptions.
 
 功能标签用于快速定位，不替代正式术语；理解直觉时，也要对照定义与适用边界。
 
@@ -166,10 +176,11 @@ You will find concepts that:
 Explore eponyms used in generative modeling, optimal transport, preference and
 ranking models, associative memory, dynamical and geometric learning, numerical
 linear algebra, statistical bounds, sequence decoding, and classical vision.
-Active AI uses were reviewed through **2026-07-31**; foundational concepts retain
-original or authoritative references.
+This catalog snapshot is dated **2026-07-31**. Foundational concepts retain
+original or authoritative references; active-use claims remain open to newer
+evidence and correction.
 
-你可以探索生成建模、最优传输、偏好与排序模型、联想记忆、动力与几何学习、数值线性代数、统计界、序列解码和经典视觉中的人名概念。活跃 AI 用途核查至 **2026-07-31**；基础概念保留原始或权威来源。
+你可以探索生成建模、最优传输、偏好与排序模型、联想记忆、动力与几何学习、数值线性代数、统计界、序列解码和经典视觉中的人名概念。当前目录快照日期为 **2026-07-31**；基础概念保留原始或权威来源，活跃用途也欢迎用更新证据修订。
 
 > [Read the complete inclusion, exclusion, evidence, preprint, and currency policy →](./docs/COVERAGE.md)
 
@@ -220,8 +231,10 @@ Vite prints the local URL, normally `http://localhost:5173`.
 | Command | Purpose |
 | --- | --- |
 | `npm run dev` | Start the local Vite development server |
+| `npm run typecheck` | Check the TypeScript project |
 | `npm run lint:docs` | Validate README and documentation Markdown |
-| `npm run check` | Run TypeScript checks, the data/UI test suite, and a production build |
+| `npm run links:check` | Audit concept, timeline, identity, and portrait-provenance URLs |
+| `npm run check` | Run TypeScript, documentation, data/logic tests, and a production build |
 | `npm run build` | Build the static production site into `dist/` |
 | `npm run preview` | Preview the production build locally |
 | `npm run portraits:sync` | Rebuild bounded local portrait assets from audited metadata |
@@ -234,7 +247,7 @@ flowchart TD
     E["📚 eponyms.json<br/>people · concepts · citations"]
     P["🖼️ people-media.json<br/>identity · portrait · license"]
     C["Typed catalog<br/>validation · indexes · stable IDs"]
-    R["👤 Person profile selector<br/>contributions · AI uses · evidence"]
+    R["👤 Person profile selector<br/>namesake terms · AI uses · evidence"]
     G["🔗 Relationship graph<br/>semantic + visual layers"]
     T["🕰️ Historical timeline<br/>events + eras + URL state"]
     U["🌐 React interface<br/>bilingual · responsive · accessible"]
@@ -257,7 +270,7 @@ flowchart TD
 The site is static and client-side. Stable IDs connect people, concepts,
 timelines, graph edges, and media records. Editorial content lives in the JSON
 catalog rather than being duplicated inside UI components. Person profiles use
-`src/lib/personProfile.ts` to derive contributions, deduplicated applications,
+`src/lib/personProfile.ts` to derive connected terms, deduplicated applications,
 and concept-grouped evidence from those canonical concept records.
 
 Concept citations support definition, attribution, history, and use claims for
@@ -301,10 +314,10 @@ batch of placeholders.
 
 - [x] Searchable bilingual atlas with profiles, connections, chronology,
   sources, and sourced historical portraits.
+- [x] Guided learning paths with shareable concept-by-concept progress.
 - [ ] Typed prerequisite, variant, generalization, duality, and
   easy-to-confuse relationships.
-- [ ] Learning paths, minimal examples, boundary conditions, and
-  evidence-role metadata.
+- [ ] Minimal worked examples, boundary conditions, and evidence-role metadata.
 - [ ] Versioned downloadable datasets and reusable query interfaces.
 - [ ] Broader AI subfields, cross-cultural naming traditions, and more
   languages.

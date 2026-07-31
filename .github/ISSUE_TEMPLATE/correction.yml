@@ -1,0 +1,73 @@
+name: Suggest a correction
+description: Report a factual, mathematical, translation, citation, or portrait issue.
+title: "[Correction]: "
+labels:
+  - correction
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping keep AI Eponym Atlas accurate. Identify the exact entry and, whenever possible, include a reliable source that supports the correction.
+
+  - type: input
+    id: entry
+    attributes:
+      label: Entry or page
+      description: Give the concept, person, timeline event, or page URL.
+      placeholder: "Example: Jacobian matrix — https://…/#/concept/jacobian-matrix"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: correction_type
+    attributes:
+      label: What needs correction?
+      options:
+        - Mathematical definition or notation
+        - Historical attribution or date
+        - Modern AI use
+        - Translation or wording
+        - Citation or broken source
+        - Portrait identity, credit, or license
+        - Relationship or timeline placement
+        - Accessibility or presentation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_problem
+    attributes:
+      label: What is currently wrong or unclear?
+      description: Quote only the smallest relevant passage and explain the issue.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_correction
+    attributes:
+      label: Proposed correction
+      description: State the replacement fact, notation, translation, or wording.
+    validations:
+      required: true
+
+  - type: textarea
+    id: sources
+    attributes:
+      label: Supporting sources
+      description: Prefer an original paper, textbook, peer-reviewed survey, institutional archive, or authoritative documentation.
+      placeholder: |
+        1. Author, title, year, DOI or stable URL
+        2. Optional second source
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Final check
+      options:
+        - label: I checked that this correction is not already reported in an open issue.
+          required: true
+        - label: I separated evidence from my own interpretation.
+          required: true

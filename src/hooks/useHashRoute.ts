@@ -1,8 +1,9 @@
-import { useCallback, useSyncExternalStore } from 'react'
+import { useCallback, useMemo, useSyncExternalStore } from 'react'
 
 export type Route =
   | { name: 'home'; params: URLSearchParams }
   | { name: 'atlas'; params: URLSearchParams }
+  | { name: 'paths'; params: URLSearchParams }
   | { name: 'graph'; params: URLSearchParams }
   | { name: 'timeline'; params: URLSearchParams }
   | { name: 'about'; params: URLSearchParams }
@@ -48,6 +49,7 @@ export function parseRoute(hash: string): Route {
     return { name: 'person', id: decodeURIComponent(segments[1]), params }
   }
   if (segments[0] === 'atlas') return { name: 'atlas', params }
+  if (segments[0] === 'paths') return { name: 'paths', params }
   if (segments[0] === 'graph') return { name: 'graph', params }
   if (segments[0] === 'timeline') return { name: 'timeline', params }
   if (segments[0] === 'about') return { name: 'about', params }
@@ -55,8 +57,21 @@ export function parseRoute(hash: string): Route {
 }
 
 export function buildHash(path: string, params?: URLSearchParams) {
-  const query = params?.toString()
+  const nextParams = new URLSearchParams(params)
+  if (typeof window !== 'undefined' && !nextParams.has('lang')) {
+    const currentLanguage = parseRoute(window.location.hash).params.get('lang')
+    if (currentLanguage === 'zh' || currentLanguage === 'en') {
+      nextParams.set('lang', currentLanguage)
+    }
+  }
+  const query = nextParams.toString()
   return `#${path}${query ? `?${query}` : ''}`
+}
+
+export function routePath(route: Route) {
+  if (route.name === 'concept') return `/concept/${encodeURIComponent(route.id)}`
+  if (route.name === 'person') return `/person/${encodeURIComponent(route.id)}`
+  return route.name === 'home' ? '/' : `/${route.name}`
 }
 
 export function navigate(path: string, params?: URLSearchParams, replace = false) {
@@ -71,7 +86,7 @@ export function navigate(path: string, params?: URLSearchParams, replace = false
 
 export function useHashRoute() {
   const hash = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
-  const route = parseRoute(hash)
+  const route = useMemo(() => parseRoute(hash), [hash])
   const go = useCallback(
     (path: string, params?: URLSearchParams, replace = false) => navigate(path, params, replace),
     [],

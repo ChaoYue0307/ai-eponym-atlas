@@ -1,5 +1,6 @@
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { resolve } from "node:path";
+import katex from "katex";
 import { describe, expect, it } from "vitest";
 
 import {
@@ -12,6 +13,7 @@ import {
   peopleById,
 } from "../data/catalog";
 import { timelineEvents } from "../data/timeline";
+import { learningPaths } from "../data/learningPaths";
 import {
   constellationConceptIds,
   constellationEdges,
@@ -49,6 +51,31 @@ describe("atlas data integrity", () => {
         0,
       ),
     );
+    expect(catalogStats.uniqueSources).toBe(
+      new Set(
+        concepts.flatMap((concept) =>
+          concept.sourceLinks.map((source) => source.url),
+        ),
+      ).size,
+    );
+  });
+
+  it("keeps every learning path ordered, distinct, and connected to the catalog", () => {
+    expect(learningPaths.length).toBeGreaterThanOrEqual(4);
+    expect(new Set(learningPaths.map((path) => path.id)).size).toBe(
+      learningPaths.length,
+    );
+    for (const path of learningPaths) {
+      expect(path.title.en.trim()).not.toBe("");
+      expect(path.title.zh.trim()).not.toBe("");
+      expect(path.description.en.trim()).not.toBe("");
+      expect(path.description.zh.trim()).not.toBe("");
+      expect(path.conceptIds.length).toBeGreaterThanOrEqual(4);
+      expect(new Set(path.conceptIds).size).toBe(path.conceptIds.length);
+      for (const conceptId of path.conceptIds) {
+        expect(conceptsById.get(conceptId), `${path.id} -> ${conceptId}`).toBeDefined();
+      }
+    }
   });
 
   it("keeps person/concept references bidirectional", () => {
@@ -115,6 +142,20 @@ describe("atlas data integrity", () => {
       for (const source of concept.sourceLinks) {
         expect(source.label.trim()).not.toBe("");
         expect(source.url).toMatch(/^https?:\/\//);
+      }
+    }
+  });
+
+  it("renders every catalog formula with strict KaTeX parsing", () => {
+    for (const concept of concepts) {
+      const parts = concept.formalDefinition.split("$");
+      expect(parts.length % 2, `${concept.id}: balanced math delimiters`).toBe(1);
+      for (let index = 1; index < parts.length; index += 2) {
+        expect(() =>
+          katex.renderToString(parts[index], {
+            throwOnError: true,
+            output: "htmlAndMathml",
+          }), `${concept.id}: ${parts[index]}`).not.toThrow();
       }
     }
   });
@@ -246,7 +287,8 @@ describe("atlas data integrity", () => {
 
     expect(readme).toContain(`**${concepts.length}** concepts`);
     expect(readme).toContain(`**${people.length}** people`);
-    expect(readme).toContain(`**${sourceCount}** cited sources`);
+    expect(readme).toContain(`**${sourceCount}** citation links`);
+    expect(readme).toContain(`**${catalogStats.uniqueSources}** unique source URLs`);
     expect(readme).toContain(`**${portraitCount}** verified portraits`);
     expect(readme).toContain(`**${categories.length}** fields`);
     expect(readme).toMatch(
@@ -275,6 +317,7 @@ describe("atlas data integrity", () => {
 
     for (const screenshot of [
       "atlas-overview.jpg",
+      "learning-paths.jpg",
       "relationship-graph.jpg",
       "person-profile-mobile.jpg",
     ]) {

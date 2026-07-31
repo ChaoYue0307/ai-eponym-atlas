@@ -137,6 +137,9 @@ export const catalogStats = Object.freeze({
     (total, concept) => total + concept.sourceLinks.length,
     0,
   ),
+  uniqueSources: new Set(
+    concepts.flatMap((concept) => concept.sourceLinks.map((source) => source.url)),
+  ).size,
 });
 
 export const catalog: AtlasData = Object.freeze({

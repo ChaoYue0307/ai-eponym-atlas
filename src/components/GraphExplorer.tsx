@@ -48,7 +48,7 @@ function initialCameraForViewport(
   // A fitted 960-unit SVG makes labels illegibly small on a phone. Start with
   // the focus at a readable scale; the Fit control remains the one-tap
   // overview, and drag/zoom preserve access to the complete visual graph.
-  const scale = 2.5
+  const scale = 1.85
   return {
     scale,
     x: GRAPH_VIEWBOX.width / 2 - focus.x * scale,
@@ -255,6 +255,7 @@ export function GraphExplorer({ locale, params }: GraphExplorerProps) {
   )
 
   const handleWheel = (event: React.WheelEvent<HTMLDivElement>) => {
+    if (!event.ctrlKey && !event.metaKey) return
     event.preventDefault()
     const bounds = event.currentTarget.getBoundingClientRect()
     const x = ((event.clientX - bounds.left) / bounds.width) * GRAPH_VIEWBOX.width
@@ -369,7 +370,7 @@ export function GraphExplorer({ locale, params }: GraphExplorerProps) {
     <main className="graph-page graph-v2">
       <header className="page-intro page-intro--graph">
         <p className="section-number">
-          {locale === 'zh' ? '02 — 概念关系图' : '02 — CONCEPT GRAPH'}
+          {locale === 'zh' ? '03 — 概念关系图' : '03 — CONCEPT GRAPH'}
         </p>
         <h1>{t.title}</h1>
         <SectionRule />
@@ -553,7 +554,7 @@ export function GraphExplorer({ locale, params }: GraphExplorerProps) {
               {[
                 {
                   label:
-                    locale === 'zh' ? '人物（命名）' : 'People (named after)',
+                    locale === 'zh' ? '命名来源人物' : 'Namesakes',
                   value: countByKind(visualGraph, 'person'),
                 },
                 {

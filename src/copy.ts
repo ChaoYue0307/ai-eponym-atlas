@@ -4,6 +4,7 @@ export const copy = {
   zh: {
     nav: {
       atlas: '图谱',
+      paths: '路径',
       graph: '关系',
       timeline: '时间线',
       about: '阅读指南',
@@ -18,7 +19,7 @@ export const copy = {
         people: '位人物',
         concepts: '个概念',
         fields: '个领域',
-        sources: '条来源引用',
+        sources: '条引用链接',
       },
       primary: '探索概念',
       secondary: '看懂雅可比矩阵',
@@ -82,6 +83,7 @@ export const copy = {
   en: {
     nav: {
       atlas: 'Atlas',
+      paths: 'Paths',
       graph: 'Graph',
       timeline: 'Timeline',
       about: 'How to read',
@@ -96,7 +98,7 @@ export const copy = {
         people: 'people profiled',
         concepts: 'concepts decoded',
         fields: 'fields connected',
-        sources: 'source citations',
+        sources: 'citation links',
       },
       primary: 'Explore concepts',
       secondary: 'See the Jacobian explained',
@@ -151,7 +153,7 @@ export const copy = {
       title: 'From original work to modern AI',
       description: 'See when an idea was published, named, and later adopted in AI.',
       all: 'All events',
-      person: 'People',
+      person: 'Person',
       publication: 'Publication',
       naming: 'Naming',
       ai: 'AI adoption',

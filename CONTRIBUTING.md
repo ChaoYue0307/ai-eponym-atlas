@@ -36,9 +36,9 @@ The website treats `content/eponyms.json` as the canonical editorial source and
 `content/people-media.json` as the auditable media catalog. Do not duplicate
 entries inside React components.
 
-人物页由 `src/lib/personProfile.ts` 从关联概念中派生核心贡献、去重后的 AI 应用和按概念分组的证据。新增或修订内容时应更新权威概念记录，不要在人物页组件中另写一套容易漂移的表述。
+人物页由 `src/lib/personProfile.ts` 从关联概念中派生承载该人物姓名的术语、去重后的 AI 应用和按概念分组的证据。新增或修订内容时应更新权威概念记录，不要在人物页组件中另写一套容易漂移的表述。
 
-`src/lib/personProfile.ts` derives each profile's core contributions,
+`src/lib/personProfile.ts` derives each profile's terms carrying the person's name,
 deduplicated AI applications, and concept-grouped evidence from the linked
 concept records. Update the canonical concept data instead of maintaining a
 second set of profile claims in the UI.
@@ -268,7 +268,7 @@ statistics
 
 对快速变化的 AI 用途，应尽量补充 2020 年以来的一手论文；预印本需要在来源标签中明确说明。经典定义和历史事实不因来源年代久远而降级，但“当前仍活跃”的判断需要近期证据。完整边界见 [`docs/COVERAGE.md`](./docs/COVERAGE.md)。
 
-*Use at least two direct sources: primary literature where practical, authoritative mathematical references for definitions, and reliable historical sources for attribution. Fast-moving AI relevance should normally have a recent primary source.*
+*Use at least two reference links: primary literature where practical, authoritative mathematical references for definitions, and reliable historical sources for attribution. Fast-moving AI relevance should normally have a recent primary source.*
 
 *On person profiles, these remain concept citations. A Wikidata profile is an
 identity record, not a full biography source.*

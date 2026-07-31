@@ -33,14 +33,14 @@ export function PersonDetail({ personId, locale }: { personId: string; locale: L
       ? {
           lifespan: '生卒年份',
           region: '地区',
-          concepts: '相关概念',
+          concepts: '相关人名术语',
           fields: '涉及领域',
           evidence: '证据链接',
         }
       : {
           lifespan: 'Lifespan',
           region: 'Region',
-          concepts: 'Named concepts',
+          concepts: 'Eponymous terms',
           fields: 'Fields',
           evidence: 'Evidence links',
         }
@@ -70,7 +70,7 @@ export function PersonDetail({ personId, locale }: { personId: string; locale: L
         </div>
         <div className="person-page__intro">
           <p className="person-page__intro-label">
-            {locale === 'zh' ? '生平与贡献' : 'Life & work'}
+            {locale === 'zh' ? '人物简介' : 'In brief'}
           </p>
           <p className="person-page__summary">{person.summary[locale]}</p>
           {person.profileUrl ? (
@@ -110,12 +110,12 @@ export function PersonDetail({ personId, locale }: { personId: string; locale: L
         <p className="section-number">01</p>
         <div className="person-page__section-heading">
           <h2>
-            {locale === 'zh' ? '核心贡献' : 'Core contributions'}
+            {locale === 'zh' ? '以其命名或承袭其名的术语' : 'Terms carrying this name'}
           </h2>
           <p>
             {locale === 'zh'
-              ? '每个名字背后真正解决的问题，以及它在图谱中的功能含义。'
-              : 'What each eponym actually helps solve, expressed through its functional meaning.'}
+              ? '这些术语可能直接以这位人物命名，也可能承袭自后世延伸；打开条目即可查看其作用与具体归因。'
+              : "These terms may be named directly for this person or may carry the name through later extensions. Open an entry to see what it does and how its attribution should be read."}
           </p>
         </div>
         <div className="person-concept-list">
@@ -145,12 +145,12 @@ export function PersonDetail({ personId, locale }: { personId: string; locale: L
         <p className="section-number">02</p>
         <div className="person-page__section-heading">
           <h2>
-            {locale === 'zh' ? '为什么与 AI 有关' : 'Why this work matters in AI'}
+            {locale === 'zh' ? '为什么这个名字会出现在 AI 中' : 'Why this name appears in AI'}
           </h2>
           <p>
             {locale === 'zh'
-              ? '这些现代用途直接来自相关概念条目，并保留与原概念的连接。'
-              : 'Modern uses drawn directly from the connected concept entries, with every link preserved.'}
+              ? '查看这些术语在现代 AI 中的用途，并打开相应概念核对定义与命名归因。'
+              : 'Follow how these terms appear in modern AI, then open the connected concept to check its definition and attribution.'}
           </p>
         </div>
         <ol className="person-application-list">
@@ -184,8 +184,8 @@ export function PersonDetail({ personId, locale }: { personId: string; locale: L
           </h2>
           <p>
             {locale === 'zh'
-              ? '来源按概念列出，用于核查数学定义、历史归属与现代用法。'
-              : 'Sources are grouped by concept so definitions, historical attribution, and modern usage remain checkable.'}
+              ? '在每项主张所属的概念下，核查数学定义、命名历史与现代用法。'
+              : 'Check the mathematical definition, naming history, and modern use under the concept where each claim appears.'}
           </p>
         </div>
         <div className="person-evidence-list">
@@ -238,7 +238,7 @@ export function PersonDetail({ personId, locale }: { personId: string; locale: L
               navigate('/about')
             }}
           >
-            {locale === 'zh' ? '了解名字背后的历史' : 'Explore the history behind the names'}
+            {locale === 'zh' ? '了解如何阅读历史归因' : 'Learn how to read historical attribution'}
             <ExternalLink aria-hidden="true" />
           </a>
         </div>

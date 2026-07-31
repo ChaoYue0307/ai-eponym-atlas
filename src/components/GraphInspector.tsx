@@ -7,6 +7,7 @@ import { peopleById } from '../data/catalog'
 import { navigate } from '../hooks/useHashRoute'
 import type { PositionedNode } from '../lib/graphLayout'
 import { formatLifespan } from '../lib/lifespan'
+import { formatRegion } from '../lib/personProfile'
 import type { EgoGraphEdge, EgoGraphNode } from '../types'
 import { PersonPortrait } from './PersonPortrait'
 
@@ -85,9 +86,9 @@ export function GraphInspector({
                     : 'Related concept'}
           </p>
           <h2>
-            {selectedNode.label}
+            {locale === 'zh' ? selectedNode.zhLabel : selectedNode.label}
             {selectedNode.zhLabel !== selectedNode.label ? (
-              <span> / {selectedNode.zhLabel}</span>
+              <span> / {locale === 'zh' ? selectedNode.label : selectedNode.zhLabel}</span>
             ) : null}
           </h2>
         </div>
@@ -124,7 +125,7 @@ export function GraphInspector({
                     node.kind === 'concept'
                       ? `${categoryLabels[node.meta.category][locale]} · ${node.meta.functionNickname[locale]}`
                       : node.kind === 'person' && person
-                        ? `${formatLifespan(person, locale)} · ${person.region}`
+                        ? `${formatLifespan(person, locale)} · ${formatRegion(person.region, locale)}`
                         : locale === 'zh'
                           ? edge.zhNote ?? edge.zhLabel
                           : edge.note ?? edge.label

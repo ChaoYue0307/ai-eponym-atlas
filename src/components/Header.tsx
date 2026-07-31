@@ -16,6 +16,7 @@ type HeaderProps = {
 
 const navItems = [
   { route: 'atlas', path: '/atlas' },
+  { route: 'paths', path: '/paths' },
   { route: 'graph', path: '/graph' },
   { route: 'timeline', path: '/timeline' },
   { route: 'about', path: '/about' },
@@ -58,8 +59,18 @@ export function Header({ locale, route, onLocaleChange }: HeaderProps) {
         {navItems.map((item) => (
           <a
             key={item.route}
-            className={route.name === item.route ? 'is-active' : ''}
-            aria-current={route.name === item.route ? 'page' : undefined}
+            className={
+              route.name === item.route ||
+              (item.route === 'atlas' && (route.name === 'concept' || route.name === 'person'))
+                ? 'is-active'
+                : ''
+            }
+            aria-current={
+              route.name === item.route ||
+              (item.route === 'atlas' && (route.name === 'concept' || route.name === 'person'))
+                ? 'page'
+                : undefined
+            }
             href={`#${item.path}`}
             onClick={(event) => {
               event.preventDefault()

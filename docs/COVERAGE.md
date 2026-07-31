@@ -67,12 +67,13 @@ The released catalog balances three bands:
   scaling in generative transport, Bradley–Terry models in preference learning,
   and modern Hopfield networks in associative memory.
 
-The 2026-07-31 editorial snapshot contains **117 people, 120 concepts, and 247
-direct source links across nine subject categories**. These counts describe the
+The 2026-07-31 editorial snapshot contains **117 people, 120 concepts, 247
+concept-level citation links, and 235 unique source URLs across nine subject
+categories**. These counts describe the
 released dataset, not a claim that the universe of AI-relevant eponyms is closed.
 
 Every person profile includes a bilingual introduction, localized lifespan and
-region facts, linked core contributions, deduplicated AI applications, and
+region facts, linked terms carrying the person's name, deduplicated AI applications, and
 evidence grouped by concept. The current media coverage is **78 verified real
 portraits** plus **39 labelled monogram fallbacks**. The atlas does not generate
 historical likenesses when a reusable portrait cannot be verified.
@@ -83,9 +84,9 @@ historical likenesses when a reusable portrait cannot be verified.
 - **扩展层：**在数值计算、统计学习、序列、图、信号和流形等子领域中常见的工具；
 - **活跃前沿层：**历史概念在当前 AI 中重新获得关键作用的条目，例如扩散中的 Langevin / Itô、生成运输中的 Schrödinger bridge / Sinkhorn、偏好学习中的 Bradley–Terry，以及现代 Hopfield 记忆网络。
 
-截至 2026-07-31 的编辑快照包含 **117 位人物、120 个概念、247 条直接来源链接和 9 个领域分类**。这些数字描述当前已发布数据集，并不意味着 AI 相关人名概念已经穷尽。
+截至 2026-07-31 的编辑快照包含 **117 位人物、120 个概念、247 条概念级引用链接、235 个唯一来源 URL 和 9 个领域分类**。这些数字描述当前已发布数据集，并不意味着 AI 相关人名概念已经穷尽。
 
-每个人物页都包含双语简介、本地化生卒年份与地区信息、可继续阅读的核心贡献、去重后的 AI 应用，以及按概念分组的证据。当前媒体覆盖包括 **78 幅经核验的真实肖像**和 **39 个明确标注的姓名首字母占位符**；无法核验可复用肖像时，图谱不会生成历史人物形象。
+每个人物页都包含双语简介、本地化生卒年份与地区信息、承载其姓名的相关术语、去重后的 AI 应用，以及按概念分组的证据。当前媒体覆盖包括 **78 幅经核验的真实肖像**和 **39 个明确标注的姓名首字母占位符**；无法核验可复用肖像时，图谱不会生成历史人物形象。
 
 ## Explicit exclusions / 明确排除
 
@@ -111,7 +112,7 @@ Other edge cases are deferred rather than silently forced into the schema:
 
 ## Evidence floor / 证据底线
 
-Each concept should have at least two direct links:
+Each concept should have at least two reference links:
 
 1. a primary paper or authoritative technical definition; and
 2. a second source supporting attribution, implementation, or a concrete AI
@@ -126,7 +127,7 @@ connected concept's definition, history, attribution, or use claims. They are
 not presented as complete sources for the person's life. A Wikidata link is an
 identity record for disambiguation, not a substitute for a biographical source.
 
-每个概念至少应有两条直接来源：一条原始论文或权威定义，以及一条支持归因、实现或具体 AI 用途的独立来源。快速变化的条目在条件允许时还应包含近年的一手 AI 论文。定义、历史和应用是不同主张，不能默认一张网页同时证明全部内容。
+每个概念至少应有两条参考链接：一条原始论文或权威定义，以及一条支持归因、实现或具体 AI 用途的独立来源。快速变化的条目在条件允许时还应包含近年的一手 AI 论文。定义、历史和应用是不同主张，不能默认一张网页同时证明全部内容。
 
 ## Topics not yet covered in depth / 尚待深入的主题
 

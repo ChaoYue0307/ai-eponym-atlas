@@ -37,7 +37,7 @@ flowchart LR
 
 | Source | Responsibility |
 | --- | --- |
-| `content/eponyms.json` | Project metadata, people, concepts, relationships, bilingual explanations, and concept-level direct sources |
+| `content/eponyms.json` | Project metadata, people, concepts, relationships, bilingual explanations, and concept-level reference links |
 | `content/people-media.json` | Wikidata identity records, verified local portrait files, original URLs, creators, licenses, alt text, and verification dates |
 | `src/data/timeline.ts` | Curated publication, naming, people, and AI-adoption events |
 | `src/data/constellation.ts` | Small, editorial homepage sample derived from valid catalog concept IDs |
@@ -59,23 +59,30 @@ used to disambiguate the person, not a complete biographical source.
 | Routing and composition | `src/App.tsx`, `src/hooks/useHashRoute.ts` |
 | Typed catalog | `src/data/catalog.ts`, `src/types.ts` |
 | Atlas search and filters | `src/components/AtlasExplorer.tsx`, `src/lib/search.ts` |
+| Guided learning paths | `src/components/LearningPathsPage.tsx`, `src/components/HomeGuide.tsx`, `src/data/learningPaths.ts` |
 | Concept and person details | `src/components/ConceptDetail.tsx`, `src/components/PersonDetail.tsx`, `src/lib/personProfile.ts` |
 | Relationship graph | `src/components/GraphExplorer.tsx`, `src/components/GraphExplorer.css`, `src/lib/graph.ts`, `src/lib/graphLayout.ts`, `src/lib/graphViewport.ts` |
 | Timeline | `src/components/TimelineView.tsx`, `src/components/TimelineView.css`, `src/data/timeline.ts` |
 | Localization | `src/copy.ts` and bilingual catalog fields |
 | Design system | `src/styles.css`, `docs/DESIGN_SYSTEM.md` |
+| Static discovery pages | `scripts/generate-static-pages.mjs`, generated `dist/sitemap.xml` |
 
 ## Routes / 页面
 
-The application uses hash routing so direct links remain compatible with static
-GitHub Pages hosting.
+The interactive application uses hash routing so direct links remain compatible
+with static GitHub Pages hosting. Production builds also create bilingual,
+metadata-rich HTML entry points for every concept and person. These pages add
+canonical URLs, Open Graph metadata, structured data, `hreflang` links,
+readable no-JavaScript content, and redirects into the matching interactive
+route. The same build step generates the complete sitemap.
 
 | Route | View |
 | --- | --- |
-| `#/` | Homepage and atlas preview |
+| `#/` | Homepage, reader entry points, and a curated starting set |
 | `#/atlas` | Searchable concept and people atlas |
+| `#/paths` | Four guided, pedagogical concept sequences |
 | `#/concept/:id` | Concept detail |
-| `#/person/:id` | Person profile with bilingual introduction, localized facts, linked contributions, deduplicated AI applications, and concept-grouped evidence |
+| `#/person/:id` | Person profile with bilingual introduction, localized facts, terms carrying the name, deduplicated AI applications, and concept-grouped evidence |
 | `#/graph` | One- or two-hop relationship graph |
 | `#/timeline` | Filterable historical timeline |
 | `#/about` | Editorial method |
@@ -100,11 +107,13 @@ polluting browser history.
 
 ## Integrity checks / 完整性检查
 
-`npm run check` runs TypeScript, Vitest, and the production build. Tests cover:
+`npm run check` runs TypeScript, Markdown linting, Vitest, the production build,
+static discovery-page generation, and bundle budgets. Tests cover:
 
 - unique and bidirectional IDs;
 - valid related-concept and timeline references;
 - bilingual fields and source minimums;
+- strict KaTeX parsing, guided-path IDs, and locale-aware routes;
 - complete person-profile derivation, application deduplication, and source
   grouping;
 - portrait identity, provenance, license, and local-file records;

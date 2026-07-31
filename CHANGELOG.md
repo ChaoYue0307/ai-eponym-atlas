@@ -3,6 +3,32 @@
 All notable editorial and product changes are recorded here. The catalog's
 `meta.lastUpdated` field is the authoritative research cutoff.
 
+## 0.3.0 — 2026-07-31
+
+- Rebuilt the homepage around three clear reader intentions and a curated set
+  of six widely useful concepts instead of mounting the complete atlas at once.
+- Added four bilingual learning paths with concept-by-concept progress,
+  previous/next navigation, and an explicit distinction between pedagogical
+  order and historical causality.
+- Corrected people-profile language so an eponymous association is never
+  presented as proof that a namesake personally created every later term or use.
+- Added reader-facing editorial standards for scope, evidence, portrait
+  provenance, and corrections, plus a structured correction issue form.
+- Improved Atlas results with mode-accurate counts, localized names and regions,
+  visible search-match context, semantic result lists, and accessible mobile
+  filtering; mobile concept results now open as full reading pages.
+- Increased graph and timeline legibility, restored normal page scrolling over
+  the graph, consolidated timeline controls, and improved keyboard navigation.
+- Added strict KaTeX validation for every formula and fixed the unsupported
+  Weisfeiler–Leman multiset notation.
+- Hardened the automated source audit across concept citations, timeline
+  evidence, identity records, and portrait provenance, with machine-readable
+  reports and failure thresholds that detect an inconclusive all-warning run.
+- Clarified that the catalog contains 247 citation links representing 235
+  unique source URLs; concept-level references have claim-specific boundaries.
+- Split major routes into lazy-loaded bundles and refreshed README, coverage,
+  architecture, design-system, and contribution guidance for the new release.
+
 ## 0.2.0 — 2026-07-31
 
 - Reframed the project around the reader-facing line “Understand the ideas

@@ -118,13 +118,14 @@ all three initials legible at small sizes and avoids an A–E-only reading.
 > tagline, extra words, portraits, fake formulas, fake data, watermark, 3D logo,
 > circular orbit, Option 2 blue card, Option 3 dark split, or decorative clutter.
 
-## Rejected UI concept studies
+## Non-production UI concept studies
 
-Seven generated UI studies were reviewed on 2026-07-31 and deliberately
-excluded from the repository. They contained synthetic labels, relationships,
-counts, or historical likenesses that could not be guaranteed to match the
-catalog. Keeping them—even as mockups—would weaken the atlas's visual-truth
-contract.
+Nine generated UI studies were reviewed on 2026-07-31 and deliberately
+excluded from the repository. Two final studies helped test the composition of
+the reader-entry and learning-path sections; their labels were then rebuilt
+from the real catalog in React. Seven earlier studies contained synthetic
+labels, relationships, counts, or historical likenesses that could not be
+guaranteed to match the catalog. None are shipped as product evidence.
 
 The accepted Graph and Timeline designs were therefore implemented and
 evaluated directly in React, CSS, semantic HTML, and SVG:

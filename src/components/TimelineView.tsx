@@ -26,7 +26,7 @@ const timelineKinds: readonly TimelineEventKind[] = [
 ]
 
 const kindLabels: Record<TimelineEventKind, { en: string; zh: string }> = {
-  person: { en: 'People', zh: '人物' },
+  person: { en: 'Person', zh: '人物' },
   publication: { en: 'Publication', zh: '发表' },
   naming: { en: 'Naming', zh: '命名' },
   'ai-adoption': { en: 'AI adoption', zh: 'AI 采用' },
@@ -34,8 +34,7 @@ const kindLabels: Record<TimelineEventKind, { en: string; zh: string }> = {
 
 const timelineUi = {
   en: {
-    section: '03 — TIMELINE',
-    span: '22 milestones · 1596–2025',
+    section: '04 — TIMELINE',
     filters: 'Filter timeline events',
     era: 'Era',
     allEras: 'All eras',
@@ -62,8 +61,7 @@ const timelineUi = {
     noResults: 'No events match this combination.',
   },
   zh: {
-    section: '03 — 时间线',
-    span: '22 个里程碑 · 1596–2025',
+    section: '04 — 时间线',
     filters: '筛选时间线事件',
     era: '时代',
     allEras: '全部时代',
@@ -91,7 +89,7 @@ const timelineUi = {
 
 const firstTimelineYear = timelineEvents[0]?.sortYear ?? 1596
 const lastTimelineYear = timelineEvents.at(-1)?.sortYear ?? 2025
-const overviewTicks = [1596, 1600, 1700, 1800, 1900, 2000, 2025] as const
+const overviewTicks = [1596, 1700, 1800, 1900, 2000, 2025] as const
 
 function positionForYear(year: number) {
   return ((year - firstTimelineYear) / (lastTimelineYear - firstTimelineYear)) * 100
@@ -164,6 +162,47 @@ function TimelineOverview({
   onSelect,
 }: OverviewProps) {
   const ui = timelineUi[locale]
+  const navigableEvents = useMemo(
+    () => timelineEvents.filter((event) => visibleEventIds.has(event.id)),
+    [visibleEventIds],
+  )
+  const [rovingEventId, setRovingEventId] = useState<string | null>(
+    selectedEventId ?? navigableEvents[0]?.id ?? null,
+  )
+
+  useEffect(() => {
+    if (selectedEventId && visibleEventIds.has(selectedEventId)) {
+      setRovingEventId(selectedEventId)
+      return
+    }
+    if (!rovingEventId || !visibleEventIds.has(rovingEventId)) {
+      setRovingEventId(navigableEvents[0]?.id ?? null)
+    }
+  }, [navigableEvents, rovingEventId, selectedEventId, visibleEventIds])
+
+  function moveRovingFocus(currentId: string, key: string) {
+    const currentIndex = navigableEvents.findIndex((event) => event.id === currentId)
+    if (currentIndex < 0 || navigableEvents.length === 0) return
+
+    let nextIndex: number | null = null
+    if (key === 'ArrowRight' || key === 'ArrowDown') {
+      nextIndex = (currentIndex + 1) % navigableEvents.length
+    } else if (key === 'ArrowLeft' || key === 'ArrowUp') {
+      nextIndex = (currentIndex - 1 + navigableEvents.length) % navigableEvents.length
+    } else if (key === 'Home') {
+      nextIndex = 0
+    } else if (key === 'End') {
+      nextIndex = navigableEvents.length - 1
+    }
+
+    if (nextIndex === null) return
+    const nextEvent = navigableEvents[nextIndex]
+    if (!nextEvent) return
+    setRovingEventId(nextEvent.id)
+    window.requestAnimationFrame(() => {
+      document.getElementById(`timeline-overview-event-${nextEvent.id}`)?.focus()
+    })
+  }
 
   return (
     <section className="timeline-v2-overview" aria-labelledby="timeline-overview-title">
@@ -198,6 +237,7 @@ function TimelineOverview({
               <button
                 type="button"
                 key={event.id}
+                id={`timeline-overview-event-${event.id}`}
                 className={`timeline-v2-overview__event timeline-v2-overview__event--${event.kind}${
                   selectedEventId === event.id ? ' is-selected' : ''
                 }`}
@@ -209,8 +249,24 @@ function TimelineOverview({
                 }
                 aria-label={`${event.year[locale]} — ${event.title[locale]}`}
                 aria-pressed={selectedEventId === event.id}
+                aria-hidden={!isVisible}
                 disabled={!isVisible}
-                onClick={() => onSelect(event.id)}
+                tabIndex={isVisible && rovingEventId === event.id ? 0 : -1}
+                onFocus={() => setRovingEventId(event.id)}
+                onKeyDown={(keyboardEvent) => {
+                  if (
+                    keyboardEvent.key.startsWith('Arrow') ||
+                    keyboardEvent.key === 'Home' ||
+                    keyboardEvent.key === 'End'
+                  ) {
+                    keyboardEvent.preventDefault()
+                    moveRovingFocus(event.id, keyboardEvent.key)
+                  }
+                }}
+                onClick={() => {
+                  setRovingEventId(event.id)
+                  onSelect(event.id)
+                }}
               >
                 <span />
               </button>
@@ -334,7 +390,6 @@ type EventRowProps = {
 }
 
 function TimelineEventRow({ event, locale, selected, onToggle }: EventRowProps) {
-  const ui = timelineUi[locale]
   const eventPeople = event.personIds
     .map((id) => peopleById.get(id))
     .filter((person) => person !== undefined)
@@ -373,6 +428,7 @@ function TimelineEventRow({ event, locale, selected, onToggle }: EventRowProps) 
           <h3>
             <button
               type="button"
+              className="timeline-v2-event__toggle"
               onClick={onToggle}
               aria-expanded={selected}
               aria-controls={
@@ -381,26 +437,13 @@ function TimelineEventRow({ event, locale, selected, onToggle }: EventRowProps) 
                   : undefined
               }
             >
-              {event.title[locale]}
+              <span>{event.title[locale]}</span>
+              <ChevronRight aria-hidden="true" />
             </button>
           </h3>
           <p>{event.description[locale]}</p>
           <EventLinks event={event} locale={locale} compact />
         </div>
-        <button
-          type="button"
-          className="timeline-v2-event__open"
-          aria-label={`${ui.openDetails}: ${event.title[locale]}`}
-          aria-expanded={selected}
-          aria-controls={
-            selected
-              ? `timeline-inline-${event.id} timeline-inspector`
-              : undefined
-          }
-          onClick={onToggle}
-        >
-          <ChevronRight aria-hidden="true" />
-        </button>
         {selected ? <InlineEventDetail event={event} locale={locale} onClose={onToggle} /> : null}
       </article>
     </li>
@@ -533,6 +576,18 @@ export function TimelineView({ locale }: { locale: Locale }) {
     eventParam && visibleEventIds.has(eventParam)
       ? timelineEvents.find((event) => event.id === eventParam) ?? null
       : null
+  const firstVisibleYear = visibleEvents[0]?.sortYear
+  const lastVisibleYear = visibleEvents.at(-1)?.sortYear
+  const selectedYearRange =
+    firstVisibleYear === undefined || lastVisibleYear === undefined
+      ? ''
+      : firstVisibleYear === lastVisibleYear
+        ? String(firstVisibleYear)
+        : `${firstVisibleYear}–${lastVisibleYear}`
+  const selectedMilestonesSummary =
+    locale === 'zh'
+      ? `${visibleEvents.length} 个已选里程碑${selectedYearRange ? ` · ${selectedYearRange}` : ''}`
+      : `${visibleEvents.length} selected ${visibleEvents.length === 1 ? 'milestone' : 'milestones'}${selectedYearRange ? ` · ${selectedYearRange}` : ''}`
 
   useEffect(() => {
     if (!shareComplete) return
@@ -634,7 +689,7 @@ export function TimelineView({ locale }: { locale: Locale }) {
         </div>
         <div className="timeline-v2__intro-copy">
           <p>{t.description}</p>
-          <span>{ui.span}</span>
+          <span>{selectedMilestonesSummary}</span>
         </div>
       </header>
 

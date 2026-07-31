@@ -12,7 +12,10 @@ jobs:
   links:
     name: Verify research sources
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
+    env:
+      SOURCE_LINK_MAX_WARNING_RATIO: "0.50"
+      SOURCE_LINK_REPORT: source-link-audit-report.json
 
     steps:
       - name: Check out repository
@@ -23,5 +26,14 @@ jobs:
         with:
           node-version: 22
 
-      - name: Check catalog source links
+      - name: Check atlas source links
         run: npm run links:check
+
+      - name: Upload source audit report
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: source-link-audit-report
+          path: source-link-audit-report.json
+          if-no-files-found: error
+          retention-days: 30

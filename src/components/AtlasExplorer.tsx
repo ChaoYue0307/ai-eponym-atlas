@@ -16,9 +16,10 @@ import {
 } from 'react'
 import type { Locale } from '../copy'
 import { copy } from '../copy'
-import { categories, concepts, conceptsById, peopleById } from '../data/catalog'
+import { categories, concepts, conceptsById, people, peopleById } from '../data/catalog'
 import { navigate } from '../hooks/useHashRoute'
 import { formatLifespan } from '../lib/lifespan'
+import { formatRegion } from '../lib/personProfile'
 import { searchCatalog, type SearchMode } from '../lib/search'
 import { ConceptDetail } from './ConceptDetail'
 import { PersonPortrait } from './PersonPortrait'
@@ -27,7 +28,6 @@ import { SectionRule } from './SectionRule'
 type AtlasExplorerProps = {
   locale: Locale
   params?: URLSearchParams
-  homePreview?: boolean
 }
 
 const categoryLabels: Record<string, { en: string; zh: string }> = {
@@ -42,16 +42,48 @@ const categoryLabels: Record<string, { en: string; zh: string }> = {
   statistics: { en: 'Statistics', zh: '统计' },
 }
 
-export function AtlasExplorer({ locale, params, homePreview = false }: AtlasExplorerProps) {
+const matchFieldLabels: Record<string, { en: string; zh: string }> = {
+  Alias: { en: 'alias', zh: '别名' },
+  Biography: { en: 'biography', zh: '人物简介' },
+  'AI application': { en: 'AI application', zh: 'AI 用途' },
+  'Associated alias': { en: 'associated alias', zh: '相关别名' },
+  'Associated term': { en: 'associated term', zh: '相关术语' },
+  'Function nickname': { en: 'plain-language meaning', zh: '一句话含义' },
+  Intuition: { en: 'intuition', zh: '直觉' },
+  Person: { en: 'person', zh: '人物' },
+  'Question answered': { en: 'question answered', zh: '核心问题' },
+  Tag: { en: 'tag', zh: '标签' },
+  Term: { en: 'term', zh: '术语' },
+}
+
+function formatMatchReason(reason: string, locale: Locale) {
+  const match = reason.match(/^(.+?) \((.+?)\):/)
+  if (!match) return reason
+  const [, field, quality] = match
+  const fieldLabel = matchFieldLabels[field]?.[locale] ?? field
+  if (locale === 'zh') {
+    const qualityLabels: Record<string, string> = {
+      exact: '完全匹配',
+      prefix: '前缀匹配',
+      phrase: '短语匹配',
+      'all words': '全部词语匹配',
+      partial: '部分匹配',
+    }
+    return `${fieldLabel} · ${qualityLabels[quality] ?? quality}`
+  }
+  return `${fieldLabel} · ${quality} match`
+}
+
+export function AtlasExplorer({ locale, params }: AtlasExplorerProps) {
   const t = copy[locale].atlas
   const searchRef = useRef<HTMLInputElement>(null)
+  const filterTriggerRef = useRef<HTMLButtonElement>(null)
+  const filterRailRef = useRef<HTMLElement>(null)
   const initialMode = params?.get('view') === 'people' ? 'people' : 'concepts'
   const [mode, setMode] = useState<SearchMode>(initialMode)
   const [query, setQuery] = useState(params?.get('q') ?? '')
   const [category, setCategory] = useState(params?.get('category') ?? '')
-  const [focusId, setFocusId] = useState(
-    params?.get('focus') ?? (homePreview ? 'jacobian-matrix' : ''),
-  )
+  const [focusId, setFocusId] = useState(params?.get('focus') ?? '')
   const [mobileDetailOpen, setMobileDetailOpen] = useState(Boolean(params?.get('focus')))
   const [filtersOpen, setFiltersOpen] = useState(false)
   const deferredQuery = useDeferredValue(query)
@@ -62,12 +94,26 @@ export function AtlasExplorer({ locale, params, homePreview = false }: AtlasExpl
   )
 
   const categoryCounts = useMemo(() => {
-    const counts = new Map<string, number>()
+    const conceptCounts = new Map<string, number>()
+    const personIdsByCategory = new Map<string, Set<string>>()
     concepts.forEach((concept) => {
-      counts.set(concept.category, (counts.get(concept.category) ?? 0) + 1)
+      conceptCounts.set(
+        concept.category,
+        (conceptCounts.get(concept.category) ?? 0) + 1,
+      )
+      const personIds = personIdsByCategory.get(concept.category) ?? new Set<string>()
+      concept.personIds.forEach((personId) => personIds.add(personId))
+      personIdsByCategory.set(concept.category, personIds)
     })
-    return counts
-  }, [])
+    return new Map(
+      categories.map((item) => [
+        item,
+        mode === 'people'
+          ? (personIdsByCategory.get(item)?.size ?? 0)
+          : (conceptCounts.get(item) ?? 0),
+      ]),
+    )
+  }, [mode])
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -91,14 +137,54 @@ export function AtlasExplorer({ locale, params, homePreview = false }: AtlasExpl
   }, [])
 
   useEffect(() => {
-    if (homePreview) return
+    if (!filtersOpen) return
+
+    const previousOverflow = document.body.style.overflow
+    const dialog = filterRailRef.current
+    const focusableSelector =
+      'button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+
+    document.body.style.overflow = 'hidden'
+    const focusable = Array.from(
+      dialog?.querySelectorAll<HTMLElement>(focusableSelector) ?? [],
+    )
+    focusable[0]?.focus()
+
+    const onDialogKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        setFiltersOpen(false)
+        return
+      }
+      if (event.key !== 'Tab' || focusable.length === 0) return
+
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault()
+        last.focus()
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault()
+        first.focus()
+      }
+    }
+
+    window.addEventListener('keydown', onDialogKeyDown)
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', onDialogKeyDown)
+      filterTriggerRef.current?.focus({ preventScroll: true })
+    }
+  }, [filtersOpen])
+
+  useEffect(() => {
     const nextParams = new URLSearchParams()
     if (mode !== 'concepts') nextParams.set('view', mode)
     if (query) nextParams.set('q', query)
     if (category) nextParams.set('category', category)
     if (focusId) nextParams.set('focus', focusId)
     navigate('/atlas', nextParams, true)
-  }, [category, focusId, homePreview, mode, query])
+  }, [category, focusId, mode, query])
 
   const selectMode = (nextMode: SearchMode) => {
     startTransition(() => {
@@ -111,6 +197,10 @@ export function AtlasExplorer({ locale, params, homePreview = false }: AtlasExpl
   const chooseResult = (kind: 'concept' | 'person', id: string) => {
     if (kind === 'person') {
       navigate(`/person/${id}`)
+      return
+    }
+    if (window.matchMedia('(max-width: 1040px)').matches) {
+      navigate(`/concept/${id}`)
       return
     }
     setFocusId(id)
@@ -127,30 +217,36 @@ export function AtlasExplorer({ locale, params, homePreview = false }: AtlasExpl
 
   return (
     <section
-      className={`atlas-section${homePreview ? ' atlas-section--home' : ''}`}
-      aria-labelledby={homePreview ? 'atlas-preview-title' : 'atlas-title'}
+      className="atlas-section"
+      aria-labelledby="atlas-title"
     >
-      {!homePreview ? (
-        <header className="page-intro">
-          <p className="section-number">01 — {concepts.length}</p>
-          <h1 id="atlas-title">{t.title}</h1>
-          <SectionRule />
-          <p>{t.description}</p>
-        </header>
-      ) : (
-        <h2 className="sr-only" id="atlas-preview-title">
-          {t.title}
-        </h2>
-      )}
+      <header className="page-intro">
+        <p className="section-number">01 — {concepts.length}</p>
+        <h1 id="atlas-title">{t.title}</h1>
+        <SectionRule />
+        <p>{t.description}</p>
+      </header>
 
       <div
         className={`atlas-shell${selectedConcept ? ' atlas-shell--detail-open' : ''}${
           mobileDetailOpen ? ' atlas-shell--mobile-detail-open' : ''
         }`}
       >
+        {filtersOpen ? (
+          <button
+            className="filter-scrim"
+            type="button"
+            onClick={() => setFiltersOpen(false)}
+            aria-label={locale === 'zh' ? '关闭筛选' : 'Close filters'}
+          />
+        ) : null}
         <aside
+          ref={filterRailRef}
+          id="atlas-filters"
           className={`filter-rail${filtersOpen ? ' filter-rail--open' : ''}`}
           aria-label={t.filters}
+          role={filtersOpen ? 'dialog' : undefined}
+          aria-modal={filtersOpen ? true : undefined}
         >
           <div className="filter-rail__mobile-header">
             <h2>{t.filters}</h2>
@@ -158,7 +254,7 @@ export function AtlasExplorer({ locale, params, homePreview = false }: AtlasExpl
               className="icon-button"
               type="button"
               onClick={() => setFiltersOpen(false)}
-              aria-label={t.clear}
+              aria-label={locale === 'zh' ? '关闭筛选' : 'Close filters'}
             >
               <X aria-hidden="true" />
             </button>
@@ -173,7 +269,7 @@ export function AtlasExplorer({ locale, params, homePreview = false }: AtlasExpl
           >
             <Grid2X2 aria-hidden="true" />
             <span>{t.all}</span>
-            <small>{concepts.length}</small>
+            <small>{mode === 'people' ? people.length : concepts.length}</small>
           </button>
           {categories.map((item) => (
             <button
@@ -244,9 +340,12 @@ export function AtlasExplorer({ locale, params, homePreview = false }: AtlasExpl
               </button>
             </div>
             <button
+              ref={filterTriggerRef}
               className="filter-button"
               type="button"
               onClick={() => setFiltersOpen(true)}
+              aria-expanded={filtersOpen}
+              aria-controls="atlas-filters"
             >
               <Filter aria-hidden="true" />
               {t.filters}
@@ -254,7 +353,7 @@ export function AtlasExplorer({ locale, params, homePreview = false }: AtlasExpl
             </button>
           </div>
 
-          <div className="results-meta">
+          <div className="results-meta" aria-live="polite">
             <span>
               {results.length} {t.results}
             </span>
@@ -264,85 +363,110 @@ export function AtlasExplorer({ locale, params, homePreview = false }: AtlasExpl
             </button>
           </div>
 
-          <div className="result-list" aria-live="polite" aria-busy={query !== deferredQuery}>
+          <ul className="result-list" aria-busy={query !== deferredQuery}>
             {results.length ? (
               results.map((result) => {
                 if (result.kind === 'person') {
                   const person = peopleById.get(result.id)
                   if (!person) return null
-                  const knownConcepts = person.concepts
-                    .map((id) => conceptsById.get(id)?.term)
+                  const visibleConcepts = person.concepts
+                    .map((id) => {
+                      const concept = conceptsById.get(id)
+                      return concept ? (locale === 'zh' ? concept.zhTerm : concept.term) : undefined
+                    })
                     .filter(Boolean)
                     .slice(0, 3)
-                    .join(', ')
+                  const remainingConcepts = person.concepts.length - visibleConcepts.length
+                  const knownConcepts = `${visibleConcepts.join(locale === 'zh' ? '、' : ', ')}${
+                    remainingConcepts > 0 ? ` +${remainingConcepts}` : ''
+                  }`
                   return (
-                    <button
-                      type="button"
-                      className="result-row result-row--person"
-                      key={person.id}
-                      onClick={() => chooseResult('person', person.id)}
-                    >
-                      <PersonPortrait person={person} locale={locale} />
-                      <span className="result-row__main">
-                        <strong>
-                          {person.name} <small>/ {person.zhName}</small>
-                        </strong>
-                        <span>{person.summary[locale]}</span>
-                      </span>
-                      <span className="result-row__origin">
-                        {person.region}
-                        <small>{formatLifespan(person, locale)}</small>
-                      </span>
-                      <span className="result-row__application">
-                        {locale === 'zh' ? '相关术语' : 'Named concepts'}
-                        <small>{knownConcepts}</small>
-                      </span>
-                      <ArrowRight className="result-row__arrow" aria-hidden="true" />
-                    </button>
+                    <li key={person.id}>
+                      <button
+                        type="button"
+                        className="result-row result-row--person"
+                        onClick={() => chooseResult('person', person.id)}
+                      >
+                        <PersonPortrait person={person} locale={locale} />
+                        <span className="result-row__main">
+                          <strong>
+                            {locale === 'zh' ? person.zhName : person.name}{' '}
+                            <small>/ {locale === 'zh' ? person.name : person.zhName}</small>
+                          </strong>
+                          <span>{person.summary[locale]}</span>
+                          {deferredQuery && result.matchReasons[0] ? (
+                            <span className="result-row__match">
+                              {locale === 'zh' ? '匹配于：' : 'Matched in: '}
+                              {formatMatchReason(result.matchReasons[0], locale)}
+                            </span>
+                          ) : null}
+                        </span>
+                        <span className="result-row__origin">
+                          {formatRegion(person.region, locale)}
+                          <small>{formatLifespan(person, locale)}</small>
+                        </span>
+                        <span className="result-row__application">
+                          {locale === 'zh' ? '相关术语' : 'Named concepts'}
+                          <small>{knownConcepts}</small>
+                        </span>
+                        <ArrowRight className="result-row__arrow" aria-hidden="true" />
+                      </button>
+                    </li>
                   )
                 }
 
                 const concept = conceptsById.get(result.id)
                 if (!concept) return null
                 const originators = concept.personIds
-                  .map((id) => peopleById.get(id)?.name)
+                  .map((id) => {
+                    const person = peopleById.get(id)
+                    return person ? (locale === 'zh' ? person.zhName : person.name) : undefined
+                  })
                   .filter(Boolean)
-                  .join(', ')
+                  .join(locale === 'zh' ? '、' : ', ')
                 return (
-                  <button
-                    type="button"
-                    className={`result-row${
-                      focusId === concept.id ? ' result-row--selected' : ''
-                    }`}
-                    key={concept.id}
-                    onClick={() => chooseResult('concept', concept.id)}
-                    aria-pressed={focusId === concept.id}
-                  >
-                    <span className="result-row__marker" aria-hidden="true" />
-                    <span className="result-row__main">
-                      <strong>
-                        {concept.term} <small>/ {concept.zhTerm}</small>
-                      </strong>
-                      <span className="result-row__nickname">
-                        {concept.functionNickname[locale]}
+                  <li key={concept.id}>
+                    <button
+                      type="button"
+                      className={`result-row${
+                        focusId === concept.id ? ' result-row--selected' : ''
+                      }`}
+                      onClick={() => chooseResult('concept', concept.id)}
+                      aria-pressed={focusId === concept.id}
+                    >
+                      <span className="result-row__marker" aria-hidden="true" />
+                      <span className="result-row__main">
+                        <strong>
+                          {locale === 'zh' ? concept.zhTerm : concept.term}{' '}
+                          <small>/ {locale === 'zh' ? concept.term : concept.zhTerm}</small>
+                        </strong>
+                        <span className="result-row__nickname">
+                          {concept.functionNickname[locale]}
+                        </span>
+                        <span className="result-row__mobile-question">
+                          {concept.question[locale]}
+                        </span>
+                        {deferredQuery && result.matchReasons[0] ? (
+                          <span className="result-row__match">
+                            {locale === 'zh' ? '匹配于：' : 'Matched in: '}
+                            {formatMatchReason(result.matchReasons[0], locale)}
+                          </span>
+                        ) : null}
                       </span>
-                      <span className="result-row__mobile-question">
-                        {concept.question[locale]}
+                      <span className="result-row__origin">
+                        {originators || '—'}
+                        <small>{categoryLabels[concept.category]?.[locale] ?? concept.category}</small>
                       </span>
-                    </span>
-                    <span className="result-row__origin">
-                      {originators || '—'}
-                      <small>{categoryLabels[concept.category]?.[locale] ?? concept.category}</small>
-                    </span>
-                    <span className="result-row__application">
-                      {concept.aiApplications[0]?.[locale] ?? '—'}
-                    </span>
-                    <ArrowRight className="result-row__arrow" aria-hidden="true" />
-                  </button>
+                      <span className="result-row__application">
+                        {concept.aiApplications[0]?.[locale] ?? '—'}
+                      </span>
+                      <ArrowRight className="result-row__arrow" aria-hidden="true" />
+                    </button>
+                  </li>
                 )
               })
             ) : (
-              <div className="empty-results">
+              <li className="empty-results">
                 <Search aria-hidden="true" />
                 <p>{t.noResults}</p>
                 <button
@@ -354,9 +478,9 @@ export function AtlasExplorer({ locale, params, homePreview = false }: AtlasExpl
                 >
                   {t.clear}
                 </button>
-              </div>
+              </li>
             )}
-          </div>
+          </ul>
         </div>
 
         {selectedConcept ? (

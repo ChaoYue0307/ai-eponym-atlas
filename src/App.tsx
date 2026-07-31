@@ -1,20 +1,44 @@
-import { useEffect, useState } from 'react'
-import { AboutPage } from './components/AboutPage'
-import { AtlasExplorer } from './components/AtlasExplorer'
-import { ConceptDetail } from './components/ConceptDetail'
+import { lazy, Suspense, useEffect, useState } from 'react'
 import { Footer } from './components/Footer'
-import { GraphExplorer } from './components/GraphExplorer'
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
-import { PersonDetail } from './components/PersonDetail'
-import { TimelineView } from './components/TimelineView'
+import { HomeGuide } from './components/HomeGuide'
 import type { Locale } from './copy'
-import { conceptsById, peopleById } from './data/catalog'
-import { useHashRoute } from './hooks/useHashRoute'
+import { conceptsById, meta, peopleById } from './data/catalog'
+import { navigate, parseRoute, routePath, useHashRoute } from './hooks/useHashRoute'
+
+const AboutPage = lazy(() =>
+  import('./components/AboutPage').then((module) => ({ default: module.AboutPage })),
+)
+const AtlasExplorer = lazy(() =>
+  import('./components/AtlasExplorer').then((module) => ({ default: module.AtlasExplorer })),
+)
+const ConceptDetail = lazy(() =>
+  import('./components/ConceptDetail').then((module) => ({ default: module.ConceptDetail })),
+)
+const GraphExplorer = lazy(() =>
+  import('./components/GraphExplorer').then((module) => ({ default: module.GraphExplorer })),
+)
+const LearningPathsPage = lazy(() =>
+  import('./components/LearningPathsPage').then((module) => ({ default: module.LearningPathsPage })),
+)
+const PersonDetail = lazy(() =>
+  import('./components/PersonDetail').then((module) => ({ default: module.PersonDetail })),
+)
+const TimelineView = lazy(() =>
+  import('./components/TimelineView').then((module) => ({ default: module.TimelineView })),
+)
 
 const LOCALE_KEY = 'ai-eponym-atlas:locale'
+const SITE_ROOT = 'https://chaoyue0307.github.io/ai-eponym-atlas'
+
+function setMetaContent(selector: string, content: string) {
+  document.querySelector<HTMLMetaElement>(selector)?.setAttribute('content', content)
+}
 
 function getInitialLocale(): Locale {
+  const requested = parseRoute(window.location.hash).params.get('lang')
+  if (requested === 'zh' || requested === 'en') return requested
   const stored = window.localStorage.getItem(LOCALE_KEY)
   if (stored === 'zh' || stored === 'en') return stored
   return navigator.language.toLocaleLowerCase().startsWith('zh') ? 'zh' : 'en'
@@ -30,28 +54,56 @@ function App() {
   }, [locale])
 
   useEffect(() => {
+    const requested = route.params.get('lang')
+    if ((requested === 'zh' || requested === 'en') && requested !== locale) {
+      setLocale(requested)
+    }
+  }, [locale, route])
+
+  useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' })
 
+    let title: string
+    let description: string
     if (route.name === 'concept') {
       const concept = conceptsById.get(route.id)
-      document.title = concept
-        ? `${concept.term} · AI Eponym Atlas`
+      title = concept
+        ? `${locale === 'zh' ? concept.zhTerm : concept.term} · AI Eponym Atlas`
         : 'Concept · AI Eponym Atlas'
-      return
-    }
-    if (route.name === 'person') {
+      description = concept
+        ? `${concept.functionNickname[locale]} — ${concept.question[locale]}`
+        : meta.description[locale]
+    } else if (route.name === 'person') {
       const person = peopleById.get(route.id)
-      document.title = person ? `${person.name} · AI Eponym Atlas` : 'Person · AI Eponym Atlas'
-      return
+      title = person
+        ? `${locale === 'zh' ? person.zhName : person.name} · AI Eponym Atlas`
+        : 'Person · AI Eponym Atlas'
+      description = person?.summary[locale] ?? meta.description[locale]
+    } else {
+      const routeTitles = {
+        home: 'AI Eponym Atlas · AI 人名概念图谱',
+        atlas: locale === 'zh' ? '探索图谱 · AI Eponym Atlas' : 'Explore · AI Eponym Atlas',
+        paths: locale === 'zh' ? '学习路径 · AI Eponym Atlas' : 'Learning paths · AI Eponym Atlas',
+        graph: locale === 'zh' ? '关系图谱 · AI Eponym Atlas' : 'Graph · AI Eponym Atlas',
+        timeline: locale === 'zh' ? '时间线 · AI Eponym Atlas' : 'Timeline · AI Eponym Atlas',
+        about: locale === 'zh' ? '阅读指南 · AI Eponym Atlas' : 'How to read · AI Eponym Atlas',
+      } as const
+      title = routeTitles[route.name]
+      description = meta.description[locale]
     }
-    const routeTitles = {
-      home: 'AI Eponym Atlas · AI 人名概念图谱',
-      atlas: locale === 'zh' ? '探索图谱 · AI Eponym Atlas' : 'Explore · AI Eponym Atlas',
-      graph: locale === 'zh' ? '关系图谱 · AI Eponym Atlas' : 'Graph · AI Eponym Atlas',
-      timeline: locale === 'zh' ? '时间线 · AI Eponym Atlas' : 'Timeline · AI Eponym Atlas',
-      about: locale === 'zh' ? '阅读指南 · AI Eponym Atlas' : 'How to read · AI Eponym Atlas',
-    } as const
-    document.title = routeTitles[route.name]
+
+    const path = routePath(route)
+    const localizedPath = locale === 'zh' ? (path === '/' ? '/zh' : `/zh${path}`) : path
+    const canonical = `${SITE_ROOT}${localizedPath}${localizedPath === '/' ? '' : '/'}`
+    document.title = title
+    setMetaContent('meta[name="description"]', description)
+    setMetaContent('meta[property="og:title"]', title)
+    setMetaContent('meta[property="og:description"]', description)
+    setMetaContent('meta[property="og:url"]', canonical)
+    setMetaContent('meta[property="og:locale"]', locale === 'zh' ? 'zh_CN' : 'en_US')
+    setMetaContent('meta[name="twitter:title"]', title)
+    setMetaContent('meta[name="twitter:description"]', description)
+    document.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.setAttribute('href', canonical)
   }, [locale, route])
 
   let content
@@ -66,6 +118,9 @@ function App() {
     case 'graph':
       content = <GraphExplorer locale={locale} params={route.params} />
       break
+    case 'paths':
+      content = <LearningPathsPage locale={locale} />
+      break
     case 'timeline':
       content = <TimelineView locale={locale} />
       break
@@ -75,7 +130,7 @@ function App() {
     case 'concept':
       content = (
         <main className="detail-page-shell">
-          <ConceptDetail conceptId={route.id} locale={locale} />
+          <ConceptDetail conceptId={route.id} locale={locale} params={route.params} />
         </main>
       )
       break
@@ -87,13 +142,19 @@ function App() {
       content = (
         <main>
           <Hero locale={locale} />
-          <AtlasExplorer locale={locale} homePreview />
+          <HomeGuide locale={locale} />
         </main>
       )
       break
   }
 
   const showFooter = route.name !== 'concept' && route.name !== 'person'
+  const changeLocale = (nextLocale: Locale) => {
+    const nextParams = new URLSearchParams(route.params)
+    nextParams.set('lang', nextLocale)
+    setLocale(nextLocale)
+    navigate(routePath(route), nextParams, true)
+  }
 
   return (
     <div className="app-shell">
@@ -109,9 +170,17 @@ function App() {
       >
         {locale === 'zh' ? '跳到主要内容' : 'Skip to content'}
       </a>
-      <Header locale={locale} route={route} onLocaleChange={setLocale} />
+      <Header locale={locale} route={route} onLocaleChange={changeLocale} />
       <div id="main-content" tabIndex={-1}>
-        {content}
+        <Suspense
+          fallback={
+            <main className="route-loading" aria-live="polite">
+              {locale === 'zh' ? '正在打开…' : 'Opening…'}
+            </main>
+          }
+        >
+          {content}
+        </Suspense>
       </div>
       {showFooter ? <Footer locale={locale} /> : null}
     </div>
