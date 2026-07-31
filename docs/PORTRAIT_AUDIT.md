@@ -36,7 +36,7 @@ Accepted portrait licenses:
   was excluded from the globally served site.
 - **Donald Whitney** retains a monogram because the pass did not find an
   unambiguous Wikidata identity and freely reusable portrait.
-- **Euclid** uses a much later artistic depiction, and its bilingual alt text
+- **Euclid** uses a much later artistic depiction, and its localized alt text
   says so rather than presenting it as a life portrait.
 
 ## Second-pass discovery
@@ -68,7 +68,7 @@ monogram.
 
 The repository test suite checks that every media record points to an existing
 person, every local image exists, URLs use the expected Wikidata / Wikimedia
-hosts, creator and bilingual alt text are present, and each license is in the
+hosts, creator and localized alt text are present, and each license is in the
 accepted family.
 
 ## Reproducibility and limitations

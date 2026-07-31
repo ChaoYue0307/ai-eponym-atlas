@@ -4,12 +4,12 @@ message: >-
   cite the software and link to the version you consulted.
 title: AI Eponym Atlas
 abstract: >-
-  A bilingual, evidence-linked atlas of mathematical and technical concepts
-  named after people and widely used in artificial intelligence.
+  An evidence-linked atlas of mathematical and technical concepts named after
+  people and widely used in artificial intelligence.
 type: software
 authors:
   - name: AI Eponym Atlas contributors
-version: 0.2.0
+version: 0.3.0
 date-released: 2026-07-31
 repository-code: https://github.com/ChaoYue0307/ai-eponym-atlas
 url: https://chaoyue0307.github.io/ai-eponym-atlas/

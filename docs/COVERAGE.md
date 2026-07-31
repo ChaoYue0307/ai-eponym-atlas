@@ -72,11 +72,12 @@ concept-level citation links, and 235 unique source URLs across nine subject
 categories**. These counts describe the
 released dataset, not a claim that the universe of AI-relevant eponyms is closed.
 
-Every person profile includes a bilingual introduction, localized lifespan and
-region facts, linked terms carrying the person's name, deduplicated AI applications, and
-evidence grouped by concept. The current media coverage is **78 verified real
-portraits** plus **39 labelled monogram fallbacks**. The atlas does not generate
-historical likenesses when a reusable portrait cannot be verified.
+Every person profile includes a concise introduction, localized lifespan and
+region facts, linked terms carrying the person's name, deduplicated AI
+applications, and evidence grouped by concept. The current media coverage is
+**78 verified real portraits** plus **39 labelled monogram fallbacks**. The
+atlas does not generate historical likenesses when a reusable portrait cannot
+be verified.
 
 已发布目录在三层之间保持平衡：
 
@@ -86,7 +87,7 @@ historical likenesses when a reusable portrait cannot be verified.
 
 截至 2026-07-31 的编辑快照包含 **117 位人物、120 个概念、247 条概念级引用链接、235 个唯一来源 URL 和 9 个领域分类**。这些数字描述当前已发布数据集，并不意味着 AI 相关人名概念已经穷尽。
 
-每个人物页都包含双语简介、本地化生卒年份与地区信息、承载其姓名的相关术语、去重后的 AI 应用，以及按概念分组的证据。当前媒体覆盖包括 **78 幅经核验的真实肖像**和 **39 个明确标注的姓名首字母占位符**；无法核验可复用肖像时，图谱不会生成历史人物形象。
+每个人物页都包含简明介绍、本地化生卒年份与地区信息、承载其姓名的相关术语、去重后的 AI 应用，以及按概念分组的证据。当前媒体覆盖包括 **78 幅经核验的真实肖像**和 **39 个明确标注的姓名首字母占位符**；无法核验可复用肖像时，图谱不会生成历史人物形象。
 
 ## Explicit exclusions / 明确排除
 

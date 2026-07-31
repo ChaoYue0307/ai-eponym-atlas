@@ -37,7 +37,7 @@ flowchart LR
 
 | Source | Responsibility |
 | --- | --- |
-| `content/eponyms.json` | Project metadata, people, concepts, relationships, bilingual explanations, and concept-level reference links |
+| `content/eponyms.json` | Project metadata, people, concepts, relationships, localized explanations, and concept-level reference links |
 | `content/people-media.json` | Wikidata identity records, verified local portrait files, original URLs, creators, licenses, alt text, and verification dates |
 | `src/data/timeline.ts` | Curated publication, naming, people, and AI-adoption events |
 | `src/data/constellation.ts` | Small, editorial homepage sample derived from valid catalog concept IDs |
@@ -63,14 +63,14 @@ used to disambiguate the person, not a complete biographical source.
 | Concept and person details | `src/components/ConceptDetail.tsx`, `src/components/PersonDetail.tsx`, `src/lib/personProfile.ts` |
 | Relationship graph | `src/components/GraphExplorer.tsx`, `src/components/GraphExplorer.css`, `src/lib/graph.ts`, `src/lib/graphLayout.ts`, `src/lib/graphViewport.ts` |
 | Timeline | `src/components/TimelineView.tsx`, `src/components/TimelineView.css`, `src/data/timeline.ts` |
-| Localization | `src/copy.ts` and bilingual catalog fields |
+| Localization | `src/copy.ts` and catalog locale fields |
 | Design system | `src/styles.css`, `docs/DESIGN_SYSTEM.md` |
 | Static discovery pages | `scripts/generate-static-pages.mjs`, generated `dist/sitemap.xml` |
 
 ## Routes / 页面
 
 The interactive application uses hash routing so direct links remain compatible
-with static GitHub Pages hosting. Production builds also create bilingual,
+with static GitHub Pages hosting. Production builds also create localized,
 metadata-rich HTML entry points for every concept and person. These pages add
 canonical URLs, Open Graph metadata, structured data, `hreflang` links,
 readable no-JavaScript content, and redirects into the matching interactive
@@ -82,7 +82,7 @@ route. The same build step generates the complete sitemap.
 | `#/atlas` | Searchable concept and people atlas |
 | `#/paths` | Four guided, pedagogical concept sequences |
 | `#/concept/:id` | Concept detail |
-| `#/person/:id` | Person profile with bilingual introduction, localized facts, terms carrying the name, deduplicated AI applications, and concept-grouped evidence |
+| `#/person/:id` | Person profile with a localized introduction and facts, terms carrying the name, deduplicated AI applications, and concept-grouped evidence |
 | `#/graph` | One- or two-hop relationship graph |
 | `#/timeline` | Filterable historical timeline |
 | `#/about` | Editorial method |
@@ -112,7 +112,7 @@ static discovery-page generation, and bundle budgets. Tests cover:
 
 - unique and bidirectional IDs;
 - valid related-concept and timeline references;
-- bilingual fields and source minimums;
+- localized fields and source minimums;
 - strict KaTeX parsing, guided-path IDs, and locale-aware routes;
 - complete person-profile derivation, application deduplication, and source
   grouping;

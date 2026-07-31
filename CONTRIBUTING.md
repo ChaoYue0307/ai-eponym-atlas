@@ -102,7 +102,7 @@ second set of profile claims in the UI.
 - 从该实体的 P18 进入 Wikimedia Commons 文件页；
 - 仅接受 public domain、CC0、CC BY 或 CC BY-SA 图片；
 - 下载有界缩略图到 `public/portraits/`；
-- 在 `content/people-media.json` 中完整填写人物 ID、本地文件、原始缩略图 URL、Commons 文件页、创作者、许可、许可链接、双语 alt text 和核验日期；
+- 在 `content/people-media.json` 中完整填写人物 ID、本地文件、原始缩略图 URL、Commons 文件页、创作者、许可、许可链接、各语言的 alt text 和核验日期；
 - 不确定时保留 `portraitInitials`，不要猜测。
 - 不生成历史人物形象；身份或全球可复用许可无法核实时，应继续使用有明确说明的姓名首字母占位符。
 
@@ -273,7 +273,7 @@ statistics
 *On person profiles, these remain concept citations. A Wikidata profile is an
 identity record, not a full biography source.*
 
-## 双语写作 / Bilingual writing
+## 术语与翻译 / Terminology and translation
 
 - 英文保留规范术语；中文使用自然表达，不做逐词硬译。
 - `term` 与 `zhTerm` 是正式名称；`functionNickname` 是解释性标签。

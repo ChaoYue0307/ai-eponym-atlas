@@ -13,7 +13,7 @@ clearly distinct.
    review dates, and limitations must remain close to the claims they support.
 3. **Names lead to understanding.** Pages should move from the formal eponym to
    the question, intuition, mathematics, history, relationships, and AI use.
-4. **Bilingual by construction.** Chinese and English are equal product states,
+4. **Language parity.** Chinese and English are equal product states,
    not a primary interface plus a translated afterthought.
 5. **Quiet confidence.** Prefer precise typography, whitespace, thin rules, and
    a small number of strong visual moments over decorative card grids.
@@ -100,7 +100,7 @@ historical evidence, or portraits of real people.
   tab, and understood by assistive technology.
 - **Portrait:** one reusable treatment with monogram fallback and visible
   attribution on profile surfaces.
-- **Person profile:** bilingual introduction and localized lifespan/region facts
+- **Person profile:** localized introduction and lifespan/region facts
   lead into terms carrying the person's name, deduplicated AI applications, and
   evidence grouped under the concept whose claims it supports.
 - **Learning path:** an open, ruled sequence with visible progress and previous
@@ -179,7 +179,7 @@ grouping must not imply that they source every biographical statement.
 Before release, compare the accepted visual concept and rendered implementation
 at desktop and mobile sizes. Review:
 
-1. content and bilingual copy;
+1. content and localized copy;
 2. information hierarchy and first-viewport balance;
 3. typography and control text;
 4. semantic color, shape, line, and icon usage;

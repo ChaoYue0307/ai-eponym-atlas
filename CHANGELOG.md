@@ -7,7 +7,7 @@ All notable editorial and product changes are recorded here. The catalog's
 
 - Rebuilt the homepage around three clear reader intentions and a curated set
   of six widely useful concepts instead of mounting the complete atlas at once.
-- Added four bilingual learning paths with concept-by-concept progress,
+- Added four learning paths with concept-by-concept progress,
   previous/next navigation, and an explicit distinction between pedagogical
   order and historical causality.
 - Corrected people-profile language so an eponymous association is never
@@ -37,12 +37,12 @@ All notable editorial and product changes are recorded here. The catalog's
   system.
 - Replaced project and editorial narration in the live experience with direct
   learning language, including clearer biography, attribution, graph, timeline,
-  correction, and reading-guide copy in English and Chinese.
+  correction, and reading-guide copy.
 - Added a restrained semantic emoji system to the reading guide and README,
   and linked the README homepage preview directly to the live atlas.
 - Added live coverage totals to the homepage introduction, derived directly
   from the catalog so people, concepts, fields, and citations stay current.
-- Expanded all 117 people profiles with bilingual introductions, localized
+- Expanded all 117 people profiles with complete introductions, localized
   lifespan and region facts, linked core contributions, deduplicated AI
   applications, and concept-grouped evidence and attribution.
 - Kept profile evidence scopes explicit: concept citations support the linked
@@ -86,5 +86,5 @@ All notable editorial and product changes are recorded here. The catalog's
 
 ## 0.1.0 — 2026-07-31
 
-- Published the founding bilingual atlas, searchable website, relationship
+- Published the founding atlas, searchable website, relationship
   graph, timeline, contribution workflow, CI, and GitHub Pages deployment.

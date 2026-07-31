@@ -27,12 +27,12 @@
   <a href="https://chaoyue0307.github.io/ai-eponym-atlas/#/timeline">🕰️ Follow the timeline</a>
 </p>
 
-AI Eponym Atlas is a bilingual reference for mathematical and technical
-concepts named after people and widely used in artificial intelligence. Start
-with what a concept does, then explore its intuition, formal definition,
-history, connections, and modern applications.
+AI Eponym Atlas explains mathematical and technical concepts named after people
+and widely used in artificial intelligence. Start with what a concept does,
+then explore its intuition, formal definition, history, connections, and modern
+applications.
 
-AI Eponym Atlas 是一份双语参考图谱，逐一解释以人物命名、并广泛用于 AI 的数学与技术术语：它解决什么问题、如何定义、从何而来，以及怎样用于现代 AI。
+AI 人名概念图谱逐一解释以人物命名、并广泛用于 AI 的数学与技术术语：它解决什么问题、如何定义、从何而来，以及怎样用于现代 AI。
 
 ---
 
@@ -42,7 +42,7 @@ Catalog snapshot: **2026-07-31** / 目录快照：**2026-07-31**
 
 | Coverage / 覆盖 | Evidence / 证据 | Experience / 体验 |
 | :---: | :---: | :---: |
-| **120** concepts / 概念<br>**117** people / 人物 | **247** citation links / 引用链接<br>**235** unique source URLs / 唯一来源<br>**78** verified portraits / 核验肖像 | **9** fields / 领域<br>中文 + English |
+| **120** concepts / 概念<br>**117** people / 人物 | **247** citation links / 引用链接<br>**235** unique source URLs / 唯一来源<br>**78** verified portraits / 核验肖像 | **9** fields / 领域<br>**4** learning paths / 学习路径 |
 
 Every concept has at least two reference links. References are attached at the
 concept level and may support a definition, naming history, implementation, or
@@ -51,13 +51,13 @@ historical portrait links to its source and license.
 
 每个概念至少有两条参考链接。链接附在概念层级，可能分别支持定义、命名史、实现或 AI 用途；重要主张请继续核对相关来源。每幅历史人物肖像都标注原始来源与许可信息。
 
-All 117 people profiles pair a bilingual introduction with localized lifespan
-and region facts, linked terms carrying their names, deduplicated AI applications, and
-evidence grouped by concept. The atlas uses **78 verified real portraits** and
-**39 clearly labelled monogram fallbacks**; it does not generate historical
+All 117 people profiles pair a concise introduction with localized lifespan and
+region facts, linked terms carrying their names, deduplicated AI applications,
+and evidence grouped by concept. The atlas uses **78 verified real portraits**
+and **39 clearly labelled monogram fallbacks**; it does not generate historical
 likenesses.
 
-117 个人物页均提供双语简介、本地化生卒年份与地区信息、承载其姓名的相关术语、去重后的 AI 应用，以及按概念分组的证据。图谱采用 **78 幅经核验的真实肖像**与 **39 个明确标注的姓名首字母占位符**，不生成历史人物形象。
+117 个人物页均提供简明介绍、本地化生卒年份与地区信息、承载其姓名的相关术语、去重后的 AI 应用，以及按概念分组的证据。图谱采用 **78 幅经核验的真实肖像**与 **39 个明确标注的姓名首字母占位符**，不生成历史人物形象。
 
 ## 🧠 What the names don't tell you / 名字没有告诉你的内容
 
@@ -111,12 +111,12 @@ order—without presenting that order as historical causality.
       <img src="./docs/images/timeline-overview.jpg" alt="Desktop historical timeline with event-kind filters, a true-scale 1596–2025 overview, four eras, René Descartes's portrait, and a selected event inspector">
     </td>
     <td>
-      <img src="./docs/images/person-profile-mobile.jpg" alt="Top of René Descartes's mobile profile, with a verified historical portrait, bilingual introduction, attribution, profile facts, and evidence totals">
+      <img src="./docs/images/person-profile-mobile.jpg" alt="Top of René Descartes's mobile profile, with a verified historical portrait, introduction, attribution, profile facts, and evidence totals">
     </td>
   </tr>
   <tr>
     <td><strong>Historical timeline</strong><br>Follow publications, later naming, and AI adoption across more than four centuries.</td>
-    <td><strong>People profiles</strong><br>Read a bilingual introduction and localized facts, then follow terms carrying the name, AI uses, and concept-grouped evidence.</td>
+    <td><strong>People profiles</strong><br>Read a concise introduction and localized facts, then follow terms carrying the name, AI uses, and concept-grouped evidence.</td>
   </tr>
 </table>
 
@@ -131,8 +131,8 @@ sources. [Read the source and image policy →](./docs/PORTRAITS.md)
 | 🧭 **Guided learning paths** — Follow four short sequences with visible step-by-step progress. | 🧱 **Layered explanations** — Move from question and function to definition, history, use, and evidence. |
 | 🧭 **Faceted atlas** — Browse 9 mathematical and AI fields in concept or people mode. | ∑ **Formal definitions** — Read renderable notation and precise mathematical definitions. |
 | 🔗 **Relationship graph** — Follow people, related concepts, and concrete applications. | 📚 **Evidence-aware history** — Keep definition, naming history, and AI evidence distinct. |
-| 🕰️ **Historical timeline** — Separate a person's life, publication, later naming, and AI adoption. | 🌏 **Bilingual reading** — Maintain Chinese and English terminology together. |
-| 👤 **People profiles** — Connect bilingual introductions and localized facts to the terms carrying each name, AI uses, and evidence. | ♿ **Keyboard and mobile friendly** — Explore every view with a keyboard or on a small screen. |
+| 🕰️ **Historical timeline** — Separate a person's life, publication, later naming, and AI adoption. | 🧾 **Canonical terminology** — Keep formal names, aliases, and plain-language labels together. |
+| 👤 **People profiles** — Connect concise introductions and localized facts to the terms carrying each name, AI uses, and evidence. | ♿ **Keyboard and mobile friendly** — Explore every view with a keyboard or on a small screen. |
 
 ### ✅ Three practical ways to use it / 三种实用方式
 
@@ -250,7 +250,7 @@ flowchart TD
     R["👤 Person profile selector<br/>namesake terms · AI uses · evidence"]
     G["🔗 Relationship graph<br/>semantic + visual layers"]
     T["🕰️ Historical timeline<br/>events + eras + URL state"]
-    U["🌐 React interface<br/>bilingual · responsive · accessible"]
+    U["🌐 React interface<br/>responsive · accessible"]
     Q["✅ Integrity gates<br/>TypeScript · Vitest · build"]
     D["🚀 GitHub Pages"]
 
@@ -284,7 +284,7 @@ is not presented as a complete biographical source.
 | Guide | What it covers |
 | --- | --- |
 | [Coverage and currency](./docs/COVERAGE.md) | Inclusion rules, evidence tiers, active topics, and known gaps |
-| [Contributing](./CONTRIBUTING.md) | Complete schema, bilingual style, local checks, Git, and PR checklist |
+| [Contributing](./CONTRIBUTING.md) | Complete schema, editorial style, local checks, Git, and PR checklist |
 | [Portrait policy](./docs/PORTRAITS.md) | Identity matching, accepted licenses, attribution, and monogram fallback |
 | [Portrait audit](./docs/PORTRAIT_AUDIT.md) | File-by-file identity and license verification record |
 | [Generated assets](./docs/GENERATED_ASSETS.md) | Image-generation prompts, refinement, compression, and safeguards |
@@ -312,7 +312,7 @@ batch of placeholders.
 
 ### 🗺️ Roadmap
 
-- [x] Searchable bilingual atlas with profiles, connections, chronology,
+- [x] Searchable atlas with profiles, connections, chronology,
   sources, and sourced historical portraits.
 - [x] Guided learning paths with shareable concept-by-concept progress.
 - [ ] Typed prerequisite, variant, generalization, duality, and

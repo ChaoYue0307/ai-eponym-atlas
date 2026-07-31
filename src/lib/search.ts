@@ -356,7 +356,7 @@ function stableResultSort(
 }
 
 /**
- * Search every reader-facing bilingual concept field.
+ * Search every reader-facing localized concept field.
  *
  * Ranking is deterministic and additive across fields. Exact matches outrank
  * prefixes, phrases, all-token matches, and partial-token matches; field

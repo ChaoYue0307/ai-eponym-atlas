@@ -28,7 +28,7 @@ describe("searchCatalog", () => {
     expect(results[0]?.matchReasons.join(" ")).toContain("Function nickname");
   });
 
-  it("searches bilingual questions, intuition, and AI applications", () => {
+  it("searches localized questions, intuition, and AI applications", () => {
     const questionResults = searchCatalog("观察到证据后", "concepts");
     const intuitionResults = searchCatalog("勾股定理", "concepts");
     const applicationResults = searchCatalog(

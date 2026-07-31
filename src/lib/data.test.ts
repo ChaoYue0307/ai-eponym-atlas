@@ -126,7 +126,7 @@ describe("atlas data integrity", () => {
     }
   });
 
-  it("has complete bilingual reader-facing fields", () => {
+  it("has complete localized reader-facing fields", () => {
     for (const concept of concepts) {
       expect(concept.term.trim()).not.toBe("");
       expect(concept.zhTerm.trim()).not.toBe("");

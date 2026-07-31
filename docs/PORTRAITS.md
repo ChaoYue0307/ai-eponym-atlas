@@ -19,7 +19,7 @@ AI Eponym Atlas 仅在人物身份与图片再利用条款都可核验时使用�
    CC BY-NC from passing a prefix check.
 5. Save a bounded Wikimedia-generated thumbnail in `public/portraits/` and
    record the exact source URL, file-description page, creator, license, license
-   link, accessible bilingual alt text, and verification date in
+   link, accessible alt text for each locale, and verification date in
    `content/people-media.json`.
 6. Display the credit and license on the person's detail page. If a local image
    is missing or fails to load, the interface falls back to the person's
