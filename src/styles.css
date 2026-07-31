@@ -228,6 +228,28 @@ p {
   text-transform: uppercase;
 }
 
+.about-page .section-number {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-number__emoji {
+  display: inline-grid;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  place-items: center;
+  border: 1px solid #d9e4ff;
+  border-radius: 6px;
+  background: var(--blue-pale);
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
 .section-rule {
   display: flex;
   max-width: 520px;
@@ -2256,7 +2278,25 @@ p {
 }
 
 .entry-anatomy__example strong {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: 0.77rem;
+}
+
+.entry-anatomy__emoji {
+  display: inline-grid;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  place-items: center;
+  border-radius: 6px;
+  color: var(--blue-dark);
+  background: var(--blue-pale);
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 400;
+  line-height: 1;
 }
 
 .entry-anatomy__example p {

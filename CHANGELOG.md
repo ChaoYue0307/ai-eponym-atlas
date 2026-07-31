@@ -12,6 +12,8 @@ All notable editorial and product changes are recorded here. The catalog's
 - Replaced project and editorial narration in the live experience with direct
   learning language, including clearer biography, attribution, graph, timeline,
   correction, and reading-guide copy in English and Chinese.
+- Added a restrained semantic emoji system to the reading guide and README,
+  and linked the README homepage preview directly to the live atlas.
 - Expanded the atlas from 75 to 120 concepts and from 57 to 117 people.
 - Raised the evidence floor to at least two direct sources per concept, for 247
   source links in the released catalog.

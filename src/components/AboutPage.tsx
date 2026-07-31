@@ -42,6 +42,7 @@ const principles = [
 const anatomyItems = [
   {
     number: '01',
+    emoji: '❓',
     label: { en: 'Question', zh: '核心问题' },
     body: {
       en: 'How does every output change when the inputs move slightly?',
@@ -50,6 +51,7 @@ const anatomyItems = [
   },
   {
     number: '02',
+    emoji: '🏷️',
     label: { en: 'Plain-language label', zh: '功能标签' },
     body: {
       en: 'A local input-to-output sensitivity map',
@@ -58,6 +60,7 @@ const anatomyItems = [
   },
   {
     number: '03',
+    emoji: '💡',
     label: { en: 'Intuition', zh: '直觉' },
     body: {
       en: 'The best local linear approximation of a multivariable map',
@@ -66,6 +69,7 @@ const anatomyItems = [
   },
   {
     number: '04',
+    emoji: '∑',
     label: { en: 'Formal definition', zh: '形式化定义' },
     body: {
       en: 'The matrix containing every first partial derivative',
@@ -74,6 +78,7 @@ const anatomyItems = [
   },
   {
     number: '05',
+    emoji: '🤖',
     label: { en: 'AI use', zh: 'AI 用途' },
     body: {
       en: 'Backpropagation, normalizing flows, and robot kinematics',
@@ -82,6 +87,7 @@ const anatomyItems = [
   },
   {
     number: '06',
+    emoji: '🕰️',
     label: { en: 'Name & history', zh: '名字与历史' },
     body: {
       en: "See how Jacobi's work relates to the later matrix terminology",
@@ -94,7 +100,11 @@ export function AboutPage({ locale }: { locale: Locale }) {
   return (
     <main className="about-page">
       <header className="page-intro about-page__intro">
-        <p className="section-number">04 — {locale === 'zh' ? '阅读指南' : 'HOW TO READ'}</p>
+        <p className="section-number">
+          <span>04 —</span>
+          <span className="section-number__emoji" aria-hidden="true">🧭</span>
+          <span>{locale === 'zh' ? '阅读指南' : 'HOW TO READ'}</span>
+        </p>
         <h1>
           {locale === 'zh' ? '看懂名字本身没有说出的内容。' : 'Understand what the name cannot tell you.'}
         </h1>
@@ -108,7 +118,10 @@ export function AboutPage({ locale }: { locale: Locale }) {
 
       <section className="method-principles" aria-labelledby="principles-title">
         <div className="method-principles__heading">
-          <p className="section-number">{locale === 'zh' ? '你会读到什么' : "WHAT YOU'LL FIND"}</p>
+          <p className="section-number">
+            <span className="section-number__emoji" aria-hidden="true">🧠</span>
+            <span>{locale === 'zh' ? '你会读到什么' : "WHAT YOU'LL FIND"}</span>
+          </p>
           <h2 id="principles-title">
             {locale === 'zh'
               ? '把陌生人名变成可用的概念'
@@ -131,7 +144,8 @@ export function AboutPage({ locale }: { locale: Locale }) {
       <section className="entry-anatomy" aria-labelledby="entry-anatomy-title">
         <div className="entry-anatomy__title">
           <p className="section-number">
-            {locale === 'zh' ? '分层理解一个概念' : 'READ A CONCEPT IN LAYERS'}
+            <span className="section-number__emoji" aria-hidden="true">🧩</span>
+            <span>{locale === 'zh' ? '分层理解一个概念' : 'READ A CONCEPT IN LAYERS'}</span>
           </p>
           <h2 id="entry-anatomy-title">
             {locale === 'zh'
@@ -151,7 +165,10 @@ export function AboutPage({ locale }: { locale: Locale }) {
           {anatomyItems.map((item) => (
             <div key={item.number}>
               <span>{item.number}</span>
-              <strong>{item.label[locale]}</strong>
+              <strong>
+                <span className="entry-anatomy__emoji" aria-hidden="true">{item.emoji}</span>
+                {item.label[locale]}
+              </strong>
               <p>{item.body[locale]}</p>
             </div>
           ))}
@@ -164,7 +181,10 @@ export function AboutPage({ locale }: { locale: Locale }) {
 
       <section className="coverage-band">
         <div>
-          <p className="section-number">{locale === 'zh' ? '探索范围' : 'EXPLORE THE RANGE'}</p>
+          <p className="section-number">
+            <span className="section-number__emoji" aria-hidden="true">🗺️</span>
+            <span>{locale === 'zh' ? '探索范围' : 'EXPLORE THE RANGE'}</span>
+          </p>
           <h2>
             {locale === 'zh'
               ? '从基础数学走向现代 AI。'

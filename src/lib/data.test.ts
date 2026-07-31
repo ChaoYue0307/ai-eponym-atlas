@@ -187,6 +187,12 @@ describe("atlas data integrity", () => {
     expect(readme).toContain(`**${sourceCount}** cited sources`);
     expect(readme).toContain(`**${portraitCount}** verified portraits`);
     expect(readme).toContain(`**${categories.length}** fields`);
+    expect(readme).toMatch(
+      /<a href="https:\/\/chaoyue0307\.github\.io\/ai-eponym-atlas\/">\s*<img src="\.\/public\/og-card\.jpg"/,
+    );
+    expect(readme).toMatch(
+      /\[!\[[^\]]+\]\(\.\/docs\/images\/atlas-overview\.jpg\)\]\(https:\/\/chaoyue0307\.github\.io\/ai-eponym-atlas\/\)/,
+    );
 
     const localReferences = new Set([
       ...[...readme.matchAll(/\]\((\.\/[^)#]+)(?:#[^)]*)?\)/g)].map(

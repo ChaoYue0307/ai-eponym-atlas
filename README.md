@@ -72,9 +72,9 @@ begin with its function, then continue to the mathematics, history, and AI use.
 
 保留历史名称，也不必让它打断理解：先看概念做什么，再进入数学定义、历史脉络与 AI 用途。
 
-## 🖼️ Choose how you explore / 选择探索方式
+## 🧭 Choose how you explore / 选择探索方式
 
-![The live AI Eponym Atlas homepage showing its meaning-first hero, interactive concept constellation, filters, search, and a Jacobian detail panel](./docs/images/atlas-overview.jpg)
+[![The live AI Eponym Atlas homepage showing its meaning-first hero, interactive concept constellation, filters, search, and a Jacobian detail panel](./docs/images/atlas-overview.jpg)](https://chaoyue0307.github.io/ai-eponym-atlas/)
 
 <table>
   <tr>
@@ -116,7 +116,7 @@ sources. [Read the source and image policy →](./docs/PORTRAITS.md)
 | 🕰️ **Historical timeline** — Separate a person's life, publication, later naming, and AI adoption. | 🌏 **Bilingual reading** — Maintain Chinese and English terminology together. |
 | 👤 **People profiles** — Connect biographies, sourced portraits, and named concepts. | ♿ **Keyboard and mobile friendly** — Explore every view with a keyboard or on a small screen. |
 
-### Three practical ways to use it
+### ✅ Three practical ways to use it / 三种实用方式
 
 1. **While reading papers:** search the unfamiliar term and read its question,
    functional label, and intuition first.
@@ -125,7 +125,7 @@ sources. [Read the source and image policy →](./docs/PORTRAITS.md)
 3. **While writing or teaching:** verify spelling, notation, attribution, and
    sources before following the references to primary material.
 
-## 🧭 Jacobian matrix, decoded / 读懂雅可比矩阵
+## 🧩 Jacobian matrix, decoded / 读懂雅可比矩阵
 
 Start with the question the Jacobian answers, then connect its intuition to the
 definition and uses:
@@ -145,7 +145,7 @@ term. Check each intuition against the definition and its stated limits.
 
 功能标签用于快速定位，不替代正式术语；理解直觉时，也要对照定义与适用边界。
 
-## 🎯 What is covered / 收录内容
+## 🗺️ What is covered / 收录内容
 
 You will find concepts that:
 
@@ -294,7 +294,7 @@ batch of placeholders.
 The roadmap describes direction, not fixed release dates. See
 [CHANGELOG.md](./CHANGELOG.md) for completed work.
 
-## 📄 License and provenance / 许可与来源
+## ⚖️ License and provenance / 许可与来源
 
 | Material | Terms |
 | --- | --- |
