@@ -87,9 +87,9 @@ be read as a relationship encoded by the atlas.
 
 | Field | Record |
 | --- | --- |
-| File | `public/og-card.png` |
+| File | `public/og-card.jpg` |
 | Purpose | Open Graph and large Twitter/X link preview |
-| Output | 1200 × 630 PNG, approximately 60 KB |
+| Output | 1200 × 630 JPEG, approximately 60 KB |
 | Generated role | Uses `semantic-strata.webp` as the decorative background |
 | Deterministic role | Real project logo, English title, Chinese title, tagline, URL, typography, spacing, and rule |
 | Rendering | Browser/IAB screenshot at the native 1200 × 630 viewport |

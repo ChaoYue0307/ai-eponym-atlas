@@ -1,0 +1,25 @@
+{
+  "config": {
+    "MD013": false,
+    "MD033": {
+      "allowed_elements": [
+        "a",
+        "br",
+        "details",
+        "em",
+        "h1",
+        "img",
+        "p",
+        "strong",
+        "summary",
+        "table",
+        "td",
+        "tr"
+      ]
+    }
+  },
+  "globs": [
+    "*.md",
+    "docs/**/*.md"
+  ]
+}

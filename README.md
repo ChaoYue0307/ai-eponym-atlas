@@ -1,442 +1,289 @@
-# AI Eponym Atlas
+<h1 align="center">AI Eponym Atlas</h1>
 
-## AI 人名概念图谱
+<p align="center">
+  <strong>AI 人名概念图谱</strong><br>
+  <em>From Names to Meaning, From Mathematics to AI.</em><br>
+  从人名回到意义，从数学走向 AI。
+</p>
 
-[![CI](https://github.com/ChaoYue0307/ai-eponym-atlas/actions/workflows/ci.yml/badge.svg)](https://github.com/ChaoYue0307/ai-eponym-atlas/actions/workflows/ci.yml)
-[![Deploy](https://github.com/ChaoYue0307/ai-eponym-atlas/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/ChaoYue0307/ai-eponym-atlas/actions/workflows/deploy-pages.yml)
-[![License: MIT](https://img.shields.io/badge/code-MIT-003fc7.svg)](./LICENSE)
-[![Content: CC BY 4.0](https://img.shields.io/badge/content-CC%20BY%204.0-ef4328.svg)](./CONTENT_LICENSE)
+<p align="center">
+  <a href="https://github.com/ChaoYue0307/ai-eponym-atlas/actions/workflows/ci.yml"><img alt="CI status" src="https://github.com/ChaoYue0307/ai-eponym-atlas/actions/workflows/ci.yml/badge.svg"></a>
+  <a href="https://github.com/ChaoYue0307/ai-eponym-atlas/actions/workflows/deploy-pages.yml"><img alt="GitHub Pages deployment status" src="https://github.com/ChaoYue0307/ai-eponym-atlas/actions/workflows/deploy-pages.yml/badge.svg"></a>
+  <a href="./LICENSE"><img alt="Code license: MIT" src="https://img.shields.io/badge/code-MIT-003fc7.svg"></a>
+  <a href="./CONTENT_LICENSE"><img alt="Content license: CC BY 4.0" src="https://img.shields.io/badge/content-CC%20BY%204.0-ef4328.svg"></a>
+</p>
 
-![AI Eponym Atlas — From Names to Meaning, From Mathematics to AI.](./public/og-card.png)
+<p align="center">
+  <a href="https://chaoyue0307.github.io/ai-eponym-atlas/">
+    <img src="./public/og-card.jpg" alt="AI Eponym Atlas — a bilingual atlas that decodes the people, mathematics, and ideas behind artificial intelligence">
+  </a>
+</p>
 
-**From Names to Meaning, From Mathematics to AI.**
+<p align="center">
+  <a href="https://chaoyue0307.github.io/ai-eponym-atlas/"><strong>🌐 Open the live atlas</strong></a>
+  ·
+  <a href="https://chaoyue0307.github.io/ai-eponym-atlas/#/graph">🔗 Explore relationships</a>
+  ·
+  <a href="https://chaoyue0307.github.io/ai-eponym-atlas/#/timeline">🕰️ Follow the timeline</a>
+  ·
+  <a href="./CONTRIBUTING.md">🤝 Contribute</a>
+</p>
 
-**从人名回到意义，从数学走向 AI。**
+AI Eponym Atlas is a bilingual, meaning-first reference for mathematical and
+technical concepts named after people and widely used in artificial
+intelligence. It explains what each concept does, how to understand it, where
+it came from, how it connects to other ideas, and where it appears in modern AI.
 
-**Decoding the people, mathematics, and ideas behind artificial intelligence.**
-
-**An atlas of eponymous mathematical and technical concepts widely used in artificial intelligence.**
-
-AI Eponym Atlas 是一份面向学习者、研究者和工程师的结构化概念图谱。它整理以人物命名、并广泛出现在数学与人工智能中的术语，解释这些名字背后真正有用的信息：概念解决什么问题、如何直观理解、怎样形式化定义、从何而来、与哪些概念相连，以及它如何参与现代 AI。
-
-*AI Eponym Atlas is a structured reference for learners, researchers, and engineers. It decodes mathematical and technical terms named after people by explaining the problem each concept solves, its intuition and formal definition, its origin and relationships, and its role in modern AI.*
-
-> **GitHub About**
->
-> A structured atlas of mathematical and AI concepts named after people, covering their intuitive meaning, formal definition, historical origin, relationships, and applications in modern AI.
-
-[在线网站](https://chaoyue0307.github.io/ai-eponym-atlas/) · [浏览方法](#如何使用--how-to-use) · [覆盖与时效](./docs/COVERAGE.md) · [肖像来源与许可](./docs/PORTRAITS.md) · [肖像核验审计](./docs/PORTRAIT_AUDIT.md) · [生成式视觉记录](./docs/GENERATED_ASSETS.md) · [数据模板](#条目数据模板--entry-template) · [版本记录](./CHANGELOG.md) · [参与贡献](./CONTRIBUTING.md) · [路线图](#路线图--roadmap)
+AI Eponym Atlas 面向学习者、研究者与工程师，把以人物命名的数学和技术术语重新翻译成功能、直觉、定义、历史、关系与现代 AI 用途。
 
 ---
 
-## 为什么做这个项目？ / Why this project?
+## 📊 At a glance / 项目概览
 
-Cartesian、Gaussian、Bayesian、Markov、Fourier、Jacobian、Hessian、Hilbert、Shannon……
+Current catalog snapshot: **2026-07-31** · Schema **1.1.0**
 
-这些词频繁出现在教材、论文和代码中，但人名本身几乎不告诉读者概念是什么意思。命名保存了学术史，却也可能中断理解：当读者遇到一个陌生人名时，往往要先离开当前论证，查清它“到底在做什么”。
+| Coverage / 覆盖 | Evidence / 证据 | Experience / 体验 |
+| :---: | :---: | :---: |
+| **120** concepts / 概念<br>**117** people / 人物 | **247** cited sources / 直接来源<br>**77** verified portraits / 核验肖像 | **9** fields / 领域<br>中文 + English |
 
-AI Eponym Atlas 希望补上这层缺失的信息。这里不会只说“Jacobian 以 Carl Jacobi 命名”，还会先告诉你：
+Every concept currently has at least two direct references. Historical
+portraits are source-verified open works with file-level attribution; the
+project does **not** generate synthetic portraits of real people.
 
-- **它回答什么问题？** 输入发生微小变化时，输出如何变化？
-- **功能性名字是什么？** 局部一阶变化率矩阵。
-- **一句话直觉是什么？** 多变量函数在某一点附近的最佳线性近似。
-- **AI 中在哪里用？** 自动微分、反向传播、机器人运动学、normalizing flows、敏感性分析。
+每个概念目前至少有两条直接来源。历史人物肖像均来自经身份与许可核验的开放素材；本项目不会生成真实人物的虚构肖像。
 
-项目的目标不是抹去历史名字，也不是建立另一套强制术语，而是让名字成为理解的入口，而不是阅读的障碍。
+## 🧠 Why this exists / 为什么做
 
-*Terms such as Cartesian, Gaussian, Bayesian, Markov, Fourier, Jacobian, Hessian, Hilbert, and Shannon preserve intellectual history, but their names alone reveal little about their function. This project adds the missing semantic layer: the question a concept answers, a functional nickname, an intuitive explanation, a formal account, and its use in AI. It does not replace historical names; it turns them into useful entry points.*
+Cartesian, Gaussian, Bayesian, Markov, Fourier, Jacobian, Hessian, Hilbert,
+Shannon—these names preserve intellectual history, but the names themselves
+say almost nothing about what the concepts do.
 
-## 项目边界 / Scope
+AI Eponym Atlas adds the missing semantic layer:
 
-本图谱优先收录满足以下条件的概念：
-
-1. 术语全部或部分源自人物姓名；
-2. 在数学、统计、计算机科学、控制、信号处理或相关领域有清晰定义；
-3. 在现代 AI 的学习、研究或工程实践中具有直接用途或重要背景价值；
-4. 能由可靠来源核实定义、历史与命名关系。
-
-图谱追求**广泛、可核查、持续增长**，但不声称收录“所有”人物或“全部”贡献。同名概念、独立发现、命名争议、后来归因和地域差异都会被明确标注。
-
-*The atlas prioritizes person-named concepts with a clear technical definition and meaningful relevance to modern AI. It aims to be broad, verifiable, and continuously improved, but does not claim to be exhaustive. Ambiguous attribution, independent discovery, and naming disputes are documented rather than flattened.*
-
-### 扩展版的当前覆盖 / Current expanded coverage
-
-本版在通用 AI 数学主干之外，重点补齐了几个仍在快速发展的方向：
-
-- **扩散与连续时间生成**：Langevin dynamics、Itô lemma、Fokker–Planck equation、Schrödinger bridge、Doob's h-transform 与 Tweedie's formula；
-- **最优传输与跨域对齐**：Wasserstein、Gromov–Wasserstein 与 Sinkhorn；
-- **LLM 偏好、排序与评估**：Bradley–Terry、Plackett–Luce、Elo 与 Shapley value；
-- **现代记忆、动力学与图学习**：Hopfield network、Koopman operator、Lie group、Stiefel manifold 与 Weisfeiler–Leman test；
-- **数值计算与统计学习底层**：Krylov / Lanczos / Arnoldi、KKT、BFGS、Cramér–Rao、Hoeffding、Dirichlet，以及传统序列与视觉算法。
-
-“最新”按照 `content/eponyms.json` 中的编辑截止日期解释：经典定义保留原始来源，快速变化的 AI 用途尽量连接 2020–2026 的一手论文。完整纳入 / 排除标准、预印本处理和已知缺口见 [Coverage and currency](./docs/COVERAGE.md)。
-
-*Beyond the general mathematical core, the expanded edition covers active work in diffusion and stochastic generative modeling, optimal transport, LLM preference and ranking models, associative memory, dynamical and geometric learning, numerical linear algebra, statistical bounds, sequence decoding, and classical vision. “Current” is tied to the catalog's editorial cutoff: foundational claims keep their original sources, while fast-moving AI relevance is linked to primary work from 2020–2026 where practical.*
-
-## 如何使用 / How to use
-
-### 读论文时快速解码
-
-搜索术语，先看“它回答什么问题”和“一句话直觉”，再按需要展开公式、历史和应用。
-
-*Search a term, read the question it answers and the one-sentence intuition first, then expand into the mathematics, history, and applications.*
-
-### 系统学习时建立连接
-
-按领域、人物、时间线或关系图浏览，例如从 Euclidean distance 连接到 metric、nearest neighbors、clustering 与 embedding space。
-
-*Browse by field, person, timeline, or relationship to connect a term with its namesake, neighboring concepts, and AI uses.*
-
-### 写作和教学时核查术语
-
-检查标准拼写、别名、符号、归因说明和来源，并沿引用链接回到原始或权威资料。
-
-*Verify spelling, aliases, notation, attribution, and sources, then follow citations to primary or authoritative material.*
-
-## 首版功能 / Core features
-
-- **概念速查卡 / Concept cards**：功能性名字、核心问题、直觉、公式和典型 AI 用途。
-- **人物档案 / Person profiles**：双语人物简介、经核验的开放肖像与逐图许可、相关术语和在图谱中的贡献脉络；无可靠开放肖像时自动使用首字母占位。
-- **精确图谱 + 编辑插图 / Exact graphs + editorial art**：关系和公式保持可访问、可交互的 SVG / HTML；生成式视觉仅作为无信息含义的装饰层，并记录生成与压缩过程。
-- **双向关系 / Bidirectional links**：人物与概念互相可追溯；`relatedConceptIds` 在关系图中按无向关系解析，并连接到具体 AI 应用。
-- **分类浏览 / Faceted browsing**：在概念与人物模式之间切换，并按 9 个数学 / AI 领域筛选。
-- **全文搜索 / Full-text search**：支持人名、术语、别名、功能性名字和应用关键词。
-- **时间线 / Timeline**：区分人物生卒、成果提出、发表、命名普及等不同时间点。
-- **可核查来源 / Verifiable sources**：每个概念至少提供两条直接来源，分别支撑定义 / 历史与实现 / AI 应用，并对快速变化的用途加入近期论文。
-- **中英双语 / Bilingual content**：术语、功能标签、问题、直觉、应用和归因说明均有中英版本；公式、年代与部分来源标题保留规范原文。
-- **渐进式阅读 / Progressive disclosure**：先给“现在需要知道的”，再展开严谨细节。
-
-*The released site centers on searchable concept cards, bilingual person profiles, verified and individually licensed open portraits with monogram fallbacks, bidirectional relationships, filters, timelines, citations, and progressive explanations from intuition to formal detail.*
-
-## 当前条目告诉你什么？ / What an entry tells you today
-
-当前 schema 与网站固定呈现以下信息：
-
-| 层次 | 中文 | English |
-| --- | --- | --- |
-| 识别 | 标准术语、中文译名、别名与名字来源 | Canonical term, Chinese term, aliases, and namesake |
-| 功能 | 它回答什么问题、功能标签与 15 秒直觉 | Question answered, functional nickname, and 15-second intuition |
-| 形式化 | 可渲染的定义与符号 | Renderable definition and notation |
-| 历史 | 年代与谨慎的归因说明 | Era and a careful attribution note |
-| 连接 | 相关人物、相关概念与可聚焦关系图 | People, related concepts, and a focused relationship graph |
-| AI 应用 | 在模型、算法、评估或系统中的具体作用 | Concrete role in AI models, algorithms, evaluation, or systems |
-| 证据 | 至少两条直接来源，覆盖定义 / 历史与 AI 用途 | At least two direct sources covering definition/history and AI use |
-
-发音、带类型的前置 / 变体 / 推广关系、边界条件与最小示例属于下一阶段内容模型，而不是首版已经具备的字段。
-
-*Pronunciation, typed prerequisite/variant/generalization links, explicit boundary conditions, and minimal worked examples are planned schema extensions rather than claims about the current release.*
-
-## 示例：从名字到意义 / Example: from name to meaning
-
-| 原术语 | 功能性名字 | 它回答的问题 | 一句话直觉 | 常见 AI 用途 |
-| --- | --- | --- | --- | --- |
-| Cartesian coordinates | 几何数值化坐标系 | 一个点在哪里？ | 用有序数值把空间位置编码出来 | embedding space、计算机视觉、机器人坐标 |
-| Euclidean distance | 直线距离度量 | 两个点相隔多远？ | 平直空间中“两点之间直线最短”的距离 | k-NN、k-means、向量检索 |
-| Gaussian distribution | 钟形随机性模型 | 连续随机波动常呈现什么形状？ | 许多小而独立的扰动叠加后趋向钟形 | 概率建模、噪声模型、扩散模型 |
-| Bayes' theorem | 证据更新规则 | 新证据到来后如何更新判断？ | 用似然重新加权已有信念 | 贝叶斯学习、不确定性估计、诊断 |
-| Markov property | 状态充分性假设 | 预测下一步需要记住多少过去？ | 当前状态已包含与未来有关的历史信息 | MDP、HMM、强化学习、序列建模 |
-| Fourier transform | 频率成分分解器 | 一个信号由哪些频率组成？ | 把复杂变化拆成一组简单振荡 | 音频、图像、时间序列、频域网络 |
-| Jacobian matrix | 局部一阶变化率矩阵 | 输入微变时输出怎样变化？ | 多变量映射的局部线性近似 | 自动微分、机器人、normalizing flows |
-| Hessian matrix | 局部曲率矩阵 | 函数沿各方向弯曲得多快？ | 梯度如何随位置变化 | 二阶优化、损失景观、影响分析 |
-| Shannon entropy | 平均不确定性量 | 观察结果之前有多少不确定性？ | 越难预测的信息源，平均信息量越大 | 交叉熵、决策树、编码、语言模型 |
-| Kullback-Leibler divergence | 分布失配代价 | 用分布 Q 近似 P 会损失多少信息？ | 在 P 的样本上，用 Q 编码多付出的平均代价 | VAE、蒸馏、变分推断、RLHF |
-
-这些“功能性名字”是教学辅助描述，不替代领域内的正式术语。后续版本会继续补强直觉的适用边界和容易误导之处。
-
-*Functional nicknames are learning aids, not replacements for standard terminology. Future content passes will make the limits of each intuition more explicit.*
-
-## 信息架构 / Information architecture
-
-```text
-Home
-├── Search / 全局搜索
-├── Explore / 探索
-│   ├── Concepts / 概念
-│   ├── People / 人物
-│   ├── Fields / 领域
-│   ├── Relationship Graph / 关系图
-│   └── Timeline / 时间线
-├── Concept Detail / 概念详情
-│   ├── Meaning First / 先理解意义
-│   ├── Formal Definition / 形式化定义
-│   ├── History & Attribution / 历史与归因
-│   ├── AI Applications / AI 应用
-│   ├── Relationships / 关系
-│   └── Sources / 来源
-├── Person Detail / 人物详情
-│   ├── Biography / 生平
-│   ├── Contributions / 贡献
-│   ├── Named Concepts / 人名概念
-│   └── Attribution Notes / 归因说明
-└── Methodology / 方法与编辑规范
+```mermaid
+flowchart LR
+    P["👤 Person<br/>人物"] -->|"namesake / 命名"| T["🏷️ Term<br/>术语"]
+    T --> Q["❓ Question<br/>它回答什么？"]
+    Q --> I["💡 Intuition<br/>15 秒直觉"]
+    I --> M["∑ Mathematics<br/>形式化定义"]
+    M --> A["🤖 AI use<br/>AI 应用"]
+    M --> H["🕰️ History<br/>历史与归因"]
+    A --> S["📚 Sources<br/>可核查来源"]
+    H --> S
 ```
 
-建议的仓库结构如下；实际目录以当前代码为准：
+The goal is not to erase historical names or invent replacement terminology.
+It is to make each name an entry point into understanding rather than a
+distraction from it.
 
-```text
-ai-eponym-atlas/
-├── public/                  # 静态资源
-│   ├── portraits/           # 已核验人物肖像
-│   ├── illustrations/       # 编辑性装饰插图
-│   ├── brand-mark.png       # 项目标志
-│   └── og-card.png          # 社交分享图
-├── src/
-│   ├── components/          # 可复用 UI
-│   ├── data/                # 类型化目录与历史时间线
-│   ├── hooks/               # URL 路由与界面状态
-│   ├── lib/                 # 搜索、关系图与数据测试
-│   ├── App.tsx              # 页面组合与路由
-│   └── styles.css           # 全局设计系统
-├── content/
-│   └── eponyms.json         # 人物、概念与引用的权威数据源
-├── docs/
-│   ├── COVERAGE.md          # 收录边界与时效性政策
-│   ├── PORTRAITS.md         # 肖像来源与许可规范
-│   ├── PORTRAIT_AUDIT.md    # 肖像身份核验记录
-│   └── GENERATED_ASSETS.md  # 生成式视觉与提示词记录
-├── design/concepts/         # 视觉规范概念稿
-├── .github/workflows/       # CI 与 GitHub Pages
-├── CHANGELOG.md
-├── CONTRIBUTING.md
-├── LICENSE
-└── README.md
-```
+目标不是抹去人名或创造一套替代术语，而是让名字成为理解的入口，而不是阅读的障碍。
 
-## 条目数据模板 / Entry template
+## 🖼️ See it in action / 产品实景
 
-概念与人物分开存储，并通过稳定 ID 连接。下面是便于理解的精简示例；完整字段、必填规则和来源规范见 [CONTRIBUTING.md](./CONTRIBUTING.md)。
+The images below are captured from the current production website—not from
+design mockups.
 
-```json
-{
-  "id": "jacobian-matrix",
-  "personIds": ["carl-gustav-jacobi"],
-  "term": "Jacobian matrix",
-  "zhTerm": "雅可比矩阵",
-  "aliases": ["Jacobian", "Jacobi matrix"],
-  "functionNickname": {
-    "en": "Local input-to-output sensitivity map",
-    "zh": "局部输入到输出的敏感度地图"
-  },
-  "question": {
-    "en": "If each input changes slightly, how does every output change?",
-    "zh": "每个输入稍微变化时，各个输出会怎样变化？"
-  },
-  "intuition": {
-    "en": "Arrange all first partial derivatives into the best local linear map.",
-    "zh": "把所有一阶偏导排成矩阵，得到最佳局部线性映射。"
-  },
-  "formalDefinition": "For $f:\\mathbb R^n\\to\\mathbb R^m$, $J_f(x)_{ij}=\\frac{\\partial f_i}{\\partial x_j}$.",
-  "aiApplications": [
-    {
-      "en": "Backpropagation and automatic differentiation",
-      "zh": "反向传播与自动微分"
-    }
-  ],
-  "category": "calculus",
-  "era": "19th century",
-  "relatedConceptIds": ["hessian-matrix", "gauss-newton-method"],
-  "tags": ["derivatives", "autodiff", "flows", "robotics"],
-  "attributionNote": {
-    "en": "The determinant is directly tied to Jacobi's work; the full derivative-matrix terminology is later.",
-    "zh": "变量变换中的行列式直接源于 Jacobi 的工作；完整导数矩阵术语形成于后世。"
-  },
-  "sourceLinks": [
-    {
-      "label": "Encyclopedia of Mathematics — Jacobi matrix",
-      "url": "https://encyclopediaofmath.org/wiki/Jacobi_matrix"
-    }
-  ]
-}
-```
+![The live AI Eponym Atlas homepage showing its meaning-first hero, interactive concept constellation, filters, search, and a Jacobian detail panel](./docs/images/atlas-overview.jpg)
 
-## 内容组织原则 / Editorial principles
+<table>
+  <tr>
+    <td width="68%">
+      <img src="./docs/images/relationship-graph.jpg" alt="Two-hop relationship graph for the Hessian matrix, showing people, related concepts, AI applications, controls, and an accessible relationship legend">
+    </td>
+    <td width="32%">
+      <img src="./docs/images/person-profile-mobile.jpg" alt="Mobile profile for René Descartes with a verified historical portrait, attribution, bilingual name, biography, and related AI concepts">
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Relationship graph</strong><br>Exact, navigable people–concept–application links with one- and two-hop views.</td>
+    <td><strong>Verified people profiles</strong><br>Responsive biographies, real open portraits, and visible file-level credits.</td>
+  </tr>
+</table>
 
-### 1. Meaning first
+## ✨ What you can do / 核心能力
 
-先回答“它做什么”，再介绍“它以谁命名”。标题保留标准术语，正文增加可理解的功能性解释。
+| Explore / 探索 | Understand / 理解 |
+| --- | --- |
+| 🔎 **Meaning-first search** — Search terms, people, aliases, functions, and AI uses. | 💡 **15-second intuition** — Start with the question and intuition before the formula. |
+| 🧭 **Faceted atlas** — Browse 9 mathematical and AI fields in concept or people mode. | ∑ **Formal definitions** — Read renderable notation and precise mathematical definitions. |
+| 🔗 **Relationship graph** — Follow people, related concepts, and concrete applications. | 📚 **Evidence-aware history** — Keep definition, naming history, and AI evidence distinct. |
+| 🕰️ **Historical timeline** — Separate a person's life, publication, later naming, and AI adoption. | 🌏 **Bilingual reading** — Maintain Chinese and English terminology together. |
+| 👤 **People profiles** — Connect biographies, verified portraits, and named concepts. | ♿ **Progressive and accessible UI** — Use keyboard-navigable HTML/SVG with responsive layouts. |
 
-*Explain what the concept does before explaining whom it honors.*
+### Three practical ways to use it
 
-### 2. Intuition with boundaries
+1. **While reading papers:** search the unfamiliar term and read its question,
+   functional label, and intuition first.
+2. **While learning systematically:** move through fields, people, the
+   relationship graph, and the timeline.
+3. **While writing or teaching:** verify spelling, notation, attribution, and
+   sources before following the references to primary material.
 
-直觉必须有帮助，也必须说明适用条件。比如 KL divergence 常被口语化称为“距离”，但它通常不对称，也不满足三角不等式。
+## 🧭 From name to meaning / 从人名到意义
 
-*Every intuition should state its limits. For example, KL divergence is often described loosely as a distance, although it is asymmetric and is not generally a metric.*
+For example, the atlas does not stop at “Jacobian is named after Jacobi”:
 
-### 3. History without hero mythology
+| Layer | Jacobian matrix / 雅可比矩阵 |
+| --- | --- |
+| **Functional label / 功能标签** | Local input-to-output sensitivity map / 局部输入到输出的敏感度地图 |
+| **Question / 问题** | If each input changes slightly, how does every output change? / 每个输入稍微变化时，各个输出会怎样变化？ |
+| **Intuition / 直觉** | Arrange first partial derivatives into the best local linear map. / 把一阶偏导排成最佳局部线性映射。 |
+| **Definition / 定义** | For $f:\mathbb R^n\to\mathbb R^m$, $J_f(x)_{ij}=\partial f_i/\partial x_j$. |
+| **AI uses / AI 用途** | Backpropagation, automatic differentiation, robotics, normalizing flows, and sensitivity analysis. |
+| **History / 历史** | Jacobi's determinant work is direct; the full derivative-matrix terminology is later. |
+| **Evidence / 证据** | Definition/history and modern use are supported by separate direct sources. |
 
-区分“发现者”“首次发表者”“推广者”和“后来被冠名者”。面对独立发现和有争议的归因，保留复杂性。
+Functional labels are teaching aids, not replacement terminology. Intuitions
+must remain consistent with the formal definition and state their limits.
 
-*Separate discovery, publication, popularization, and later naming. Preserve ambiguity where the historical record is ambiguous.*
+功能标签只是教学辅助，不替代正式术语；直觉必须与形式化定义一致，并保留适用边界。
 
-### 4. AI relevance must be concrete
+## 🎯 Scope and currency / 收录边界与时效
 
-不只写“用于机器学习”，而要说明它在什么模型、算法或推导中承担什么作用。
+The atlas prioritizes concepts that:
 
-*Do not merely say that a concept is used in machine learning. State where it appears and what role it plays.*
+1. are wholly or partly named after a person;
+2. have a clear technical definition in mathematics, statistics, computing,
+   control, signal processing, or a closely related field;
+3. have direct use or important background value in modern AI; and
+4. can be verified with reliable sources.
 
-### 5. Sources over confidence
+Current expanded coverage includes diffusion and stochastic generative
+modeling, optimal transport, LLM preference and ranking models, associative
+memory, dynamical and geometric learning, numerical linear algebra,
+statistical bounds, sequence decoding, and classical vision.
 
-定义、历史归因和 AI 应用是不同类型的主张，应分别由适合的来源支持。无法确认时标记待核查，不用确定语气掩盖缺口。
+“Current” follows the catalog's editorial cutoff. Foundational claims retain
+foundational sources; fast-moving AI relevance is connected to recent primary
+work where practical.
 
-*Definitions, historical attribution, and AI applications are different claims and should be supported by appropriate sources.*
+> [Read the complete inclusion, exclusion, evidence, preprint, and currency policy →](./docs/COVERAGE.md)
 
-## 内容质量标准 / Content quality standards
+<details>
+<summary><strong>Methodological limits / 方法边界</strong></summary>
 
-按当前 schema，合并前的条目至少应满足：
+- An eponym records naming history, not necessarily sole discovery.
+- A modern name may postdate the original work by decades.
+- Independent discovery, disputed attribution, and regional naming differences
+  are preserved rather than flattened.
+- “Widely used in AI” changes over time and must be supported by concrete use.
+- Functional labels are editorial explanations and may improve over time.
+- The atlas is a research and learning index, not a substitute for textbooks
+  or primary literature.
 
-- 标准英文术语、中文译名、别名和稳定 ID 一致；
-- “问题 - 直觉 - 定义 - AI 应用”形成完整解释链；
-- 数学符号可渲染，关键变量尽可能定义清楚；
-- 每项 AI 应用说明具体机制，而非只列领域名；
-- 每个概念至少有两条可靠来源，重要历史与当前 AI 主张应交叉核对；
-- 中文自然准确，英文术语符合领域惯例；
-- 不把功能性昵称包装成正式术语；
-- 不含无法授权的图片、长篇受版权保护的原文或隐私信息；
-- 人物和相关概念引用有效，并通过类型、数据、测试和构建检查。
+人名术语记录的是命名史，并不必然意味着某人独立发现。命名可能晚于原始工作，不同地区和学科也可能采用不同名称。“广泛用于 AI”会随时间变化，因此必须用具体应用证据支持。
 
-*Before merging, an entry should form a complete chain from question to intuition, definition, and AI use; cite reliable sources; describe attribution carefully; use natural bilingual language; and pass the repository checks.*
+</details>
 
-## 快速开始 / Quick start
+## 🚀 Quick start / 快速开始
 
-需要 [Node.js](https://nodejs.org/) 的当前 LTS 版本和 npm。
+Requirements: **Node.js 20.19+** and npm. No environment variables are required
+for local development.
 
 ```bash
 git clone https://github.com/ChaoYue0307/ai-eponym-atlas.git
 cd ai-eponym-atlas
-npm install
+npm ci
 npm run dev
 ```
 
-Vite 会在终端显示本地开发地址，通常是 `http://localhost:5173`。
+Vite prints the local URL, normally `http://localhost:5173`.
 
-生产构建与本地预览：
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the local Vite development server |
+| `npm run lint:docs` | Validate README and documentation Markdown |
+| `npm run check` | Run TypeScript checks, the data/UI test suite, and a production build |
+| `npm run build` | Build the static production site into `dist/` |
+| `npm run preview` | Preview the production build locally |
+| `npm run portraits:sync` | Rebuild bounded local portrait assets from audited metadata |
 
-```bash
-npm run build
-npm run preview
-```
-
-建议在提交前执行：
-
-```bash
-npm run check
-```
-
-*Install the current Node.js LTS release, clone the repository, run `npm install`, and start Vite with `npm run dev`. Before submitting a change, run type checks, tests, and the production build.*
-
-## 参与贡献 / Contributing
-
-欢迎贡献新的概念、人物资料、历史勘误、公式修正、来源补充、翻译、无障碍改进与网站功能。
-
-推荐流程：
-
-1. 阅读 [CONTRIBUTING.md](./CONTRIBUTING.md)；
-2. 搜索现有 issue 和条目，避免重复；
-3. 较大改动先开 issue，说明范围与资料依据；
-4. 从小而完整的改动开始，例如一个人物和一个关联概念；
-5. 新建分支并按 schema 编辑数据；
-6. 执行校验、测试和生产构建；
-7. 提交 PR，并在说明中列出新增主张及对应来源。
-
-```bash
-git switch -c content/add-jacobian
-git add content/eponyms.json
-git commit -m "content: add Jacobian matrix entry"
-git push -u origin content/add-jacobian
-```
-
-*Contributions are welcome across content, corrections, citations, translation, accessibility, and product features. Search existing work first, discuss broad changes in an issue, keep each pull request focused, validate the data and build, and explain the evidence behind new claims.*
-
-## 路线图 / Roadmap
-
-路线图按能力阶段组织，不承诺固定发布日期：
-
-### 已上线：Expanded edition / 扩展版
-
-- 117 位人物、120 个概念与 247 条直接来源链接，覆盖 9 个领域；
-- 双语 schema、搜索、领域筛选、概念详情与人物详情；
-- 1 / 2 跳关系图、等价关系列表与 22 个节点的可筛选时间线；
-- 扩散 / 随机生成、最优运输、LLM 偏好排序、现代联想记忆、图学习、数值线性代数、统计界、信号与经典视觉专题；
-- 每个概念至少两条直接来源，活跃 AI 用途尽量连接 2020–2026 一手论文；
-- 数据测试、持续集成、贡献模板与 GitHub Pages。
-
-### Phase 2 - 更深的学习连接 / Deeper learning links
-
-- 带类型的前置、变体、推广、对偶与易混淆关系；
-- 学习路径与领域地图；
-- “容易混淆”对比页；
-- 最小示例、边界条件和交互式图解；
-- 发音、证据角色与人物级来源。
-
-### Phase 3 - 更可靠、更易复用 / Improve reliability and reuse
-
-- 自动 schema、重复项、引用和失效链接检查；
-- 内容审校状态与变更历史；
-- 可下载 JSON 数据集和稳定版本；
-- 面向教学与研究工具的查询接口。
-
-### Phase 4 - 社区扩展 / Community growth
-
-- 扩展到更多 AI 子领域和跨文化命名传统；
-- 社区策展的阅读清单与专题路径；
-- 与外部知识图谱建立可核查的标识符映射；
-- 探索更多语言版本。
-
-*The roadmap builds on the released bilingual atlas and relationship tools with typed learning links, reusable data, stronger evidence modeling, and broader community-led coverage.*
-
-## 网站与 GitHub Pages / Website and GitHub Pages
-
-本项目使用 React + Vite 构建静态网站，适合部署到 GitHub Pages。
-
-### 维护者设置
-
-1. 在 `vite.config.*` 中将 `base` 设置为仓库路径：
-
-   ```ts
-   export default defineConfig({
-     base: process.env.GITHUB_ACTIONS ? "/ai-eponym-atlas/" : "/"
-   });
-   ```
-
-2. 在 GitHub 仓库中打开 **Settings > Pages**。
-3. 在 **Build and deployment** 下选择 **GitHub Actions**。
-4. 使用工作流安装依赖、运行检查、执行 `npm run build`，并将 `dist/` 上传为 Pages artifact。
-5. 推送到默认分支后，在 Actions 页面确认部署完成。
-
-若部署在用户或组织根站点，或使用自定义域名，`base` 配置可能不同。路由、静态资源和分享链接应在最终 Pages URL 下验证。
-
-典型地址：
+## 🧱 How the repository works / 仓库结构
 
 ```text
-https://chaoyue0307.github.io/ai-eponym-atlas/
+content/eponyms.json       canonical people, concepts, and citations
+content/people-media.json  verified identities, portrait sources, and licenses
+            │
+            ▼
+src/data/catalog.ts        strict typed catalog and derived indexes
+            │
+      ┌─────┴──────────┐
+      ▼                ▼
+React + Vite UI        Vitest integrity checks
+      │                │
+      └──────┬─────────┘
+             ▼
+        GitHub Pages
 ```
 
-*The React + Vite site can be deployed as a static GitHub Pages project. Configure Vite's base path, select GitHub Actions as the Pages source, build the project, upload `dist/`, and verify routing and assets at the final repository URL.*
+The site is static and client-side. Stable IDs connect people, concepts,
+timelines, graph edges, and media records. Editorial content lives in the JSON
+catalog rather than being duplicated inside UI components.
 
-## 方法透明与局限 / Methodology and limitations
+> [Read the detailed architecture and source-tree guide →](./docs/ARCHITECTURE.md)
 
-- 人名术语不等于某个人单独完成了概念的全部发展；
-- 现代名称可能晚于原始工作多年，且不同地区或学科可能使用不同名称；
-- “广泛用于 AI”是会随时间变化的判断，条目应给出具体应用证据；
-- 中文译名可能存在多个版本，默认保留最常见译名并列出别名；
-- 功能性名字是一种解释工具，会随着更好的表述而迭代；
-- 本项目是学习与研究索引，不替代教材、原始论文或专业建议。
+## 📚 Documentation / 文档
 
-*Eponymous names do not imply sole authorship. Naming often postdates discovery, usage differs across communities, and AI relevance changes over time. This atlas is a navigational reference, not a substitute for primary literature or complete textbooks.*
+| Guide | What it covers |
+| --- | --- |
+| [Coverage and currency](./docs/COVERAGE.md) | Inclusion rules, evidence tiers, active topics, and known gaps |
+| [Contributing](./CONTRIBUTING.md) | Complete schema, bilingual style, local checks, Git, and PR checklist |
+| [Portrait policy](./docs/PORTRAITS.md) | Identity matching, accepted licenses, attribution, and monogram fallback |
+| [Portrait audit](./docs/PORTRAIT_AUDIT.md) | File-by-file identity and license verification record |
+| [Generated assets](./docs/GENERATED_ASSETS.md) | Image-generation prompts, refinement, compression, and safeguards |
+| [Architecture](./docs/ARCHITECTURE.md) | Runtime data flow, modules, routes, and repository map |
+| [Deployment](./docs/DEPLOYMENT.md) | GitHub Pages configuration, verification, and troubleshooting |
+| [Changelog](./CHANGELOG.md) | Released data and product changes |
+| [Code of Conduct](./CODE_OF_CONDUCT.md) | Community participation expectations |
+| [Security](./SECURITY.md) | Private vulnerability reporting and supported scope |
 
-## 许可 / License
+## 🤝 Contributing
 
-代码使用 [MIT License](./LICENSE)；原创条目、结构化数据、`design/concepts/` 视觉稿、`public/brand-mark.png` 与项目生成的编辑插图使用 [CC BY 4.0](./CONTENT_LICENSE)。生成式素材的用途、提示词与压缩记录见 [`docs/GENERATED_ASSETS.md`](./docs/GENERATED_ASSETS.md)。贡献者在提交内容时，同意其贡献可按仓库所采用的对应许可发布。第三方图片、引文和数据仍受各自许可或版权约束，必须在条目中清楚标注。
+Contributions are welcome across new concepts, corrections, primary sources,
+translation, verified portraits, accessibility, and product features.
 
-*Code is released under the MIT License; original entries and structured content are released under CC BY 4.0. Third-party images, quotations, and datasets remain subject to their own licenses and must be attributed clearly.*
+1. Search the [current catalog](./content/eponyms.json) and
+   [open issues](https://github.com/ChaoYue0307/ai-eponym-atlas/issues).
+2. Read [CONTRIBUTING.md](./CONTRIBUTING.md) and keep each change focused.
+3. Run `npm run check`, then explain the evidence behind new claims in the PR.
 
-## 致谢 / Acknowledgements
+A small, complete, well-sourced contribution is more valuable than a large
+batch of placeholders.
 
-这个项目从一个很朴素的问题开始：
+一个范围小但证据完整的贡献，比一批只有标题的占位条目更有价值。
 
-> 当一个术语只是某个人的名字时，读者怎样才能立刻知道它的意义？
+## 🗺️ Roadmap
+
+- [x] Expanded bilingual catalog, search, people profiles, exact relationship
+  graph, timeline, citations, audited portraits, CI, and GitHub Pages.
+- [ ] Typed prerequisite, variant, generalization, duality, and
+  easy-to-confuse relationships.
+- [ ] Learning paths, minimal examples, boundary conditions, and
+  evidence-role metadata.
+- [ ] Versioned downloadable datasets and reusable query interfaces.
+- [ ] Broader AI subfields, cross-cultural naming traditions, and more
+  languages.
+
+The roadmap describes direction, not fixed release dates. See
+[CHANGELOG.md](./CHANGELOG.md) for completed work.
+
+## 📄 License and provenance / 许可与来源
+
+| Material | Terms |
+| --- | --- |
+| Source code | [MIT License](./LICENSE) |
+| Original writing, translations, structured data, brand assets, and generated editorial art | [CC BY 4.0](./CONTENT_LICENSE) |
+| Third-party historical portraits | Each file's recorded source license; see [portrait policy](./docs/PORTRAITS.md) and [audit](./docs/PORTRAIT_AUDIT.md) |
+| Generated decorative assets | Prompt and transformation record in [GENERATED_ASSETS.md](./docs/GENERATED_ASSETS.md) |
+
+Third-party images, quotations, and datasets remain subject to their own
+licenses. Contributions are released under the corresponding repository terms.
+
+## 🙏 Acknowledgements / 致谢
+
+This project began with a simple question:
+
+> When a term is only a person's name, how can a reader immediately recover
+> its meaning?
 
 感谢每一位帮助核查定义、补充历史、改进翻译、连接概念和解释 AI 用途的贡献者。
-
-*This project began with a simple question: when a term is only a person's name, how can a reader immediately recover its meaning? Thank you to everyone who helps verify, clarify, connect, and teach.*

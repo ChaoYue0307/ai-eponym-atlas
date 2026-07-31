@@ -158,12 +158,65 @@ describe("atlas data integrity", () => {
     expect(existsSync(artwork)).toBe(true);
     expect(statSync(artwork).size).toBeLessThanOrEqual(180 * 1024);
 
-    const socialCard = resolve("public", "og-card.png");
+    const socialCard = resolve("public", "og-card.jpg");
     expect(existsSync(socialCard)).toBe(true);
     expect(statSync(socialCard).size).toBeLessThanOrEqual(200 * 1024);
+    expect([...readFileSync(socialCard).subarray(0, 3)]).toEqual([
+      0xff, 0xd8, 0xff,
+    ]);
     expect(readFileSync(resolve("index.html"), "utf8")).toContain(
-      "/ai-eponym-atlas/og-card.png",
+      "/ai-eponym-atlas/og-card.jpg",
     );
+    expect(readFileSync(resolve("index.html"), "utf8")).toContain(
+      'property="og:image:type" content="image/jpeg"',
+    );
+  });
+
+  it("keeps README facts, local links, and screenshots current", () => {
+    const readme = readFileSync(resolve("README.md"), "utf8");
+    const sourceCount = concepts.reduce(
+      (total, concept) => total + concept.sourceLinks.length,
+      0,
+    );
+    const portraitCount = mediaCatalog.profiles.filter(
+      (profile) => profile.portrait !== undefined,
+    ).length;
+
+    expect(readme).toContain(`**${concepts.length}** concepts`);
+    expect(readme).toContain(`**${people.length}** people`);
+    expect(readme).toContain(`**${sourceCount}** cited sources`);
+    expect(readme).toContain(`**${portraitCount}** verified portraits`);
+    expect(readme).toContain(`**${categories.length}** fields`);
+
+    const localReferences = new Set([
+      ...[...readme.matchAll(/\]\((\.\/[^)#]+)(?:#[^)]*)?\)/g)].map(
+        (match) => match[1],
+      ),
+      ...[...readme.matchAll(/(?:href|src)="(\.\/[^"#]+)(?:#[^"]*)?"/g)].map(
+        (match) => match[1],
+      ),
+    ]);
+    for (const reference of localReferences) {
+      expect(reference).toBeDefined();
+      if (!reference) continue;
+      expect(
+        existsSync(resolve(reference.replace(/^\.\//, ""))),
+        reference,
+      ).toBe(true);
+    }
+
+    for (const screenshot of [
+      "atlas-overview.jpg",
+      "relationship-graph.jpg",
+      "person-profile-mobile.jpg",
+    ]) {
+      const path = resolve("docs", "images", screenshot);
+      expect(existsSync(path), screenshot).toBe(true);
+      expect(statSync(path).size, screenshot).toBeLessThanOrEqual(200 * 1024);
+      expect([...readFileSync(path).subarray(0, 3)], screenshot).toEqual([
+        0xff, 0xd8, 0xff,
+      ]);
+    }
   });
 
   it("keeps the homepage constellation synchronized with catalog data", () => {

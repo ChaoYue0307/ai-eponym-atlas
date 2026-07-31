@@ -142,6 +142,10 @@ reliable open portrait is available.
     {
       "label": "Encyclopedia of Mathematics — Jacobi matrix",
       "url": "https://encyclopediaofmath.org/wiki/Jacobi_matrix"
+    },
+    {
+      "label": "MIT OpenCourseWare — Jacobians",
+      "url": "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/"
     }
   ]
 }

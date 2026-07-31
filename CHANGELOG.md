@@ -18,6 +18,11 @@ All notable editorial and product changes are recorded here. The catalog's
 - Added explicit coverage and currency policy, nullable or missing life-date
   handling, an expanded timeline, and regression tests for current AI search
   terms.
+- Added 77 source-verified open portraits with file-level attribution and
+  monogram fallbacks.
+- Refined the responsive visual system, relationship-graph geometry, social
+  preview metadata, and repository documentation with current product
+  screenshots and automated README consistency checks.
 
 ## 0.1.0 — 2026-07-31
 
