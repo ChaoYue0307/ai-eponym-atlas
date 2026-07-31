@@ -52,10 +52,10 @@ belong in the canonical JSON catalogs.
 | Typed catalog | `src/data/catalog.ts`, `src/types.ts` |
 | Atlas search and filters | `src/components/AtlasExplorer.tsx`, `src/lib/search.ts` |
 | Concept and person details | `src/components/ConceptDetail.tsx`, `src/components/PersonDetail.tsx` |
-| Relationship graph | `src/components/GraphExplorer.tsx`, `src/lib/graph.ts`, `src/lib/graphLayout.ts` |
-| Timeline | `src/components/TimelineView.tsx`, `src/data/timeline.ts` |
+| Relationship graph | `src/components/GraphExplorer.tsx`, `src/components/GraphExplorer.css`, `src/lib/graph.ts`, `src/lib/graphLayout.ts`, `src/lib/graphViewport.ts` |
+| Timeline | `src/components/TimelineView.tsx`, `src/components/TimelineView.css`, `src/data/timeline.ts` |
 | Localization | `src/copy.ts` and bilingual catalog fields |
-| Design system | `src/styles.css` |
+| Design system | `src/styles.css`, `docs/DESIGN_SYSTEM.md` |
 
 ## Routes / 页面
 
@@ -71,6 +71,11 @@ GitHub Pages hosting.
 | `#/graph` | One- or two-hop relationship graph |
 | `#/timeline` | Filterable historical timeline |
 | `#/about` | Editorial method |
+
+Graph state encodes focus, depth, visible entity types, and selection. Timeline
+state encodes event kind, era, and selected event. Replacing the current hash
+entry during interaction keeps each view copyable and restorable without
+polluting browser history.
 
 ## Visual truth and generated assets / 图形真实性
 
@@ -91,6 +96,8 @@ GitHub Pages hosting.
 - bilingual fields and source minimums;
 - portrait identity, provenance, license, and local-file records;
 - relationship-graph semantics and collision-free two-hop layouts;
+- graph camera bounds, viewport transforms, and deterministic layout;
+- timeline event chronology, era membership, kind totals, and localized years;
 - homepage constellation/catalog synchronization; and
 - generated visual asset paths, formats, and size budgets.
 
@@ -113,12 +120,13 @@ ai-eponym-atlas/
 │   └── styles.css
 ├── scripts/                 auditable asset-maintenance scripts
 ├── docs/                    policies, audits, architecture, and deployment
-├── design/concepts/         non-production visual concept studies
+├── design/                  visual-integrity policy for design studies
 ├── .github/workflows/       CI and GitHub Pages deployment
 ├── CONTRIBUTING.md
 ├── package.json
 └── vite.config.ts
 ```
 
-Files under `design/concepts/` are historical design studies, not current
-product screenshots or authoritative data.
+Generated UI mockups are not shipped. The repository keeps only code-native
+product screenshots and decorative generated assets whose non-informational
+role is documented.

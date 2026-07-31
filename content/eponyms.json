@@ -1797,7 +1797,7 @@
       "aliases": ["rectangular coordinate system", "Cartesian coordinates"],
       "tags": ["coordinates", "geometry", "computer-vision", "robotics"],
       "attributionNote": {"en": "Named for Descartes's analytic geometry; the modern orthogonal-axis convention also developed through Fermat and later authors.", "zh": "名称源自笛卡尔的解析几何；现代正交坐标轴约定也经费马及后世作者发展。"},
-      "sourceLinks": [{"label": "MacTutor — Cartesian coordinates", "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Cartesian_coordinates/"}, {"label": "Encyclopaedia Britannica — analytic geometry", "url": "https://www.britannica.com/science/analytic-geometry"}]
+      "sourceLinks": [{"label": "MacTutor — earliest uses of Cartesian terminology", "url": "https://mathshistory.st-andrews.ac.uk/Miller/mathword/c/"}, {"label": "Encyclopaedia Britannica — analytic geometry", "url": "https://www.britannica.com/science/analytic-geometry"}]
     },
     {
       "id": "cartesian-product",
@@ -1851,7 +1851,7 @@
       "aliases": ["Cartesian frame", "world frame", "Cartesian workspace"],
       "tags": ["robotics", "pose", "SE3", "control"],
       "attributionNote": {"en": "A modern engineering use of Cartesian coordinates, not a distinct theorem by Descartes.", "zh": "这是笛卡尔坐标在现代工程中的应用，并非笛卡尔提出的独立定理。"},
-      "sourceLinks": [{"label": "Modern Robotics — configuration space", "url": "https://modernrobotics.northwestern.edu/nu-gm-book-resource/2-1-1-rigid-body-configuration/"}, {"label": "Modern Robotics textbook", "url": "https://hades.mech.northwestern.edu/images/7/7f/MR.pdf"}]
+      "sourceLinks": [{"label": "Modern Robotics — rotation matrices and coordinate frames", "url": "https://modernrobotics.northwestern.edu/nu-gm-book-resource/3-2-1-rotation-matrices-part-1-of-2/"}, {"label": "Modern Robotics textbook", "url": "https://hades.mech.northwestern.edu/images/7/7f/MR.pdf"}]
     },
     {
       "id": "euclidean-distance",
@@ -1887,7 +1887,7 @@
       "aliases": ["normal distribution", "normal law"],
       "tags": ["probability", "noise", "latent-variables", "diffusion"],
       "attributionNote": {"en": "The curve predates Gauss in work by de Moivre and Laplace; Gauss's error theory made the association enduring.", "zh": "该曲线早见于棣莫弗和拉普拉斯；高斯的误差理论使其与高斯之名长期绑定。"},
-      "sourceLinks": [{"label": "NIST Handbook — normal distribution", "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm"}, {"label": "MacTutor — normal distribution", "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Normal_distribution/"}]
+      "sourceLinks": [{"label": "NIST Handbook — normal distribution", "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm"}, {"label": "MacTutor — earliest uses of Gaussian terminology", "url": "https://mathshistory.st-andrews.ac.uk/Miller/mathword/g/"}]
     },
     {
       "id": "gaussian-process",
@@ -2229,7 +2229,7 @@
       "aliases": ["Newton–Raphson method"],
       "tags": ["root-finding", "second-order", "optimization"],
       "attributionNote": {"en": "Newton devised an early algebraic version; Raphson gave a simpler iteration, and Simpson expressed the modern derivative form.", "zh": "牛顿提出早期代数版本；Raphson 给出更简洁迭代，Simpson 表述出现代导数形式。"},
-      "sourceLinks": [{"label": "Encyclopedia of Mathematics — Newton method", "url": "https://encyclopediaofmath.org/wiki/Newton_method"}, {"label": "MacTutor — Newton–Raphson history", "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Newton-Raphson/"}]
+      "sourceLinks": [{"label": "Encyclopedia of Mathematics — Newton method", "url": "https://encyclopediaofmath.org/wiki/Newton_method"}, {"label": "MacTutor — Joseph Raphson", "url": "https://mathshistory.st-andrews.ac.uk/Biographies/Raphson/"}]
     },
     {
       "id": "lagrange-multipliers",
@@ -2301,7 +2301,7 @@
       "aliases": ["Hessian", "Hesse matrix"],
       "tags": ["curvature", "second-order", "loss-landscape"],
       "attributionNote": {"en": "Named for Hesse's determinant methods; the matrix and optimization interpretation evolved later.", "zh": "名称源自黑塞的行列式方法；矩阵与优化解释在后来逐渐形成。"},
-      "sourceLinks": [{"label": "Encyclopedia of Mathematics — Hessian", "url": "https://encyclopediaofmath.org/wiki/Hessian"}, {"label": "NIST Handbook — nonlinear least squares", "url": "https://www.itl.nist.gov/div898/handbook/pmd/section4/pmd44.htm"}]
+      "sourceLinks": [{"label": "MIT OpenCourseWare — Matrix Calculus and Hessian matrices", "url": "https://ocw.mit.edu/courses/18-s096-matrix-calculus-for-machine-learning-and-beyond-january-iap-2023/mit18_s096iap23_lec_full.pdf"}, {"label": "NIST Handbook — nonlinear least squares", "url": "https://www.itl.nist.gov/div898/handbook/pmd/section4/pmd44.htm"}]
     },
     {
       "id": "riemannian-manifold",
@@ -2319,7 +2319,7 @@
       "aliases": ["Riemannian geometry", "Riemannian space"],
       "tags": ["manifold", "geometry", "geodesic", "geometric-deep-learning"],
       "attributionNote": {"en": "Riemann's 1854 habilitation lecture introduced the foundational viewpoint; tensor formalism was developed later by Christoffel, Ricci, Levi-Civita, and others.", "zh": "黎曼 1854 年就职演讲提出基础观点；张量形式后来由 Christoffel、Ricci、Levi-Civita 等人发展。"},
-      "sourceLinks": [{"label": "Riemann (1854) — On the hypotheses which lie at the foundations of geometry", "url": "https://www.maths.tcd.ie/pub/HistMath/People/Riemann/Geom/WKCGeom.html"}, {"label": "do Carmo — Riemannian Geometry", "url": "https://doi.org/10.1007/978-1-4757-2201-7"}]
+      "sourceLinks": [{"label": "Riemann (1854) — On the hypotheses which lie at the foundations of geometry", "url": "https://www.maths.tcd.ie/pub/HistMath/People/Riemann/Geom/WKCGeom.html"}, {"label": "Springer Nature — do Carmo, Riemannian Geometry", "url": "https://link.springer.com/book/9780817634902"}]
     },
     {
       "id": "hilbert-space",
@@ -2337,7 +2337,7 @@
       "aliases": ["complete inner-product space"],
       "tags": ["functional-analysis", "inner-product", "infinite-dimensional"],
       "attributionNote": {"en": "Named by von Neumann for spaces arising from Hilbert's integral-equation work; the abstract definition was developed by Fréchet, Riesz, von Neumann, and others.", "zh": "冯·诺依曼以希尔伯特的积分方程工作命名；抽象定义由 Fréchet、Riesz、冯·诺依曼等人发展。"},
-      "sourceLinks": [{"label": "Encyclopedia of Mathematics — Hilbert space", "url": "https://encyclopediaofmath.org/wiki/Hilbert_space"}, {"label": "MacTutor — Hilbert space history", "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Hilbert_space/"}]
+      "sourceLinks": [{"label": "Encyclopedia of Mathematics — Hilbert space", "url": "https://encyclopediaofmath.org/wiki/Hilbert_space"}, {"label": "MacTutor — David Hilbert", "url": "https://mathshistory.st-andrews.ac.uk/Biographies/Hilbert/"}]
     },
     {
       "id": "reproducing-kernel-hilbert-space",
@@ -2463,7 +2463,7 @@
       "aliases": ["algorithmic complexity", "descriptional complexity", "algorithmic information"],
       "tags": ["compression", "complexity", "randomness", "MDL"],
       "attributionNote": {"en": "Independently developed by Solomonoff, Kolmogorov, and Chaitin; the additive constant depends on the chosen universal machine.", "zh": "由 Solomonoff、柯尔莫哥洛夫与 Chaitin 独立发展；数值依赖所选通用机器，差异至多为加性常数。"},
-      "sourceLinks": [{"label": "Kolmogorov (1965) — Three approaches to information", "url": "https://doi.org/10.1080/00207166508803030"}, {"label": "Li & Vitányi — Kolmogorov Complexity", "url": "https://doi.org/10.1007/978-3-030-11298-1"}]
+      "sourceLinks": [{"label": "Kolmogorov (1965/1968) — Three approaches to information", "url": "https://doi.org/10.1080/00207166808803030"}, {"label": "Li & Vitányi — Kolmogorov Complexity", "url": "https://doi.org/10.1007/978-3-030-11298-1"}]
     },
     {
       "id": "kolmogorov-arnold-representation",
@@ -2823,7 +2823,7 @@
       "aliases": ["contraction mapping theorem", "Banach contraction principle"],
       "tags": ["fixed-point", "convergence", "implicit-model"],
       "attributionNote": {"en": "Banach's theorem systematized the contraction principle in complete metric spaces; related iterative arguments predate it.", "zh": "巴拿赫在完备度量空间中系统化压缩原理；相关迭代论证早已有之。"},
-      "sourceLinks": [{"label": "Encyclopedia of Mathematics — contraction mapping principle", "url": "https://encyclopediaofmath.org/wiki/Contraction_mapping_principle"}, {"label": "Banach (1922), original paper record", "url": "https://eudml.org/doc/213289"}]
+      "sourceLinks": [{"label": "Encyclopedia of Mathematics — contracting-mapping principle", "url": "https://encyclopediaofmath.org/wiki/Contracting-mapping_principle"}, {"label": "Banach (1922), original paper record", "url": "https://eudml.org/doc/213289"}]
     },
     {
       "id": "minkowski-distance",
@@ -2877,7 +2877,7 @@
       "aliases": ["Gram–Schmidt process", "GS orthogonalization"],
       "tags": ["orthogonality", "QR", "basis", "linear-algebra"],
       "attributionNote": {"en": "The method appeared earlier in work by Laplace and Cauchy; it is named for Gram and Schmidt's later uses and exposition.", "zh": "该方法更早见于拉普拉斯与柯西的工作；因 Gram、Schmidt 后来的使用与阐述而得名。"},
-      "sourceLinks": [{"label": "Encyclopedia of Mathematics — Gram–Schmidt orthogonalization", "url": "https://encyclopediaofmath.org/wiki/Gram-Schmidt_orthogonalization"}, {"label": "NIST DLMF — linear algebra", "url": "https://dlmf.nist.gov/1.2"}]
+      "sourceLinks": [{"label": "Encyclopedia of Mathematics — orthogonalization", "url": "https://encyclopediaofmath.org/wiki/Orthogonalization"}, {"label": "NIST DLMF — linear algebra", "url": "https://dlmf.nist.gov/1.2"}]
     },
     {
       "id": "mahalanobis-distance",
@@ -2931,7 +2931,7 @@
       "aliases": ["Jensen inequality"],
       "tags": ["convexity", "variational-inference", "bounds"],
       "attributionNote": {"en": "Jensen proved the finite convex-combination form; modern expectation and measure-theoretic versions were generalized later.", "zh": "Jensen 证明有限凸组合形式；现代期望与测度论版本由后世推广。"},
-      "sourceLinks": [{"label": "Encyclopedia of Mathematics — Jensen inequality", "url": "https://encyclopediaofmath.org/wiki/Jensen_inequality"}, {"label": "Jensen (1906) — convex functions and inequalities", "url": "https://doi.org/10.1007/BF01457604"}]
+      "sourceLinks": [{"label": "Encyclopedia of Mathematics — Jensen inequality", "url": "https://encyclopediaofmath.org/wiki/Jensen_inequality"}, {"label": "Stanford — Boyd & Vandenberghe, Convex Optimization", "url": "https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf"}]
     },
     {
       "id": "hadamard-product",
@@ -2967,7 +2967,7 @@
       "aliases": ["Mercer theorem", "Mercer representation"],
       "tags": ["kernel", "eigenfunction", "SVM"],
       "attributionNote": {"en": "The classical theorem has specific domain, measure, and continuity assumptions; ML usage sometimes loosely calls any positive-semidefinite kernel characterization 'Mercer'.", "zh": "经典定理有明确的定义域、测度与连续性条件；机器学习中有时宽泛地把任意半正定核刻画都称作“Mercer”。"},
-      "sourceLinks": [{"label": "Mercer (1909), original paper scan", "url": "https://royalsocietypublishing.org/doi/pdf/10.1098/rsta.1909.0016"}, {"label": "Smola & Schölkopf — Learning with Kernels", "url": "https://alex.smola.org/papers/2002/SchHerSmo02.pdf"}]
+      "sourceLinks": [{"label": "Mercer (1909), original paper scan", "url": "https://royalsocietypublishing.org/doi/pdf/10.1098/rsta.1909.0016"}, {"label": "Hofmann, Schölkopf & Smola — Kernel methods in machine learning", "url": "https://arxiv.org/abs/math/0701907"}]
     },
     {
       "id": "cholesky-decomposition",
@@ -2985,7 +2985,7 @@
       "aliases": ["Cholesky factorization"],
       "tags": ["linear-algebra", "positive-definite", "Gaussian"],
       "attributionNote": {"en": "Cholesky developed the algorithm for geodetic least squares before his death; Benoît published it posthumously in 1924.", "zh": "Cholesky 生前为大地测量最小二乘发展该算法；Benoît 于 1924 年在其身后发表。"},
-      "sourceLinks": [{"label": "LAPACK — DPOTRF Cholesky factorization", "url": "https://netlib.org/lapack/explore-html/d2/d09/group__potrf_ga84e90859b02139934b166e579dd211d4.html"}, {"label": "Higham — Cholesky Factorization", "url": "https://nhigham.com/2020/09/08/what-is-a-cholesky-factorization/"}]
+      "sourceLinks": [{"label": "LAPACK — DPOTRF Cholesky factorization", "url": "https://netlib.org/lapack/explore-html/d2/d09/group__potrf_ga84e90859b02139934b166e579dd211d4.html"}, {"label": "SIAM — Higham, Accuracy and Stability, Chapter 10", "url": "https://epubs.siam.org/doi/10.1137/1.9780898718027.ch10"}]
     },
     {
       "id": "bregman-divergence",
@@ -5665,8 +5665,8 @@
       },
       "sourceLinks": [
         {
-          "label": "Hopfield (1982) — Neural networks and physical systems",
-          "url": "https://www.pnas.org/doi/10.1073/pnas.79.8.2554"
+          "label": "Hopfield (1982) — Neural networks and physical systems (PMC)",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC346238/"
         },
         {
           "label": "ICLR 2021 — Hopfield Networks is All You Need",

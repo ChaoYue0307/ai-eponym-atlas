@@ -59,6 +59,7 @@ export function Header({ locale, route, onLocaleChange }: HeaderProps) {
           <a
             key={item.route}
             className={route.name === item.route ? 'is-active' : ''}
+            aria-current={route.name === item.route ? 'page' : undefined}
             href={`#${item.path}`}
             onClick={(event) => {
               event.preventDefault()

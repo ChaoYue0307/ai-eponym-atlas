@@ -123,17 +123,26 @@ export type TimelineEventKind =
   | "naming"
   | "ai-adoption";
 
+export type TimelineEraId =
+  | "origins"
+  | "formalization"
+  | "systems"
+  | "modern";
+
 export interface TimelineEvent {
   readonly id: string;
   /** Numeric value used only for chronological sorting. */
   readonly sortYear: number;
-  /** Reader-facing year or range, such as "2016–2017". */
-  readonly year: string;
+  /** Reader-facing year or range, localized when prose is required. */
+  readonly year: LocalizedText;
+  readonly eraId: TimelineEraId;
   readonly kind: TimelineEventKind;
   readonly title: LocalizedText;
   readonly description: LocalizedText;
   readonly personIds: readonly string[];
   readonly conceptIds: readonly string[];
+  /** Sources that directly support the event-level historical or AI claim. */
+  readonly sourceLinks: readonly SourceLink[];
 }
 
 export type GraphNodeKind = "person" | "concept" | "application";

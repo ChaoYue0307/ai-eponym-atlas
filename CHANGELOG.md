@@ -20,9 +20,22 @@ All notable editorial and product changes are recorded here. The catalog's
   terms.
 - Added 77 source-verified open portraits with file-level attribution and
   monogram fallbacks.
-- Refined the responsive visual system, relationship-graph geometry, social
-  preview metadata, and repository documentation with current product
+- Rebuilt the relationship graph as a deterministic, shareable exploration
+  workspace with semantic and visual layers, real portraits, path emphasis,
+  keyboard camera controls, fit/reset actions, and a responsive inspector.
+- Rebuilt the timeline around a true-scale 1596–2025 overview, four editorial
+  eras, event-kind filtering, URL-restorable selection, verified portraits,
+  mobile inline details, and event-level evidence links.
+- Codified the editorial design system, responsive visualization grammar,
+  social-preview metadata, and repository documentation with current product
   screenshots and automated README consistency checks.
+- Added installable-site metadata and icons, search-engine discovery files,
+  route-aware social cards, deliberate vendor/data chunking, and pinned GitHub
+  Actions for a smaller, safer production delivery.
+- Added a monthly, retry-aware source-link audit alongside Dependabot and the
+  existing content, type, test, documentation, and build quality gates.
+- Removed synthetic UI studies whose invented labels or likenesses could be
+  mistaken for catalog evidence.
 
 ## 0.1.0 — 2026-07-31
 

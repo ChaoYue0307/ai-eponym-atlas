@@ -10,7 +10,7 @@
   <a href="https://github.com/ChaoYue0307/ai-eponym-atlas/actions/workflows/ci.yml"><img alt="CI status" src="https://github.com/ChaoYue0307/ai-eponym-atlas/actions/workflows/ci.yml/badge.svg"></a>
   <a href="https://github.com/ChaoYue0307/ai-eponym-atlas/actions/workflows/deploy-pages.yml"><img alt="GitHub Pages deployment status" src="https://github.com/ChaoYue0307/ai-eponym-atlas/actions/workflows/deploy-pages.yml/badge.svg"></a>
   <a href="./LICENSE"><img alt="Code license: MIT" src="https://img.shields.io/badge/code-MIT-003fc7.svg"></a>
-  <a href="./CONTENT_LICENSE"><img alt="Content license: CC BY 4.0" src="https://img.shields.io/badge/content-CC%20BY%204.0-ef4328.svg"></a>
+  <a href="./CONTENT_LICENSE"><img alt="Content license: CC BY 4.0" src="https://img.shields.io/badge/content-CC%20BY%204.0-bd3424.svg"></a>
 </p>
 
 <p align="center">
@@ -80,7 +80,7 @@ distraction from it.
 
 ## 🖼️ See it in action / 产品实景
 
-The images below are captured from the current production website—not from
+The images below are captured from the current application—not from generated
 design mockups.
 
 ![The live AI Eponym Atlas homepage showing its meaning-first hero, interactive concept constellation, filters, search, and a Jacobian detail panel](./docs/images/atlas-overview.jpg)
@@ -91,14 +91,38 @@ design mockups.
       <img src="./docs/images/relationship-graph.jpg" alt="Two-hop relationship graph for the Hessian matrix, showing people, related concepts, AI applications, controls, and an accessible relationship legend">
     </td>
     <td width="32%">
+      <img src="./docs/images/timeline-mobile.jpg" alt="Chinese mobile timeline showing the true-scale overview, René Descartes's verified portrait, and the selected 1637 publication event">
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Relationship workspace</strong><br>Deterministic people–concept–application layers, path tracing, real portraits, a complete semantic list, and shareable state.</td>
+    <td><strong>Mobile chronology</strong><br>True-scale orientation and readable event detail in the first viewport.</td>
+  </tr>
+  <tr>
+    <td>
+      <img src="./docs/images/timeline-overview.jpg" alt="Desktop historical timeline with event-kind filters, a true-scale 1596–2025 overview, four eras, René Descartes's portrait, and a selected event inspector">
+    </td>
+    <td>
       <img src="./docs/images/person-profile-mobile.jpg" alt="Mobile profile for René Descartes with a verified historical portrait, attribution, bilingual name, biography, and related AI concepts">
     </td>
   </tr>
   <tr>
-    <td><strong>Relationship graph</strong><br>Exact, navigable people–concept–application links with one- and two-hop views.</td>
+    <td><strong>Historical timeline</strong><br>Publication, naming, people, and AI adoption remain distinct across a proportional overview and readable eras.</td>
     <td><strong>Verified people profiles</strong><br>Responsive biographies, real open portraits, and visible file-level credits.</td>
   </tr>
 </table>
+
+### Visual truth / 图形真实性
+
+- **Real people, real provenance.** Portraits are source-verified open works
+  with file-level identity, creator, license, and source records.
+- **Diagrams are data-native.** Relationships, chronology, labels, formulas,
+  and interaction states are rendered from project data in HTML or SVG.
+- **Generated art is never evidence.** Image generation is limited to clearly
+  documented decorative studies and never substitutes for portraits,
+  publications, mathematics, historical claims, or data visualizations.
+
+人物肖像来自经过核验的开放素材；图谱、时间线、公式与标签由真实数据直接渲染；生成图像只可作为有记录的装饰性设计研究，绝不充当人物、数学或历史证据。
 
 ## ✨ What you can do / 核心能力
 
@@ -200,20 +224,26 @@ Vite prints the local URL, normally `http://localhost:5173`.
 
 ## 🧱 How the repository works / 仓库结构
 
-```text
-content/eponyms.json       canonical people, concepts, and citations
-content/people-media.json  verified identities, portrait sources, and licenses
-            │
-            ▼
-src/data/catalog.ts        strict typed catalog and derived indexes
-            │
-      ┌─────┴──────────┐
-      ▼                ▼
-React + Vite UI        Vitest integrity checks
-      │                │
-      └──────┬─────────┘
-             ▼
-        GitHub Pages
+```mermaid
+flowchart TD
+    E["📚 eponyms.json<br/>people · concepts · citations"]
+    P["🖼️ people-media.json<br/>identity · portrait · license"]
+    C["Typed catalog<br/>validation · indexes · stable IDs"]
+    G["🔗 Relationship graph<br/>semantic + visual layers"]
+    T["🕰️ Historical timeline<br/>events + eras + URL state"]
+    U["🌐 React interface<br/>bilingual · responsive · accessible"]
+    Q["✅ Integrity gates<br/>TypeScript · Vitest · build"]
+    D["🚀 GitHub Pages"]
+
+    E --> C
+    P --> C
+    C --> G
+    C --> T
+    G --> U
+    T --> U
+    C --> Q
+    U --> Q
+    Q --> D
 ```
 
 The site is static and client-side. Stable IDs connect people, concepts,
@@ -231,6 +261,7 @@ catalog rather than being duplicated inside UI components.
 | [Portrait policy](./docs/PORTRAITS.md) | Identity matching, accepted licenses, attribution, and monogram fallback |
 | [Portrait audit](./docs/PORTRAIT_AUDIT.md) | File-by-file identity and license verification record |
 | [Generated assets](./docs/GENERATED_ASSETS.md) | Image-generation prompts, refinement, compression, and safeguards |
+| [Design system](./docs/DESIGN_SYSTEM.md) | Visual principles, semantic tokens, visualization grammar, responsive and accessibility contracts |
 | [Architecture](./docs/ARCHITECTURE.md) | Runtime data flow, modules, routes, and repository map |
 | [Deployment](./docs/DEPLOYMENT.md) | GitHub Pages configuration, verification, and troubleshooting |
 | [Changelog](./CHANGELOG.md) | Released data and product changes |
@@ -256,6 +287,8 @@ batch of placeholders.
 
 - [x] Expanded bilingual catalog, search, people profiles, exact relationship
   graph, timeline, citations, audited portraits, CI, and GitHub Pages.
+- [x] Shareable Graph V2 and Timeline V2 workspaces with semantic HTML/SVG,
+  responsive inspectors, URL-restorable state, and accessible alternatives.
 - [ ] Typed prerequisite, variant, generalization, duality, and
   easy-to-confuse relationships.
 - [ ] Learning paths, minimal examples, boundary conditions, and

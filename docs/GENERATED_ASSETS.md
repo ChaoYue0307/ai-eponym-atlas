@@ -97,3 +97,23 @@ be read as a relationship encoded by the atlas.
 The social card does not ask the image model to render typography, the logo, or
 mathematics. Those elements are composited with code-native HTML/CSS so spelling,
 alignment, and brand fidelity remain deterministic.
+
+## Rejected UI concept studies
+
+Seven generated UI studies were reviewed on 2026-07-31 and deliberately
+excluded from the repository. They contained synthetic labels, relationships,
+counts, or historical likenesses that could not be guaranteed to match the
+catalog. Keeping them—even as mockups—would weaken the atlas's visual-truth
+contract.
+
+The accepted Graph and Timeline designs were therefore implemented and
+evaluated directly in React, CSS, semantic HTML, and SVG:
+
+- Graph nodes and edges come only from the typed catalog.
+- Timeline dates, kinds, era counts, and event evidence come only from the
+  curated timeline data.
+- Historical portraits come only from the audited media catalog.
+- README images are captures of the working application.
+
+Generated imagery remains limited to the non-informational paper texture
+documented above.

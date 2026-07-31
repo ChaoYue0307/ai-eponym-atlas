@@ -276,6 +276,7 @@ npm run check
 
 ```bash
 npm run lint
+npm run lint:docs
 npm test -- --run
 npm run build
 ```

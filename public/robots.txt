@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://chaoyue0307.github.io/ai-eponym-atlas/sitemap.xml

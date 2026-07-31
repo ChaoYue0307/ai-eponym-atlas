@@ -4,14 +4,19 @@
   --paper-subtle: #f8f9fb;
   --ink: #10131a;
   --muted: #606773;
-  --faint: #8b919b;
+  --faint: #707782;
   --line: #d8dce3;
   --line-strong: #b8bec8;
   --blue: #003fc7;
   --blue-dark: #002c8a;
   --blue-pale: #eef3ff;
-  --red: #ef4328;
+  --naming: #875d00;
+  --naming-pale: #fff8e7;
+  --red: #bd3424;
+  --red-bright: #ef4328;
   --red-pale: #fff4f1;
+  --people: #20242c;
+  --focus-ring: color-mix(in srgb, var(--blue) 72%, white);
   --serif: "Iowan Old Style", "Baskerville", "Times New Roman", "Noto Serif SC", serif;
   --sans: "Avenir Next", "Segoe UI", "Noto Sans SC", "PingFang SC", system-ui, sans-serif;
   --mono: "SFMono-Regular", "Cascadia Code", "Roboto Mono", monospace;
@@ -83,7 +88,7 @@ p {
 }
 
 :focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--blue) 72%, white);
+  outline: 3px solid var(--focus-ring);
   outline-offset: 3px;
 }
 
