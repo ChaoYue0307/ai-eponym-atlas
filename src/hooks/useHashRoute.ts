@@ -29,18 +29,42 @@ function subscribe(listener: () => void) {
 }
 
 function getSnapshot() {
-  return window.location.hash || '#/'
+  return `${window.location.pathname}${window.location.search}${window.location.hash}`
 }
 
 function getServerSnapshot() {
-  return '#/'
+  return '/'
 }
 
-export function parseRoute(hash: string): Route {
-  const normalized = hash.replace(/^#/, '') || '/'
+function stripBasePath(path: string) {
+  const basePath = import.meta.env.BASE_URL.replace(/\/$/, '')
+  if (basePath && path.startsWith(`${basePath}/`)) return path.slice(basePath.length)
+  if (basePath && path === basePath) return '/'
+  return path
+}
+
+function currentRouteSource() {
+  if (typeof window === 'undefined') return '/'
+  return window.location.hash.startsWith('#/')
+    ? window.location.hash
+    : `${window.location.pathname}${window.location.search}`
+}
+
+export function parseRoute(source: string): Route {
+  let normalized = source.trim() || '/'
+  if (/^https?:\/\//.test(normalized)) {
+    const url = new URL(normalized)
+    normalized = url.hash.startsWith('#/') ? url.hash : `${url.pathname}${url.search}`
+  }
+  if (normalized.includes('#/')) normalized = normalized.slice(normalized.indexOf('#/'))
+  normalized = stripBasePath(normalized.replace(/^#/, '') || '/')
   const [path, query = ''] = normalized.split('?')
   const params = new URLSearchParams(query)
   const segments = path.split('/').filter(Boolean)
+  if (segments[0] === 'zh') {
+    segments.shift()
+    if (!params.has('lang')) params.set('lang', 'zh')
+  }
 
   if (segments[0] === 'concept' && segments[1]) {
     return { name: 'concept', id: decodeURIComponent(segments[1]), params }
@@ -56,16 +80,27 @@ export function parseRoute(hash: string): Route {
   return { name: 'home', params }
 }
 
-export function buildHash(path: string, params?: URLSearchParams) {
+function requestedLanguage(params?: URLSearchParams) {
   const nextParams = new URLSearchParams(params)
-  if (typeof window !== 'undefined' && !nextParams.has('lang')) {
-    const currentLanguage = parseRoute(window.location.hash).params.get('lang')
+  if (!nextParams.has('lang') && typeof window !== 'undefined') {
+    const currentLanguage = parseRoute(currentRouteSource()).params.get('lang')
     if (currentLanguage === 'zh' || currentLanguage === 'en') {
       nextParams.set('lang', currentLanguage)
     }
   }
+  return nextParams
+}
+
+export function buildHref(path: string, params?: URLSearchParams) {
+  const nextParams = requestedLanguage(params)
+  const language = nextParams.get('lang')
+  nextParams.delete('lang')
+  const basePath = import.meta.env.BASE_URL
+  const cleanPath = path.replace(/^\/+|\/+$/g, '')
+  const localizedPath = [language === 'zh' ? 'zh' : '', cleanPath].filter(Boolean).join('/')
+  const href = `${basePath}${localizedPath}${localizedPath ? '/' : ''}`
   const query = nextParams.toString()
-  return `#${path}${query ? `?${query}` : ''}`
+  return `${href}${query ? `?${query}` : ''}`
 }
 
 export function routePath(route: Route) {
@@ -74,19 +109,26 @@ export function routePath(route: Route) {
   return route.name === 'home' ? '/' : `/${route.name}`
 }
 
+export function localeForRoute(route: Route): 'en' | 'zh' {
+  return route.params.get('lang') === 'zh' ? 'zh' : 'en'
+}
+
 export function navigate(path: string, params?: URLSearchParams, replace = false) {
-  const hash = buildHash(path, params)
+  const href = buildHref(path, params)
   if (replace) {
-    window.history.replaceState(null, '', hash)
-    emitRouteChange()
+    window.history.replaceState(null, '', href)
   } else {
-    window.location.hash = hash
+    window.history.pushState(null, '', href)
   }
+  emitRouteChange()
 }
 
 export function useHashRoute() {
-  const hash = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
-  const route = useMemo(() => parseRoute(hash), [hash])
+  const location = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
+  const route = useMemo(
+    () => parseRoute(location.includes('#/') ? location.slice(location.indexOf('#/')) : location),
+    [location],
+  )
   const go = useCallback(
     (path: string, params?: URLSearchParams, replace = false) => navigate(path, params, replace),
     [],

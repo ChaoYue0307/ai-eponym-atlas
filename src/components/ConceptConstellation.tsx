@@ -6,7 +6,7 @@ import {
   mobileConstellationPositions,
 } from '../data/constellation'
 import { conceptsById } from '../data/catalog'
-import { buildHash } from '../hooks/useHashRoute'
+import { buildHref } from '../hooks/useHashRoute'
 import { connectCircleBoundaries } from '../lib/constellationGeometry'
 
 type ConstellationLayout = 'desktop' | 'mobile'
@@ -87,7 +87,7 @@ function ConstellationGraphic({
                 .filter(Boolean)
                 .join(' ')}
               data-node-id={node.id}
-              href={buildHash(`/concept/${node.id}`)}
+              href={buildHref(`/concept/${node.id}`)}
               aria-label={
                 locale === 'zh'
                   ? `打开${accessibleLabel}：${meaning}。公式 ${node.formula}`

@@ -319,7 +319,19 @@ describe("atlas data integrity", () => {
       /\[!\[[^\]]+\]\(\.\/docs\/images\/atlas-overview\.jpg\)\]\(https:\/\/chaoyue0307\.github\.io\/ai-eponym-atlas\/\)/,
     );
     expect(readme).toMatch(
-      /\[!\[[^\]]+\]\(\.\/docs\/images\/people-concept-ranking\.jpg\)\]\(https:\/\/chaoyue0307\.github\.io\/ai-eponym-atlas\/#\/atlas\?view=people&layout=ranking\)/,
+      /\[!\[[^\]]+\]\(\.\/docs\/images\/people-concept-ranking\.jpg\)\]\(https:\/\/chaoyue0307\.github\.io\/ai-eponym-atlas\/atlas\/\?view=people&layout=ranking\)/,
+    );
+    expect(readme).toContain("author       = {He, Chaoyue}");
+    expect(readme.trimEnd()).toMatch(/@misc\{he2026aieponymatlas,[\s\S]+\n\}\n```$/);
+
+    const citation = readFileSync(resolve("CITATION.cff"), "utf8");
+    expect(citation).toContain("family-names: He");
+    expect(citation).toContain("given-names: Chaoyue");
+    expect(readFileSync(resolve("LICENSE"), "utf8")).toContain(
+      "Copyright (c) 2026 Chaoyue He",
+    );
+    expect(readFileSync(resolve("CONTENT_LICENSE"), "utf8")).toContain(
+      "Copyright (c) 2026 Chaoyue He and contributors",
     );
 
     const coverage = readFileSync(resolve("docs/COVERAGE.md"), "utf8");

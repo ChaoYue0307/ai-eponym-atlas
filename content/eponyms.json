@@ -6,8 +6,8 @@
     "zhSubtitle": "从直觉、数学、历史与关联出发，理解这些概念如何用于现代 AI。",
     "tagline": "Understand the ideas behind the names in AI.",
     "description": {
-      "en": "Explore widely used mathematical and technical concepts named after people—their meanings, histories, connections, and uses in AI.",
-      "zh": "探索广泛用于人工智能、以人物命名的数学与技术概念，理解它们的含义、历史、关联与实际用途。"
+      "en": "Explore mathematical and technical eponyms used in AI and machine learning—their meanings, histories, relationships, applications, and sources.",
+      "zh": "探索用于人工智能与机器学习的数学和技术人名概念，理解其含义、历史、关联、应用与参考来源。"
     },
     "schemaVersion": "1.1.0",
     "lastUpdated": "2026-07-31",

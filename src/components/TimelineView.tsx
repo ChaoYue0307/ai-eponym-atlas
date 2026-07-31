@@ -9,7 +9,7 @@ import type { Locale } from '../copy'
 import { copy } from '../copy'
 import { conceptsById, peopleById } from '../data/catalog'
 import { timelineEras, timelineEvents } from '../data/timeline'
-import { navigate, useHashRoute } from '../hooks/useHashRoute'
+import { buildHref, navigate, useHashRoute } from '../hooks/useHashRoute'
 import { allocateTimelineMarkerLanes } from '../lib/timelineLayout'
 import type { TimelineEraId, TimelineEventKind } from '../types'
 import { PersonPortrait } from './PersonPortrait'
@@ -303,13 +303,13 @@ function EventLinks({ event, locale, compact = false }: EventLinksProps) {
   return (
     <div className={`timeline-v2-links${compact ? ' timeline-v2-links--compact' : ''}`}>
       {eventPeople.map((person) => (
-        <a key={person.id} href={`#/person/${encodeURIComponent(person.id)}`}>
+        <a key={person.id} href={buildHref(`/person/${person.id}`)}>
           {localizedPersonName(person, locale)}
           <ArrowUpRight aria-hidden="true" />
         </a>
       ))}
       {eventConcepts.map((concept) => (
-        <a key={concept.id} href={`#/concept/${encodeURIComponent(concept.id)}`}>
+        <a key={concept.id} href={buildHref(`/concept/${concept.id}`)}>
           {localizedConceptName(concept, locale)}
           <ArrowUpRight aria-hidden="true" />
         </a>
@@ -371,7 +371,7 @@ function InlineEventDetail({ event, locale, onClose }: InlineDetailProps) {
       {firstConcept ? (
         <a
           className="timeline-v2-detail__primary"
-          href={`#/concept/${encodeURIComponent(firstConcept.id)}`}
+          href={buildHref(`/concept/${firstConcept.id}`)}
         >
           {ui.openConcept}
           <ArrowUpRight aria-hidden="true" />
@@ -425,7 +425,7 @@ function TimelineEventRow({ event, locale, selected, onToggle }: EventRowProps) 
         {featuredPerson ? (
           <a
             className="timeline-v2-event__portrait"
-            href={`#/person/${encodeURIComponent(featuredPerson.id)}`}
+            href={buildHref(`/person/${featuredPerson.id}`)}
             aria-label={localizedPersonName(featuredPerson, locale)}
           >
             <PersonPortrait person={featuredPerson} locale={locale} />
@@ -519,7 +519,7 @@ function TimelineInspector({ event, locale, onClose }: InspectorProps) {
           <h3>{ui.people}</h3>
           <div className="timeline-v2-inspector__people">
             {eventPeople.map((person) => (
-              <a key={person.id} href={`#/person/${encodeURIComponent(person.id)}`}>
+              <a key={person.id} href={buildHref(`/person/${person.id}`)}>
                 <PersonPortrait person={person} locale={locale} />
                 <span>{localizedPersonName(person, locale)}</span>
                 <ArrowUpRight aria-hidden="true" />
@@ -544,7 +544,7 @@ function TimelineInspector({ event, locale, onClose }: InspectorProps) {
       {firstConcept ? (
         <a
           className="timeline-v2-detail__primary"
-          href={`#/concept/${encodeURIComponent(firstConcept.id)}`}
+          href={buildHref(`/concept/${firstConcept.id}`)}
         >
           {ui.openConcept}
           <ArrowUpRight aria-hidden="true" />

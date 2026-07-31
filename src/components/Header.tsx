@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import type { Locale } from '../copy'
 import { copy } from '../copy'
 import type { Route } from '../hooks/useHashRoute'
-import { navigate } from '../hooks/useHashRoute'
+import { buildHref, navigate } from '../hooks/useHashRoute'
 import { Brand } from './Brand'
 
 type HeaderProps = {
@@ -32,7 +32,7 @@ export function Header({ locale, route, onLocaleChange }: HeaderProps) {
 
   return (
     <header className="site-header">
-      <Brand compact />
+      <Brand compact locale={locale} />
       <button
         className="icon-button mobile-menu-button"
         type="button"
@@ -71,10 +71,10 @@ export function Header({ locale, route, onLocaleChange }: HeaderProps) {
                 ? 'page'
                 : undefined
             }
-            href={`#${item.path}`}
+            href={buildHref(item.path, new URLSearchParams({ lang: locale }))}
             onClick={(event) => {
               event.preventDefault()
-              navigate(item.path)
+              navigate(item.path, new URLSearchParams({ lang: locale }))
             }}
           >
             {t.nav[item.route]}

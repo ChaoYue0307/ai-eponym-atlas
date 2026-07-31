@@ -1,7 +1,7 @@
 import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right.mjs'
 import type { Locale } from '../copy'
 import { conceptsById } from '../data/catalog'
-import { buildHash } from '../hooks/useHashRoute'
+import { buildHref } from '../hooks/useHashRoute'
 
 const featuredConceptIds = [
   'jacobian-matrix',
@@ -58,7 +58,7 @@ export function HomeGuide({ locale }: { locale: Locale }) {
               <span>{route.number}</span>
               <h3>{route.title[locale]}</h3>
               <p>{route.body[locale]}</p>
-              <a href={buildHash(route.path)}>
+              <a href={buildHref(route.path)}>
                 {route.label[locale]}
                 <ArrowRight aria-hidden="true" />
               </a>
@@ -87,7 +87,7 @@ export function HomeGuide({ locale }: { locale: Locale }) {
             if (!concept) return null
             return (
               <li key={concept.id}>
-                <a href={buildHash(`/concept/${concept.id}`)}>
+                <a href={buildHref(`/concept/${concept.id}`)}>
                   <span>{String(index + 1).padStart(2, '0')}</span>
                   <div>
                     <h3>
@@ -102,7 +102,7 @@ export function HomeGuide({ locale }: { locale: Locale }) {
             )
           })}
         </ol>
-        <a className="featured-concepts__all" href={buildHash('/atlas')}>
+        <a className="featured-concepts__all" href={buildHref('/atlas')}>
           {locale === 'zh' ? '查看全部概念' : 'Explore all concepts'}
           <ArrowRight aria-hidden="true" />
         </a>

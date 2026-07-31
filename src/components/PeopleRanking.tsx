@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react'
 import type { Locale } from '../copy'
-import { buildHash } from '../hooks/useHashRoute'
+import { buildHref } from '../hooks/useHashRoute'
 import { buildPersonConceptRanking } from '../lib/personConceptStats'
 import { PersonPortrait } from './PersonPortrait'
 
@@ -57,13 +57,13 @@ export function PeopleRanking({
           </div>
           <ol>
             {ranking.map((row) => {
-              const profileHash = buildHash(`/person/${row.person.id}`)
+              const profileHref = buildHref(`/person/${row.person.id}`)
               return (
                 <li key={row.person.id}>
                   <span className="people-ranking__rank">
                     #{String(row.rank).padStart(2, '0')}{row.tied ? '=' : ''}
                   </span>
-                  <a className="people-ranking__person" href={profileHash}>
+                  <a className="people-ranking__person" href={profileHref}>
                     <PersonPortrait person={row.person} locale={locale} />
                     <span>
                       <strong>{locale === 'zh' ? row.person.zhName : row.person.name}</strong>
@@ -73,7 +73,7 @@ export function PeopleRanking({
                   <span className="people-ranking__concepts">
                     {row.concepts.map((concept, index) => (
                       <span key={concept.id}>
-                        <a href={buildHash(`/concept/${concept.id}`)}>
+                        <a href={buildHref(`/concept/${concept.id}`)}>
                           {locale === 'zh' ? concept.zhTerm : concept.term}
                         </a>
                         {index < row.concepts.length - 1 ? <span aria-hidden="true"> · </span> : null}

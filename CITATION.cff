@@ -1,14 +1,16 @@
 cff-version: 1.2.0
 message: >-
   If you use AI Eponym Atlas in research, teaching, or documentation, please
-  cite the software and link to the version you consulted.
+  cite the software and link to the version you consulted. Source code is MIT
+  licensed; original atlas content and structured data are CC BY 4.0.
 title: AI Eponym Atlas
 abstract: >-
   An evidence-linked atlas of mathematical and technical concepts named after
   people and widely used in artificial intelligence.
 type: software
 authors:
-  - name: AI Eponym Atlas contributors
+  - family-names: He
+    given-names: Chaoyue
 version: 0.3.0
 date-released: 2026-07-31
 repository-code: https://github.com/ChaoYue0307/ai-eponym-atlas
@@ -16,7 +18,10 @@ url: https://chaoyue0307.github.io/ai-eponym-atlas/
 license: MIT
 keywords:
   - artificial intelligence
+  - machine learning
+  - AI mathematics
   - mathematics
   - eponyms
+  - mathematical eponyms
   - knowledge graph
   - history of mathematics

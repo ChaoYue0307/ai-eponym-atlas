@@ -6,7 +6,7 @@
   "description": "An atlas of mathematical and technical eponyms used in or foundational to AI.",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && node scripts/generate-static-pages.mjs && node scripts/check-bundle-budget.mjs",
+    "build": "tsc -b && vite build && node scripts/generate-static-pages.mjs && node scripts/check-generated-seo.mjs && node scripts/check-bundle-budget.mjs",
     "typecheck": "tsc -b --pretty false",
     "lint": "npm run typecheck",
     "lint:docs": "markdownlint-cli2",

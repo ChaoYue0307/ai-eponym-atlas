@@ -65,7 +65,7 @@ deployment.
 
 After the Pages job succeeds, verify:
 
-- the homepage and deep hash routes load;
+- the English and Chinese homepages plus clean deep routes load directly;
 - generated JS/CSS, portraits, the decorative WebP, and `og-card.jpg` return
   HTTP 200;
 - the atlas contains the expected catalog counts;

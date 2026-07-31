@@ -1,17 +1,21 @@
-import { navigate } from '../hooks/useHashRoute'
+import { buildHref, navigate } from '../hooks/useHashRoute'
+import type { Locale } from '../copy'
 
 type BrandProps = {
   compact?: boolean
+  locale: Locale
 }
 
-export function Brand({ compact = false }: BrandProps) {
+export function Brand({ compact = false, locale }: BrandProps) {
+  const localeParams = new URLSearchParams({ lang: locale })
+
   return (
     <a
       className={`brand${compact ? ' brand--compact' : ''}`}
-      href="#/"
+      href={buildHref('/', localeParams)}
       onClick={(event) => {
         event.preventDefault()
-        navigate('/')
+        navigate('/', localeParams)
       }}
       aria-label="AI Eponym Atlas home"
     >

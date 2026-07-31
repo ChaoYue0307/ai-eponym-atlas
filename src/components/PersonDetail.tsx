@@ -3,7 +3,7 @@ import ArrowUpRight from 'lucide-react/dist/esm/icons/arrow-up-right.mjs'
 import ExternalLink from 'lucide-react/dist/esm/icons/external-link.mjs'
 import type { Locale } from '../copy'
 import { conceptsById, peopleById } from '../data/catalog'
-import { navigate } from '../hooks/useHashRoute'
+import { buildHref, navigate } from '../hooks/useHashRoute'
 import { formatLifespan } from '../lib/lifespan'
 import {
   categoryLabels,
@@ -19,7 +19,7 @@ export function PersonDetail({ personId, locale }: { personId: string; locale: L
     return (
       <main className="not-found">
         <p>{locale === 'zh' ? '没有找到这位人物。' : 'This person was not found.'}</p>
-        <a href="#/atlas">{locale === 'zh' ? '返回图谱' : 'Back to atlas'}</a>
+        <a href={buildHref('/atlas')}>{locale === 'zh' ? '返回图谱' : 'Back to atlas'}</a>
       </main>
     )
   }
@@ -49,7 +49,7 @@ export function PersonDetail({ personId, locale }: { personId: string; locale: L
     <main className="person-page">
       <a
         className="text-button"
-        href="#/atlas?view=people"
+        href={buildHref('/atlas', new URLSearchParams({ view: 'people' }))}
         onClick={(event) => {
           event.preventDefault()
           navigate('/atlas', new URLSearchParams({ view: 'people' }))
@@ -232,7 +232,7 @@ export function PersonDetail({ personId, locale }: { personId: string; locale: L
               : 'A name marks an attribution relationship; it does not by itself prove sole invention. Discovery, formalization, popularization, and later naming may involve different people.'}
           </p>
           <a
-            href="#/about"
+            href={buildHref('/about')}
             onClick={(event) => {
               event.preventDefault()
               navigate('/about')

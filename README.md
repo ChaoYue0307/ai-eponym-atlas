@@ -20,19 +20,20 @@
 <p align="center">
   <a href="https://chaoyue0307.github.io/ai-eponym-atlas/"><strong>🌐 Open the live atlas</strong></a>
   ·
-  <a href="https://chaoyue0307.github.io/ai-eponym-atlas/#/paths">🧭 Follow a learning path</a>
+  <a href="https://chaoyue0307.github.io/ai-eponym-atlas/paths/">🧭 Follow a learning path</a>
   ·
-  <a href="https://chaoyue0307.github.io/ai-eponym-atlas/#/graph">🔗 Explore relationships</a>
+  <a href="https://chaoyue0307.github.io/ai-eponym-atlas/graph/">🔗 Explore relationships</a>
   ·
-  <a href="https://chaoyue0307.github.io/ai-eponym-atlas/#/timeline">🕰️ Follow the timeline</a>
+  <a href="https://chaoyue0307.github.io/ai-eponym-atlas/timeline/">🕰️ Follow the timeline</a>
   ·
-  <a href="https://chaoyue0307.github.io/ai-eponym-atlas/#/atlas?view=people&layout=ranking">📊 Compare catalog coverage</a>
+  <a href="https://chaoyue0307.github.io/ai-eponym-atlas/atlas/?view=people&layout=ranking">📊 Compare catalog coverage</a>
 </p>
 
-AI Eponym Atlas explains mathematical and technical concepts named after people
-and widely used in artificial intelligence. Start with what a concept does,
-then explore its intuition, formal definition, history, connections, and modern
-applications.
+AI Eponym Atlas is an open-source AI mathematics reference and interactive
+glossary of eponymous concepts widely used in artificial intelligence and
+machine learning. Each entry begins with what the concept does, then explains
+its intuition, formal definition, history, relationships, and modern AI
+applications with verifiable sources.
 
 AI 人名概念图谱逐一解释以人物命名、并广泛用于 AI 的数学与技术术语：它解决什么问题、如何定义、从何而来，以及怎样用于现代 AI。
 
@@ -75,9 +76,9 @@ internally consistent:
 
 核验时需要区分“独立条目”和“关联关系”：一个人物可以对应多个概念，一个复合人名概念也可以关联多位人物。当前目录共有 **149 条人物—概念连接**；96 位人物目前只有 1 个已收录概念，说明目录更重广度，仍有继续加深的空间，并非计数错误。
 
-[![People-to-concept coverage audit with 117 people, 120 unique concepts, 149 links, a five-bin distribution, and the start of the complete ranking](./docs/images/people-concept-ranking.jpg)](https://chaoyue0307.github.io/ai-eponym-atlas/#/atlas?view=people&layout=ranking)
+[![People-to-concept coverage audit with 117 people, 120 unique concepts, 149 links, a five-bin distribution, and the start of the complete ranking](./docs/images/people-concept-ranking.jpg)](https://chaoyue0307.github.io/ai-eponym-atlas/atlas/?view=people&layout=ranking)
 
-The [live ranking](https://chaoyue0307.github.io/ai-eponym-atlas/#/atlas?view=people&layout=ranking)
+The [live ranking](https://chaoyue0307.github.io/ai-eponym-atlas/atlas/?view=people&layout=ranking)
 contains all 117 people, supports search and field filters, and opens every
 linked person or concept. It measures this catalog's current coverage—not
 historical importance or a person's total contributions.
@@ -111,7 +112,7 @@ begin with its function, then continue to the mathematics, history, and AI use.
 
 [![The live AI Eponym Atlas homepage showing its meaning-first hero, coverage totals, interactive constellation, reader routes, and six starting concepts](./docs/images/atlas-overview.jpg)](https://chaoyue0307.github.io/ai-eponym-atlas/)
 
-[![Four guided learning paths connecting geometry to gradients, evidence to uncertainty, signals to representations, and noise to generative models](./docs/images/learning-paths.jpg)](https://chaoyue0307.github.io/ai-eponym-atlas/#/paths)
+[![Four guided learning paths connecting geometry to gradients, evidence to uncertainty, signals to representations, and noise to generative models](./docs/images/learning-paths.jpg)](https://chaoyue0307.github.io/ai-eponym-atlas/paths/)
 
 **Guided learning paths** connect short sequences of concepts in a pedagogical
 order—without presenting that order as historical causality.
@@ -361,9 +362,32 @@ The roadmap describes direction, not fixed release dates. See
 Third-party images, quotations, and datasets remain subject to their own
 licenses. Contributions are released under the corresponding repository terms.
 
+In short: **code is MIT-licensed; atlas-authored content and structured data are
+CC BY 4.0; third-party portraits retain their recorded source licenses.**
+
+简而言之：**代码采用 MIT 许可证；图谱原创内容与结构化数据采用 CC BY 4.0；第三方人物肖像沿用各自标注的来源许可证。**
+
 ## 🙏 Acknowledgements / 致谢
 
 Thank you to everyone who verifies definitions, adds historical context,
 improves translations, connects ideas, and explains their uses in AI.
 
 感谢每一位帮助核查定义、补充历史、改进翻译、连接概念和解释 AI 用途的贡献者。
+
+## 📖 Cite this atlas / 引用本图谱
+
+If AI Eponym Atlas supports your research, teaching, or documentation, please
+cite the version you consulted. Machine-readable citation metadata is available
+in [CITATION.cff](./CITATION.cff).
+
+如果本图谱对你的研究、教学或文档有所帮助，请引用你实际查阅的版本；机器可读的引用信息见 [CITATION.cff](./CITATION.cff)。
+
+```bibtex
+@misc{he2026aieponymatlas,
+  author       = {He, Chaoyue},
+  title        = {{AI Eponym Atlas}: Understand the Ideas Behind the Names in AI},
+  year         = {2026},
+  howpublished = {\url{https://chaoyue0307.github.io/ai-eponym-atlas/}},
+  note         = {Version 0.3.0; source code at \url{https://github.com/ChaoYue0307/ai-eponym-atlas}}
+}
+```

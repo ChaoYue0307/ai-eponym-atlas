@@ -2,7 +2,7 @@
   "id": "./",
   "name": "AI Eponym Atlas",
   "short_name": "Eponym Atlas",
-  "description": "Understand the ideas behind the names in AI.",
+  "description": "Explore mathematical and technical eponyms used in AI and machine learning through intuition, definitions, history, relationships, applications, and sources.",
   "lang": "en",
   "start_url": "./",
   "scope": "./",
@@ -40,7 +40,7 @@
       "name": "Explore relationships",
       "short_name": "Graph",
       "description": "Open the people–concept–application relationship graph.",
-      "url": "./#/graph",
+      "url": "./graph/",
       "icons": [
         {
           "src": "./icon-192.png",
@@ -53,7 +53,7 @@
       "name": "Follow the timeline",
       "short_name": "Timeline",
       "description": "Follow how eponymous ideas moved from mathematics into modern AI.",
-      "url": "./#/timeline",
+      "url": "./timeline/",
       "icons": [
         {
           "src": "./icon-192.png",

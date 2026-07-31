@@ -3,6 +3,20 @@
 All notable editorial and product changes are recorded here. The catalog's
 `meta.lastUpdated` field is the authoritative research cutoff.
 
+## Unreleased
+
+- Added a README BibTeX entry and corrected the machine-readable citation to
+  identify Chaoyue He as the author.
+- Made the MIT code license, CC BY 4.0 atlas-content license, and third-party
+  portrait terms explicit in the README, site footer, metadata, and generated
+  person pages.
+- Replaced fragment-based navigation with crawlable localized paths while
+  preserving legacy links, browser history, query state, and direct GitHub
+  Pages entry points.
+- Added distinct route metadata, reciprocal language alternatives,
+  route-specific structured data, a richer internal link graph, and a build
+  audit covering all 486 canonical URLs.
+
 ## 0.3.0 — 2026-07-31
 
 - Added a complete, searchable people-coverage ranking with 117 profile rows,

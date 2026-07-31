@@ -73,28 +73,30 @@ used to disambiguate the person, not a complete biographical source.
 
 ## Routes / 页面
 
-The interactive application uses hash routing so direct links remain compatible
-with static GitHub Pages hosting. Production builds also create localized,
-metadata-rich HTML entry points for every concept and person. These pages add
-canonical URLs, Open Graph metadata, structured data, `hreflang` links,
-readable no-JavaScript content, and redirects into the matching interactive
-route. The same build step generates the complete sitemap.
+The interactive application uses clean, locale-aware paths backed by the
+History API. Production builds create a localized, metadata-rich HTML entry
+point for every route, concept, and person, so direct links remain compatible
+with static GitHub Pages hosting. Each entry point provides canonical URLs,
+Open Graph metadata, structured data, reciprocal `hreflang` links, readable
+no-JavaScript content, and the matching application bundle at the same URL.
+Legacy hash links remain readable for backwards compatibility. The same build
+step generates and audits the complete sitemap.
 
 | Route | View |
 | --- | --- |
-| `#/` | Homepage, reader entry points, and a curated starting set |
-| `#/atlas` | Searchable concept and people atlas; `view=people&layout=ranking` opens the complete coverage ranking |
-| `#/paths` | Four guided, pedagogical concept sequences |
-| `#/concept/:id` | Concept detail |
-| `#/person/:id` | Person profile with a localized introduction and facts, terms carrying the name, deduplicated AI applications, and concept-grouped evidence |
-| `#/graph` | One- or two-hop relationship graph |
-| `#/timeline` | Filterable historical timeline |
-| `#/about` | Editorial method |
+| `/` and `/zh/` | Localized homepages, reader entry points, and a curated starting set |
+| `/atlas/` | Searchable concept and mathematician atlas; `view=people&layout=ranking` opens the complete coverage ranking |
+| `/paths/` | Four guided, pedagogical concept sequences |
+| `/concept/:id/` | Concept detail |
+| `/person/:id/` | Mathematician profile with a localized introduction and facts, terms carrying the name, deduplicated AI applications, and concept-grouped evidence |
+| `/graph/` | One- or two-hop relationship graph |
+| `/timeline/` | Filterable historical timeline |
+| `/about/` | Editorial method |
 
-Graph state encodes focus, depth, visible entity types, and selection. Timeline
-state encodes event kind, era, and selected event. Replacing the current hash
-entry during interaction keeps each view copyable and restorable without
-polluting browser history.
+Chinese routes use the `/zh/` prefix. Graph state encodes focus, depth, visible
+entity types, and selection in query parameters; timeline state does the same
+for event kind, era, and the selected event. History API updates keep each view
+copyable and restorable without unnecessary reloads.
 
 The people ranking derives its rows, link totals, histogram, shared-concept
 count, category-specific counts, and competition ranks from the canonical

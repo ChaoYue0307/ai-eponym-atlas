@@ -2,7 +2,7 @@ import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right.mjs'
 import type { Locale } from '../copy'
 import { conceptsById } from '../data/catalog'
 import { learningPaths } from '../data/learningPaths'
-import { buildHash } from '../hooks/useHashRoute'
+import { buildHref } from '../hooks/useHashRoute'
 import { SectionRule } from './SectionRule'
 
 export function LearningPathsPage({ locale }: { locale: Locale }) {
@@ -44,7 +44,7 @@ export function LearningPathsPage({ locale }: { locale: Locale }) {
                 <p>{path.description[locale]}</p>
                 {firstConcept ? (
                   <a
-                    href={buildHash(
+                    href={buildHref(
                       `/concept/${firstConcept.id}`,
                       new URLSearchParams({ path: path.id }),
                     )}
@@ -58,7 +58,7 @@ export function LearningPathsPage({ locale }: { locale: Locale }) {
                 {pathConcepts.map((concept, conceptIndex) => (
                   <li key={concept.id}>
                     <a
-                      href={buildHash(
+                      href={buildHref(
                         `/concept/${concept.id}`,
                         new URLSearchParams({ path: path.id }),
                       )}
@@ -83,7 +83,7 @@ export function LearningPathsPage({ locale }: { locale: Locale }) {
             ? '在完整图谱中搜索任意 AI 人名术语，并查看它与其他概念的联系。'
             : 'Use the Atlas to find any AI eponym and see how it connects.'}
         </p>
-        <a className="button button--secondary" href={buildHash('/atlas')}>
+        <a className="button button--secondary" href={buildHref('/atlas')}>
           {locale === 'zh' ? '前往图谱' : 'Go to Atlas'}
           <ArrowRight aria-hidden="true" />
         </a>

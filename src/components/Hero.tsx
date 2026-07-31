@@ -3,7 +3,7 @@ import BookOpen from 'lucide-react/dist/esm/icons/book-open.mjs'
 import type { Locale } from '../copy'
 import { copy } from '../copy'
 import { catalogStats } from '../data/catalog'
-import { buildHash, navigate } from '../hooks/useHashRoute'
+import { buildHref, navigate } from '../hooks/useHashRoute'
 import { ConceptConstellation } from './ConceptConstellation'
 import { SectionRule } from './SectionRule'
 
@@ -44,7 +44,7 @@ export function Hero({ locale }: { locale: Locale }) {
         </dl>
         <a
           className="hero__stats-link"
-          href={buildHash('/atlas', rankingParams)}
+          href={buildHref('/atlas', rankingParams)}
           onClick={(event) => {
             event.preventDefault()
             navigate('/atlas', rankingParams)
@@ -58,7 +58,7 @@ export function Hero({ locale }: { locale: Locale }) {
         <div className="hero__actions">
           <a
             className="button button--primary"
-            href={buildHash('/atlas', atlasParams)}
+            href={buildHref('/atlas', atlasParams)}
             onClick={(event) => {
               event.preventDefault()
               navigate('/atlas', atlasParams)
@@ -69,7 +69,7 @@ export function Hero({ locale }: { locale: Locale }) {
           </a>
           <a
             className="button button--secondary"
-            href={buildHash('/concept/jacobian-matrix', jacobianParams)}
+            href={buildHref('/concept/jacobian-matrix', jacobianParams)}
             onClick={(event) => {
               event.preventDefault()
               navigate('/concept/jacobian-matrix', jacobianParams)

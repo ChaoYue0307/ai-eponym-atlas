@@ -1,0 +1,52 @@
+{
+  "atlas": {
+    "en": {
+      "title": "AI Mathematics Glossary",
+      "description": "Browse mathematical and technical eponyms used in AI and machine learning, with meaning-first explanations, definitions, histories, relationships, and sources."
+    },
+    "zh": {
+      "title": "AI 数学人名概念词典",
+      "description": "浏览用于人工智能与机器学习的数学和技术人名概念，并从功能、定义、历史、关联与来源逐层理解。"
+    }
+  },
+  "paths": {
+    "en": {
+      "title": "AI Mathematics Learning Paths",
+      "description": "Learn the mathematics behind AI through four guided paths connecting geometry, gradients, probability, signals, diffusion, and modern machine learning."
+    },
+    "zh": {
+      "title": "AI 数学学习路径",
+      "description": "沿四条引导式路径学习 AI 背后的数学，连接几何、梯度、概率、信号、扩散与现代机器学习。"
+    }
+  },
+  "graph": {
+    "en": {
+      "title": "Mathematical Eponym Knowledge Graph",
+      "description": "Explore a two-hop knowledge graph linking mathematical eponyms, their namesakes, related concepts, and applications in modern artificial intelligence."
+    },
+    "zh": {
+      "title": "数学人名概念知识图谱",
+      "description": "通过两跳知识图谱探索数学人名概念、命名人物、相关思想及其在现代人工智能中的应用。"
+    }
+  },
+  "timeline": {
+    "en": {
+      "title": "History of Mathematical Ideas in AI",
+      "description": "Trace how mathematical ideas were discovered, named, formalized, and adopted in artificial intelligence across more than four centuries."
+    },
+    "zh": {
+      "title": "AI 数学思想史时间线",
+      "description": "沿四百余年时间线追踪数学思想何时出现、如何命名与形式化，以及后来怎样进入人工智能。"
+    }
+  },
+  "about": {
+    "en": {
+      "title": "How to Read AI Eponym Atlas",
+      "description": "Learn how to interpret functional labels, evaluate historical attribution, navigate concept relationships, and follow evidence to reliable sources."
+    },
+    "zh": {
+      "title": "如何阅读 AI 人名概念图谱",
+      "description": "了解如何使用功能标签、判断历史归因、浏览概念关系，并沿证据链接继续核查可靠来源。"
+    }
+  }
+}

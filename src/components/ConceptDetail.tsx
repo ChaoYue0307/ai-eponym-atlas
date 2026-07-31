@@ -10,7 +10,7 @@ import type { Locale } from '../copy'
 import { copy } from '../copy'
 import { conceptsById, peopleById } from '../data/catalog'
 import { learningPaths } from '../data/learningPaths'
-import { buildHash, navigate } from '../hooks/useHashRoute'
+import { buildHref, navigate } from '../hooks/useHashRoute'
 import { formatLifespan } from '../lib/lifespan'
 import { FormulaText } from './FormulaText'
 import { PersonPortrait } from './PersonPortrait'
@@ -77,7 +77,7 @@ export function ConceptDetail({
     return (
       <main className="not-found">
         <p>{locale === 'zh' ? '没有找到这个概念。' : 'This concept was not found.'}</p>
-        <a href="#/atlas">{locale === 'zh' ? '返回图谱' : 'Back to atlas'}</a>
+        <a href={buildHref('/atlas')}>{locale === 'zh' ? '返回图谱' : 'Back to atlas'}</a>
       </main>
     )
   }
@@ -99,14 +99,13 @@ export function ConceptDetail({
 
   const copyLink = async () => {
     const url = learningPath
-      ? (() => {
-          const currentUrl = new URL(window.location.href)
-          currentUrl.hash = buildHash(
+      ? new URL(
+          buildHref(
             `/concept/${concept.id}`,
-            new URLSearchParams({ path: learningPath.id }),
-          )
-          return currentUrl.toString()
-        })()
+            new URLSearchParams({ path: learningPath.id, lang: locale }),
+          ),
+          window.location.origin,
+        ).toString()
       : `https://chaoyue0307.github.io/ai-eponym-atlas/${
           locale === 'zh' ? 'zh/' : ''
         }concept/${concept.id}/`
@@ -133,7 +132,7 @@ export function ConceptDetail({
         ) : (
           <a
             className="text-button"
-            href="#/atlas"
+            href={buildHref('/atlas')}
             onClick={(event) => {
               event.preventDefault()
               navigate('/atlas')
@@ -198,23 +197,23 @@ export function ConceptDetail({
                 </div>
                 <div className="concept-path-context__actions">
                   {previousId ? (
-                    <a href={buildHash(`/concept/${previousId}`, routeParams)}>
+                    <a href={buildHref(`/concept/${previousId}`, routeParams)}>
                       <ArrowLeft aria-hidden="true" />
                       {locale === 'zh' ? '上一步' : 'Previous'}
                     </a>
                   ) : (
-                    <a href={buildHash('/paths')}>
+                    <a href={buildHref('/paths')}>
                       <ArrowLeft aria-hidden="true" />
                       {locale === 'zh' ? '全部路径' : 'All paths'}
                     </a>
                   )}
                   {nextId ? (
-                    <a href={buildHash(`/concept/${nextId}`, routeParams)}>
+                    <a href={buildHref(`/concept/${nextId}`, routeParams)}>
                       {locale === 'zh' ? '下一步' : 'Next'}
                       <ArrowRight aria-hidden="true" />
                     </a>
                   ) : (
-                    <a href={buildHash('/paths')}>
+                    <a href={buildHref('/paths')}>
                       {locale === 'zh' ? '完成路径' : 'Finish path'}
                       <ArrowRight aria-hidden="true" />
                     </a>
@@ -256,7 +255,7 @@ export function ConceptDetail({
               {t.related}
             </SectionHeading>
             <a
-              href={`#/graph?focus=${concept.id}`}
+              href={buildHref('/graph', new URLSearchParams({ focus: concept.id }))}
               onClick={(event) => {
                 event.preventDefault()
                 navigate('/graph', new URLSearchParams({ focus: concept.id }))
