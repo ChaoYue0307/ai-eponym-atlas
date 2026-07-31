@@ -88,32 +88,36 @@ be read as a relationship encoded by the atlas.
 | Field | Record |
 | --- | --- |
 | File | `public/og-card.jpg` |
+| Approved direction | Option 1 — **Semantic Meridian** |
+| Direction board | `docs/brand/semantic-meridian-option-1.jpg` |
 | Purpose | Open Graph and large Twitter/X link preview |
 | Generated | 2026-07-31 with ChatGPT built-in image generation |
-| Source output | 1731 × 909 PNG |
-| Production output | 1200 × 630 JPEG, approximately 182 KB |
+| Source output | 1717 × 916 PNG after applying the approved direction |
+| Production output | Center-cropped 1200 × 630 JPEG, approximately 121 KB |
 | Text verification | English title, Chinese title, tagline, and URL checked against repository copy |
 | Informational role | Decorative project identity only; it is not mathematical or historical evidence |
 
-The A–I–E mark at the upper left is also cropped into `brand-mark.png`,
+The approved mark uses black **A** and **E** letterforms, a tall cobalt **I**, an
+open diagonal meridian, and one vermilion diamond inside a fine square rule. It
+is cropped from the approved direction board into `brand-mark.png`,
 `icon-192.png`, `icon-512.png`, and `apple-touch-icon.png`. The blue **I** keeps
-all three initials legible at small sizes and avoids the previous A–E reading.
+all three initials legible at small sizes and avoids an A–E-only reading.
 
 ### Social-card production prompt
 
-> Use case: ads-marketing. Asset type: GitHub README cover and Open Graph social
-> card for an educational open-source project. Create a premium contemporary
-> editorial cover for AI Eponym Atlas, using a Swiss grid and scientific-atlas
-> visual language. Use warm ivory paper, subtle embossed topographic contours,
-> sparse mathematical arcs and nodes, near-black ink, vivid ultramarine, and one
-> tiny vermilion accent. Use an exact 1200:630 landscape composition with
-> generous margins. Place an original monogram at the upper left that clearly
-> includes **A**, **I**, and **E**, never only A and E. Render exactly once:
+> Use case: precise-object-edit. Image 1 is the current production social card
+> and establishes the exact copy and landscape framing. Image 2 is the approved
+> Option 1 “Semantic Meridian” identity board and is the authoritative visual and
+> logo reference. Rework Image 1 into a production-ready application of Option
+> 1: a boxed A–I–E monogram with a tall cobalt I, black A and E, one open diagonal
+> cobalt meridian, and one tiny vermilion diamond. Carry over the archival
+> index-tab paper layers, vertical cobalt meridian rule, target node, fine
+> cartographic lines, and quiet ivory paper topography. Keep it flat and
+> editorial, not a presentation board or physical mockup. Render exactly once:
 > “AI Eponym Atlas”, “AI 人名概念图谱”, “Understand the ideas behind
-> the names in AI.”, and “chaoyue0307.github.io/ai-eponym-atlas”. Keep the text
-> perfectly legible. No extra words, portraits, fake equations, generic AI
-> brains, circuit-board imagery, neon, mockup frame, 3D logo, watermark, or
-> decorative clutter.
+> the names in AI.”, and “chaoyue0307.github.io/ai-eponym-atlas”. Use no old
+> tagline, extra words, portraits, fake formulas, fake data, watermark, 3D logo,
+> circular orbit, Option 2 blue card, Option 3 dark split, or decorative clutter.
 
 ## Rejected UI concept studies
 
@@ -133,4 +137,4 @@ evaluated directly in React, CSS, semantic HTML, and SVG:
 - README images are captures of the working application.
 
 Generated imagery remains limited to non-informational editorial artwork: the
-paper underlay and the social cover documented above.
+paper underlay, approved identity board, and social cover documented above.

@@ -56,6 +56,22 @@ style and direction; timeline events also use icons, shapes, and labels.
 - Primary touch targets are at least 44 px where the layout allows; no required
   interaction depends on hover.
 
+### Brand identity: Semantic Meridian
+
+Option 1, **Semantic Meridian**, is the canonical identity direction. Its mark
+combines black **A** and **E** letterforms with a tall cobalt **I**, crossed by
+one open diagonal meridian and punctuated by a single vermilion diamond. A fine
+square rule gives the mark a stable atlas frame.
+
+- Preserve all three letters at every size; never collapse the mark to A–E.
+- Keep the meridian open and diagonal; do not replace it with a circular orbit.
+- Use archival paper, cartographic rules, and index-tab layers only as quiet
+  supporting motifs.
+- Do not use the blue card construction from Option 2 or the dark split field
+  from Option 3.
+- The approved direction board is
+  [`semantic-meridian-option-1.jpg`](./brand/semantic-meridian-option-1.jpg).
+
 ## Semantic visual grammar
 
 | Entity or relation | Visual form |

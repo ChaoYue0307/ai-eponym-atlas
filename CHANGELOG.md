@@ -7,7 +7,8 @@ All notable editorial and product changes are recorded here. The catalog's
 
 - Reframed the project around the reader-facing line “Understand the ideas
   behind the names in AI,” simplified explanatory copy across every major view,
-  and refreshed the cover and icon suite with a legible A–I–E mark.
+  and locked Option 1, **Semantic Meridian**, as the canonical cover and A–I–E
+  icon system.
 - Expanded the atlas from 75 to 120 concepts and from 57 to 117 people.
 - Raised the evidence floor to at least two direct sources per concept, for 247
   source links in the released catalog.
