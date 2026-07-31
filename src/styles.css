@@ -406,12 +406,33 @@ p {
   position: relative;
   align-self: stretch;
   min-height: 340px;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.constellation__art {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  opacity: 0.52;
+  pointer-events: none;
+  user-select: none;
 }
 
 .constellation svg {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   overflow: visible;
+}
+
+.constellation__graphic--mobile {
+  display: none;
 }
 
 .constellation__edges {
@@ -1328,9 +1349,9 @@ p {
 
 .person-portrait--profile figcaption {
   margin-top: 10px;
-  color: var(--faint);
-  font-size: 0.62rem;
-  line-height: 1.4;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.45;
 }
 
 .person-portrait--profile figcaption a {
@@ -1676,7 +1697,11 @@ p {
   font-size: 0.65rem;
 }
 
-.graph-canvas > svg {
+.graph-canvas__viewport {
+  overflow: hidden;
+}
+
+.graph-canvas__viewport > svg {
   width: 100%;
   height: 570px;
 }
@@ -1690,9 +1715,24 @@ p {
   color: #69717c;
 }
 
-.graph-edges line {
+.graph-edge {
   stroke: currentColor;
   stroke-width: 1.05;
+  vector-effect: non-scaling-stroke;
+}
+
+.graph-edge--named-after {
+  color: var(--blue);
+  stroke-dasharray: 4 3;
+}
+
+.graph-edge--related-to {
+  color: #69717c;
+}
+
+.graph-edge--applied-in {
+  color: var(--red);
+  stroke-dasharray: 1.5 3;
 }
 
 .graph-edges text {
@@ -1706,6 +1746,10 @@ p {
 }
 
 .graph-node {
+  cursor: default;
+}
+
+.graph-node--interactive {
   cursor: pointer;
 }
 
@@ -1721,12 +1765,12 @@ p {
     stroke-width var(--transition);
 }
 
-.graph-node:hover > circle,
-.graph-node:hover > rect,
-.graph-node:hover > polygon,
-.graph-node:focus > circle,
-.graph-node:focus > rect,
-.graph-node:focus > polygon {
+.graph-node--interactive:hover > circle,
+.graph-node--interactive:hover > rect,
+.graph-node--interactive:hover > polygon,
+.graph-node--interactive:focus > circle,
+.graph-node--interactive:focus > rect,
+.graph-node--interactive:focus > polygon {
   fill: var(--blue-pale);
   stroke-width: 2;
 }
@@ -1747,6 +1791,50 @@ p {
   font-family: var(--serif);
   font-size: 12px;
   font-weight: 600;
+}
+
+.graph-canvas__legend {
+  position: absolute;
+  z-index: 4;
+  top: 14px;
+  left: 14px;
+  display: flex;
+  gap: 14px;
+  margin: 0;
+  padding: 7px 9px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--muted);
+  background: rgb(255 255 255 / 92%);
+  font-size: 0.75rem;
+  list-style: none;
+}
+
+.graph-canvas__legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.graph-legend-line {
+  display: inline-block;
+  width: 18px;
+  border-top: 1.5px solid currentColor;
+}
+
+.graph-legend-line--named-after {
+  color: var(--blue);
+  border-top-style: dashed;
+}
+
+.graph-legend-line--related-to {
+  color: #69717c;
+}
+
+.graph-legend-line--applied-in {
+  color: var(--red);
+  border-top-style: dotted;
 }
 
 .graph-canvas__summary {
@@ -1815,7 +1903,8 @@ p {
   font-size: 0.78rem;
 }
 
-.relationship-group button {
+.relationship-group button,
+.relationship-item--static {
   display: flex;
   width: 100%;
   min-height: 58px;
@@ -1826,6 +1915,9 @@ p {
   border-top: 1px solid var(--line);
   background: transparent;
   text-align: left;
+}
+
+.relationship-group button {
   cursor: pointer;
 }
 
@@ -2449,7 +2541,7 @@ p {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 960px) {
   :root {
     --header-height: 60px;
     --page-gutter: 20px;
@@ -2535,15 +2627,25 @@ p {
   }
 
   .constellation {
-    min-height: 340px;
+    min-height: 0;
+    aspect-ratio: 360 / 380;
     margin-top: 30px;
-    overflow: hidden;
   }
 
-  .constellation svg {
-    width: 560px;
-    max-width: none;
-    transform: translateX(-40px);
+  .constellation__art {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .constellation__graphic--desktop {
+    display: none;
+  }
+
+  .constellation__graphic--mobile {
+    display: block;
+    width: 100%;
+    height: 100%;
   }
 
   .page-intro {
@@ -2721,7 +2823,7 @@ p {
   .person-portrait--profile figcaption {
     width: 96px;
     margin-top: 7px;
-    font-size: 0.55rem;
+    font-size: 0.75rem;
   }
 
   .person-page h1 {
@@ -2767,31 +2869,46 @@ p {
   }
 
   .graph-controls fieldset {
-    display: none;
+    display: block;
   }
 
   .graph-list-button {
-    display: none;
+    display: inline-flex;
   }
 
   .graph-canvas {
-    min-height: 520px;
+    min-height: 656px;
     border-right: 0;
   }
 
-  .graph-canvas > svg {
+  .graph-canvas__viewport {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 88px 0 68px;
+    overscroll-behavior-inline: contain;
+    scrollbar-color: var(--line-strong) transparent;
+    scrollbar-width: thin;
+    touch-action: pan-x pan-y;
+  }
+
+  .graph-canvas__viewport > svg {
     width: 820px;
     height: 500px;
     max-width: none;
-    transform: translateX(calc((100vw - 820px) / 2));
   }
 
   .graph-canvas__tools {
+    left: 10px;
     right: 10px;
+    justify-content: flex-end;
   }
 
-  .graph-canvas__tools > button:first-child {
-    display: none;
+  .graph-canvas__legend {
+    top: 58px;
+    right: 10px;
+    left: 10px;
+    justify-content: space-between;
+    gap: 8px;
   }
 
   .graph-canvas__summary {
@@ -2915,6 +3032,12 @@ p {
 
   .site-footer__links {
     align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-data: reduce), (forced-colors: active) {
+  .constellation__art {
+    display: none;
   }
 }
 

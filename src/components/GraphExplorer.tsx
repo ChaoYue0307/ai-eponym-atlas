@@ -25,7 +25,12 @@ type PositionedNode = EgoGraphNode & {
   y: number
 }
 
-function mergeGraphs(graphs: readonly EgoGraph[], focusConceptId: string): EgoGraph {
+type Point = {
+  x: number
+  y: number
+}
+
+export function mergeGraphs(graphs: readonly EgoGraph[], focusConceptId: string): EgoGraph {
   const nodes = new Map<string, EgoGraphNode>()
   const edges = new Map<string, EgoGraphEdge>()
 
@@ -45,7 +50,7 @@ function mergeGraphs(graphs: readonly EgoGraph[], focusConceptId: string): EgoGr
     })
   })
 
-  const visibleNodes = [...nodes.values()].slice(0, 16)
+  const visibleNodes = [...nodes.values()].slice(0, 12)
   const visibleNodeIds = new Set(visibleNodes.map((node) => node.id))
 
   return {
@@ -59,7 +64,7 @@ function mergeGraphs(graphs: readonly EgoGraph[], focusConceptId: string): EgoGr
   }
 }
 
-function layoutNodes(nodes: readonly EgoGraphNode[]): PositionedNode[] {
+export function layoutNodes(nodes: readonly EgoGraphNode[]): PositionedNode[] {
   const focus = nodes.find((node) => node.isFocus)
   const rest = nodes.filter((node) => !node.isFocus)
   const center = { x: 400, y: 250 }
@@ -67,17 +72,133 @@ function layoutNodes(nodes: readonly EgoGraphNode[]): PositionedNode[] {
   const positions = new Map<string, { x: number; y: number }>()
   if (focus) positions.set(focus.id, center)
 
-  rest.forEach((node, index) => {
-    const angle = -Math.PI / 2 + (Math.PI * 2 * index) / Math.max(rest.length, 1)
-    const radiusX = rest.length > 8 ? 300 : 255
-    const radiusY = rest.length > 8 ? 195 : 165
-    positions.set(node.id, {
-      x: center.x + Math.cos(angle) * radiusX,
-      y: center.y + Math.sin(angle) * radiusY,
+  if (rest.length > 10) {
+    const people = rest.filter((node) => node.kind === 'person')
+    const applications = rest.filter((node) => node.kind === 'application')
+    const conceptNodes = rest.filter((node) => node.kind === 'concept')
+    const personSlots =
+      people.length === 1
+        ? [{ x: 400, y: 65 }]
+        : [
+            { x: 330, y: 65 },
+            { x: 470, y: 65 },
+          ]
+    const applicationSlots = [
+      { x: 110, y: 70 },
+      { x: 690, y: 70 },
+    ]
+    const conceptSlots = [
+      { x: 245, y: 160 },
+      { x: 555, y: 160 },
+      { x: 105, y: 245 },
+      { x: 695, y: 245 },
+      { x: 105, y: 390 },
+      { x: 695, y: 390 },
+      { x: 275, y: 420 },
+      { x: 525, y: 420 },
+    ]
+    const overflowNodes: EgoGraphNode[] = []
+    const occupiedSlots = new Set<string>()
+
+    ;[
+      { nodes: people, slots: personSlots },
+      { nodes: applications, slots: applicationSlots },
+      { nodes: conceptNodes, slots: conceptSlots },
+    ].forEach(({ nodes: semanticNodes, slots }) => {
+      semanticNodes.forEach((node, index) => {
+        const slot = slots[index]
+        if (slot) {
+          positions.set(node.id, slot)
+          occupiedSlots.add(`${slot.x}:${slot.y}`)
+        } else {
+          overflowNodes.push(node)
+        }
+      })
     })
-  })
+
+    const overflowSlots = [
+      ...personSlots,
+      ...applicationSlots,
+      ...conceptSlots,
+    ].filter((slot) => !occupiedSlots.has(`${slot.x}:${slot.y}`))
+    overflowNodes.forEach((node, index) => {
+      positions.set(node.id, overflowSlots[index] ?? center)
+    })
+  } else {
+    const radiusX = rest.length >= 9 ? 280 : 255
+    const radiusY = rest.length >= 9 ? 180 : 165
+    rest.forEach((node, index) => {
+      const angle =
+        -Math.PI / 2 +
+        (Math.PI * 2 * index) / Math.max(rest.length, 1)
+      positions.set(node.id, {
+        x: center.x + Math.cos(angle) * radiusX,
+        y: center.y + Math.sin(angle) * radiusY,
+      })
+    })
+  }
 
   return nodes.map((node) => ({ ...node, ...(positions.get(node.id) ?? center) }))
+}
+
+function cross(first: Point, second: Point) {
+  return first.x * second.y - first.y * second.x
+}
+
+function polygonBoundaryDistance(direction: Point, vertices: readonly Point[]) {
+  let nearest = Number.POSITIVE_INFINITY
+
+  vertices.forEach((start, index) => {
+    const end = vertices[(index + 1) % vertices.length]!
+    const segment = { x: end.x - start.x, y: end.y - start.y }
+    const denominator = cross(direction, segment)
+    if (Math.abs(denominator) < 0.0001) return
+
+    const distance = cross(start, segment) / denominator
+    const position = cross(start, direction) / denominator
+    if (distance >= 0 && position >= 0 && position <= 1) {
+      nearest = Math.min(nearest, distance)
+    }
+  })
+
+  return nearest
+}
+
+function nodeBoundaryPoint(node: PositionedNode, toward: PositionedNode): Point {
+  const delta = { x: toward.x - node.x, y: toward.y - node.y }
+  const length = Math.hypot(delta.x, delta.y)
+  if (length === 0) return { x: node.x, y: node.y }
+
+  const direction = { x: delta.x / length, y: delta.y / length }
+  if (node.kind === 'person') {
+    return {
+      x: node.x + direction.x * 52,
+      y: node.y + direction.y * 52,
+    }
+  }
+
+  const vertices =
+    node.kind === 'application'
+      ? [
+          { x: -62, y: 0 },
+          { x: -32, y: -43 },
+          { x: 32, y: -43 },
+          { x: 62, y: 0 },
+          { x: 32, y: 43 },
+          { x: -32, y: 43 },
+        ]
+      : [
+          { x: -68, y: -42 },
+          { x: 68, y: -42 },
+          { x: 68, y: 42 },
+          { x: -68, y: 42 },
+        ]
+  const distance = polygonBoundaryDistance(direction, vertices)
+
+  return {
+    x: node.x + direction.x * distance,
+    y: node.y + direction.y * distance,
+  }
 }
 
 function wrapLabel(label: string, max = 18) {
@@ -117,6 +238,7 @@ export function GraphExplorer({ locale, params }: GraphExplorerProps) {
   const [searchQuery, setSearchQuery] = useState('')
   const [copied, setCopied] = useState(false)
   const relationshipsRef = useRef<HTMLElement>(null)
+  const graphViewportRef = useRef<HTMLDivElement>(null)
 
   const graph = useMemo(() => {
     const base = buildEgoGraph(focusId, {
@@ -172,12 +294,39 @@ export function GraphExplorer({ locale, params }: GraphExplorerProps) {
     navigate('/graph', next, true)
   }, [depth, focusId])
 
+  useEffect(() => {
+    const viewport = graphViewportRef.current
+    if (!viewport || !window.matchMedia('(max-width: 960px)').matches) return
+
+    const frame = window.requestAnimationFrame(() => {
+      viewport.scrollLeft = Math.max(
+        0,
+        (viewport.scrollWidth - viewport.clientWidth) / 2,
+      )
+    })
+    return () => window.cancelAnimationFrame(frame)
+  }, [graph])
+
   const selectNode = (node: EgoGraphNode) => {
     if (node.kind === 'concept') {
       setFocusId(node.conceptId)
       setSearchQuery('')
     } else if (node.kind === 'person') {
       navigate(`/person/${node.personId}`)
+    }
+  }
+
+  const ensureGraphNodeVisible = (node: SVGGElement) => {
+    const viewport = graphViewportRef.current
+    if (!viewport || !window.matchMedia('(max-width: 960px)').matches) return
+
+    const viewportRect = viewport.getBoundingClientRect()
+    const nodeRect = node.getBoundingClientRect()
+    const padding = 20
+    if (nodeRect.left < viewportRect.left + padding) {
+      viewport.scrollLeft -= viewportRect.left + padding - nodeRect.left
+    } else if (nodeRect.right > viewportRect.right - padding) {
+      viewport.scrollLeft += nodeRect.right - (viewportRect.right - padding)
     }
   }
 
@@ -291,7 +440,7 @@ export function GraphExplorer({ locale, params }: GraphExplorerProps) {
           <button
             className="button button--primary graph-list-button"
             type="button"
-            onClick={() => relationshipsRef.current?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => relationshipsRef.current?.scrollIntoView()}
           >
             <ListTree aria-hidden="true" />
             {t.list}
@@ -335,92 +484,160 @@ export function GraphExplorer({ locale, params }: GraphExplorerProps) {
             </button>
           </div>
 
-          <svg viewBox="0 0 800 500" role="img" aria-labelledby="ego-graph-title">
-            <title id="ego-graph-title">
-              {locale === 'zh'
-                ? `${focusedConcept.zhTerm}的${depth}跳概念关系图，共 ${graph.nodes.length} 个节点`
-                : `${focusedConcept.term} ${depth === 1 ? 'one-hop' : 'two-hop'} concept graph with ${graph.nodes.length} nodes`}
-            </title>
-            <defs>
-              <marker
-                id="graph-arrow"
-                markerWidth="8"
-                markerHeight="8"
-                refX="7"
-                refY="4"
-                orient="auto"
-              >
-                <path d="M0 0 L8 4 L0 8" fill="none" stroke="currentColor" />
-              </marker>
-            </defs>
-            <g
-              className="graph-zoom-layer"
-              style={{
-                transform: `translate(${400 * (1 - zoom)}px, ${250 * (1 - zoom)}px) scale(${zoom})`,
-              }}
+          <div className="graph-canvas__viewport" ref={graphViewportRef}>
+            <svg
+              viewBox="0 0 800 500"
+              role="group"
+              aria-labelledby="ego-graph-title"
+              aria-describedby="ego-graph-description"
             >
-              <g className="graph-edges">
-                {graph.edges.map((edge) => {
-                  const source = positionById.get(edge.source)
-                  const target = positionById.get(edge.target)
-                  if (!source || !target) return null
-                  return (
-                    <g key={edge.id}>
+              <title id="ego-graph-title">
+                {locale === 'zh'
+                  ? `${focusedConcept.zhTerm}的${depth}跳概念关系图，共 ${graph.nodes.length} 个节点`
+                  : `${focusedConcept.term} ${depth === 1 ? 'one-hop' : 'two-hop'} concept graph with ${graph.nodes.length} nodes`}
+              </title>
+              <desc id="ego-graph-description">
+                {locale === 'zh'
+                  ? '矩形表示概念，圆形表示人物，六边形表示 AI 应用。箭头表示命名或应用方向，直线表示相关概念。概念和人物节点可选择。'
+                  : 'Rectangles are concepts, circles are people, and hexagons are AI applications. Arrows show naming or application direction; plain lines connect related concepts. Concept and person nodes are selectable.'}
+              </desc>
+              <defs>
+                <marker
+                  id="graph-arrow-named-after"
+                  markerWidth="8"
+                  markerHeight="8"
+                  refX="7"
+                  refY="4"
+                  orient="auto"
+                >
+                  <path d="M0 0 L8 4 L0 8" fill="none" stroke="var(--blue)" />
+                </marker>
+                <marker
+                  id="graph-arrow-applied-in"
+                  markerWidth="8"
+                  markerHeight="8"
+                  refX="7"
+                  refY="4"
+                  orient="auto"
+                >
+                  <path d="M0 0 L8 4 L0 8" fill="none" stroke="var(--red)" />
+                </marker>
+              </defs>
+              <g
+                className="graph-zoom-layer"
+                style={{
+                  transform: `translate(${400 * (1 - zoom)}px, ${250 * (1 - zoom)}px) scale(${zoom})`,
+                }}
+              >
+                <g className="graph-edges" aria-hidden="true">
+                  {graph.edges.map((edge) => {
+                    const source = positionById.get(edge.source)
+                    const target = positionById.get(edge.target)
+                    if (!source || !target) return null
+                    const start = nodeBoundaryPoint(source, target)
+                    const end = nodeBoundaryPoint(target, source)
+                    return (
                       <line
-                        x1={source.x}
-                        y1={source.y}
-                        x2={target.x}
-                        y2={target.y}
-                        markerEnd={edge.directed ? 'url(#graph-arrow)' : undefined}
+                        key={edge.id}
+                        className={`graph-edge graph-edge--${edge.relation}`}
+                        x1={start.x}
+                        y1={start.y}
+                        x2={end.x}
+                        y2={end.y}
+                        markerEnd={
+                          edge.directed
+                            ? `url(#graph-arrow-${edge.relation})`
+                            : undefined
+                        }
                       />
-                    </g>
-                  )
-                })}
+                    )
+                  })}
+                </g>
+                <g className="graph-nodes">
+                  {positionedNodes.map((node) => {
+                    const label = locale === 'zh' ? node.zhLabel : node.label
+                    const lines = wrapLabel(label)
+                    const isInteractive = node.kind !== 'application'
+                    return (
+                      <g
+                        key={node.id}
+                        className={`graph-node graph-node--${node.kind}${
+                          node.isFocus ? ' graph-node--focus' : ''
+                        }${isInteractive ? ' graph-node--interactive' : ''}`}
+                        role={isInteractive ? 'button' : undefined}
+                        tabIndex={isInteractive ? 0 : undefined}
+                        onClick={isInteractive ? () => selectNode(node) : undefined}
+                        onFocus={
+                          isInteractive
+                            ? (event) => ensureGraphNodeVisible(event.currentTarget)
+                            : undefined
+                        }
+                        onKeyDown={
+                          isInteractive
+                            ? (event) => {
+                                if (event.key === 'Enter' || event.key === ' ') {
+                                  event.preventDefault()
+                                  selectNode(node)
+                                }
+                              }
+                            : undefined
+                        }
+                        aria-label={label}
+                      >
+                        {node.kind === 'person' ? (
+                          <circle cx={node.x} cy={node.y} r="52" />
+                        ) : node.kind === 'application' ? (
+                          <polygon
+                            points={`${node.x - 62},${node.y} ${node.x - 32},${
+                              node.y - 43
+                            } ${node.x + 32},${node.y - 43} ${node.x + 62},${node.y} ${
+                              node.x + 32
+                            },${node.y + 43} ${node.x - 32},${node.y + 43}`}
+                          />
+                        ) : (
+                          <rect
+                            x={node.x - 68}
+                            y={node.y - 42}
+                            width="136"
+                            height="84"
+                            rx="5"
+                          />
+                        )}
+                        <text
+                          x={node.x}
+                          y={node.y - ((lines.length - 1) * 8)}
+                          textAnchor="middle"
+                        >
+                          {lines.map((line, index) => (
+                            <tspan key={line} x={node.x} dy={index === 0 ? 0 : 17}>
+                              {line}
+                            </tspan>
+                          ))}
+                        </text>
+                      </g>
+                    )
+                  })}
+                </g>
               </g>
-              <g className="graph-nodes">
-                {positionedNodes.map((node) => {
-                  const label = locale === 'zh' ? node.zhLabel : node.label
-                  const lines = wrapLabel(label)
-                  return (
-                    <g
-                      key={node.id}
-                      className={`graph-node graph-node--${node.kind}${
-                        node.isFocus ? ' graph-node--focus' : ''
-                      }`}
-                      role={node.kind === 'application' ? undefined : 'button'}
-                      tabIndex={node.kind === 'application' ? undefined : 0}
-                      onClick={() => selectNode(node)}
-                      onKeyDown={(event) => {
-                        if (event.key === 'Enter' || event.key === ' ') selectNode(node)
-                      }}
-                      aria-label={label}
-                    >
-                      {node.kind === 'person' ? (
-                        <circle cx={node.x} cy={node.y} r="52" />
-                      ) : node.kind === 'application' ? (
-                        <polygon
-                          points={`${node.x - 62},${node.y} ${node.x - 32},${
-                            node.y - 43
-                          } ${node.x + 32},${node.y - 43} ${node.x + 62},${node.y} ${
-                            node.x + 32
-                          },${node.y + 43} ${node.x - 32},${node.y + 43}`}
-                        />
-                      ) : (
-                        <rect x={node.x - 68} y={node.y - 42} width="136" height="84" rx="5" />
-                      )}
-                      <text x={node.x} y={node.y - ((lines.length - 1) * 8)} textAnchor="middle">
-                        {lines.map((line, index) => (
-                          <tspan key={line} x={node.x} dy={index === 0 ? 0 : 17}>
-                            {line}
-                          </tspan>
-                        ))}
-                      </text>
-                    </g>
-                  )
-                })}
-              </g>
-            </g>
-          </svg>
+            </svg>
+          </div>
+          <ul
+            className="graph-canvas__legend"
+            aria-label={locale === 'zh' ? '关系类型图例' : 'Relationship legend'}
+          >
+            <li>
+              <span className="graph-legend-line graph-legend-line--named-after" aria-hidden="true" />
+              {locale === 'zh' ? '名字来源' : 'Named after'}
+            </li>
+            <li>
+              <span className="graph-legend-line graph-legend-line--related-to" aria-hidden="true" />
+              {locale === 'zh' ? '相关概念' : 'Related'}
+            </li>
+            <li>
+              <span className="graph-legend-line graph-legend-line--applied-in" aria-hidden="true" />
+              {locale === 'zh' ? 'AI 应用' : 'AI use'}
+            </li>
+          </ul>
           <p className="graph-canvas__summary">
             <strong>{focusedConcept.term}</strong>
             <span>{focusedConcept.functionNickname[locale]}</span>
@@ -451,6 +668,24 @@ export function GraphExplorer({ locale, params }: GraphExplorerProps) {
                     edge.source === `concept:${focusId}` ? edge.target : edge.source
                   const node = positionById.get(otherId)
                   if (!node) return null
+                  if (node.kind === 'application') {
+                    return (
+                      <div
+                        className="relationship-item relationship-item--static"
+                        key={edge.id}
+                      >
+                        <span>
+                          <strong>{locale === 'zh' ? node.zhLabel : node.label}</strong>
+                          <small>
+                            {locale === 'zh'
+                              ? edge.zhNote ?? edge.zhLabel
+                              : edge.note ?? edge.label}{' '}
+                            · {locale === 'zh' ? 'AI 应用' : 'AI application'}
+                          </small>
+                        </span>
+                      </div>
+                    )
+                  }
                   return (
                     <button key={edge.id} type="button" onClick={() => selectNode(node)}>
                       <span>
@@ -462,11 +697,7 @@ export function GraphExplorer({ locale, params }: GraphExplorerProps) {
                           ·{' '}
                           {node.kind === 'concept'
                             ? node.meta.functionNickname[locale]
-                            : node.kind === 'person'
-                              ? formatLifespan(node.meta, locale)
-                              : locale === 'zh'
-                                ? 'AI 应用'
-                                : 'AI application'}
+                            : formatLifespan(node.meta, locale)}
                         </small>
                       </span>
                       <span aria-hidden="true">→</span>

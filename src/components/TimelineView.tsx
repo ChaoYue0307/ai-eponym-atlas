@@ -34,7 +34,10 @@ export function TimelineView({ locale }: { locale: Locale }) {
         <p>{t.description}</p>
       </header>
 
-      <nav className="timeline-filters" aria-label="Timeline filters">
+      <nav
+        className="timeline-filters"
+        aria-label={locale === 'zh' ? '时间线筛选' : 'Timeline filters'}
+      >
         {([
           ['all', t.all],
           ['person', t.person],
@@ -85,7 +88,7 @@ export function TimelineView({ locale }: { locale: Locale }) {
               <li className={`timeline-event timeline-event--${event.kind}`} key={event.id}>
                 <div className="timeline-event__year">
                   <span className={`timeline-dot timeline-dot--${event.kind}`} aria-hidden="true" />
-                  <time>{event.year}</time>
+                  <time dateTime={String(event.sortYear)}>{event.year}</time>
                 </div>
                 <div className="timeline-event__body">
                   <p className="timeline-event__kind">{kindLabels[event.kind][locale]}</p>

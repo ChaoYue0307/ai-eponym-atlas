@@ -6,8 +6,11 @@ Except where a source or file states otherwise, the original written entries,
 translations, editorial labels, structured data in content/eponyms.json,
 the original metadata in content/people-media.json (but not the referenced
 portrait works), visual concepts in design/concepts/, and public/brand-mark.png
-are licensed under the Creative Commons Attribution 4.0 International License
-(CC BY 4.0).
+and the project-generated editorial artwork in public/illustrations/ are
+licensed under the Creative Commons Attribution 4.0 International License
+(CC BY 4.0), to the extent copyright and related rights subsist in those
+materials. The derived social preview at public/og-card.png follows the same
+terms.
 
 License summary:
 https://creativecommons.org/licenses/by/4.0/

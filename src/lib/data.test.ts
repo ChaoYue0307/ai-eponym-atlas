@@ -1,4 +1,4 @@
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync, statSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 
@@ -11,6 +11,14 @@ import {
   peopleById,
 } from "../data/catalog";
 import { timelineEvents } from "../data/timeline";
+import {
+  constellationConceptIds,
+  constellationEdges,
+} from "../components/ConceptConstellation";
+import {
+  layoutNodes,
+  mergeGraphs,
+} from "../components/GraphExplorer";
 import { buildEgoGraph } from "./graph";
 
 describe("atlas data integrity", () => {
@@ -141,6 +149,85 @@ describe("atlas data integrity", () => {
         expect(portrait.cropScale).toBeLessThanOrEqual(2);
       }
       expect(portrait.verifiedOn).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    }
+  });
+
+  it("keeps the decorative hero artwork local and lightweight", () => {
+    const artwork = resolve(
+      "public",
+      "illustrations",
+      "semantic-strata.webp",
+    );
+    expect(existsSync(artwork)).toBe(true);
+    expect(statSync(artwork).size).toBeLessThanOrEqual(180 * 1024);
+
+    const socialCard = resolve("public", "og-card.png");
+    expect(existsSync(socialCard)).toBe(true);
+    expect(statSync(socialCard).size).toBeLessThanOrEqual(200 * 1024);
+    expect(readFileSync(resolve("index.html"), "utf8")).toContain(
+      "/ai-eponym-atlas/og-card.png",
+    );
+  });
+
+  it("keeps the homepage constellation synchronized with catalog data", () => {
+    expect(new Set(constellationConceptIds).size).toBe(
+      constellationConceptIds.length,
+    );
+    for (const conceptId of constellationConceptIds) {
+      expect(conceptsById.get(conceptId), conceptId).toBeDefined();
+    }
+    for (const edge of constellationEdges) {
+      expect(constellationConceptIds).toContain(edge.from);
+      expect(constellationConceptIds).toContain(edge.to);
+      expect(edge.from).not.toBe(edge.to);
+    }
+  });
+
+  it("keeps every visible two-hop graph layout collision-free", () => {
+    for (const concept of concepts) {
+      const firstHop = buildEgoGraph(concept.id);
+      const secondHops = firstHop.nodes
+        .flatMap((node) =>
+          node.kind === "concept" && node.conceptId !== concept.id
+            ? [buildEgoGraph(node.conceptId)]
+            : [],
+        );
+      const positioned = layoutNodes(
+        mergeGraphs([firstHop, ...secondHops], concept.id).nodes,
+      );
+      const boxes = positioned.map((node) => {
+        const [width, height] =
+          node.kind === "person"
+            ? [104, 104]
+            : node.kind === "application"
+              ? [124, 86]
+              : [136, 84];
+        return {
+          id: node.id,
+          left: node.x - width / 2,
+          right: node.x + width / 2,
+          top: node.y - height / 2,
+          bottom: node.y + height / 2,
+        };
+      });
+
+      for (let first = 0; first < boxes.length; first += 1) {
+        for (let second = first + 1; second < boxes.length; second += 1) {
+          const a = boxes[first];
+          const b = boxes[second];
+          expect(a).toBeDefined();
+          expect(b).toBeDefined();
+          if (!a || !b) continue;
+          const horizontalOverlap =
+            Math.min(a.right, b.right) - Math.max(a.left, b.left);
+          const verticalOverlap =
+            Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top);
+          expect(
+            horizontalOverlap > 0 && verticalOverlap > 0,
+            `${concept.id}: ${a.id} (${a.left},${a.top}) overlaps ${b.id} (${b.left},${b.top})`,
+          ).toBe(false);
+        }
+      }
     }
   });
 

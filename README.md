@@ -7,6 +7,8 @@
 [![License: MIT](https://img.shields.io/badge/code-MIT-003fc7.svg)](./LICENSE)
 [![Content: CC BY 4.0](https://img.shields.io/badge/content-CC%20BY%204.0-ef4328.svg)](./CONTENT_LICENSE)
 
+![AI Eponym Atlas — From Names to Meaning, From Mathematics to AI.](./public/og-card.png)
+
 **From Names to Meaning, From Mathematics to AI.**
 
 **从人名回到意义，从数学走向 AI。**
@@ -23,7 +25,7 @@ AI Eponym Atlas 是一份面向学习者、研究者和工程师的结构化概�
 >
 > A structured atlas of mathematical and AI concepts named after people, covering their intuitive meaning, formal definition, historical origin, relationships, and applications in modern AI.
 
-[在线网站](https://chaoyue0307.github.io/ai-eponym-atlas/) · [浏览方法](#如何使用--how-to-use) · [覆盖与时效](./docs/COVERAGE.md) · [肖像来源与许可](./docs/PORTRAITS.md) · [肖像核验审计](./docs/PORTRAIT_AUDIT.md) · [数据模板](#条目数据模板--entry-template) · [版本记录](./CHANGELOG.md) · [参与贡献](./CONTRIBUTING.md) · [路线图](#路线图--roadmap)
+[在线网站](https://chaoyue0307.github.io/ai-eponym-atlas/) · [浏览方法](#如何使用--how-to-use) · [覆盖与时效](./docs/COVERAGE.md) · [肖像来源与许可](./docs/PORTRAITS.md) · [肖像核验审计](./docs/PORTRAIT_AUDIT.md) · [生成式视觉记录](./docs/GENERATED_ASSETS.md) · [数据模板](#条目数据模板--entry-template) · [版本记录](./CHANGELOG.md) · [参与贡献](./CONTRIBUTING.md) · [路线图](#路线图--roadmap)
 
 ---
 
@@ -95,6 +97,7 @@ AI Eponym Atlas 希望补上这层缺失的信息。这里不会只说“Jacobia
 
 - **概念速查卡 / Concept cards**：功能性名字、核心问题、直觉、公式和典型 AI 用途。
 - **人物档案 / Person profiles**：双语人物简介、经核验的开放肖像与逐图许可、相关术语和在图谱中的贡献脉络；无可靠开放肖像时自动使用首字母占位。
+- **精确图谱 + 编辑插图 / Exact graphs + editorial art**：关系和公式保持可访问、可交互的 SVG / HTML；生成式视觉仅作为无信息含义的装饰层，并记录生成与压缩过程。
 - **双向关系 / Bidirectional links**：人物与概念互相可追溯；`relatedConceptIds` 在关系图中按无向关系解析，并连接到具体 AI 应用。
 - **分类浏览 / Faceted browsing**：在概念与人物模式之间切换，并按 9 个数学 / AI 领域筛选。
 - **全文搜索 / Full-text search**：支持人名、术语、别名、功能性名字和应用关键词。
@@ -173,6 +176,10 @@ Home
 ```text
 ai-eponym-atlas/
 ├── public/                  # 静态资源
+│   ├── portraits/           # 已核验人物肖像
+│   ├── illustrations/       # 编辑性装饰插图
+│   ├── brand-mark.png       # 项目标志
+│   └── og-card.png          # 社交分享图
 ├── src/
 │   ├── components/          # 可复用 UI
 │   ├── data/                # 类型化目录与历史时间线
@@ -183,7 +190,10 @@ ai-eponym-atlas/
 ├── content/
 │   └── eponyms.json         # 人物、概念与引用的权威数据源
 ├── docs/
-│   └── COVERAGE.md          # 收录边界与时效性政策
+│   ├── COVERAGE.md          # 收录边界与时效性政策
+│   ├── PORTRAITS.md         # 肖像来源与许可规范
+│   ├── PORTRAIT_AUDIT.md    # 肖像身份核验记录
+│   └── GENERATED_ASSETS.md  # 生成式视觉与提示词记录
 ├── design/concepts/         # 视觉规范概念稿
 ├── .github/workflows/       # CI 与 GitHub Pages
 ├── CHANGELOG.md
@@ -417,7 +427,7 @@ https://chaoyue0307.github.io/ai-eponym-atlas/
 
 ## 许可 / License
 
-代码使用 [MIT License](./LICENSE)；原创条目、结构化数据、`design/concepts/` 视觉稿与 `public/brand-mark.png` 使用 [CC BY 4.0](./CONTENT_LICENSE)。贡献者在提交内容时，同意其贡献可按仓库所采用的对应许可发布。第三方图片、引文和数据仍受各自许可或版权约束，必须在条目中清楚标注。
+代码使用 [MIT License](./LICENSE)；原创条目、结构化数据、`design/concepts/` 视觉稿、`public/brand-mark.png` 与项目生成的编辑插图使用 [CC BY 4.0](./CONTENT_LICENSE)。生成式素材的用途、提示词与压缩记录见 [`docs/GENERATED_ASSETS.md`](./docs/GENERATED_ASSETS.md)。贡献者在提交内容时，同意其贡献可按仓库所采用的对应许可发布。第三方图片、引文和数据仍受各自许可或版权约束，必须在条目中清楚标注。
 
 *Code is released under the MIT License; original entries and structured content are released under CC BY 4.0. Third-party images, quotations, and datasets remain subject to their own licenses and must be attributed clearly.*
 
