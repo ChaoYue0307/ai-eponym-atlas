@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 
+import { conceptsById } from "../data/catalog";
 import { searchCatalog } from "./search";
 
 describe("searchCatalog", () => {
@@ -51,6 +52,20 @@ describe("searchCatalog", () => {
     expect(results[0]?.matchReasons.join(" ")).toContain("Tag (exact)");
   });
 
+  it("finds current AI usage through modern terms and Chinese eponyms", () => {
+    const alignment = searchCatalog("RLHF", "concepts");
+    const diffusion = searchCatalog("diffusion models", "concepts");
+    const chinese = searchCatalog("辛克霍恩", "concepts");
+
+    expect(
+      alignment.some((result) => result.id === "bradley-terry-model"),
+    ).toBe(true);
+    expect(
+      diffusion.some((result) => result.id === "langevin-dynamics"),
+    ).toBe(true);
+    expect(chinese[0]?.id).toBe("sinkhorn-algorithm");
+  });
+
   it("finds people through their own names and associated concepts", () => {
     const byName = searchCatalog("Bayes", "people");
     const byContribution = searchCatalog("马尔可夫决策过程", "people");
@@ -70,14 +85,8 @@ describe("searchCatalog", () => {
 
     expect(geometryConcepts.length).toBeGreaterThan(0);
     expect(
-      geometryConcepts.every((result) =>
-        [
-          "cartesian-coordinate-system",
-          "cartesian-robot-frame",
-          "euclidean-distance",
-          "riemannian-manifold",
-          "minkowski-distance",
-        ].includes(result.id),
+      geometryConcepts.every(
+        (result) => conceptsById.get(result.id)?.category === "geometry",
       ),
     ).toBe(true);
     expect(

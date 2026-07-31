@@ -1,4 +1,5 @@
 import type { Locale } from '../copy'
+import { meta } from '../data/catalog'
 import { Brand } from './Brand'
 
 export function Footer({ locale }: { locale: Locale }) {
@@ -19,6 +20,9 @@ export function Footer({ locale }: { locale: Locale }) {
         >
           {locale === 'zh' ? '参与贡献' : 'Contribute'}
         </a>
+        <span>
+          {locale === 'zh' ? `核查至 ${meta.lastUpdated}` : `Reviewed through ${meta.lastUpdated}`}
+        </span>
         <span>MIT · CC BY 4.0</span>
       </div>
     </footer>

@@ -67,6 +67,7 @@ function personNode(personId: string): PersonGraphNode | undefined {
     meta: {
       born: person.born,
       died: person.died,
+      lifeStatus: person.lifeStatus,
       region: person.region,
     },
   };

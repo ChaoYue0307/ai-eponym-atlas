@@ -23,7 +23,7 @@ AI Eponym Atlas 是一份面向学习者、研究者和工程师的结构化概�
 >
 > A structured atlas of mathematical and AI concepts named after people, covering their intuitive meaning, formal definition, historical origin, relationships, and applications in modern AI.
 
-[在线网站](https://chaoyue0307.github.io/ai-eponym-atlas/) · [浏览方法](#如何使用--how-to-use) · [数据模板](#条目数据模板--entry-template) · [参与贡献](./CONTRIBUTING.md) · [路线图](#路线图--roadmap)
+[在线网站](https://chaoyue0307.github.io/ai-eponym-atlas/) · [浏览方法](#如何使用--how-to-use) · [覆盖与时效](./docs/COVERAGE.md) · [数据模板](#条目数据模板--entry-template) · [版本记录](./CHANGELOG.md) · [参与贡献](./CONTRIBUTING.md) · [路线图](#路线图--roadmap)
 
 ---
 
@@ -57,6 +57,20 @@ AI Eponym Atlas 希望补上这层缺失的信息。这里不会只说“Jacobia
 
 *The atlas prioritizes person-named concepts with a clear technical definition and meaningful relevance to modern AI. It aims to be broad, verifiable, and continuously improved, but does not claim to be exhaustive. Ambiguous attribution, independent discovery, and naming disputes are documented rather than flattened.*
 
+### 扩展版的当前覆盖 / Current expanded coverage
+
+本版在通用 AI 数学主干之外，重点补齐了几个仍在快速发展的方向：
+
+- **扩散与连续时间生成**：Langevin dynamics、Itô lemma、Fokker–Planck equation、Schrödinger bridge、Doob's h-transform 与 Tweedie's formula；
+- **最优传输与跨域对齐**：Wasserstein、Gromov–Wasserstein 与 Sinkhorn；
+- **LLM 偏好、排序与评估**：Bradley–Terry、Plackett–Luce、Elo 与 Shapley value；
+- **现代记忆、动力学与图学习**：Hopfield network、Koopman operator、Lie group、Stiefel manifold 与 Weisfeiler–Leman test；
+- **数值计算与统计学习底层**：Krylov / Lanczos / Arnoldi、KKT、BFGS、Cramér–Rao、Hoeffding、Dirichlet，以及传统序列与视觉算法。
+
+“最新”按照 `content/eponyms.json` 中的编辑截止日期解释：经典定义保留原始来源，快速变化的 AI 用途尽量连接 2020–2026 的一手论文。完整纳入 / 排除标准、预印本处理和已知缺口见 [Coverage and currency](./docs/COVERAGE.md)。
+
+*Beyond the general mathematical core, the expanded edition covers active work in diffusion and stochastic generative modeling, optimal transport, LLM preference and ranking models, associative memory, dynamical and geometric learning, numerical linear algebra, statistical bounds, sequence decoding, and classical vision. “Current” is tied to the catalog's editorial cutoff: foundational claims keep their original sources, while fast-moving AI relevance is linked to primary work from 2020–2026 where practical.*
+
 ## 如何使用 / How to use
 
 ### 读论文时快速解码
@@ -85,11 +99,11 @@ AI Eponym Atlas 希望补上这层缺失的信息。这里不会只说“Jacobia
 - **分类浏览 / Faceted browsing**：在概念与人物模式之间切换，并按 9 个数学 / AI 领域筛选。
 - **全文搜索 / Full-text search**：支持人名、术语、别名、功能性名字和应用关键词。
 - **时间线 / Timeline**：区分人物生卒、成果提出、发表、命名普及等不同时间点。
-- **可核查来源 / Verifiable sources**：每个概念至少提供一条来源，并持续补强定义、历史与应用的证据覆盖。
+- **可核查来源 / Verifiable sources**：每个概念至少提供两条直接来源，分别支撑定义 / 历史与实现 / AI 应用，并对快速变化的用途加入近期论文。
 - **中英双语 / Bilingual content**：术语、功能标签、问题、直觉、应用和归因说明均有中英版本；公式、年代与部分来源标题保留规范原文。
 - **渐进式阅读 / Progressive disclosure**：先给“现在需要知道的”，再展开严谨细节。
 
-*The first version centers on searchable concept cards, person profiles, bidirectional relationships, filters, timelines, citations, bilingual content, and progressive explanations from intuition to formal detail.*
+*The released site centers on searchable concept cards, person profiles, bidirectional relationships, filters, timelines, citations, bilingual content, and progressive explanations from intuition to formal detail.*
 
 ## 当前条目告诉你什么？ / What an entry tells you today
 
@@ -103,7 +117,7 @@ AI Eponym Atlas 希望补上这层缺失的信息。这里不会只说“Jacobia
 | 历史 | 年代与谨慎的归因说明 | Era and a careful attribution note |
 | 连接 | 相关人物、相关概念与可聚焦关系图 | People, related concepts, and a focused relationship graph |
 | AI 应用 | 在模型、算法、评估或系统中的具体作用 | Concrete role in AI models, algorithms, evaluation, or systems |
-| 证据 | 至少一条原始或权威来源链接 | At least one primary or authoritative source link |
+| 证据 | 至少两条直接来源，覆盖定义 / 历史与 AI 用途 | At least two direct sources covering definition/history and AI use |
 
 发音、带类型的前置 / 变体 / 推广关系、边界条件与最小示例属于下一阶段内容模型，而不是首版已经具备的字段。
 
@@ -168,8 +182,11 @@ ai-eponym-atlas/
 │   └── styles.css           # 全局设计系统
 ├── content/
 │   └── eponyms.json         # 人物、概念与引用的权威数据源
+├── docs/
+│   └── COVERAGE.md          # 收录边界与时效性政策
 ├── design/concepts/         # 视觉规范概念稿
 ├── .github/workflows/       # CI 与 GitHub Pages
+├── CHANGELOG.md
 ├── CONTRIBUTING.md
 ├── LICENSE
 └── README.md
@@ -262,7 +279,7 @@ ai-eponym-atlas/
 - “问题 - 直觉 - 定义 - AI 应用”形成完整解释链；
 - 数学符号可渲染，关键变量尽可能定义清楚；
 - 每项 AI 应用说明具体机制，而非只列领域名；
-- 每个概念至少有一条可靠来源，重要历史主张尽量交叉核对；
+- 每个概念至少有两条可靠来源，重要历史与当前 AI 主张应交叉核对；
 - 中文自然准确，英文术语符合领域惯例；
 - 不把功能性昵称包装成正式术语；
 - 不含无法授权的图片、长篇受版权保护的原文或隐私信息；
@@ -325,11 +342,13 @@ git push -u origin content/add-jacobian
 
 路线图按能力阶段组织，不承诺固定发布日期：
 
-### 已上线：Founding edition
+### 已上线：Expanded edition / 扩展版
 
-- 57 位人物、75 个概念与 141 条来源链接；
+- 117 位人物、120 个概念与 247 条直接来源链接，覆盖 9 个领域；
 - 双语 schema、搜索、领域筛选、概念详情与人物详情；
-- 1 / 2 跳关系图、等价关系列表与可筛选时间线；
+- 1 / 2 跳关系图、等价关系列表与 22 个节点的可筛选时间线；
+- 扩散 / 随机生成、最优运输、LLM 偏好排序、现代联想记忆、图学习、数值线性代数、统计界、信号与经典视觉专题；
+- 每个概念至少两条直接来源，活跃 AI 用途尽量连接 2020–2026 一手论文；
 - 数据测试、持续集成、贡献模板与 GitHub Pages。
 
 ### Phase 2 - 更深的学习连接 / Deeper learning links

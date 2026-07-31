@@ -199,6 +199,54 @@ const curatedTimeline: TimelineEvent[] = [
     conceptIds: ["kalman-filter"],
   },
   {
+    id: "bradley-terry-1952",
+    sortYear: 1952,
+    year: "1952",
+    kind: "publication",
+    title: {
+      en: "Bradley and Terry turn pairwise choices into probabilities",
+      zh: "Bradley 与 Terry 把成对选择变成概率模型",
+    },
+    description: {
+      en: "A paired-comparison model created for ranking later becomes a standard mathematical assumption behind reward models and preference optimization for language models.",
+      zh: "这个最初用于排序的成对比较模型，后来成为语言模型奖励建模与偏好优化中的常见数学假设。",
+    },
+    personIds: ["ralph-bradley", "milton-terry"],
+    conceptIds: ["bradley-terry-model"],
+  },
+  {
+    id: "weisfeiler-leman-1968",
+    sortYear: 1968,
+    year: "1968",
+    kind: "publication",
+    title: {
+      en: "Weisfeiler and Leman refine graphs by neighborhoods",
+      zh: "Weisfeiler 与 Leman 用邻域细化图结构",
+    },
+    description: {
+      en: "Iterative color refinement becomes, decades later, a reference test for the expressive power of message-passing graph neural networks.",
+      zh: "迭代颜色细化在数十年后成为衡量消息传递图神经网络表达能力的参照测试。",
+    },
+    personIds: ["boris-weisfeiler", "andrey-leman"],
+    conceptIds: ["weisfeiler-leman-test"],
+  },
+  {
+    id: "hopfield-memory-1982",
+    sortYear: 1982,
+    year: "1982",
+    kind: "publication",
+    title: {
+      en: "Hopfield gives neural memory an energy landscape",
+      zh: "Hopfield 用能量景观刻画神经记忆",
+    },
+    description: {
+      en: "Stored patterns become attractors of a recurrent system, establishing a durable bridge between associative memory, optimization, and statistical physics.",
+      zh: "存储模式成为循环系统的吸引子，由此建立联想记忆、优化与统计物理之间的持久桥梁。",
+    },
+    personIds: ["john-hopfield"],
+    conceptIds: ["hopfield-network", "lyapunov-function"],
+  },
+  {
     id: "boltzmann-machine-1985",
     sortYear: 1985,
     year: "1985",
@@ -213,6 +261,81 @@ const curatedTimeline: TimelineEvent[] = [
     },
     personIds: ["ludwig-boltzmann"],
     conceptIds: ["boltzmann-machine"],
+  },
+  {
+    id: "explainable-generative-metrics-2017",
+    sortYear: 2017,
+    year: "2017",
+    kind: "ai-adoption",
+    title: {
+      en: "Classical names shape AI explanation and generative evaluation",
+      zh: "经典人名概念进入 AI 解释与生成评估",
+    },
+    description: {
+      en: "Shapley-based feature attribution and Fréchet Inception Distance turn cooperative-game credit and distribution geometry into widely used AI tools.",
+      zh: "基于 Shapley 的特征归因与 Fréchet Inception Distance，把合作博弈中的贡献分配和分布几何转化为常用 AI 工具。",
+    },
+    personIds: ["lloyd-shapley", "maurice-frechet"],
+    conceptIds: ["shapley-value", "frechet-inception-distance"],
+  },
+  {
+    id: "stochastic-generative-modeling-2021",
+    sortYear: 2021,
+    year: "2021",
+    kind: "ai-adoption",
+    title: {
+      en: "Stochastic analysis becomes a generative-modeling toolkit",
+      zh: "随机分析成为生成建模工具箱",
+    },
+    description: {
+      en: "Score-based SDEs and diffusion Schrödinger bridges make Itô calculus, Langevin dynamics, and Fokker–Planck evolution directly operational in modern generative AI.",
+      zh: "基于 score 的 SDE 与扩散 Schrödinger bridge，让 Itô 微积分、Langevin 动力学和 Fokker–Planck 演化直接参与现代生成式 AI。",
+    },
+    personIds: [
+      "kiyosi-ito",
+      "paul-langevin",
+      "adriaan-fokker",
+      "max-planck",
+      "erwin-schrodinger",
+    ],
+    conceptIds: [
+      "ito-lemma",
+      "langevin-dynamics",
+      "fokker-planck-equation",
+      "schrodinger-bridge",
+    ],
+  },
+  {
+    id: "preference-and-control-2023",
+    sortYear: 2023,
+    year: "2023",
+    kind: "ai-adoption",
+    title: {
+      en: "Old ranking and vision tools acquire new foundation-model roles",
+      zh: "经典排序与视觉工具获得基础模型新用途",
+    },
+    description: {
+      en: "Direct preference optimization exposes the Bradley–Terry assumption in language-model alignment, while ControlNet makes Canny edges a standard structural condition for image generation.",
+      zh: "直接偏好优化凸显了语言模型对齐中的 Bradley–Terry 假设；ControlNet 则让 Canny 边缘成为图像生成的常见结构条件。",
+    },
+    personIds: ["ralph-bradley", "milton-terry", "john-canny"],
+    conceptIds: ["bradley-terry-model", "canny-edge-detector"],
+  },
+  {
+    id: "arena-and-conditioned-diffusion-2024",
+    sortYear: 2024,
+    year: "2024",
+    kind: "ai-adoption",
+    title: {
+      en: "Elo-style evaluation and Doob-guided diffusion enter the frontier",
+      zh: "Elo 式评估与 Doob 引导扩散进入研究前沿",
+    },
+    description: {
+      en: "Large-model arenas operationalize pairwise ratings, while conditional diffusion research uses Doob's h-transform to steer stochastic paths toward evidence or terminal constraints.",
+      zh: "大模型竞技场把成对评分投入实际评估；条件扩散研究则用 Doob h 变换把随机路径引向证据或终端约束。",
+    },
+    personIds: ["arpad-elo", "joseph-doob"],
+    conceptIds: ["elo-rating-system", "doob-h-transform"],
   },
   {
     id: "kan-2024",
@@ -231,6 +354,37 @@ const curatedTimeline: TimelineEvent[] = [
     conceptIds: [
       "kolmogorov-arnold-representation",
       "kolmogorov-arnold-network",
+    ],
+  },
+  {
+    id: "active-eponyms-2025",
+    sortYear: 2025,
+    year: "2025",
+    kind: "ai-adoption",
+    title: {
+      en: "Eponymous mathematics remains active across frontier AI",
+      zh: "人名数学继续活跃在前沿 AI",
+    },
+    description: {
+      en: "New work on modern Hopfield memory, Koopman dynamics, Wasserstein policy optimization, Sinkhorn transport, Schrödinger bridges, and Bradley–Terry reward models shows that these are living tools, not historical trivia.",
+      zh: "现代 Hopfield 记忆、Koopman 动力学、Wasserstein 策略优化、Sinkhorn 运输、Schrödinger bridge 与 Bradley–Terry 奖励模型的新研究表明：这些不是历史冷知识，而是仍在使用的工具。",
+    },
+    personIds: [
+      "john-hopfield",
+      "bernard-koopman",
+      "leonid-vaserstein",
+      "richard-sinkhorn",
+      "erwin-schrodinger",
+      "ralph-bradley",
+      "milton-terry",
+    ],
+    conceptIds: [
+      "hopfield-network",
+      "koopman-operator",
+      "wasserstein-distance",
+      "sinkhorn-algorithm",
+      "schrodinger-bridge",
+      "bradley-terry-model",
     ],
   },
 ];

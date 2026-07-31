@@ -9,6 +9,7 @@ import type { Locale } from '../copy'
 import { copy } from '../copy'
 import { conceptsById, peopleById } from '../data/catalog'
 import { navigate } from '../hooks/useHashRoute'
+import { formatLifespan } from '../lib/lifespan'
 import { FormulaText } from './FormulaText'
 
 type ConceptDetailProps = {
@@ -217,8 +218,7 @@ export function ConceptDetail({
                   <span>
                     <strong>{person.name}</strong>
                     <small>
-                      {person.zhName} · {person.born}–
-                      {person.died ?? (locale === 'zh' ? '至今' : 'present')}
+                      {person.zhName} · {formatLifespan(person, locale)}
                     </small>
                   </span>
                   <ArrowUpRight aria-hidden="true" />

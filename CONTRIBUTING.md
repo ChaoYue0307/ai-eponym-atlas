@@ -72,7 +72,7 @@ The website treats `content/eponyms.json` as the canonical editorial source. Do 
 
 - `name`：学术文献中最常见的英文或拉丁字母姓名。
 - `zhName`：自然、常见的中文译名。
-- `born` / `died`：当前数据使用年份字符串；在世人物的 `died` 写 `null`。
+- `born` / `died`：使用年份字符串；在世人物的 `died` 写 `null`。若可靠资料无法确认生卒年，可将两者均写为 `null`，界面会明确显示“生卒年待考”，不要猜测年份。
 - `region`：简洁历史/地理描述，不强行套用今天的国界。
 - `portraitInitials`：用于无照片人物标记，通常为 2 个字母。
 - `summary`：只写与图谱条目相关的贡献，不写泛化传记。
@@ -209,7 +209,7 @@ statistics
 
 ### `sourceLinks`
 
-每个概念需要 1–3 条高质量来源：
+每个概念至少需要 2 条高质量来源（通常 2–4 条）：
 
 1. 原始论文、书籍或 DOI；
 2. NIST、大学课程、官方技术文档等权威定义；
@@ -217,7 +217,9 @@ statistics
 
 来源必须直接支持条目中的主张。不要只链接搜索结果、营销博客、AI 生成摘要或无法定位具体内容的首页。
 
-*Use sources that directly support the claim: primary literature where practical, authoritative mathematical references for definitions, and reliable historical sources for attribution.*
+对快速变化的 AI 用途，应尽量补充 2020 年以来的一手论文；预印本需要在来源标签中明确说明。经典定义和历史事实不因来源年代久远而降级，但“当前仍活跃”的判断需要近期证据。完整边界见 [`docs/COVERAGE.md`](./docs/COVERAGE.md)。
+
+*Use at least two direct sources: primary literature where practical, authoritative mathematical references for definitions, and reliable historical sources for attribution. Fast-moving AI relevance should normally have a recent primary source.*
 
 ## 双语写作 / Bilingual writing
 

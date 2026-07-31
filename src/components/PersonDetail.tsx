@@ -4,6 +4,7 @@ import ExternalLink from 'lucide-react/dist/esm/icons/external-link.mjs'
 import type { Locale } from '../copy'
 import { conceptsById, peopleById } from '../data/catalog'
 import { navigate } from '../hooks/useHashRoute'
+import { formatLifespan } from '../lib/lifespan'
 
 export function PersonDetail({ personId, locale }: { personId: string; locale: Locale }) {
   const person = peopleById.get(personId)
@@ -40,8 +41,7 @@ export function PersonDetail({ personId, locale }: { personId: string; locale: L
         </div>
         <div>
           <p>
-          {person.region} · {person.born}–
-          {person.died ?? (locale === 'zh' ? '至今' : 'present')}
+            {person.region} · {formatLifespan(person, locale)}
           </p>
           <h1>
             {person.name} <span>/ {person.zhName}</span>

@@ -16,9 +16,13 @@ type RawConcept = Omit<Concept, "category"> & {
   readonly category: string;
 };
 
+type RawPerson = Omit<Person, "lifeStatus"> & {
+  readonly lifeStatus?: string;
+};
+
 interface RawAtlasData {
   readonly meta: AtlasMeta;
-  readonly people: readonly Person[];
+  readonly people: readonly RawPerson[];
   readonly concepts: readonly RawConcept[];
 }
 
@@ -31,6 +35,19 @@ function parseCategory(value: string): ConceptCategory {
   }
 
   throw new TypeError(`Unknown concept category in content/eponyms.json: ${value}`);
+}
+
+function parsePerson(person: RawPerson): Person {
+  if (person.lifeStatus !== undefined && person.lifeStatus !== "missing") {
+    throw new TypeError(
+      `Unknown life status in content/eponyms.json: ${person.lifeStatus}`,
+    );
+  }
+
+  return {
+    ...person,
+    lifeStatus: person.lifeStatus,
+  };
 }
 
 function indexById<T extends { readonly id: string }>(
@@ -51,7 +68,7 @@ function indexById<T extends { readonly id: string }>(
 export const meta: AtlasMeta = Object.freeze(input.meta);
 
 export const people: readonly Person[] = Object.freeze(
-  input.people.map((person) => Object.freeze(person)),
+  input.people.map((person) => Object.freeze(parsePerson(person))),
 );
 
 export const concepts: readonly Concept[] = Object.freeze(

@@ -1,7 +1,7 @@
 import ArrowUpRight from 'lucide-react/dist/esm/icons/arrow-up-right.mjs'
 import GitFork from 'lucide-react/dist/esm/icons/git-fork.mjs'
 import type { Locale } from '../copy'
-import { concepts, people } from '../data/catalog'
+import { concepts, meta, people } from '../data/catalog'
 import { navigate } from '../hooks/useHashRoute'
 import { SectionRule } from './SectionRule'
 
@@ -159,12 +159,12 @@ export function AboutPage({ locale }: { locale: Locale }) {
 
       <section className="coverage-band">
         <div>
-          <p className="section-number">FOUNDING EDITION</p>
+          <p className="section-number">EXPANDED EDITION · {meta.lastUpdated}</p>
           <h2>{locale === 'zh' ? '广泛，但不假装穷尽。' : 'Broad, without pretending to be exhaustive.'}</h2>
           <p>
             {locale === 'zh'
-              ? '首版聚焦在现代 AI 学习与研究中高频出现、并且能可靠核查的人名概念。'
-              : 'The first edition focuses on person-named concepts that recur in modern AI and can be sourced responsibly.'}
+              ? '扩展版兼顾基础概念、专门领域工具与 2020–2026 仍活跃的 AI 用途，并明确记录核查截止日期。'
+              : 'The expanded edition balances foundations, specialist tools, and AI uses active in 2020–2026, with an explicit editorial cutoff.'}
           </p>
         </div>
         <dl>

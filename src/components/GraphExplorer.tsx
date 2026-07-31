@@ -10,6 +10,7 @@ import type { Locale } from '../copy'
 import { copy } from '../copy'
 import { concepts, conceptsById } from '../data/catalog'
 import { buildEgoGraph } from '../lib/graph'
+import { formatLifespan } from '../lib/lifespan'
 import type { EgoGraph, EgoGraphEdge, EgoGraphNode } from '../types'
 import { navigate } from '../hooks/useHashRoute'
 import { SectionRule } from './SectionRule'
@@ -462,9 +463,7 @@ export function GraphExplorer({ locale, params }: GraphExplorerProps) {
                           {node.kind === 'concept'
                             ? node.meta.functionNickname[locale]
                             : node.kind === 'person'
-                              ? `${node.meta.born}–${
-                                  node.meta.died ?? (locale === 'zh' ? '至今' : 'present')
-                                }`
+                              ? formatLifespan(node.meta, locale)
                               : locale === 'zh'
                                 ? 'AI 应用'
                                 : 'AI application'}

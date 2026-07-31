@@ -9,7 +9,7 @@
       "en": "A bilingual, structured atlas of eponymous mathematical and technical concepts widely used in artificial intelligence.",
       "zh": "一份双语、结构化的图谱，解释广泛用于人工智能的数学与技术人名概念。"
     },
-    "schemaVersion": "1.0.0",
+    "schemaVersion": "1.1.0",
     "lastUpdated": "2026-07-31",
     "licenseRecommendation": "CC BY 4.0 for content; MIT for code",
     "editorialNote": {
@@ -478,7 +478,7 @@
         "en": "Mathematician foundational to stochastic processes, signal filtering, and cybernetics.",
         "zh": "在随机过程、信号滤波与控制论方面具有奠基性贡献。"
       },
-      "concepts": ["wiener-process"]
+      "concepts": ["wiener-process", "wiener-filter"]
     },
     {
       "id": "rudolf-kalman",
@@ -702,7 +702,7 @@
         "en": "Probability theorist who generalized Shannon entropy into an order-parameterized family.",
         "zh": "把香农熵推广为带阶数参数的信息度量族。"
       },
-      "concepts": ["renyi-entropy"]
+      "concepts": ["renyi-entropy", "erdos-renyi-model"]
     },
     {
       "id": "josiah-gibbs",
@@ -815,6 +815,969 @@
         "zh": "共同发展以 VC 理论闻名的容量度量与一致收敛理论。"
       },
       "concepts": ["vapnik-chervonenkis-dimension"]
+    },
+    {
+      "id": "augustin-louis-cauchy",
+      "name": "Augustin-Louis Cauchy",
+      "zhName": "奥古斯丁-路易·柯西",
+      "born": "1789",
+      "died": "1857",
+      "region": "France",
+      "portraitInitials": "AC",
+      "summary": {
+        "en": "French mathematician whose work shaped rigorous analysis, inequalities, complex analysis, and numerical mathematics.",
+        "zh": "法国数学家，其工作深刻塑造了严格分析、不等式、复分析与数值数学。"
+      },
+      "concepts": [
+        "cauchy-schwarz-inequality"
+      ]
+    },
+    {
+      "id": "hermann-amandus-schwarz",
+      "name": "Hermann Amandus Schwarz",
+      "zhName": "赫尔曼·阿曼杜斯·施瓦茨",
+      "born": "1843",
+      "died": "1921",
+      "region": "Germany",
+      "portraitInitials": "HS",
+      "summary": {
+        "en": "German mathematician known for foundational results in analysis, including the inequality that bounds inner products.",
+        "zh": "德国数学家，以分析学中的奠基性成果著称，包括约束内积大小的不等式。"
+      },
+      "concepts": [
+        "cauchy-schwarz-inequality"
+      ]
+    },
+    {
+      "id": "eliakim-hastings-moore",
+      "name": "Eliakim Hastings Moore",
+      "zhName": "伊莱贾金·黑斯廷斯·穆尔",
+      "born": "1862",
+      "died": "1932",
+      "region": "United States",
+      "portraitInitials": "EM",
+      "summary": {
+        "en": "American mathematician who developed an early generalized inverse for singular linear systems.",
+        "zh": "美国数学家，较早为奇异线性系统发展了广义逆的概念。"
+      },
+      "concepts": [
+        "moore-penrose-pseudoinverse"
+      ]
+    },
+    {
+      "id": "roger-penrose",
+      "name": "Roger Penrose",
+      "zhName": "罗杰·彭罗斯",
+      "born": "1931",
+      "died": null,
+      "region": "United Kingdom",
+      "portraitInitials": "RP",
+      "summary": {
+        "en": "British mathematician and mathematical physicist who independently characterized the unique generalized inverse now bearing his name.",
+        "zh": "英国数学家与数学物理学家，独立刻画了如今以其名字命名的唯一广义逆。"
+      },
+      "concepts": [
+        "moore-penrose-pseudoinverse"
+      ]
+    },
+    {
+      "id": "oskar-perron",
+      "name": "Oskar Perron",
+      "zhName": "奥斯卡·佩龙",
+      "born": "1880",
+      "died": "1975",
+      "region": "Germany",
+      "portraitInitials": "OP",
+      "summary": {
+        "en": "German mathematician who established the positive dominant-eigenvalue result for positive matrices.",
+        "zh": "德国数学家，证明了正矩阵存在正的主导特征值这一结果。"
+      },
+      "concepts": [
+        "perron-frobenius-theorem"
+      ]
+    },
+    {
+      "id": "ferdinand-georg-frobenius",
+      "name": "Ferdinand Georg Frobenius",
+      "zhName": "费迪南德·格奥尔格·弗罗贝尼乌斯",
+      "born": "1849",
+      "died": "1917",
+      "region": "Germany",
+      "portraitInitials": "FF",
+      "summary": {
+        "en": "German mathematician who extended Perron's spectral result from positive to irreducible nonnegative matrices.",
+        "zh": "德国数学家，把佩龙的谱结论从正矩阵推广到不可约非负矩阵。"
+      },
+      "concepts": [
+        "perron-frobenius-theorem"
+      ]
+    },
+    {
+      "id": "alston-scott-householder",
+      "name": "Alston Scott Householder",
+      "zhName": "阿尔斯通·斯科特·豪斯霍尔德",
+      "born": "1904",
+      "died": "1993",
+      "region": "United States",
+      "portraitInitials": "AH",
+      "summary": {
+        "en": "American numerical analyst whose reflection transformations became a stable workhorse of matrix factorization.",
+        "zh": "美国数值分析学家，其反射变换成为稳定矩阵分解的基础工具。"
+      },
+      "concepts": [
+        "householder-transformation"
+      ]
+    },
+    {
+      "id": "cornelius-lanczos",
+      "name": "Cornelius Lanczos",
+      "zhName": "科尔内留斯·兰乔斯",
+      "born": "1893",
+      "died": "1974",
+      "region": "Hungary / United States",
+      "portraitInitials": "CL",
+      "summary": {
+        "en": "Hungarian-American mathematician and physicist who devised an efficient Krylov method for symmetric eigenvalue problems.",
+        "zh": "匈牙利裔美国数学家与物理学家，为对称特征值问题提出了高效的克雷洛夫方法。"
+      },
+      "concepts": [
+        "lanczos-algorithm"
+      ]
+    },
+    {
+      "id": "alexei-krylov",
+      "name": "Alexei Nikolaevich Krylov",
+      "zhName": "阿列克谢·尼古拉耶维奇·克雷洛夫",
+      "born": "1863",
+      "died": "1945",
+      "region": "Russian Empire / Soviet Union",
+      "portraitInitials": "AK",
+      "summary": {
+        "en": "Russian and Soviet mathematician and engineer whose subspace construction underlies many large-scale iterative solvers.",
+        "zh": "俄罗斯及苏联数学家、工程师，其子空间构造奠定了许多大规模迭代求解器的基础。"
+      },
+      "concepts": [
+        "krylov-subspace"
+      ]
+    },
+    {
+      "id": "walter-edwin-arnoldi",
+      "name": "Walter Edwin Arnoldi",
+      "zhName": "沃尔特·埃德温·阿诺尔迪",
+      "born": "1917",
+      "died": "1995",
+      "region": "United States",
+      "portraitInitials": "WA",
+      "summary": {
+        "en": "American engineer who developed an orthogonal Krylov iteration for large nonsymmetric eigenvalue problems.",
+        "zh": "美国工程师，提出了处理大型非对称特征值问题的正交克雷洛夫迭代。"
+      },
+      "concepts": [
+        "arnoldi-iteration"
+      ]
+    },
+    {
+      "id": "evert-johannes-nystrom",
+      "name": "Evert Johannes Nyström",
+      "zhName": "埃韦特·约翰内斯·尼斯特伦",
+      "born": "1895",
+      "died": "1960",
+      "region": "Finland",
+      "portraitInitials": "EN",
+      "summary": {
+        "en": "Finnish mathematician whose quadrature method for integral equations inspired modern low-rank kernel approximations.",
+        "zh": "芬兰数学家，其积分方程求积方法启发了现代低秩核近似。"
+      },
+      "concepts": [
+        "nystrom-method"
+      ]
+    },
+    {
+      "id": "peter-gustav-lejeune-dirichlet",
+      "name": "Peter Gustav Lejeune Dirichlet",
+      "zhName": "彼得·古斯塔夫·勒热纳·狄利克雷",
+      "born": "1805",
+      "died": "1859",
+      "region": "Germany",
+      "portraitInitials": "PD",
+      "summary": {
+        "en": "German mathematician whose work across analysis and number theory gave rise to the Dirichlet family of probability models.",
+        "zh": "德国数学家，其分析与数论工作衍生出狄利克雷概率模型族。"
+      },
+      "concepts": [
+        "dirichlet-distribution"
+      ]
+    },
+    {
+      "id": "harald-cramer",
+      "name": "Harald Cramér",
+      "zhName": "哈拉尔德·克拉梅尔",
+      "born": "1893",
+      "died": "1985",
+      "region": "Sweden",
+      "portraitInitials": "HC",
+      "summary": {
+        "en": "Swedish mathematician and statistician who helped establish modern mathematical statistics and estimation theory.",
+        "zh": "瑞典数学家与统计学家，推动了现代数理统计和估计理论的建立。"
+      },
+      "concepts": [
+        "cramer-rao-bound"
+      ]
+    },
+    {
+      "id": "calyampudi-radhakrishna-rao",
+      "name": "Calyampudi Radhakrishna Rao",
+      "zhName": "卡利安普迪·拉达克里希纳·拉奥",
+      "born": "1920",
+      "died": "2023",
+      "region": "India / United States",
+      "portraitInitials": "CR",
+      "summary": {
+        "en": "Indian-American statistician whose foundational results describe information limits and how conditioning improves estimators.",
+        "zh": "印度裔美国统计学家，其奠基性结果刻画了信息极限以及条件化如何改进估计量。"
+      },
+      "concepts": [
+        "cramer-rao-bound",
+        "rao-blackwell-theorem"
+      ]
+    },
+    {
+      "id": "david-blackwell",
+      "name": "David Blackwell",
+      "zhName": "戴维·布莱克韦尔",
+      "born": "1919",
+      "died": "2010",
+      "region": "United States",
+      "portraitInitials": "DB",
+      "summary": {
+        "en": "American statistician and mathematician whose work connected conditional expectation, decision theory, and statistical efficiency.",
+        "zh": "美国统计学家与数学家，其工作连接了条件期望、决策理论和统计效率。"
+      },
+      "concepts": [
+        "rao-blackwell-theorem"
+      ]
+    },
+    {
+      "id": "wassily-hoeffding",
+      "name": "Wassily Hoeffding",
+      "zhName": "瓦西里·赫夫丁",
+      "born": "1914",
+      "died": "1991",
+      "region": "Germany / United States",
+      "portraitInitials": "WH",
+      "summary": {
+        "en": "German-American statistician whose distribution-free concentration bound became central to learning theory.",
+        "zh": "德裔美国统计学家，其无分布假设的集中界成为学习理论的核心工具。"
+      },
+      "concepts": [
+        "hoeffding-inequality"
+      ]
+    },
+    {
+      "id": "william-karush",
+      "name": "William Karush",
+      "zhName": "威廉·卡鲁什",
+      "born": "1917",
+      "died": "1997",
+      "region": "United States",
+      "portraitInitials": "WK",
+      "summary": {
+        "en": "American mathematician who first derived the nonlinear-programming optimality conditions now called KKT.",
+        "zh": "美国数学家，最早推导出如今称为 KKT 的非线性规划最优性条件。"
+      },
+      "concepts": [
+        "karush-kuhn-tucker-conditions"
+      ]
+    },
+    {
+      "id": "harold-kuhn",
+      "name": "Harold W. Kuhn",
+      "zhName": "哈罗德·库恩",
+      "born": "1925",
+      "died": "2014",
+      "region": "United States",
+      "portraitInitials": "HK",
+      "summary": {
+        "en": "American mathematician who, with Albert Tucker, brought nonlinear-programming optimality conditions into broad use.",
+        "zh": "美国数学家，与阿尔伯特·塔克共同推动非线性规划最优性条件得到广泛应用。"
+      },
+      "concepts": [
+        "karush-kuhn-tucker-conditions"
+      ]
+    },
+    {
+      "id": "albert-tucker",
+      "name": "Albert W. Tucker",
+      "zhName": "阿尔伯特·塔克",
+      "born": "1905",
+      "died": "1995",
+      "region": "Canada / United States",
+      "portraitInitials": "AT",
+      "summary": {
+        "en": "Canadian-American mathematician whose work with Harold Kuhn formalized influential nonlinear-programming conditions.",
+        "zh": "加拿大裔美国数学家，与哈罗德·库恩共同形式化了影响深远的非线性规划条件。"
+      },
+      "concepts": [
+        "karush-kuhn-tucker-conditions"
+      ]
+    },
+    {
+      "id": "charles-broyden",
+      "name": "Charles George Broyden",
+      "zhName": "查尔斯·乔治·布罗伊登",
+      "born": "1933",
+      "died": "2011",
+      "region": "United Kingdom",
+      "portraitInitials": "CB",
+      "summary": {
+        "en": "British mathematician who developed major quasi-Newton updates for nonlinear equations and optimization.",
+        "zh": "英国数学家，为非线性方程和优化发展了重要的拟牛顿更新。"
+      },
+      "concepts": [
+        "bfgs-algorithm"
+      ]
+    },
+    {
+      "id": "roger-fletcher",
+      "name": "Roger Fletcher",
+      "zhName": "罗杰·弗莱彻",
+      "born": "1939",
+      "died": "2016",
+      "region": "United Kingdom",
+      "portraitInitials": "RF",
+      "summary": {
+        "en": "British mathematician whose numerical-optimization work includes one of the four independent BFGS updates.",
+        "zh": "英国数学家，其数值优化工作包括 BFGS 的四个独立更新之一。"
+      },
+      "concepts": [
+        "bfgs-algorithm"
+      ]
+    },
+    {
+      "id": "donald-goldfarb",
+      "name": "Donald Goldfarb",
+      "zhName": "唐纳德·戈德法布",
+      "born": "1941",
+      "died": null,
+      "region": "United States",
+      "portraitInitials": "DG",
+      "summary": {
+        "en": "American mathematician whose variable-metric update is one of the four formulations unified as BFGS.",
+        "zh": "美国数学家，其变度量更新是后来统一称为 BFGS 的四种形式之一。"
+      },
+      "concepts": [
+        "bfgs-algorithm"
+      ]
+    },
+    {
+      "id": "david-shanno",
+      "name": "David F. Shanno",
+      "zhName": "戴维·尚诺",
+      "born": "1938",
+      "died": "2019",
+      "region": "United States",
+      "portraitInitials": "DS",
+      "summary": {
+        "en": "American mathematician whose conditioning analysis supplied the fourth update in the BFGS family.",
+        "zh": "美国数学家，其条件化分析给出了 BFGS 家族中的第四个更新。"
+      },
+      "concepts": [
+        "bfgs-algorithm"
+      ]
+    },
+    {
+      "id": "kenneth-levenberg",
+      "name": "Kenneth Levenberg",
+      "zhName": "肯尼斯·莱文伯格",
+      "born": "1919",
+      "died": "1973",
+      "region": "United States",
+      "portraitInitials": "KL",
+      "summary": {
+        "en": "American statistician who introduced a damped method for nonlinear least-squares problems.",
+        "zh": "美国统计学家，为非线性最小二乘问题提出了阻尼求解方法。"
+      },
+      "concepts": [
+        "levenberg-marquardt-algorithm"
+      ]
+    },
+    {
+      "id": "donald-marquardt",
+      "name": "Donald W. Marquardt",
+      "zhName": "唐纳德·马夸特",
+      "born": "1929",
+      "died": "1997",
+      "region": "United States",
+      "portraitInitials": "DM",
+      "summary": {
+        "en": "American statistician who independently refined Levenberg's damped least-squares method into a practical algorithm.",
+        "zh": "美国统计学家，独立改进莱文伯格的阻尼最小二乘方法，使其成为实用算法。"
+      },
+      "concepts": [
+        "levenberg-marquardt-algorithm"
+      ]
+    },
+    {
+      "id": "jean-jacques-moreau",
+      "name": "Jean-Jacques Moreau",
+      "zhName": "让-雅克·莫罗",
+      "born": "1923",
+      "died": "2014",
+      "region": "France",
+      "portraitInitials": "JM",
+      "summary": {
+        "en": "French mathematician whose convex-analysis constructions made nonsmooth objectives amenable to smooth optimization.",
+        "zh": "法国数学家，其凸分析构造使非光滑目标能够通过光滑优化处理。"
+      },
+      "concepts": [
+        "moreau-envelope"
+      ]
+    },
+    {
+      "id": "werner-fenchel",
+      "name": "Werner Fenchel",
+      "zhName": "维尔纳·芬切尔",
+      "born": "1905",
+      "died": "1988",
+      "region": "Germany / Denmark",
+      "portraitInitials": "WF",
+      "summary": {
+        "en": "German-Danish mathematician whose conjugate transform became a central language for convex duality.",
+        "zh": "德裔丹麦数学家，其共轭变换成为凸对偶的核心语言。"
+      },
+      "concepts": [
+        "fenchel-conjugate"
+      ]
+    },
+    {
+      "id": "herbert-robbins",
+      "name": "Herbert Robbins",
+      "zhName": "赫伯特·罗宾斯",
+      "born": "1915",
+      "died": "2001",
+      "region": "United States",
+      "portraitInitials": "HR",
+      "summary": {
+        "en": "American mathematician and statistician who co-founded stochastic approximation, a direct ancestor of stochastic optimization.",
+        "zh": "美国数学家与统计学家，共同开创随机逼近，是随机优化的直接先驱。"
+      },
+      "concepts": [
+        "robbins-monro-stochastic-approximation"
+      ]
+    },
+    {
+      "id": "sutton-monro",
+      "name": "Sutton Monro",
+      "zhName": "萨顿·门罗",
+      "born": "1919",
+      "died": "1995",
+      "region": "United States",
+      "portraitInitials": "SM",
+      "summary": {
+        "en": "American mathematician and engineer who co-developed the first general stochastic-approximation procedure.",
+        "zh": "美国数学家与工程师，共同提出了首个通用随机逼近程序。"
+      },
+      "concepts": [
+        "robbins-monro-stochastic-approximation"
+      ]
+    },
+    {
+      "id": "alfred-haar",
+      "name": "Alfréd Haar",
+      "zhName": "阿尔弗雷德·哈尔",
+      "born": "1885",
+      "died": "1933",
+      "region": "Hungary",
+      "portraitInitials": "AH",
+      "summary": {
+        "en": "Hungarian mathematician who introduced the first compactly supported orthonormal wavelet basis.",
+        "zh": "匈牙利数学家，提出了首个具有紧支撑的正交归一小波基。"
+      },
+      "concepts": [
+        "haar-wavelet"
+      ]
+    },
+    {
+      "id": "dennis-gabor",
+      "name": "Dennis Gabor",
+      "zhName": "丹尼斯·盖伯",
+      "born": "1900",
+      "died": "1979",
+      "region": "Hungary / United Kingdom",
+      "portraitInitials": "DG",
+      "summary": {
+        "en": "Hungarian-British physicist whose localized sinusoidal representation became a foundational time-frequency and vision filter.",
+        "zh": "匈牙利裔英国物理学家，其局部化正弦表示成为时频分析和视觉滤波的基础。"
+      },
+      "concepts": [
+        "gabor-filter"
+      ]
+    },
+    {
+      "id": "paul-hough",
+      "name": "Paul Van Campen Hough",
+      "zhName": "保罗·范坎彭·霍夫",
+      "born": "1925",
+      "died": "2021",
+      "region": "United States",
+      "portraitInitials": "PH",
+      "summary": {
+        "en": "American physicist who patented a parameter-space voting method for recognizing particle tracks and geometric patterns.",
+        "zh": "美国物理学家，为识别粒子轨迹和几何模式的参数空间投票方法申请了专利。"
+      },
+      "concepts": [
+        "hough-transform"
+      ]
+    },
+    {
+      "id": "paul-erdos",
+      "name": "Paul Erdős",
+      "zhName": "保罗·埃尔德什",
+      "born": "1913",
+      "died": "1996",
+      "region": "Hungary",
+      "portraitInitials": "PE",
+      "summary": {
+        "en": "Hungarian mathematician whose collaboration with Alfréd Rényi helped found the systematic theory of random graphs.",
+        "zh": "匈牙利数学家，与阿尔弗雷德·雷尼共同奠定了随机图系统理论。"
+      },
+      "concepts": [
+        "erdos-renyi-model"
+      ]
+    },
+    {
+      "id": "andrew-viterbi",
+      "name": "Andrew J. Viterbi",
+      "zhName": "安德鲁·维特比",
+      "born": "1935",
+      "died": null,
+      "region": "Italy / United States",
+      "portraitInitials": "AV",
+      "summary": {
+        "en": "Italian-American engineer who devised the dynamic-programming decoder now used for maximum-probability sequence inference.",
+        "zh": "意大利裔美国工程师，提出了如今用于最大概率序列推断的动态规划解码器。"
+      },
+      "concepts": [
+        "viterbi-algorithm"
+      ]
+    },
+    {
+      "id": "leonard-baum",
+      "name": "Leonard E. Baum",
+      "zhName": "伦纳德·鲍姆",
+      "born": "1931",
+      "died": "2017",
+      "region": "United States",
+      "portraitInitials": "LB",
+      "summary": {
+        "en": "American mathematician whose probabilistic identities led to an expectation-maximization procedure for hidden Markov models.",
+        "zh": "美国数学家，其概率恒等式促成了隐马尔可夫模型的期望最大化训练程序。"
+      },
+      "concepts": [
+        "baum-welch-algorithm"
+      ]
+    },
+    {
+      "id": "lloyd-welch",
+      "name": "Lloyd R. Welch",
+      "zhName": "劳埃德·韦尔奇",
+      "born": "1927",
+      "died": "2023",
+      "region": "United States",
+      "portraitInitials": "LW",
+      "summary": {
+        "en": "American information theorist and applied mathematician who co-developed the HMM training algorithm bearing his name.",
+        "zh": "美国信息论学家与应用数学家，共同发展了以其名字命名的 HMM 训练算法。"
+      },
+      "concepts": [
+        "baum-welch-algorithm"
+      ]
+    },
+    {
+      "id": "paul-langevin",
+      "name": "Paul Langevin",
+      "zhName": "保罗·朗之万",
+      "born": "1872",
+      "died": "1946",
+      "region": "France",
+      "portraitInitials": "PL",
+      "summary": {
+        "en": "Physicist who modeled Brownian motion with a stochastic equation balancing drag, force, and thermal noise.",
+        "zh": "用随机方程平衡阻力、外力与热噪声，从而描述布朗运动的法国物理学家。"
+      },
+      "concepts": [
+        "langevin-dynamics"
+      ]
+    },
+    {
+      "id": "kiyosi-ito",
+      "name": "Kiyosi Itô",
+      "zhName": "伊藤清",
+      "born": "1915",
+      "died": "2008",
+      "region": "Japan",
+      "portraitInitials": "KI",
+      "summary": {
+        "en": "Mathematician who created the stochastic calculus now used to reason about functions of noisy continuous-time processes.",
+        "zh": "创立随机微积分，使人们能够严格分析连续时间随机过程函数的日本数学家。"
+      },
+      "concepts": [
+        "ito-lemma"
+      ]
+    },
+    {
+      "id": "adriaan-fokker",
+      "name": "Adriaan Fokker",
+      "zhName": "阿德里安·福克",
+      "born": "1887",
+      "died": "1972",
+      "region": "Netherlands",
+      "portraitInitials": "AF",
+      "summary": {
+        "en": "Physicist whose work on Brownian motion helped establish the evolution equation later called the Fokker–Planck equation.",
+        "zh": "其布朗运动研究推动了后来称为福克–普朗克方程的概率密度演化方程。"
+      },
+      "concepts": [
+        "fokker-planck-equation"
+      ]
+    },
+    {
+      "id": "max-planck",
+      "name": "Max Planck",
+      "zhName": "马克斯·普朗克",
+      "born": "1858",
+      "died": "1947",
+      "region": "Germany",
+      "portraitInitials": "MP",
+      "summary": {
+        "en": "Physicist whose kinetic-theory work supplied an early form of the probability-density equation now bearing the Fokker–Planck name.",
+        "zh": "在动理学研究中给出该概率密度方程早期形式、后来与福克共同冠名的德国物理学家。"
+      },
+      "concepts": [
+        "fokker-planck-equation"
+      ]
+    },
+    {
+      "id": "erwin-schrodinger",
+      "name": "Erwin Schrödinger",
+      "zhName": "埃尔温·薛定谔",
+      "born": "1887",
+      "died": "1961",
+      "region": "Austria",
+      "portraitInitials": "ES",
+      "summary": {
+        "en": "Physicist who posed the reciprocal-process problem now known as the Schrödinger bridge, alongside his foundational work in quantum mechanics.",
+        "zh": "除奠基量子力学外，还提出了后来称为薛定谔桥的互反过程问题。"
+      },
+      "concepts": [
+        "schrodinger-bridge"
+      ]
+    },
+    {
+      "id": "joseph-doob",
+      "name": "Joseph L. Doob",
+      "zhName": "约瑟夫·杜布",
+      "born": "1910",
+      "died": "2004",
+      "region": "United States",
+      "portraitInitials": "JD",
+      "summary": {
+        "en": "Probabilist whose rigorous theory of stochastic processes includes the conditioning construction called the Doob h-transform.",
+        "zh": "建立严谨随机过程理论，并发展了后来称为杜布 h 变换的条件化构造。"
+      },
+      "concepts": [
+        "doob-h-transform"
+      ]
+    },
+    {
+      "id": "maurice-tweedie",
+      "name": "Maurice C. K. Tweedie",
+      "zhName": "莫里斯·特威迪",
+      "born": "1919",
+      "died": "1996",
+      "region": "United Kingdom",
+      "portraitInitials": "MT",
+      "summary": {
+        "en": "Medical physicist and statistician associated with exponential-family identities and distributions that later carried the Tweedie name.",
+        "zh": "研究指数族恒等式与分布、其姓名后来用于相关公式和分布的英国医学物理学家与统计学家。"
+      },
+      "concepts": [
+        "tweedie-formula"
+      ]
+    },
+    {
+      "id": "leonid-vaserstein",
+      "name": "Leonid N. Vaserstein",
+      "zhName": "列昂尼德·瓦瑟施泰因",
+      "born": "1944",
+      "died": null,
+      "region": "Soviet Union / United States",
+      "portraitInitials": "LV",
+      "summary": {
+        "en": "Mathematician whose 1969 paper brought a transport metric into probability; the spelling “Wasserstein” reflects a common transliteration of his surname.",
+        "zh": "其 1969 年论文把运输度量引入概率论；“Wasserstein”是其姓氏的一种常见转写。"
+      },
+      "concepts": [
+        "wasserstein-distance",
+        "gromov-wasserstein-distance"
+      ]
+    },
+    {
+      "id": "richard-sinkhorn",
+      "name": "Richard D. Sinkhorn",
+      "zhName": "理查德·辛克霍恩",
+      "born": null,
+      "died": "1995",
+      "region": "United States",
+      "portraitInitials": "RS",
+      "summary": {
+        "en": "Mathematician whose matrix-scaling results underlie the alternating row-and-column normalization now called the Sinkhorn algorithm.",
+        "zh": "其矩阵缩放结果奠定了如今称为辛克霍恩算法的行列交替归一化方法。"
+      },
+      "concepts": [
+        "sinkhorn-algorithm"
+      ]
+    },
+    {
+      "id": "mikhail-gromov",
+      "name": "Mikhail Gromov",
+      "zhName": "米哈伊尔·格罗莫夫",
+      "born": "1943",
+      "died": null,
+      "region": "Soviet Union / France",
+      "portraitInitials": "MG",
+      "summary": {
+        "en": "Geometer whose intrinsic comparison of metric spaces inspired distances that compare structures without requiring aligned coordinates.",
+        "zh": "其度量空间内禀比较思想启发了无需坐标对齐即可比较结构的距离。"
+      },
+      "concepts": [
+        "gromov-wasserstein-distance"
+      ]
+    },
+    {
+      "id": "maurice-frechet",
+      "name": "Maurice Fréchet",
+      "zhName": "莫里斯·弗雷歇",
+      "born": "1878",
+      "died": "1973",
+      "region": "France",
+      "portraitInitials": "MF",
+      "summary": {
+        "en": "Mathematician who helped found metric-space theory; Fréchet distance and related distributional distances preserve his name.",
+        "zh": "度量空间理论的奠基者之一，弗雷歇距离及相关分布距离以其姓名命名。"
+      },
+      "concepts": [
+        "frechet-inception-distance"
+      ]
+    },
+    {
+      "id": "ralph-bradley",
+      "name": "Ralph A. Bradley",
+      "zhName": "拉尔夫·布拉德利",
+      "born": "1923",
+      "died": "2001",
+      "region": "Canada / United States",
+      "portraitInitials": "RB",
+      "summary": {
+        "en": "Statistician who, with Milton Terry, formulated a widely used probabilistic model for paired comparisons.",
+        "zh": "与米尔顿·特里共同提出广泛使用的成对比较概率模型的统计学家。"
+      },
+      "concepts": [
+        "bradley-terry-model"
+      ]
+    },
+    {
+      "id": "milton-terry",
+      "name": "Milton E. Terry",
+      "zhName": "米尔顿·特里",
+      "born": null,
+      "died": null,
+      "region": "United States",
+      "portraitInitials": "MT",
+      "summary": {
+        "en": "Statistician who coauthored the 1952 paired-comparison formulation now known as the Bradley–Terry model.",
+        "zh": "共同撰写 1952 年成对比较模型论文、该模型后来称为布拉德利–特里模型的统计学家。"
+      },
+      "concepts": [
+        "bradley-terry-model"
+      ]
+    },
+    {
+      "id": "robin-plackett",
+      "name": "Robin L. Plackett",
+      "zhName": "罗宾·普拉克特",
+      "born": "1920",
+      "died": "2009",
+      "region": "United Kingdom",
+      "portraitInitials": "RP",
+      "summary": {
+        "en": "Statistician whose likelihood construction extended Luce-style choices into a practical model for ranked data.",
+        "zh": "把卢斯式选择扩展为排序数据实用似然模型的英国统计学家。"
+      },
+      "concepts": [
+        "plackett-luce-model"
+      ]
+    },
+    {
+      "id": "r-duncan-luce",
+      "name": "R. Duncan Luce",
+      "zhName": "R. 邓肯·卢斯",
+      "born": "1925",
+      "died": "2012",
+      "region": "United States",
+      "portraitInitials": "DL",
+      "summary": {
+        "en": "Mathematical psychologist whose choice axiom supplies the probabilistic foundation of the Plackett–Luce ranking model.",
+        "zh": "其选择公理构成普拉克特–卢斯排序模型概率基础的美国数学心理学家。"
+      },
+      "concepts": [
+        "plackett-luce-model"
+      ]
+    },
+    {
+      "id": "arpad-elo",
+      "name": "Arpad Elo",
+      "zhName": "阿帕德·埃洛",
+      "born": "1903",
+      "died": "1992",
+      "region": "Hungary / United States",
+      "portraitInitials": "AE",
+      "summary": {
+        "en": "Physicist and chess master who designed the rating system adopted for estimating players' relative strength.",
+        "zh": "设计等级分系统来估计棋手相对实力的物理学家与国际象棋大师。"
+      },
+      "concepts": [
+        "elo-rating-system"
+      ]
+    },
+    {
+      "id": "lloyd-shapley",
+      "name": "Lloyd Shapley",
+      "zhName": "劳埃德·夏普利",
+      "born": "1923",
+      "died": "2016",
+      "region": "United States",
+      "portraitInitials": "LS",
+      "summary": {
+        "en": "Game theorist who characterized a uniquely principled way to allocate a coalition's total value among its participants.",
+        "zh": "在博弈论中刻画了把联盟总价值公平分配给参与者的唯一公理化方法。"
+      },
+      "concepts": [
+        "shapley-value"
+      ]
+    },
+    {
+      "id": "john-hopfield",
+      "name": "John J. Hopfield",
+      "zhName": "约翰·霍普菲尔德",
+      "born": "1933",
+      "died": null,
+      "region": "United States",
+      "portraitInitials": "JH",
+      "summary": {
+        "en": "Physicist whose recurrent energy-based neural model made associative memory a central neural-network mechanism.",
+        "zh": "以循环能量模型把联想记忆发展为神经网络核心机制的美国物理学家。"
+      },
+      "concepts": [
+        "hopfield-network"
+      ]
+    },
+    {
+      "id": "bernard-koopman",
+      "name": "Bernard O. Koopman",
+      "zhName": "伯纳德·库普曼",
+      "born": "1900",
+      "died": "1981",
+      "region": "France / United States",
+      "portraitInitials": "BK",
+      "summary": {
+        "en": "Mathematician who represented nonlinear dynamics through a linear operator acting on observable functions.",
+        "zh": "通过作用在观测函数上的线性算子来表示非线性动力系统的数学家。"
+      },
+      "concepts": [
+        "koopman-operator"
+      ]
+    },
+    {
+      "id": "sophus-lie",
+      "name": "Sophus Lie",
+      "zhName": "索菲斯·李",
+      "born": "1842",
+      "died": "1899",
+      "region": "Norway",
+      "portraitInitials": "SL",
+      "summary": {
+        "en": "Mathematician who founded the theory of continuous transformation groups, now formalized as Lie groups and Lie algebras.",
+        "zh": "创立连续变换群理论、后来发展为李群与李代数的挪威数学家。"
+      },
+      "concepts": [
+        "lie-group"
+      ]
+    },
+    {
+      "id": "boris-weisfeiler",
+      "name": "Boris Weisfeiler",
+      "zhName": "鲍里斯·韦斯费勒",
+      "born": "1941",
+      "died": null,
+      "lifeStatus": "missing",
+      "region": "Soviet Union / United States",
+      "portraitInitials": "BW",
+      "summary": {
+        "en": "Mathematician who co-developed the graph color-refinement procedure now used to analyze graph-neural-network expressivity; he disappeared in 1985.",
+        "zh": "共同提出图颜色细化程序、该程序如今用于分析图神经网络表达能力；他于 1985 年失踪。"
+      },
+      "concepts": [
+        "weisfeiler-leman-test"
+      ]
+    },
+    {
+      "id": "andrey-leman",
+      "name": "Andrey A. Leman",
+      "zhName": "安德烈·莱曼",
+      "born": "1940",
+      "died": "2012",
+      "region": "Soviet Union / United States",
+      "portraitInitials": "AL",
+      "summary": {
+        "en": "Mathematician and computer scientist who co-developed the graph-isomorphism refinement procedure bearing the Weisfeiler–Leman name.",
+        "zh": "共同提出以韦斯费勒–莱曼命名的图同构细化程序的数学家与计算机科学家。"
+      },
+      "concepts": [
+        "weisfeiler-leman-test"
+      ]
+    },
+    {
+      "id": "eduard-stiefel",
+      "name": "Eduard Stiefel",
+      "zhName": "爱德华·斯蒂费尔",
+      "born": "1909",
+      "died": "1978",
+      "region": "Switzerland",
+      "portraitInitials": "ES",
+      "summary": {
+        "en": "Mathematician whose topology and numerical-analysis work is commemorated by the manifold of orthonormal frames.",
+        "zh": "其拓扑与数值分析工作由“正交标架流形”这一名称加以纪念的瑞士数学家。"
+      },
+      "concepts": [
+        "stiefel-manifold"
+      ]
+    },
+    {
+      "id": "john-canny",
+      "name": "John F. Canny",
+      "zhName": "约翰·坎尼",
+      "born": "1958",
+      "died": null,
+      "region": "Australia / United States",
+      "portraitInitials": "JC",
+      "summary": {
+        "en": "Computer scientist who derived an influential multi-stage edge detector from explicit detection, localization, and response criteria.",
+        "zh": "从检测率、定位精度与单一响应准则推导出经典多阶段边缘检测器的计算机科学家。"
+      },
+      "concepts": [
+        "canny-edge-detector"
+      ]
     }
   ],
   "concepts": [
@@ -870,7 +1833,7 @@
       "aliases": ["Vuillemin Cartesian tree"],
       "tags": ["data-structures", "sequences", "range-query"],
       "attributionNote": {"en": "Introduced by Jean Vuillemin in 1980 and called Cartesian because of its geometric interpretation; it is not a data structure invented by Descartes.", "zh": "由 Jean Vuillemin 于 1980 年提出，因几何解释而称 Cartesian；并非笛卡尔本人发明的数据结构。"},
-      "sourceLinks": [{"label": "Vuillemin (1980), Communications of the ACM", "url": "https://doi.org/10.1145/358841.358852"}]
+      "sourceLinks": [{"label": "Vuillemin (1980), Communications of the ACM", "url": "https://doi.org/10.1145/358841.358852"}, {"label": "Gabow, Bentley & Tarjan (1984) — geometric range-search applications", "url": "https://doi.org/10.1145/800057.808675"}]
     },
     {
       "id": "cartesian-robot-frame",
@@ -942,7 +1905,7 @@
       "aliases": ["GP"],
       "tags": ["bayesian", "kernel", "uncertainty", "regression"],
       "attributionNote": {"en": "Named for Gaussian finite-dimensional marginals, not a process formulated by Gauss himself.", "zh": "因有限维边缘分布为高斯分布而得名，并非高斯本人提出该过程。"},
-      "sourceLinks": [{"label": "Rasmussen & Williams — Gaussian Processes for Machine Learning", "url": "https://gaussianprocess.org/gpml/"}]
+      "sourceLinks": [{"label": "Rasmussen & Williams — Gaussian Processes for Machine Learning", "url": "https://gaussianprocess.org/gpml/"}, {"label": "scikit-learn — Gaussian process models", "url": "https://scikit-learn.org/stable/modules/gaussian_process.html"}]
     },
     {
       "id": "gaussian-mixture-model",
@@ -1122,7 +2085,7 @@
       "aliases": ["HMM"],
       "tags": ["sequence-model", "latent-state", "dynamic-programming"],
       "attributionNote": {"en": "A later latent-state model built on Markov chains; key algorithms are due to Baum, Welch, Viterbi, and others.", "zh": "这是建立在马尔可夫链上的后世潜状态模型；关键算法来自 Baum、Welch、Viterbi 等人。"},
-      "sourceLinks": [{"label": "Rabiner (1989) — HMM tutorial", "url": "https://doi.org/10.1109/5.18626"}]
+      "sourceLinks": [{"label": "Rabiner (1989) — HMM tutorial", "url": "https://doi.org/10.1109/5.18626"}, {"label": "Baum et al. (1970) — probabilistic functions of Markov chains", "url": "https://doi.org/10.1214/aoms/1177697196"}]
     },
     {
       "id": "fourier-transform",
@@ -1428,7 +2391,7 @@
       "aliases": ["JSD", "information radius (related form)"],
       "tags": ["divergence", "distribution-shift", "GAN"],
       "attributionNote": {"en": "Named from Jensen's convexity machinery and Shannon entropy; Lin's 1991 paper popularized the divergence under this name.", "zh": "名称结合延森凸性工具与香农熵；Lin 的 1991 年论文普及了这一名称。"},
-      "sourceLinks": [{"label": "Lin (1991) — Divergence Measures Based on the Shannon Entropy", "url": "https://doi.org/10.1109/18.61115"}]
+      "sourceLinks": [{"label": "Lin (1991) — Divergence Measures Based on the Shannon Entropy", "url": "https://doi.org/10.1109/18.61115"}, {"label": "Goodfellow et al. (2014) — Generative Adversarial Nets", "url": "https://proceedings.neurips.cc/paper/2014/hash/f033ed80deb0234979a61f95710dbe25-Abstract.html"}]
     },
     {
       "id": "fisher-information",
@@ -1464,7 +2427,7 @@
       "aliases": ["Fisher discriminant", "LDA objective"],
       "tags": ["classification", "projection", "LDA"],
       "attributionNote": {"en": "Fisher's 1936 two-class discriminant differs historically from the later multivariate normal classifier commonly called LDA.", "zh": "费舍尔 1936 年二分类判别与后来常称 LDA 的多元正态分类器在历史上并不完全相同。"},
-      "sourceLinks": [{"label": "Fisher (1936) — The use of multiple measurements in taxonomic problems", "url": "https://doi.org/10.1111/j.1469-1809.1936.tb02137.x"}]
+      "sourceLinks": [{"label": "Fisher (1936) — The use of multiple measurements in taxonomic problems", "url": "https://doi.org/10.1111/j.1469-1809.1936.tb02137.x"}, {"label": "scikit-learn — Linear and Quadratic Discriminant Analysis", "url": "https://scikit-learn.org/stable/modules/lda_qda.html"}]
     },
     {
       "id": "kullback-leibler-divergence",
@@ -1482,7 +2445,7 @@
       "aliases": ["KL divergence", "relative entropy", "information divergence"],
       "tags": ["divergence", "VAE", "distillation", "RLHF"],
       "attributionNote": {"en": "Defined as a discrimination information measure by Kullback and Leibler; it is nonnegative but not a metric because it is asymmetric and lacks the triangle inequality.", "zh": "由库尔贝克与莱布勒定义为判别信息量；它非负但不对称且不满足三角不等式，因此不是距离度量。"},
-      "sourceLinks": [{"label": "Kullback & Leibler (1951) — On Information and Sufficiency", "url": "https://doi.org/10.1214/aoms/1177729694"}]
+      "sourceLinks": [{"label": "Kullback & Leibler (1951) — On Information and Sufficiency", "url": "https://doi.org/10.1214/aoms/1177729694"}, {"label": "Kingma & Welling (2014) — Auto-Encoding Variational Bayes", "url": "https://arxiv.org/abs/1312.6114"}]
     },
     {
       "id": "kolmogorov-complexity",
@@ -1824,7 +2787,7 @@
       "aliases": ["Dijkstra shortest-path algorithm"],
       "tags": ["graphs", "shortest-path", "planning"],
       "attributionNote": {"en": "Dijkstra designed and published the algorithm; the priority-queue implementation and complexity bounds depend on later data structures.", "zh": "Dijkstra 设计并发表该算法；优先队列实现及复杂度界取决于后世数据结构。"},
-      "sourceLinks": [{"label": "Dijkstra (1959) — A note on two problems in connexion with graphs", "url": "https://doi.org/10.1007/BF01386390"}]
+      "sourceLinks": [{"label": "Dijkstra (1959) — A note on two problems in connexion with graphs", "url": "https://doi.org/10.1007/BF01386390"}, {"label": "NetworkX — Dijkstra shortest paths", "url": "https://networkx.org/documentation/stable/reference/algorithms/shortest_paths.html#dijkstra"}]
     },
     {
       "id": "runge-kutta-method",
@@ -2076,7 +3039,7 @@
       "aliases": ["Gibbs sampler"],
       "tags": ["MCMC", "posterior", "graphical-model"],
       "attributionNote": {"en": "Geman and Geman introduced the algorithmic name in image restoration; it honors Gibbs distributions from statistical mechanics, not an algorithm written by Gibbs.", "zh": "Geman 与 Geman 在图像恢复中引入该算法名称；它致敬统计力学中的 Gibbs 分布，并非 Gibbs 本人编写的算法。"},
-      "sourceLinks": [{"label": "Geman & Geman (1984) — Gibbs distributions and image restoration", "url": "https://doi.org/10.1109/TPAMI.1984.4767596"}]
+      "sourceLinks": [{"label": "Geman & Geman (1984) — Gibbs distributions and image restoration", "url": "https://doi.org/10.1109/TPAMI.1984.4767596"}, {"label": "Gelfand & Smith (1990) — Sampling-based Bayesian calculation", "url": "https://doi.org/10.1080/01621459.1990.10476213"}]
     },
     {
       "id": "boltzmann-machine",
@@ -2094,7 +3057,7 @@
       "aliases": ["BM", "restricted Boltzmann machine (restricted variant)"],
       "tags": ["energy-based-model", "generative-model", "RBM"],
       "attributionNote": {"en": "Ackley, Hinton, and Sejnowski created the machine; it is named for the Boltzmann distribution from statistical mechanics.", "zh": "该模型由 Ackley、Hinton 与 Sejnowski 创造；名称来自统计力学中的玻尔兹曼分布。"},
-      "sourceLinks": [{"label": "Ackley, Hinton & Sejnowski (1985) — Boltzmann machines", "url": "https://doi.org/10.1207/s15516709cog0901_7"}]
+      "sourceLinks": [{"label": "Ackley, Hinton & Sejnowski (1985) — Boltzmann machines", "url": "https://doi.org/10.1207/s15516709cog0901_7"}, {"label": "Hinton — A Practical Guide to Training Restricted Boltzmann Machines", "url": "https://www.cs.toronto.edu/~hinton/absps/guideTR.pdf"}]
     },
     {
       "id": "metropolis-hastings-algorithm",
@@ -2167,6 +3130,2872 @@
       "tags": ["learning-theory", "generalization", "capacity", "PAC"],
       "attributionNote": {"en": "Developed jointly by Vapnik and Chervonenkis in uniform-convergence theory; it is not a physical dimension and does not by itself fully predict modern deep-network generalization.", "zh": "由 Vapnik 与 Chervonenkis 在一致收敛理论中共同发展；它不是物理维度，也不能单独完整预测现代深度网络的泛化。"},
       "sourceLinks": [{"label": "Vapnik & Chervonenkis (1971)", "url": "https://doi.org/10.1137/1116025"}, {"label": "ML Anthology — verified paper record", "url": "https://mlanthology.org/misc/1971/vapnik1971misc-uniform/"}]
+    },
+    {
+      "id": "dirichlet-distribution",
+      "personIds": [
+        "peter-gustav-lejeune-dirichlet"
+      ],
+      "term": "Dirichlet distribution",
+      "zhTerm": "狄利克雷分布",
+      "functionNickname": {
+        "en": "Probability-vector prior",
+        "zh": "概率向量的先验分布"
+      },
+      "question": {
+        "en": "How can uncertainty over an entire vector of category probabilities be modeled?",
+        "zh": "怎样对一整组类别概率的不确定性建模？"
+      },
+      "intuition": {
+        "en": "It distributes probability mass over the simplex, with concentration parameters controlling whether vectors are sparse, uniform, or peaked.",
+        "zh": "它把概率质量分布在单纯形上，浓度参数决定向量偏稀疏、均匀还是尖锐。"
+      },
+      "formalDefinition": "For $x_i\\geq0$, $\\sum_i x_i=1$, $p(x\\mid\\alpha)=\\frac{1}{B(\\alpha)}\\prod_{i=1}^K x_i^{\\alpha_i-1}$, where $B(\\alpha)=\\frac{\\prod_i\\Gamma(\\alpha_i)}{\\Gamma(\\sum_i\\alpha_i)}$.",
+      "aiApplications": [
+        {
+          "en": "Topic proportions in latent Dirichlet allocation",
+          "zh": "潜在狄利克雷分配中的主题比例"
+        },
+        {
+          "en": "Bayesian class probabilities, label smoothing, and uncertainty estimation",
+          "zh": "贝叶斯类别概率、标签平滑与不确定性估计"
+        }
+      ],
+      "category": "probability",
+      "era": "19th century",
+      "relatedConceptIds": [
+        "bayesian-inference",
+        "bernoulli-distribution",
+        "gibbs-sampling"
+      ],
+      "aliases": [
+        "multivariate beta distribution",
+        "Dirichlet prior"
+      ],
+      "tags": [
+        "simplex",
+        "bayesian",
+        "categorical",
+        "topic-model"
+      ],
+      "attributionNote": {
+        "en": "The distribution is named for Dirichlet because its normalization uses the Dirichlet integral; the modern multivariate probability formulation was developed later.",
+        "zh": "该分布因归一化涉及狄利克雷积分而得名；现代多元概率形式由后世发展。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Stan — Dirichlet distribution",
+          "url": "https://mc-stan.org/docs/functions-reference/simplex_distributions.html#dirichlet-distribution"
+        },
+        {
+          "label": "NIST Dataplot — Dirichlet PDF",
+          "url": "https://www.itl.nist.gov/div898/software/dataplot/refman2/auxillar/dirpdf.htm"
+        }
+      ]
+    },
+    {
+      "id": "cramer-rao-bound",
+      "personIds": [
+        "harald-cramer",
+        "calyampudi-radhakrishna-rao"
+      ],
+      "term": "Cramér–Rao bound",
+      "zhTerm": "克拉梅尔–拉奥界",
+      "functionNickname": {
+        "en": "Estimator precision floor",
+        "zh": "估计精度的理论下限"
+      },
+      "question": {
+        "en": "How small can the variance of an unbiased parameter estimator possibly be?",
+        "zh": "无偏参数估计量的方差理论上最小能有多小？"
+      },
+      "intuition": {
+        "en": "No unbiased estimator can extract more precision than the likelihood contains as Fisher information.",
+        "zh": "无偏估计量不可能提取出超过似然中费舍尔信息所允许的精度。"
+      },
+      "formalDefinition": "Under regularity conditions, $\\operatorname{Cov}(\\hat\\theta)\\succeq I(\\theta)^{-1}$ for an unbiased estimator, where $I(\\theta)=\\mathbb{E}[\\nabla_\\theta\\log p\\,\\nabla_\\theta\\log p^\\top]$.",
+      "aiApplications": [
+        {
+          "en": "Benchmarking representation and parameter-estimation efficiency",
+          "zh": "衡量表征与参数估计效率"
+        },
+        {
+          "en": "Sensor fusion, localization, and uncertainty-aware learning",
+          "zh": "传感器融合、定位与不确定性感知学习"
+        }
+      ],
+      "category": "statistics",
+      "era": "20th century",
+      "relatedConceptIds": [
+        "fisher-information",
+        "rao-blackwell-theorem",
+        "gaussian-distribution"
+      ],
+      "aliases": [
+        "information inequality",
+        "Rao–Cramér inequality",
+        "Cramér–Rao lower bound",
+        "CRLB"
+      ],
+      "tags": [
+        "estimation",
+        "variance",
+        "fisher-information",
+        "lower-bound"
+      ],
+      "attributionNote": {
+        "en": "Rao published the bound in 1945 and Cramér derived it independently in his 1946 book; related scalar forms also appear in Fréchet's work.",
+        "zh": "拉奥于 1945 年发表该界，克拉梅尔在 1946 年著作中独立推导；相关标量形式也见于弗雷歇的工作。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Rao (1945) — Information and accuracy in estimation",
+          "url": "https://doi.org/10.1007/BF02863590"
+        },
+        {
+          "label": "Encyclopedia of Mathematics — Rao–Cramér inequality",
+          "url": "https://encyclopediaofmath.org/wiki/Rao-Cramer_inequality"
+        }
+      ]
+    },
+    {
+      "id": "rao-blackwell-theorem",
+      "personIds": [
+        "calyampudi-radhakrishna-rao",
+        "david-blackwell"
+      ],
+      "term": "Rao–Blackwell theorem",
+      "zhTerm": "拉奥–布莱克韦尔定理",
+      "functionNickname": {
+        "en": "Conditioning-based estimator upgrade",
+        "zh": "用条件期望升级估计量"
+      },
+      "question": {
+        "en": "How can an estimator be improved using a sufficient statistic?",
+        "zh": "怎样利用充分统计量改进估计量？"
+      },
+      "intuition": {
+        "en": "Average away irrelevant randomness while keeping all parameter information, reducing variance without changing the mean.",
+        "zh": "在保留全部参数信息的同时平均掉无关随机性，从而在不改变均值的情况下减小方差。"
+      },
+      "formalDefinition": "If $T$ is sufficient and $\\delta(X)$ has finite risk under convex loss, then $\\delta^*(T)=\\mathbb{E}[\\delta(X)\\mid T]$ has no greater risk; for squared loss, $\\operatorname{Var}(\\delta^*)\\leq\\operatorname{Var}(\\delta)$.",
+      "aiApplications": [
+        {
+          "en": "Variance reduction in Monte Carlo estimators",
+          "zh": "蒙特卡洛估计的方差缩减"
+        },
+        {
+          "en": "Analytic marginalization and improved gradient estimators",
+          "zh": "解析边缘化与改进梯度估计"
+        }
+      ],
+      "category": "statistics",
+      "era": "20th century",
+      "relatedConceptIds": [
+        "cramer-rao-bound",
+        "fisher-information",
+        "gibbs-sampling"
+      ],
+      "aliases": [
+        "Blackwell–Rao theorem",
+        "Rao–Blackwellization"
+      ],
+      "tags": [
+        "estimation",
+        "sufficiency",
+        "variance-reduction",
+        "monte-carlo"
+      ],
+      "attributionNote": {
+        "en": "Rao established the improvement principle in 1945; Blackwell independently generalized it in 1947 using conditional expectation and convex loss.",
+        "zh": "拉奥于 1945 年确立改进原理；布莱克韦尔在 1947 年以条件期望和凸损失独立推广。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Blackwell (1947) — Conditional expectation of unbiased estimates",
+          "url": "https://doi.org/10.1214/aoms/1177730446"
+        },
+        {
+          "label": "Encyclopedia of Mathematics — Rao–Blackwell–Kolmogorov theorem",
+          "url": "https://encyclopediaofmath.org/wiki/Rao-Blackwell-Kolmogorov_theorem"
+        }
+      ]
+    },
+    {
+      "id": "hoeffding-inequality",
+      "personIds": [
+        "wassily-hoeffding"
+      ],
+      "term": "Hoeffding inequality",
+      "zhTerm": "赫夫丁不等式",
+      "functionNickname": {
+        "en": "Bounded-average surprise limit",
+        "zh": "有界平均值的偏差上限"
+      },
+      "question": {
+        "en": "How unlikely is a large deviation of an average of independent bounded variables?",
+        "zh": "独立有界变量的平均值出现大偏差有多不可能？"
+      },
+      "intuition": {
+        "en": "Independent bounded observations cannot collectively drift far from their expected average except with exponentially small probability.",
+        "zh": "独立且有界的观测不太可能整体远离期望均值，其概率会指数衰减。"
+      },
+      "formalDefinition": "If independent $X_i\\in[a_i,b_i]$, then $\\Pr(S_n-\\mathbb{E}S_n\\geq t)\\leq\\exp\\!\\left(-\\frac{2t^2}{\\sum_i(b_i-a_i)^2}\\right)$.",
+      "aiApplications": [
+        {
+          "en": "PAC-style generalization and finite-sample guarantees",
+          "zh": "PAC 式泛化界与有限样本保证"
+        },
+        {
+          "en": "Bandit confidence intervals and online decision making",
+          "zh": "多臂老虎机置信区间与在线决策"
+        }
+      ],
+      "category": "statistics",
+      "era": "20th century",
+      "relatedConceptIds": [
+        "bernoulli-distribution",
+        "vapnik-chervonenkis-dimension",
+        "markov-property"
+      ],
+      "aliases": [
+        "Hoeffding bound",
+        "Hoeffding's inequality"
+      ],
+      "tags": [
+        "concentration",
+        "generalization",
+        "bounded-variable",
+        "bandit"
+      ],
+      "attributionNote": {
+        "en": "Hoeffding proved the distribution-free exponential bound for sums of bounded independent random variables in 1963.",
+        "zh": "赫夫丁于 1963 年证明了有界独立随机变量和的无分布指数界。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Hoeffding (1963) — Probability inequalities for bounded random variables",
+          "url": "https://doi.org/10.1080/01621459.1963.10500830"
+        },
+        {
+          "label": "JMLR (2021) — Hoeffding inequality in statistical learning",
+          "url": "https://jmlr.csail.mit.edu/papers/v22/19-479.html"
+        }
+      ]
+    },
+    {
+      "id": "karush-kuhn-tucker-conditions",
+      "personIds": [
+        "william-karush",
+        "harold-kuhn",
+        "albert-tucker"
+      ],
+      "term": "Karush–Kuhn–Tucker conditions",
+      "zhTerm": "卡鲁什–库恩–塔克条件",
+      "functionNickname": {
+        "en": "Constrained optimum checklist",
+        "zh": "约束最优点的检查清单"
+      },
+      "question": {
+        "en": "What first-order conditions characterize a constrained optimum?",
+        "zh": "哪些一阶条件刻画有约束最优点？"
+      },
+      "intuition": {
+        "en": "At an optimum, the objective gradient is balanced by active constraint gradients, while inactive constraints exert no force.",
+        "zh": "在最优点，目标梯度被活跃约束梯度平衡，未活跃约束则不施加作用。"
+      },
+      "formalDefinition": "For $\\min f(x)$ subject to $g_i(x)\\leq0$, $h_j(x)=0$: stationarity $\\nabla f+\\sum_i\\lambda_i\\nabla g_i+\\sum_j\\nu_j\\nabla h_j=0$, primal feasibility, dual feasibility $\\lambda_i\\geq0$, and complementary slackness $\\lambda_i g_i(x)=0$.",
+      "aiApplications": [
+        {
+          "en": "Constrained training, fairness, robustness, and resource budgets",
+          "zh": "受约束训练、公平性、鲁棒性与资源预算"
+        },
+        {
+          "en": "Support-vector machines, dual optimization, and differentiable optimization layers",
+          "zh": "支持向量机、对偶优化与可微优化层"
+        }
+      ],
+      "category": "optimization",
+      "era": "20th century",
+      "relatedConceptIds": [
+        "lagrange-multipliers",
+        "lagrangian",
+        "bfgs-algorithm"
+      ],
+      "aliases": [
+        "KKT conditions",
+        "Kuhn–Tucker conditions"
+      ],
+      "tags": [
+        "constraints",
+        "duality",
+        "optimality",
+        "convex-optimization"
+      ],
+      "attributionNote": {
+        "en": "Karush derived the conditions in his 1939 master's thesis; Kuhn and Tucker independently published and popularized them in 1951.",
+        "zh": "卡鲁什在 1939 年硕士论文中推导了这些条件；库恩与塔克于 1951 年独立发表并推广。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Karush (1939) — Minima of functions of several variables",
+          "url": "https://books.google.com/books?id=o5NmHQAACAAJ"
+        },
+        {
+          "label": "Boyd & Vandenberghe — Convex Optimization, KKT conditions",
+          "url": "https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf"
+        }
+      ]
+    },
+    {
+      "id": "bfgs-algorithm",
+      "personIds": [
+        "charles-broyden",
+        "roger-fletcher",
+        "donald-goldfarb",
+        "david-shanno"
+      ],
+      "term": "BFGS algorithm",
+      "zhTerm": "BFGS 算法",
+      "functionNickname": {
+        "en": "Curvature-learning optimizer",
+        "zh": "边走边学习曲率的优化器"
+      },
+      "question": {
+        "en": "How can Newton-like optimization be obtained without computing exact Hessians?",
+        "zh": "怎样在不计算精确海森矩阵时获得类似牛顿法的优化？"
+      },
+      "intuition": {
+        "en": "Use successive parameter and gradient changes to update a positive-definite approximation of inverse curvature.",
+        "zh": "利用连续两步的参数与梯度变化，更新一个正定的逆曲率近似。"
+      },
+      "formalDefinition": "With $s_k=x_{k+1}-x_k$, $y_k=\\nabla f_{k+1}-\\nabla f_k$, $\\rho_k=(y_k^\\top s_k)^{-1}$, $H_{k+1}=(I-\\rho_ks_ky_k^\\top)H_k(I-\\rho_ky_ks_k^\\top)+\\rho_ks_ks_k^\\top$.",
+      "aiApplications": [
+        {
+          "en": "Full-batch optimization for compact neural networks and scientific ML",
+          "zh": "小型神经网络与科学机器学习的全批量优化"
+        },
+        {
+          "en": "L-BFGS fine-tuning, inverse problems, and neural style objectives",
+          "zh": "L-BFGS 微调、逆问题与神经风格目标"
+        }
+      ],
+      "category": "optimization",
+      "era": "20th century",
+      "relatedConceptIds": [
+        "newton-method",
+        "hessian-matrix",
+        "levenberg-marquardt-algorithm"
+      ],
+      "aliases": [
+        "Broyden–Fletcher–Goldfarb–Shanno method",
+        "quasi-Newton BFGS"
+      ],
+      "tags": [
+        "quasi-newton",
+        "curvature",
+        "optimization",
+        "l-bfgs"
+      ],
+      "attributionNote": {
+        "en": "Broyden, Fletcher, Goldfarb, and Shanno independently published equivalent updates around 1970; the acronym combines their surnames.",
+        "zh": "布罗伊登、弗莱彻、戈德法布和尚诺约在 1970 年独立发表了等价更新；缩写由四人的姓氏组成。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Broyden (1970) — Convergence of a class of double-rank methods",
+          "url": "https://doi.org/10.1093/imamat/6.1.76"
+        },
+        {
+          "label": "SciPy — BFGS minimization",
+          "url": "https://docs.scipy.org/doc/scipy/reference/optimize.minimize-bfgs.html"
+        }
+      ]
+    },
+    {
+      "id": "levenberg-marquardt-algorithm",
+      "personIds": [
+        "kenneth-levenberg",
+        "donald-marquardt"
+      ],
+      "term": "Levenberg–Marquardt algorithm",
+      "zhTerm": "莱文伯格–马夸特算法",
+      "functionNickname": {
+        "en": "Damped least-squares navigator",
+        "zh": "带阻尼的非线性最小二乘导航器"
+      },
+      "question": {
+        "en": "How can nonlinear least squares interpolate safely between gradient descent and Gauss–Newton?",
+        "zh": "非线性最小二乘怎样在梯度下降与高斯–牛顿法之间安全切换？"
+      },
+      "intuition": {
+        "en": "Add damping when the curvature model is unreliable, then reduce it as the local quadratic model becomes trustworthy.",
+        "zh": "曲率模型不可靠时增加阻尼，局部二次模型可信后再减小阻尼。"
+      },
+      "formalDefinition": "For residual vector $r(\\theta)$ and Jacobian $J$, solve $(J^\\top J+\\lambda I)\\delta=-J^\\top r$ and adapt $\\lambda$ according to how well the step reduces the loss.",
+      "aiApplications": [
+        {
+          "en": "Nonlinear calibration, pose estimation, and bundle adjustment",
+          "zh": "非线性标定、位姿估计与光束法平差"
+        },
+        {
+          "en": "Small-data neural fitting and physics-informed inverse problems",
+          "zh": "小数据神经拟合与物理信息逆问题"
+        }
+      ],
+      "category": "optimization",
+      "era": "20th century",
+      "relatedConceptIds": [
+        "gauss-newton-method",
+        "bfgs-algorithm",
+        "jacobian-matrix"
+      ],
+      "aliases": [
+        "LM algorithm",
+        "damped least squares"
+      ],
+      "tags": [
+        "least-squares",
+        "damping",
+        "nonlinear",
+        "optimization"
+      ],
+      "attributionNote": {
+        "en": "Levenberg introduced the damped method in 1944; Marquardt independently rediscovered and refined it in 1963.",
+        "zh": "莱文伯格于 1944 年提出阻尼方法；马夸特在 1963 年独立重新发现并改进。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Levenberg (1944) — Non-linear least squares",
+          "url": "https://doi.org/10.1090/qam/10666"
+        },
+        {
+          "label": "Marquardt (1963) — Least-squares estimation of nonlinear parameters",
+          "url": "https://doi.org/10.1137/0111030"
+        },
+        {
+          "label": "SciPy — nonlinear least squares",
+          "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.least_squares.html"
+        }
+      ]
+    },
+    {
+      "id": "moreau-envelope",
+      "personIds": [
+        "jean-jacques-moreau"
+      ],
+      "term": "Moreau envelope",
+      "zhTerm": "莫罗包络",
+      "functionNickname": {
+        "en": "Nonsmooth-function softener",
+        "zh": "把非光滑函数柔化的包络"
+      },
+      "question": {
+        "en": "How can a nonsmooth convex objective be replaced by a smooth approximation with the same minimizers?",
+        "zh": "怎样把非光滑凸目标替换成保留最小点的光滑近似？"
+      },
+      "intuition": {
+        "en": "At each point, trade off objective value against squared distance and keep the best nearby compromise.",
+        "zh": "在每个点权衡目标值与平方距离，并保留附近最优折中。"
+      },
+      "formalDefinition": "$e_\\lambda f(x)=\\inf_z\\left\\{f(z)+\\frac{1}{2\\lambda}\\|z-x\\|^2\\right\\}$; its minimizer is $\\operatorname{prox}_{\\lambda f}(x)$.",
+      "aiApplications": [
+        {
+          "en": "Proximal optimization for sparse and constrained learning",
+          "zh": "稀疏与受约束学习中的近端优化"
+        },
+        {
+          "en": "Smooth surrogate losses and robust regularization",
+          "zh": "光滑替代损失与鲁棒正则化"
+        }
+      ],
+      "category": "optimization",
+      "era": "20th century",
+      "relatedConceptIds": [
+        "bregman-divergence",
+        "fenchel-conjugate",
+        "nesterov-acceleration"
+      ],
+      "aliases": [
+        "Moreau–Yosida regularization",
+        "Moreau envelope function"
+      ],
+      "tags": [
+        "convex",
+        "proximal",
+        "nonsmooth",
+        "regularization"
+      ],
+      "attributionNote": {
+        "en": "Moreau developed the envelope and proximal mapping in convex analysis; Yosida's operator regularization is closely related, hence the alternative name.",
+        "zh": "莫罗在凸分析中发展了包络与近端映射；与吉田的算子正则化密切相关，因此也称莫罗–吉田正则化。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Parikh & Boyd — Proximal Algorithms",
+          "url": "https://web.stanford.edu/~boyd/papers/pdf/prox_algs.pdf"
+        },
+        {
+          "label": "Foundations and Trends — Proximal Algorithms",
+          "url": "https://doi.org/10.1561/2400000003"
+        }
+      ]
+    },
+    {
+      "id": "fenchel-conjugate",
+      "personIds": [
+        "werner-fenchel"
+      ],
+      "term": "Fenchel conjugate",
+      "zhTerm": "芬切尔共轭",
+      "functionNickname": {
+        "en": "Slope-space reformulation",
+        "zh": "把函数改写到斜率空间"
+      },
+      "question": {
+        "en": "What is the tightest affine description of a convex function in dual coordinates?",
+        "zh": "在对偶坐标中，凸函数最紧的仿射描述是什么？"
+      },
+      "intuition": {
+        "en": "For every slope, record the largest intercept of a line that can sit beneath the function.",
+        "zh": "对每个斜率，记录能位于函数下方的直线所允许的最大截距。"
+      },
+      "formalDefinition": "$f^*(y)=\\sup_x\\{\\langle y,x\\rangle-f(x)\\}$; for proper closed convex $f$, $f^{**}=f$.",
+      "aiApplications": [
+        {
+          "en": "Dual formulations of regularized learning and maximum entropy",
+          "zh": "正则化学习与最大熵的对偶形式"
+        },
+        {
+          "en": "Fenchel–Young losses, variational bounds, and adversarial objectives",
+          "zh": "芬切尔–杨损失、变分界与对抗目标"
+        }
+      ],
+      "category": "optimization",
+      "era": "20th century",
+      "relatedConceptIds": [
+        "lagrangian",
+        "moreau-envelope",
+        "bregman-divergence"
+      ],
+      "aliases": [
+        "Fenchel transform",
+        "Legendre–Fenchel transform",
+        "convex conjugate"
+      ],
+      "tags": [
+        "convex",
+        "duality",
+        "variational",
+        "loss"
+      ],
+      "attributionNote": {
+        "en": "Fenchel generalized the classical Legendre transform to extended-real convex functions, making it a central tool of modern convex duality.",
+        "zh": "芬切尔把经典勒让德变换推广到扩展实值凸函数，使其成为现代凸对偶的核心工具。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Encyclopedia of Mathematics — Fenchel–Moreau conjugate",
+          "url": "https://encyclopediaofmath.org/wiki/Fenchel-Moreau_conjugate_function"
+        },
+        {
+          "label": "Boyd & Vandenberghe — Convex Optimization",
+          "url": "https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf"
+        }
+      ]
+    },
+    {
+      "id": "cauchy-schwarz-inequality",
+      "personIds": [
+        "augustin-louis-cauchy",
+        "hermann-amandus-schwarz"
+      ],
+      "term": "Cauchy–Schwarz inequality",
+      "zhTerm": "柯西–施瓦茨不等式",
+      "functionNickname": {
+        "en": "Inner-product ceiling",
+        "zh": "给内积设上限的基本不等式"
+      },
+      "question": {
+        "en": "How large can the similarity measured by an inner product be?",
+        "zh": "用内积衡量的相似度最多能有多大？"
+      },
+      "intuition": {
+        "en": "Two vectors align most strongly when they point in the same direction, so their dot product cannot exceed the product of their lengths.",
+        "zh": "两个向量同向时对齐最强，因此点积不可能超过它们长度的乘积。"
+      },
+      "formalDefinition": "$|\\langle x,y\\rangle|^2\\leq\\langle x,x\\rangle\\langle y,y\\rangle$; in $\\mathbb{R}^n$, $|x^\\top y|\\leq\\|x\\|_2\\|y\\|_2$.",
+      "aiApplications": [
+        {
+          "en": "Bounding cosine similarity, attention scores, and embedding correlations",
+          "zh": "约束余弦相似度、注意力分数与嵌入相关性"
+        },
+        {
+          "en": "Proofs of convergence, generalization, and kernel validity",
+          "zh": "用于收敛性、泛化界和核有效性的证明"
+        }
+      ],
+      "category": "algebra",
+      "era": "19th century",
+      "relatedConceptIds": [
+        "euclidean-distance",
+        "gram-matrix",
+        "hilbert-space"
+      ],
+      "aliases": [
+        "Cauchy–Bunyakovsky–Schwarz inequality",
+        "Schwarz inequality",
+        "CBS inequality"
+      ],
+      "tags": [
+        "inner-product",
+        "norm",
+        "similarity",
+        "learning-theory"
+      ],
+      "attributionNote": {
+        "en": "Cauchy proved the finite-sum form, Bunyakovsky established an integral form, and Schwarz supplied the influential modern integral proof; naming varies by tradition.",
+        "zh": "柯西证明了有限和形式，布尼亚科夫斯基给出积分形式，施瓦茨则提供了影响深远的现代积分证明；不同传统中的名称有所不同。"
+      },
+      "sourceLinks": [
+        {
+          "label": "NIST DLMF — Cauchy–Schwarz inequality",
+          "url": "https://dlmf.nist.gov/1.7"
+        },
+        {
+          "label": "Wolfram MathWorld — Schwarz's inequality",
+          "url": "https://mathworld.wolfram.com/SchwarzsInequality.html"
+        }
+      ]
+    },
+    {
+      "id": "moore-penrose-pseudoinverse",
+      "personIds": [
+        "eliakim-hastings-moore",
+        "roger-penrose"
+      ],
+      "term": "Moore–Penrose pseudoinverse",
+      "zhTerm": "穆尔–彭罗斯伪逆",
+      "functionNickname": {
+        "en": "Best-possible inverse",
+        "zh": "不可逆矩阵的最佳替代逆"
+      },
+      "question": {
+        "en": "What inverse-like solution should be used when a matrix is rectangular or singular?",
+        "zh": "矩阵为长方形或奇异时，应该使用怎样的类逆解？"
+      },
+      "intuition": {
+        "en": "Invert only the directions that contain usable information and set unsupported directions to zero.",
+        "zh": "只反演包含可用信息的方向，把无支持的方向置零。"
+      },
+      "formalDefinition": "The unique $A^+$ satisfying $AA^+A=A$, $A^+AA^+=A^+$, $(AA^+)^*=AA^+$, and $(A^+A)^*=A^+A$; if $A=U\\Sigma V^*$, then $A^+=V\\Sigma^+U^*$.",
+      "aiApplications": [
+        {
+          "en": "Minimum-norm least-squares regression and linear probes",
+          "zh": "最小范数最小二乘回归与线性探针"
+        },
+        {
+          "en": "Low-rank adaptation, inverse problems, and differentiable linear algebra",
+          "zh": "低秩适配、逆问题与可微线性代数"
+        }
+      ],
+      "category": "algebra",
+      "era": "20th century",
+      "relatedConceptIds": [
+        "gauss-newton-method",
+        "cholesky-decomposition",
+        "nystrom-method"
+      ],
+      "aliases": [
+        "pseudoinverse",
+        "generalized inverse",
+        "Moore–Penrose inverse"
+      ],
+      "tags": [
+        "linear-algebra",
+        "least-squares",
+        "svd",
+        "low-rank"
+      ],
+      "attributionNote": {
+        "en": "Moore described a generalized inverse in 1920; Penrose independently gave the four-equation characterization in 1955.",
+        "zh": "穆尔于 1920 年描述了广义逆；彭罗斯在 1955 年独立给出四个方程的唯一性刻画。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Penrose (1955) — A generalized inverse for matrices",
+          "url": "https://doi.org/10.1017/S0305004100030401"
+        },
+        {
+          "label": "NumPy — numpy.linalg.pinv",
+          "url": "https://numpy.org/doc/stable/reference/generated/numpy.linalg.pinv.html"
+        }
+      ]
+    },
+    {
+      "id": "perron-frobenius-theorem",
+      "personIds": [
+        "oskar-perron",
+        "ferdinand-georg-frobenius"
+      ],
+      "term": "Perron–Frobenius theorem",
+      "zhTerm": "佩龙–弗罗贝尼乌斯定理",
+      "functionNickname": {
+        "en": "Positive matrix compass",
+        "zh": "非负矩阵的主方向指南"
+      },
+      "question": {
+        "en": "What dominant spectral structure must a nonnegative matrix possess?",
+        "zh": "非负矩阵必然拥有什么主导谱结构？"
+      },
+      "intuition": {
+        "en": "Repeatedly propagating nonnegative influence eventually reveals one dominant positive direction.",
+        "zh": "反复传播非负影响，最终会显现一个主导的正方向。"
+      },
+      "formalDefinition": "For an irreducible nonnegative matrix $A$, its spectral radius $\\rho(A)>0$ is an eigenvalue with a strictly positive eigenvector; $\\rho(A)$ is simple under standard irreducibility conditions.",
+      "aiApplications": [
+        {
+          "en": "Stationary distributions, ranking, and centrality in graph learning",
+          "zh": "图学习中的平稳分布、排序与中心性"
+        },
+        {
+          "en": "Analysis of positive operators, message passing, and population dynamics",
+          "zh": "正算子、消息传递与群体动力学分析"
+        }
+      ],
+      "category": "algebra",
+      "era": "20th century",
+      "relatedConceptIds": [
+        "markov-chain",
+        "graph-laplacian",
+        "erdos-renyi-model"
+      ],
+      "aliases": [
+        "Perron theorem",
+        "Frobenius theorem for nonnegative matrices"
+      ],
+      "tags": [
+        "eigenvalue",
+        "nonnegative-matrix",
+        "graph",
+        "markov-chain"
+      ],
+      "attributionNote": {
+        "en": "Perron proved the result for positive matrices in 1907; Frobenius extended it to irreducible nonnegative matrices between 1912 and 1917.",
+        "zh": "佩龙于 1907 年证明正矩阵情形；弗罗贝尼乌斯在 1912 至 1917 年间推广到不可约非负矩阵。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Encyclopedia of Mathematics — Perron–Frobenius theorem",
+          "url": "https://encyclopediaofmath.org/wiki/Perron-Frobenius_theorem"
+        },
+        {
+          "label": "Wolfram MathWorld — Perron–Frobenius theorem",
+          "url": "https://mathworld.wolfram.com/Perron-FrobeniusTheorem.html"
+        }
+      ]
+    },
+    {
+      "id": "householder-transformation",
+      "personIds": [
+        "alston-scott-householder"
+      ],
+      "term": "Householder transformation",
+      "zhTerm": "豪斯霍尔德变换",
+      "functionNickname": {
+        "en": "Vector-reflecting zero maker",
+        "zh": "用反射稳定消元的变换"
+      },
+      "question": {
+        "en": "How can a vector be reflected so selected coordinates become exactly zero?",
+        "zh": "怎样反射一个向量，使选定坐标精确变为零？"
+      },
+      "intuition": {
+        "en": "Reflect the whole space across a carefully chosen hyperplane, preserving lengths while aligning a vector with an axis.",
+        "zh": "围绕精心选择的超平面反射整个空间，在保持长度的同时把向量对齐到坐标轴。"
+      },
+      "formalDefinition": "$H=I-2\\frac{vv^*}{v^*v}$ is unitary and Hermitian, with $H^*H=I$ and $H^2=I$; an appropriate $v$ maps a target vector to a coordinate axis.",
+      "aiApplications": [
+        {
+          "en": "Numerically stable QR and SVD routines used by ML systems",
+          "zh": "机器学习系统所用的数值稳定 QR 与 SVD 例程"
+        },
+        {
+          "en": "Orthogonal parameterizations and invertible neural transformations",
+          "zh": "正交参数化与可逆神经变换"
+        }
+      ],
+      "category": "algebra",
+      "era": "20th century",
+      "relatedConceptIds": [
+        "gram-schmidt-orthogonalization",
+        "cholesky-decomposition",
+        "moore-penrose-pseudoinverse"
+      ],
+      "aliases": [
+        "Householder reflection",
+        "Householder reflector"
+      ],
+      "tags": [
+        "linear-algebra",
+        "reflection",
+        "qr",
+        "numerical-stability"
+      ],
+      "attributionNote": {
+        "en": "Named for Householder, who developed reflection-based matrix reductions; modern QR implementations usually apply a sequence of these reflectors.",
+        "zh": "以发展反射式矩阵约化的豪斯霍尔德命名；现代 QR 实现通常连续应用这些反射器。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Householder (1958) — Unitary triangularization",
+          "url": "https://doi.org/10.1145/320941.320947"
+        },
+        {
+          "label": "LAPACK Users' Guide — Householder transformations",
+          "url": "https://www.netlib.org/lapack/lug/node69.html"
+        }
+      ]
+    },
+    {
+      "id": "lanczos-algorithm",
+      "personIds": [
+        "cornelius-lanczos"
+      ],
+      "term": "Lanczos algorithm",
+      "zhTerm": "兰乔斯算法",
+      "functionNickname": {
+        "en": "Large-matrix spectral zoom",
+        "zh": "放大大型矩阵关键谱的迭代法"
+      },
+      "question": {
+        "en": "How can a few extreme eigenvalues of a huge symmetric matrix be estimated without full decomposition?",
+        "zh": "怎样在不完整分解的情况下估计巨大对称矩阵的少数极端特征值？"
+      },
+      "intuition": {
+        "en": "Probe the matrix through repeated matrix-vector products and compress its important action into a small tridiagonal matrix.",
+        "zh": "通过反复矩阵向量乘法探测矩阵，把关键作用压缩进一个小型三对角矩阵。"
+      },
+      "formalDefinition": "For symmetric $A$, the three-term recurrence builds orthonormal $Q_m$ spanning $\\mathcal{K}_m(A,q_1)$ so that $AQ_m=Q_mT_m+\\beta_mq_{m+1}e_m^\\top$, where $T_m$ is tridiagonal.",
+      "aiApplications": [
+        {
+          "en": "Top eigenpairs, truncated SVD, and spectral graph embeddings",
+          "zh": "顶部特征对、截断 SVD 与谱图嵌入"
+        },
+        {
+          "en": "Hessian spectrum and curvature diagnostics in deep learning",
+          "zh": "深度学习中的海森谱与曲率诊断"
+        }
+      ],
+      "category": "algebra",
+      "era": "20th century",
+      "relatedConceptIds": [
+        "krylov-subspace",
+        "arnoldi-iteration",
+        "graph-laplacian",
+        "hessian-matrix"
+      ],
+      "aliases": [
+        "Lanczos iteration",
+        "symmetric Lanczos process"
+      ],
+      "tags": [
+        "eigenvalue",
+        "krylov",
+        "sparse-matrix",
+        "hessian"
+      ],
+      "attributionNote": {
+        "en": "Lanczos introduced the process in 1950 for reducing symmetric eigenvalue problems; finite-precision implementations require care with loss of orthogonality.",
+        "zh": "兰乔斯于 1950 年提出该过程以约化对称特征值问题；有限精度实现必须处理正交性丢失。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Lanczos (1950), NIST — Iteration method for eigenvalue problems",
+          "url": "https://doi.org/10.6028/jres.045.026"
+        },
+        {
+          "label": "SciPy — sparse symmetric eigensolver",
+          "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.linalg.eigsh.html"
+        }
+      ]
+    },
+    {
+      "id": "krylov-subspace",
+      "personIds": [
+        "alexei-krylov"
+      ],
+      "term": "Krylov subspace",
+      "zhTerm": "克雷洛夫子空间",
+      "functionNickname": {
+        "en": "Matrix-action workspace",
+        "zh": "由矩阵反复作用生成的工作空间"
+      },
+      "question": {
+        "en": "Which small subspace captures what repeated applications of a large matrix do to a vector?",
+        "zh": "哪个小子空间能捕捉大型矩阵反复作用于向量的效果？"
+      },
+      "intuition": {
+        "en": "Start with one vector and keep applying the matrix; the span of the resulting directions concentrates the information needed by many solvers.",
+        "zh": "从一个向量出发不断应用矩阵，所得方向的张成空间会集中许多求解器所需的信息。"
+      },
+      "formalDefinition": "$\\mathcal{K}_m(A,b)=\\operatorname{span}\\{b,Ab,A^2b,\\ldots,A^{m-1}b\\}$.",
+      "aiApplications": [
+        {
+          "en": "Matrix-free linear solves and second-order optimization",
+          "zh": "无显式矩阵的线性求解与二阶优化"
+        },
+        {
+          "en": "Spectral approximation for Hessians, kernels, and graph operators",
+          "zh": "海森矩阵、核矩阵与图算子的谱近似"
+        }
+      ],
+      "category": "algebra",
+      "era": "20th century",
+      "relatedConceptIds": [
+        "lanczos-algorithm",
+        "arnoldi-iteration",
+        "hessian-matrix",
+        "graph-laplacian"
+      ],
+      "aliases": [
+        "Krylov sequence",
+        "Krylov space"
+      ],
+      "tags": [
+        "iterative-method",
+        "linear-solver",
+        "eigenvalue",
+        "matrix-free"
+      ],
+      "attributionNote": {
+        "en": "Named for Krylov's 1931 work on characteristic equations; later Lanczos, Arnoldi, conjugate-gradient, and GMRES methods made the construction computationally central.",
+        "zh": "名称源自克雷洛夫 1931 年关于特征方程的工作；之后兰乔斯、阿诺尔迪、共轭梯度和 GMRES 使该构造成为计算核心。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Saad — Origin and development of Krylov subspaces",
+          "url": "https://www-users.cse.umn.edu/~saad/PDF/NIST75th.pdf"
+        },
+        {
+          "label": "SciPy — GMRES Krylov solver",
+          "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.linalg.gmres.html"
+        }
+      ]
+    },
+    {
+      "id": "arnoldi-iteration",
+      "personIds": [
+        "walter-edwin-arnoldi"
+      ],
+      "term": "Arnoldi iteration",
+      "zhTerm": "阿诺尔迪迭代",
+      "functionNickname": {
+        "en": "Nonsymmetric spectral compressor",
+        "zh": "非对称矩阵的谱压缩器"
+      },
+      "question": {
+        "en": "How can a large nonsymmetric matrix be projected onto a small, informative eigenvalue problem?",
+        "zh": "怎样把大型非对称矩阵投影为小型而有信息量的特征值问题？"
+      },
+      "intuition": {
+        "en": "Orthogonalize each new matrix-generated direction so the large operator becomes a small upper-Hessenberg representation.",
+        "zh": "把矩阵生成的每个新方向正交化，使大型算子变成小型上 Hessenberg 表示。"
+      },
+      "formalDefinition": "Arnoldi orthogonalization builds $Q_m$ with $AQ_m=Q_mH_m+h_{m+1,m}q_{m+1}e_m^\\top$, where $H_m=Q_m^*AQ_m$ is upper Hessenberg.",
+      "aiApplications": [
+        {
+          "en": "Sparse nonsymmetric eigenproblems and stability analysis",
+          "zh": "稀疏非对称特征值问题与稳定性分析"
+        },
+        {
+          "en": "Spectral analysis of Jacobians, recurrent networks, and transfer operators",
+          "zh": "雅可比矩阵、循环网络与转移算子的谱分析"
+        }
+      ],
+      "category": "algebra",
+      "era": "20th century",
+      "relatedConceptIds": [
+        "krylov-subspace",
+        "lanczos-algorithm",
+        "jacobian-matrix"
+      ],
+      "aliases": [
+        "Arnoldi process",
+        "Arnoldi method"
+      ],
+      "tags": [
+        "eigenvalue",
+        "krylov",
+        "nonsymmetric-matrix",
+        "stability"
+      ],
+      "attributionNote": {
+        "en": "Arnoldi published the minimized-iterations principle in 1951; Lanczos is its specialized short-recurrence counterpart for symmetric matrices.",
+        "zh": "阿诺尔迪于 1951 年发表最小化迭代原理；兰乔斯算法是其面向对称矩阵的短递推特例。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Arnoldi (1951) — Principle of minimized iterations",
+          "url": "https://doi.org/10.1090/qam/42792"
+        },
+        {
+          "label": "SciPy — sparse nonsymmetric eigensolver",
+          "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.linalg.eigs.html"
+        }
+      ]
+    },
+    {
+      "id": "nystrom-method",
+      "personIds": [
+        "evert-johannes-nystrom"
+      ],
+      "term": "Nyström method",
+      "zhTerm": "尼斯特伦方法",
+      "functionNickname": {
+        "en": "Landmark kernel shortcut",
+        "zh": "用少量地标近似大核矩阵"
+      },
+      "question": {
+        "en": "How can a huge kernel matrix be approximated using only a representative subset of columns?",
+        "zh": "怎样只用一组有代表性的列近似巨大核矩阵？"
+      },
+      "intuition": {
+        "en": "Measure relationships to a small landmark set, then use the landmark-to-landmark block to reconstruct the rest.",
+        "zh": "先测量所有样本到少量地标的关系，再用地标间子矩阵重建其余部分。"
+      },
+      "formalDefinition": "For sampled columns $C$ and their intersection block $W$, the kernel matrix is approximated by $K\\approx CW^+C^\\top$.",
+      "aiApplications": [
+        {
+          "en": "Scalable kernel SVMs, Gaussian processes, and spectral clustering",
+          "zh": "可扩展核 SVM、高斯过程与谱聚类"
+        },
+        {
+          "en": "Low-rank attention and large similarity-matrix approximation",
+          "zh": "低秩注意力与大型相似度矩阵近似"
+        }
+      ],
+      "category": "algebra",
+      "era": "20th century",
+      "relatedConceptIds": [
+        "mercer-theorem",
+        "gaussian-kernel",
+        "gram-matrix",
+        "moore-penrose-pseudoinverse"
+      ],
+      "aliases": [
+        "Nystroem approximation",
+        "Nyström kernel approximation"
+      ],
+      "tags": [
+        "kernel",
+        "low-rank",
+        "sampling",
+        "scalability"
+      ],
+      "attributionNote": {
+        "en": "Nyström introduced a quadrature discretization for integral equations in 1930; the modern ML version applies its low-rank idea to positive-semidefinite kernel matrices.",
+        "zh": "尼斯特伦于 1930 年提出积分方程的求积离散化；现代机器学习版本把其低秩思想用于半正定核矩阵。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Nyström (1930) — Integral-equation method",
+          "url": "https://doi.org/10.1007/BF02547521"
+        },
+        {
+          "label": "scikit-learn — Nyström kernel approximation",
+          "url": "https://scikit-learn.org/stable/modules/generated/sklearn.kernel_approximation.Nystroem.html"
+        }
+      ]
+    },
+    {
+      "id": "robbins-monro-stochastic-approximation",
+      "personIds": [
+        "herbert-robbins",
+        "sutton-monro"
+      ],
+      "term": "Robbins–Monro stochastic approximation",
+      "zhTerm": "罗宾斯–门罗随机逼近",
+      "functionNickname": {
+        "en": "Noisy-root finder",
+        "zh": "在噪声中寻找方程根的迭代法"
+      },
+      "question": {
+        "en": "How can the root of an unknown expected response be found from noisy observations?",
+        "zh": "怎样仅凭带噪观测找到未知期望响应的根？"
+      },
+      "intuition": {
+        "en": "Take diminishing steps against the observed error: large enough to keep learning, small enough for noise to average out.",
+        "zh": "沿观测误差反方向逐渐缩小步长：既足够大以持续学习，又足够小让噪声被平均掉。"
+      },
+      "formalDefinition": "$\\theta_{t+1}=\\theta_t-a_tY_t(\\theta_t)$ with $\\mathbb{E}[Y_t(\\theta)]=M(\\theta)-\\alpha$ and step sizes typically satisfying $\\sum_t a_t=\\infty$, $\\sum_t a_t^2<\\infty$.",
+      "aiApplications": [
+        {
+          "en": "Theoretical foundation of stochastic gradient descent",
+          "zh": "随机梯度下降的理论基础"
+        },
+        {
+          "en": "Online learning, reinforcement learning, and streaming estimation",
+          "zh": "在线学习、强化学习与流式估计"
+        }
+      ],
+      "category": "optimization",
+      "era": "20th century",
+      "relatedConceptIds": [
+        "nesterov-acceleration",
+        "bfgs-algorithm",
+        "markov-decision-process"
+      ],
+      "aliases": [
+        "Robbins–Monro algorithm",
+        "stochastic approximation"
+      ],
+      "tags": [
+        "stochastic-optimization",
+        "sgd",
+        "online-learning",
+        "root-finding"
+      ],
+      "attributionNote": {
+        "en": "Robbins and Monro introduced the general stochastic-approximation procedure in 1951; later stochastic-gradient and reinforcement-learning methods inherit its step-size logic.",
+        "zh": "罗宾斯与门罗于 1951 年提出通用随机逼近程序；后来的随机梯度和强化学习方法继承了其步长逻辑。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Robbins & Monro (1951) — A stochastic approximation method",
+          "url": "https://doi.org/10.1214/aoms/1177729586"
+        },
+        {
+          "label": "Bottou (2010) — Large-scale machine learning with stochastic gradient descent",
+          "url": "https://doi.org/10.1007/978-3-7908-2604-3_16"
+        }
+      ]
+    },
+    {
+      "id": "haar-wavelet",
+      "personIds": [
+        "alfred-haar"
+      ],
+      "term": "Haar wavelet",
+      "zhTerm": "哈尔小波",
+      "functionNickname": {
+        "en": "Difference-at-every-scale detector",
+        "zh": "逐尺度检测差异的最简小波"
+      },
+      "question": {
+        "en": "How can a signal be decomposed into local averages and local differences across scales?",
+        "zh": "怎样把信号分解成跨尺度的局部平均与局部差异？"
+      },
+      "intuition": {
+        "en": "Repeatedly add neighboring values to capture coarse structure and subtract them to capture detail.",
+        "zh": "反复相加相邻值以捕捉粗略结构，相减以捕捉细节。"
+      },
+      "formalDefinition": "$\\psi(t)=1$ for $0\\leq t<\\tfrac12$, $\\psi(t)=-1$ for $\\tfrac12\\leq t<1$, and $0$ otherwise; $\\psi_{j,k}(t)=2^{j/2}\\psi(2^jt-k)$ forms an orthonormal basis.",
+      "aiApplications": [
+        {
+          "en": "Multiresolution image features, compression, and denoising",
+          "zh": "多分辨率图像特征、压缩与去噪"
+        },
+        {
+          "en": "Wavelet pooling, scattering-style features, and efficient sequence transforms",
+          "zh": "小波池化、散射式特征与高效序列变换"
+        }
+      ],
+      "category": "information",
+      "era": "20th century",
+      "relatedConceptIds": [
+        "fourier-transform",
+        "gabor-filter",
+        "laplacian-operator"
+      ],
+      "aliases": [
+        "Haar transform",
+        "Haar basis"
+      ],
+      "tags": [
+        "wavelet",
+        "multiresolution",
+        "image",
+        "signal"
+      ],
+      "attributionNote": {
+        "en": "Haar introduced the orthogonal system in 1910; it was later recognized as the simplest compactly supported orthonormal wavelet.",
+        "zh": "哈尔于 1910 年提出该正交系统；后来它被视为最简单的紧支撑正交归一小波。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Haar (1910) — Orthogonal function systems",
+          "url": "https://eudml.org/doc/158469"
+        },
+        {
+          "label": "PyWavelets — Wavelet objects and Haar filters",
+          "url": "https://pywavelets.readthedocs.io/en/latest/regression/wavelet.html"
+        }
+      ]
+    },
+    {
+      "id": "gabor-filter",
+      "personIds": [
+        "dennis-gabor"
+      ],
+      "term": "Gabor filter",
+      "zhTerm": "盖伯滤波器",
+      "functionNickname": {
+        "en": "Localized frequency microscope",
+        "zh": "观察局部频率与方向的显微镜"
+      },
+      "question": {
+        "en": "Which frequency and orientation are present near a particular image location?",
+        "zh": "图像某个局部位置包含哪种频率与方向？"
+      },
+      "intuition": {
+        "en": "Window a sinusoidal wave with a Gaussian so it responds only to a chosen local texture and orientation.",
+        "zh": "用高斯窗包住正弦波，使其只响应选定的局部纹理与方向。"
+      },
+      "formalDefinition": "$g(x,y)=\\exp\\!\\left(-\\frac{x'^2+\\gamma^2y'^2}{2\\sigma^2}\\right)\\cos\\!\\left(2\\pi x'/\\lambda+\\phi\\right)$, with $(x',y')$ rotated by orientation $\\theta$.",
+      "aiApplications": [
+        {
+          "en": "Texture, edge, iris, and fingerprint features",
+          "zh": "纹理、边缘、虹膜与指纹特征"
+        },
+        {
+          "en": "Interpreting and initializing orientation-selective convolutional filters",
+          "zh": "解释与初始化方向选择性卷积滤波器"
+        }
+      ],
+      "category": "information",
+      "era": "20th century",
+      "relatedConceptIds": [
+        "fourier-transform",
+        "gaussian-kernel",
+        "haar-wavelet"
+      ],
+      "aliases": [
+        "Gabor wavelet",
+        "Gabor kernel"
+      ],
+      "tags": [
+        "computer-vision",
+        "texture",
+        "frequency",
+        "convolution"
+      ],
+      "attributionNote": {
+        "en": "Gabor introduced Gaussian-windowed sinusoids for joint time-frequency representation in 1946; the two-dimensional filter used in vision is a later extension.",
+        "zh": "盖伯于 1946 年提出用于联合时频表示的高斯窗正弦；视觉中的二维滤波器是后来的推广。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Gabor (1946) — Theory of communication",
+          "url": "https://doi.org/10.1049/ji-3-2.1946.0074"
+        },
+        {
+          "label": "OpenCV — getGaborKernel",
+          "url": "https://docs.opencv.org/4.x/d4/d86/group__imgproc__filter.html"
+        }
+      ]
+    },
+    {
+      "id": "hough-transform",
+      "personIds": [
+        "paul-hough"
+      ],
+      "term": "Hough transform",
+      "zhTerm": "霍夫变换",
+      "functionNickname": {
+        "en": "Shape-by-voting detector",
+        "zh": "让像素投票寻找形状"
+      },
+      "question": {
+        "en": "How can global geometric shapes be detected from scattered and broken edge points?",
+        "zh": "怎样从分散、断裂的边缘点中检测全局几何形状？"
+      },
+      "intuition": {
+        "en": "Each edge point votes for all compatible shapes; strong vote intersections reveal a shared line or curve.",
+        "zh": "每个边缘点为所有兼容形状投票，投票交汇的峰值揭示共同直线或曲线。"
+      },
+      "formalDefinition": "For lines, each image point $(x,y)$ votes in parameter space for $\\rho=x\\cos\\theta+y\\sin\\theta$; accumulator maxima estimate line parameters $(\\rho,\\theta)$.",
+      "aiApplications": [
+        {
+          "en": "Line, circle, lane, and document-boundary detection",
+          "zh": "直线、圆、车道线与文档边界检测"
+        },
+        {
+          "en": "Geometric proposal generation and interpretable vision pipelines",
+          "zh": "几何候选生成与可解释视觉流程"
+        }
+      ],
+      "category": "computation",
+      "era": "20th century",
+      "relatedConceptIds": [
+        "cartesian-coordinate-system",
+        "euclidean-distance",
+        "gabor-filter"
+      ],
+      "aliases": [
+        "Hough line transform",
+        "generalized Hough transform"
+      ],
+      "tags": [
+        "computer-vision",
+        "shape",
+        "voting",
+        "geometry"
+      ],
+      "attributionNote": {
+        "en": "Hough patented the original slope-intercept voting method in 1962; Duda and Hart introduced the widely used polar parameterization in 1972.",
+        "zh": "霍夫于 1962 年为原始斜率–截距投票方法申请专利；杜达与哈特在 1972 年引入如今常用的极坐标参数化。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Hough (1962) — U.S. Patent 3,069,654",
+          "url": "https://patents.google.com/patent/US3069654A/en"
+        },
+        {
+          "label": "Duda & Hart (1972) — Hough transformation for lines and curves",
+          "url": "https://doi.org/10.1145/361237.361242"
+        },
+        {
+          "label": "OpenCV — Hough Line Transform",
+          "url": "https://docs.opencv.org/master/d9/db0/tutorial_hough_lines.html"
+        }
+      ]
+    },
+    {
+      "id": "wiener-filter",
+      "personIds": [
+        "norbert-wiener"
+      ],
+      "term": "Wiener filter",
+      "zhTerm": "维纳滤波器",
+      "functionNickname": {
+        "en": "Minimum-error signal restorer",
+        "zh": "最小均方误差的信号复原器"
+      },
+      "question": {
+        "en": "What linear filter best recovers a signal from additive noise in mean-squared error?",
+        "zh": "在均方误差意义下，哪个线性滤波器最能从加性噪声中恢复信号？"
+      },
+      "intuition": {
+        "en": "Trust frequencies dominated by signal and suppress frequencies dominated by noise.",
+        "zh": "信号占优的频率多保留，噪声占优的频率多抑制。"
+      },
+      "formalDefinition": "For uncorrelated additive signal and noise with spectra $S_s(f)$ and $S_n(f)$, the frequency response is $H(f)=\\frac{S_s(f)}{S_s(f)+S_n(f)}$ in the direct-observation case.",
+      "aiApplications": [
+        {
+          "en": "Image denoising, deblurring, and audio enhancement",
+          "zh": "图像去噪、去模糊与音频增强"
+        },
+        {
+          "en": "Classical baselines and preprocessing for learned restoration systems",
+          "zh": "学习式复原系统的经典基线与预处理"
+        }
+      ],
+      "category": "information",
+      "era": "20th century",
+      "relatedConceptIds": [
+        "wiener-process",
+        "fourier-transform",
+        "gaussian-distribution"
+      ],
+      "aliases": [
+        "Wiener–Kolmogorov filter",
+        "minimum mean-square error linear filter"
+      ],
+      "tags": [
+        "signal-processing",
+        "denoising",
+        "mmse",
+        "frequency"
+      ],
+      "attributionNote": {
+        "en": "Wiener developed the theory during wartime work and published it in 1949; Kolmogorov independently developed a closely related discrete-time prediction theory.",
+        "zh": "维纳在战时研究中发展该理论并于 1949 年出版；柯尔莫哥洛夫独立发展了密切相关的离散时间预测理论。"
+      },
+      "sourceLinks": [
+        {
+          "label": "MIT Press — Wiener's Extrapolation, Interpolation, and Smoothing",
+          "url": "https://mitpress.mit.edu/9780262730051/extrapolation-interpolation-and-smoothing-of-stationary-time-series/"
+        },
+        {
+          "label": "SciPy — Wiener filter",
+          "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.wiener.html"
+        }
+      ]
+    },
+    {
+      "id": "erdos-renyi-model",
+      "personIds": [
+        "paul-erdos",
+        "alfred-renyi"
+      ],
+      "term": "Erdős–Rényi model",
+      "zhTerm": "埃尔德什–雷尼模型",
+      "functionNickname": {
+        "en": "Independent-edge graph baseline",
+        "zh": "独立随机连边的图基线"
+      },
+      "question": {
+        "en": "What graph structure emerges when edges are placed randomly?",
+        "zh": "随机放置边时会涌现怎样的图结构？"
+      },
+      "intuition": {
+        "en": "Flip the same biased coin for every possible edge and study when connectivity, giant components, and other global patterns emerge.",
+        "zh": "对每条可能的边掷同一枚偏置硬币，研究连通性、巨型分量等全局模式何时涌现。"
+      },
+      "formalDefinition": "In $G(n,p)$, each of the $\\binom{n}{2}$ undirected edges is present independently with probability $p$; in $G(n,m)$, a graph with exactly $m$ edges is sampled uniformly.",
+      "aiApplications": [
+        {
+          "en": "Null models and synthetic benchmarks for graph neural networks",
+          "zh": "图神经网络的零模型与合成基准"
+        },
+        {
+          "en": "Random connectivity analysis and graph-generative model evaluation",
+          "zh": "随机连接分析与图生成模型评估"
+        }
+      ],
+      "category": "probability",
+      "era": "20th century",
+      "relatedConceptIds": [
+        "graph-laplacian",
+        "perron-frobenius-theorem",
+        "markov-chain"
+      ],
+      "aliases": [
+        "ER random graph",
+        "binomial random graph",
+        "G(n,p) model",
+        "G(n,m) model"
+      ],
+      "tags": [
+        "random-graph",
+        "network",
+        "phase-transition",
+        "gnn"
+      ],
+      "attributionNote": {
+        "en": "Erdős and Rényi's 1959 paper studied the fixed-edge $G(n,m)$ model. Gilbert independently introduced the independent-edge $G(n,p)$ model that is now also commonly grouped under the Erdős–Rényi name.",
+        "zh": "埃尔德什与雷尼 1959 年论文研究固定边数的 $G(n,m)$ 模型；吉尔伯特独立提出独立连边的 $G(n,p)$ 模型，如今也常被归入埃尔德什–雷尼名称下。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Erdős & Rényi (1959) — On random graphs I",
+          "url": "https://doi.org/10.5486/PMD.1959.6.3-4.12"
+        },
+        {
+          "label": "NetworkX — Erdős–Rényi graph generator",
+          "url": "https://networkx.org/documentation/stable/reference/generated/networkx.generators.random_graphs.erdos_renyi_graph.html"
+        }
+      ]
+    },
+    {
+      "id": "viterbi-algorithm",
+      "personIds": [
+        "andrew-viterbi"
+      ],
+      "term": "Viterbi algorithm",
+      "zhTerm": "维特比算法",
+      "functionNickname": {
+        "en": "Most-likely path decoder",
+        "zh": "寻找最可能隐藏路径的解码器"
+      },
+      "question": {
+        "en": "What is the single most probable hidden-state sequence behind observed data?",
+        "zh": "观测数据背后概率最高的隐藏状态序列是什么？"
+      },
+      "intuition": {
+        "en": "For each state and time, retain only the best path ending there, then backtrack from the best final state.",
+        "zh": "对每个时刻和状态只保留以它结尾的最佳路径，最后从最佳终态回溯。"
+      },
+      "formalDefinition": "$\\delta_t(j)=b_j(o_t)\\max_i[\\delta_{t-1}(i)a_{ij}]$ with backpointers $\\psi_t(j)=\\arg\\max_i[\\delta_{t-1}(i)a_{ij}]$.",
+      "aiApplications": [
+        {
+          "en": "HMM decoding in speech, tagging, and biosequence analysis",
+          "zh": "语音、序列标注与生物序列中的 HMM 解码"
+        },
+        {
+          "en": "Linear-chain CRF decoding and constrained sequence prediction",
+          "zh": "线性链 CRF 解码与受约束序列预测"
+        }
+      ],
+      "category": "computation",
+      "era": "20th century",
+      "relatedConceptIds": [
+        "hidden-markov-model",
+        "markov-chain",
+        "baum-welch-algorithm",
+        "bellman-equation"
+      ],
+      "aliases": [
+        "Viterbi decoding",
+        "max-product algorithm"
+      ],
+      "tags": [
+        "dynamic-programming",
+        "sequence",
+        "hmm",
+        "decoding"
+      ],
+      "attributionNote": {
+        "en": "Viterbi introduced the algorithm in 1967 for convolutional-code decoding; Forney later recognized its general maximum-likelihood sequence-estimation interpretation.",
+        "zh": "维特比于 1967 年为卷积码解码提出该算法；福尼后来明确了其通用最大似然序列估计解释。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Viterbi (1967) — Error bounds for convolutional codes",
+          "url": "https://doi.org/10.1109/TIT.1967.1054010"
+        },
+        {
+          "label": "Rabiner (1989) — Hidden Markov model tutorial",
+          "url": "https://doi.org/10.1109/5.18626"
+        }
+      ]
+    },
+    {
+      "id": "baum-welch-algorithm",
+      "personIds": [
+        "leonard-baum",
+        "lloyd-welch"
+      ],
+      "term": "Baum–Welch algorithm",
+      "zhTerm": "鲍姆–韦尔奇算法",
+      "functionNickname": {
+        "en": "Hidden-state probability trainer",
+        "zh": "从未标注序列训练隐藏状态模型"
+      },
+      "question": {
+        "en": "How can HMM parameters be learned when the hidden-state sequence is unobserved?",
+        "zh": "隐藏状态序列不可见时，怎样学习 HMM 参数？"
+      },
+      "intuition": {
+        "en": "Infer soft counts for hidden transitions and emissions, then re-estimate parameters from those expected counts until likelihood stops improving.",
+        "zh": "先推断隐藏转移与发射的软计数，再用期望计数重估参数，直到似然不再提升。"
+      },
+      "formalDefinition": "An EM procedure: the E-step computes forward–backward posteriors $\\gamma_t(i)$ and $\\xi_t(i,j)$; the M-step normalizes their expected state, transition, and emission counts.",
+      "aiApplications": [
+        {
+          "en": "Unsupervised training of speech and sequence HMMs",
+          "zh": "语音与序列 HMM 的无监督训练"
+        },
+        {
+          "en": "Latent-state initialization, segmentation, and weakly supervised temporal modeling",
+          "zh": "隐状态初始化、分段与弱监督时序建模"
+        }
+      ],
+      "category": "statistics",
+      "era": "20th century",
+      "relatedConceptIds": [
+        "hidden-markov-model",
+        "markov-chain",
+        "viterbi-algorithm",
+        "bayesian-inference"
+      ],
+      "aliases": [
+        "forward–backward algorithm for HMM training",
+        "Baum–Welch re-estimation"
+      ],
+      "tags": [
+        "hmm",
+        "em",
+        "latent-variable",
+        "sequence"
+      ],
+      "attributionNote": {
+        "en": "Baum and collaborators established the probabilistic-function identities and re-estimation theory around 1966–1970; Welch helped develop and disseminate the practical algorithm at IDA.",
+        "zh": "鲍姆及合作者在约 1966 至 1970 年间建立了概率函数恒等式与重估理论；韦尔奇在 IDA 参与发展并传播其实用算法。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Baum et al. (1970) — Probabilistic functions of Markov chains",
+          "url": "https://doi.org/10.1214/aoms/1177697196"
+        },
+        {
+          "label": "Rabiner (1989) — Hidden Markov model tutorial",
+          "url": "https://doi.org/10.1109/5.18626"
+        }
+      ]
+    },
+    {
+      "id": "langevin-dynamics",
+      "personIds": [
+        "paul-langevin"
+      ],
+      "term": "Langevin dynamics",
+      "zhTerm": "朗之万动力学",
+      "functionNickname": {
+        "en": "Gradient descent with calibrated noise",
+        "zh": "带校准噪声的梯度下降"
+      },
+      "question": {
+        "en": "How can a system explore an energy landscape while converging to a target thermal or probabilistic distribution?",
+        "zh": "怎样让系统在能量地形中探索，同时收敛到目标热力学或概率分布？"
+      },
+      "intuition": {
+        "en": "A deterministic drift moves downhill while Brownian noise prevents the trajectory from getting stuck and makes it sample a distribution.",
+        "zh": "确定性漂移推动状态下坡，布朗噪声避免轨迹困住，并让它转而采样一个分布。"
+      },
+      "formalDefinition": "In an overdamped form, $dX_t=-\\nabla U(X_t)\\,dt+\\sqrt{2\\beta^{-1}}\\,dW_t$; under suitable conditions its stationary density is proportional to $e^{-\\beta U(x)}$.",
+      "aiApplications": [
+        {
+          "en": "Score-based and diffusion generative sampling",
+          "zh": "基于分数与扩散生成模型的采样"
+        },
+        {
+          "en": "Bayesian posterior sampling and stochastic-gradient MCMC",
+          "zh": "贝叶斯后验采样与随机梯度 MCMC"
+        }
+      ],
+      "category": "dynamics",
+      "era": "Early 20th century",
+      "relatedConceptIds": [
+        "wiener-process",
+        "fokker-planck-equation",
+        "gibbs-sampling",
+        "gaussian-distribution"
+      ],
+      "aliases": [
+        "Langevin equation",
+        "Langevin diffusion",
+        "overdamped Langevin dynamics"
+      ],
+      "tags": [
+        "stochastic-differential-equations",
+        "sampling",
+        "diffusion-models",
+        "mcmc"
+      ],
+      "attributionNote": {
+        "en": "Named for Paul Langevin's 1908 stochastic model of Brownian motion. Modern Langevin samplers and score-based models are later algorithmic developments.",
+        "zh": "名称源自保罗·朗之万 1908 年的布朗运动随机模型；现代朗之万采样器和基于分数的模型属于后来的算法发展。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Encyclopedia of Mathematics — Langevin equation",
+          "url": "https://encyclopediaofmath.org/wiki/Langevin_equation"
+        },
+        {
+          "label": "ICLR 2021 — Score-Based Generative Modeling through SDEs",
+          "url": "https://openreview.net/forum?id=PxTIG12RRHS"
+        }
+      ]
+    },
+    {
+      "id": "ito-lemma",
+      "personIds": [
+        "kiyosi-ito"
+      ],
+      "term": "Itô's lemma",
+      "zhTerm": "伊藤引理",
+      "functionNickname": {
+        "en": "Chain rule for noisy paths",
+        "zh": "随机路径上的链式法则"
+      },
+      "question": {
+        "en": "How does a smooth function change when its input follows a stochastic differential equation?",
+        "zh": "当输入遵循随机微分方程时，一个光滑函数会怎样变化？"
+      },
+      "intuition": {
+        "en": "Brownian increments have non-negligible squared variation, so the ordinary chain rule gains a second-derivative correction.",
+        "zh": "布朗增量的平方变差不可忽略，因此普通链式法则要增加一个二阶导修正项。"
+      },
+      "formalDefinition": "If $dX_t=\\mu(t,X_t)\\,dt+\\sigma(t,X_t)\\,dW_t$, then $df=(\\partial_t f+\\mu\\partial_x f+\\tfrac12\\sigma^2\\partial_{xx}f)dt+\\sigma\\partial_x f\\,dW_t$.",
+      "aiApplications": [
+        {
+          "en": "Deriving reverse-time SDEs and probability-flow models",
+          "zh": "推导反向时间 SDE 与概率流模型"
+        },
+        {
+          "en": "Stochastic control, continuous-time latent models, and neural SDEs",
+          "zh": "随机控制、连续时间潜变量模型与神经 SDE"
+        }
+      ],
+      "category": "calculus",
+      "era": "1940s",
+      "relatedConceptIds": [
+        "wiener-process",
+        "langevin-dynamics",
+        "fokker-planck-equation"
+      ],
+      "aliases": [
+        "Itô formula",
+        "Ito's lemma",
+        "Itô–Doeblin formula"
+      ],
+      "tags": [
+        "stochastic-calculus",
+        "sde",
+        "diffusion-models",
+        "continuous-time"
+      ],
+      "attributionNote": {
+        "en": "Named for Kiyosi Itô's stochastic integration theory. The alternative name Itô–Doeblin formula acknowledges Wolfgang Doeblin's independently developed, then-unpublished work.",
+        "zh": "名称源自伊藤清的随机积分理论；“伊藤–德布林公式”这一别名也承认沃尔夫冈·德布林独立完成但当时未发表的工作。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Itô (1944) — Stochastic Integral",
+          "url": "https://projecteuclid.org/journals/proceedings-of-the-imperial-academy/volume-20/issue-8/Stochastic-Integral/10.3792/pia/1195572786.full"
+        },
+        {
+          "label": "ICLR 2021 — Score-Based Generative Modeling through SDEs",
+          "url": "https://openreview.net/forum?id=PxTIG12RRHS"
+        }
+      ]
+    },
+    {
+      "id": "fokker-planck-equation",
+      "personIds": [
+        "adriaan-fokker",
+        "max-planck"
+      ],
+      "term": "Fokker–Planck equation",
+      "zhTerm": "福克–普朗克方程",
+      "functionNickname": {
+        "en": "Probability-density motion equation",
+        "zh": "概率密度的运动方程"
+      },
+      "question": {
+        "en": "How does the full probability density of a diffusion process evolve over time?",
+        "zh": "一个扩散过程的完整概率密度会如何随时间演化？"
+      },
+      "intuition": {
+        "en": "Drift transports probability mass, while diffusion spreads it; the equation tracks both effects at distribution level.",
+        "zh": "漂移搬运概率质量，扩散把它摊开；这个方程在分布层面同时追踪两种作用。"
+      },
+      "formalDefinition": "For $dX_t=b(X_t,t)dt+a(X_t,t)dW_t$, the density satisfies $\\partial_t p=-\\nabla\\!\\cdot(bp)+\\tfrac12\\sum_{i,j}\\partial_{x_i}\\partial_{x_j}([(aa^\\top)_{ij}]p)$.",
+      "aiApplications": [
+        {
+          "en": "Density evolution in diffusion and score-based generative models",
+          "zh": "扩散与基于分数的生成模型中的密度演化"
+        },
+        {
+          "en": "Learning neural dynamics constrained by conservation of probability",
+          "zh": "学习受概率守恒约束的神经动力系统"
+        }
+      ],
+      "category": "dynamics",
+      "era": "Early 20th century",
+      "relatedConceptIds": [
+        "langevin-dynamics",
+        "ito-lemma",
+        "wiener-process",
+        "wasserstein-distance"
+      ],
+      "aliases": [
+        "Kolmogorov forward equation",
+        "forward equation"
+      ],
+      "tags": [
+        "partial-differential-equations",
+        "diffusion-processes",
+        "density-evolution",
+        "generative-models"
+      ],
+      "attributionNote": {
+        "en": "The eponym joins early kinetic and Brownian-motion work by Adriaan Fokker and Max Planck. In probability it is also called the Kolmogorov forward equation.",
+        "zh": "该名称合并纪念阿德里安·福克与马克斯·普朗克在动理学和布朗运动上的早期工作；在概率论中也称柯尔莫哥洛夫前向方程。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Encyclopedia of Mathematics — Diffusion process",
+          "url": "https://encyclopediaofmath.org/wiki/Diffusion_process"
+        },
+        {
+          "label": "COLT 2022 — Self-Consistency of the Fokker–Planck Equation",
+          "url": "https://proceedings.mlr.press/v178/shen22a.html"
+        }
+      ]
+    },
+    {
+      "id": "schrodinger-bridge",
+      "personIds": [
+        "erwin-schrodinger"
+      ],
+      "term": "Schrödinger bridge",
+      "zhTerm": "薛定谔桥",
+      "functionNickname": {
+        "en": "Most likely stochastic bridge between distributions",
+        "zh": "连接两个分布的最可能随机桥"
+      },
+      "question": {
+        "en": "What is the least surprising stochastic evolution that connects two prescribed endpoint distributions?",
+        "zh": "在给定首尾分布时，哪一种随机演化相对参考过程最不意外？"
+      },
+      "intuition": {
+        "en": "Start with a reference diffusion and minimally tilt its path probabilities until its beginning and ending marginals match the data.",
+        "zh": "从参考扩散过程出发，尽量少地调整整条路径的概率，直到起点和终点边缘分布匹配数据。"
+      },
+      "formalDefinition": "Given a reference path measure $R$, solve $P^*=\\arg\\min_{P:\\,P_0=\\mu_0,\\,P_T=\\mu_T}\\mathrm{KL}(P\\|R)$.",
+      "aiApplications": [
+        {
+          "en": "Diffusion bridges, generative transport, and unpaired domain translation",
+          "zh": "扩散桥、生成式运输与无配对域转换"
+        },
+        {
+          "en": "Stochastic control and trajectory generation with endpoint constraints",
+          "zh": "带端点约束的随机控制与轨迹生成"
+        }
+      ],
+      "category": "optimization",
+      "era": "1930s; modern revival",
+      "relatedConceptIds": [
+        "doob-h-transform",
+        "sinkhorn-algorithm",
+        "wasserstein-distance",
+        "fokker-planck-equation"
+      ],
+      "aliases": [
+        "Schrödinger problem",
+        "Schrödinger bridge problem",
+        "entropic bridge"
+      ],
+      "tags": [
+        "optimal-transport",
+        "stochastic-control",
+        "diffusion-models",
+        "generative-models"
+      ],
+      "attributionNote": {
+        "en": "Named for Schrödinger's 1931–1932 reciprocal-process problem. Entropic optimal-transport algorithms and neural bridge models are much later formulations.",
+        "zh": "名称源自薛定谔 1931–1932 年提出的互反过程问题；熵正则最优运输算法与神经桥模型是后来的表述。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Léonard (2014) — A survey of the Schrödinger problem",
+          "url": "https://doi.org/10.3934/dcds.2014.34.1533"
+        },
+        {
+          "label": "NeurIPS 2021 — Diffusion Schrödinger Bridge",
+          "url": "https://proceedings.neurips.cc/paper_files/paper/2021/hash/940392f5f32a7ade1cc201767cf83e31-Abstract.html"
+        },
+        {
+          "label": "NeurIPS 2025 — Schrödinger bridge research",
+          "url": "https://proceedings.neurips.cc/paper_files/paper/2025/hash/174692c52dc84fad2b2e99dd8637ce6a-Abstract-Conference.html"
+        }
+      ]
+    },
+    {
+      "id": "doob-h-transform",
+      "personIds": [
+        "joseph-doob"
+      ],
+      "term": "Doob h-transform",
+      "zhTerm": "杜布 h 变换",
+      "functionNickname": {
+        "en": "Condition a process by reweighting its futures",
+        "zh": "通过重加权未来来条件化随机过程"
+      },
+      "question": {
+        "en": "How can a Markov process be modified to favor or enforce a future event while remaining Markovian?",
+        "zh": "怎样修改马尔可夫过程，使它偏向或满足一个未来事件，同时仍保持马尔可夫性？"
+      },
+      "intuition": {
+        "en": "Multiply each transition by how promising its destination is according to a positive harmonic function, then renormalize.",
+        "zh": "用正调和函数衡量每个目的地有多“有希望”，据此重加权转移并重新归一化。"
+      },
+      "formalDefinition": "For a positive harmonic $h$, $P_t^h(x,dy)=\\frac{h(y)}{h(x)}P_t(x,dy)$; time-dependent space-time harmonic functions give conditioned bridges and guided diffusions.",
+      "aiApplications": [
+        {
+          "en": "Conditional diffusion generation and efficient guidance",
+          "zh": "条件扩散生成与高效引导"
+        },
+        {
+          "en": "Rare-event sampling and stochastic optimal control",
+          "zh": "稀有事件采样与随机最优控制"
+        }
+      ],
+      "category": "probability",
+      "era": "1950s",
+      "relatedConceptIds": [
+        "markov-property",
+        "markov-chain",
+        "schrodinger-bridge",
+        "langevin-dynamics"
+      ],
+      "aliases": [
+        "Doob transform",
+        "h-transform"
+      ],
+      "tags": [
+        "conditioning",
+        "markov-processes",
+        "diffusion-guidance",
+        "rare-events"
+      ],
+      "attributionNote": {
+        "en": "Named for Joseph Doob's work on conditioning Markov processes through positive harmonic functions. Neural guidance methods reuse this probabilistic construction rather than changing its attribution.",
+        "zh": "名称源自约瑟夫·杜布用正调和函数条件化马尔可夫过程的工作；神经引导方法是在复用这一概率构造，并不改变其历史归因。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Doob (1957) — Conditional Brownian motion",
+          "url": "https://projecteuclid.org/journals/bulletin-of-the-american-mathematical-society/volume-63/issue-1/Conditional-Brownian-motion-and-the-boundary-limits-of-harmonic-functions/bams/1183521146.full"
+        },
+        {
+          "label": "NeurIPS 2024 — Doob h-transform for diffusion models",
+          "url": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/22d258dfbdf840ccbf266bbc545dd95f-Abstract-Conference.html"
+        }
+      ]
+    },
+    {
+      "id": "tweedie-formula",
+      "personIds": [
+        "maurice-tweedie"
+      ],
+      "term": "Tweedie's formula",
+      "zhTerm": "特威迪公式",
+      "functionNickname": {
+        "en": "Denoising from the score",
+        "zh": "从分数函数直接去噪"
+      },
+      "question": {
+        "en": "How can the posterior mean of a clean signal be recovered from the score of its noisy marginal distribution?",
+        "zh": "怎样从带噪边缘分布的分数函数恢复干净信号的后验均值？"
+      },
+      "intuition": {
+        "en": "For Gaussian corruption, the score points from a noisy observation toward where clean data are expected to lie.",
+        "zh": "在高斯加噪下，分数函数会从带噪观测指向干净数据最可能所在的位置。"
+      },
+      "formalDefinition": "If $Y=X+\\varepsilon$ with $\\varepsilon\\sim\\mathcal N(0,\\sigma^2I)$, then $\\mathbb E[X\\mid Y=y]=y+\\sigma^2\\nabla_y\\log p_Y(y)$.",
+      "aiApplications": [
+        {
+          "en": "The denoising identity behind score-based diffusion models",
+          "zh": "基于分数的扩散模型背后的去噪恒等式"
+        },
+        {
+          "en": "Diffusion posterior sampling and inverse problems",
+          "zh": "扩散后验采样与逆问题"
+        }
+      ],
+      "category": "statistics",
+      "era": "20th century; diffusion-era revival",
+      "relatedConceptIds": [
+        "gaussian-distribution",
+        "bayesian-inference",
+        "langevin-dynamics",
+        "fisher-information"
+      ],
+      "aliases": [
+        "Tweedie's formula for Gaussian noise",
+        "Tweedie identity"
+      ],
+      "tags": [
+        "empirical-bayes",
+        "score-functions",
+        "denoising",
+        "diffusion-models"
+      ],
+      "attributionNote": {
+        "en": "The name is associated with Maurice Tweedie's exponential-family empirical-Bayes identity; Efron's historical account notes related earlier work and helped popularize the formula under this name.",
+        "zh": "该名称与莫里斯·特威迪在指数族经验贝叶斯中的恒等式相关；埃夫隆的历史梳理指出了更早的相关工作，并推动了这一名称的普及。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Efron (2011) — Tweedie's Formula and Selection Bias",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3325056/"
+        },
+        {
+          "label": "TMLR 2024 — Tweedie Moment Projected Diffusions",
+          "url": "https://openreview.net/forum?id=4unJi0qrTE"
+        }
+      ]
+    },
+    {
+      "id": "wasserstein-distance",
+      "personIds": [
+        "leonid-vaserstein"
+      ],
+      "term": "Wasserstein distance",
+      "zhTerm": "瓦瑟斯坦距离",
+      "functionNickname": {
+        "en": "Minimum work to reshape one distribution into another",
+        "zh": "把一个分布搬成另一个分布的最小代价"
+      },
+      "question": {
+        "en": "How different are two probability distributions when the geometry of moving mass matters?",
+        "zh": "当搬运概率质量的几何代价很重要时，两个分布相差多远？"
+      },
+      "intuition": {
+        "en": "Match mass in one distribution to mass in the other and pay distance times amount moved; choose the cheapest coupling.",
+        "zh": "把一个分布的质量匹配并搬到另一个分布，支付“距离乘质量”的代价，然后选择最便宜的耦合。"
+      },
+      "formalDefinition": "$W_p(\\mu,\\nu)=\\left(\\inf_{\\pi\\in\\Pi(\\mu,\\nu)}\\int d(x,y)^p\\,d\\pi(x,y)\\right)^{1/p}$.",
+      "aiApplications": [
+        {
+          "en": "Generative modeling, distribution alignment, and domain adaptation",
+          "zh": "生成建模、分布对齐与域适配"
+        },
+        {
+          "en": "Policy optimization and distributional reinforcement learning",
+          "zh": "策略优化与分布式强化学习"
+        }
+      ],
+      "category": "geometry",
+      "era": "20th century",
+      "relatedConceptIds": [
+        "sinkhorn-algorithm",
+        "gromov-wasserstein-distance",
+        "frechet-inception-distance",
+        "kullback-leibler-divergence"
+      ],
+      "aliases": [
+        "Kantorovich–Rubinstein distance",
+        "earth mover's distance",
+        "optimal transport distance"
+      ],
+      "tags": [
+        "optimal-transport",
+        "probability-metrics",
+        "generative-models",
+        "reinforcement-learning"
+      ],
+      "attributionNote": {
+        "en": "The transport metric predates the Western eponym through work by Kantorovich and others. “Wasserstein” became common after Vaserstein's 1969 probability paper, via a German-style transliteration of his surname.",
+        "zh": "这一运输度量在西方冠名之前已有康托洛维奇等人的工作；“Wasserstein”因瓦瑟施泰因 1969 年的概率论文而流行，是其姓氏的德式转写。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Vaserstein (1969) — Markov processes over denumerable products",
+          "url": "https://doi.org/10.1070/RM1969v024n05ABEH001357"
+        },
+        {
+          "label": "ICML 2025 — Wasserstein Policy Optimization",
+          "url": "https://proceedings.mlr.press/v267/pfau25a.html"
+        }
+      ]
+    },
+    {
+      "id": "sinkhorn-algorithm",
+      "personIds": [
+        "richard-sinkhorn"
+      ],
+      "term": "Sinkhorn algorithm",
+      "zhTerm": "辛克霍恩算法",
+      "functionNickname": {
+        "en": "Fast balancing for entropic transport",
+        "zh": "熵正则运输的快速配平器"
+      },
+      "question": {
+        "en": "How can a positive matrix or entropic transport plan be scaled to match prescribed row and column marginals?",
+        "zh": "怎样缩放正矩阵或熵正则运输方案，使其行列边缘分布匹配目标？"
+      },
+      "intuition": {
+        "en": "Alternately fix every row total and every column total; repeated rescaling converges to a jointly balanced matrix under suitable conditions.",
+        "zh": "交替修正所有行和与列和；在适当条件下，反复缩放会收敛到同时配平的矩阵。"
+      },
+      "formalDefinition": "For $K=e^{-C/\\varepsilon}$, seek $P=\\operatorname{diag}(u)K\\operatorname{diag}(v)$ with marginals $a,b$ by iterating $u\\leftarrow a/(Kv)$ and $v\\leftarrow b/(K^\\top u)$.",
+      "aiApplications": [
+        {
+          "en": "Differentiable optimal transport and matching layers",
+          "zh": "可微最优运输与匹配层"
+        },
+        {
+          "en": "Dataset alignment, clustering, ranking, and generative transport",
+          "zh": "数据集对齐、聚类、排序与生成式运输"
+        }
+      ],
+      "category": "optimization",
+      "era": "1960s; modern OT revival",
+      "relatedConceptIds": [
+        "wasserstein-distance",
+        "schrodinger-bridge",
+        "gromov-wasserstein-distance",
+        "bregman-divergence"
+      ],
+      "aliases": [
+        "Sinkhorn iteration",
+        "Sinkhorn–Knopp algorithm",
+        "iterative proportional fitting for matrices"
+      ],
+      "tags": [
+        "matrix-scaling",
+        "optimal-transport",
+        "entropic-regularization",
+        "differentiable-optimization"
+      ],
+      "attributionNote": {
+        "en": "Named for Richard Sinkhorn's matrix-scaling theorem and iteration; Paul Knopp co-developed important convergence results. Entropic optimal-transport use became prominent much later.",
+        "zh": "名称源自理查德·辛克霍恩的矩阵缩放定理与迭代；保罗·诺普共同发展了重要收敛结果。其在熵正则最优运输中的广泛使用要晚得多。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Sinkhorn (1964) — Positive and doubly stochastic matrices",
+          "url": "https://doi.org/10.1214/aoms/1177703591"
+        },
+        {
+          "label": "NeurIPS 2013 — Sinkhorn Distances",
+          "url": "https://proceedings.neurips.cc/paper/2013/hash/af21d0c97db2e27e13572cbf59eb343d-Abstract.html"
+        },
+        {
+          "label": "ICML 2025 — Universal Neural Optimal Transport",
+          "url": "https://proceedings.mlr.press/v267/geuter25a.html"
+        }
+      ]
+    },
+    {
+      "id": "gromov-wasserstein-distance",
+      "personIds": [
+        "mikhail-gromov",
+        "leonid-vaserstein"
+      ],
+      "term": "Gromov–Wasserstein distance",
+      "zhTerm": "格罗莫夫–瓦瑟斯坦距离",
+      "functionNickname": {
+        "en": "Compare structures without shared coordinates",
+        "zh": "无需共享坐标的结构比较器"
+      },
+      "question": {
+        "en": "How can two metric-measure spaces be compared when their points live in different domains and cannot be aligned directly?",
+        "zh": "当两个度量测度空间属于不同域、点之间无法直接对齐时，怎样比较它们？"
+      },
+      "intuition": {
+        "en": "Couple points across spaces so that pairwise distances inside one space resemble pairwise distances inside the other.",
+        "zh": "在两个空间间耦合点，使一边的内部成对距离尽量像另一边的内部成对距离。"
+      },
+      "formalDefinition": "$\\mathrm{GW}_p^p(X,Y)=\\inf_{\\pi\\in\\Pi(\\mu,\\nu)}\\iint |d_X(x,x')-d_Y(y,y')|^p\\,d\\pi(x,y)d\\pi(x',y')$.",
+      "aiApplications": [
+        {
+          "en": "Cross-domain graph and representation alignment",
+          "zh": "跨域图与表征对齐"
+        },
+        {
+          "en": "Graph generation, autoencoding, and heterogeneous data matching",
+          "zh": "图生成、自编码与异构数据匹配"
+        }
+      ],
+      "category": "geometry",
+      "era": "Late 20th to early 21st century",
+      "relatedConceptIds": [
+        "wasserstein-distance",
+        "sinkhorn-algorithm",
+        "weisfeiler-leman-test",
+        "graph-laplacian"
+      ],
+      "aliases": [
+        "GW distance",
+        "Gromov–Wasserstein discrepancy"
+      ],
+      "tags": [
+        "optimal-transport",
+        "metric-measure-spaces",
+        "graphs",
+        "representation-alignment"
+      ],
+      "attributionNote": {
+        "en": "The name combines Gromov's intrinsic comparison of metric spaces with Wasserstein transport. The computational metric-measure formulation was developed by later authors, notably Facundo Mémoli.",
+        "zh": "名称结合了格罗莫夫对度量空间的内禀比较与瓦瑟斯坦运输；可计算的度量测度表述由后来的研究者发展，尤其包括 Facundo Mémoli。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Mémoli (2011) — Gromov–Wasserstein distances",
+          "url": "https://doi.org/10.1007/s10208-011-9093-5"
+        },
+        {
+          "label": "ICLR 2023 — Gromov–Wasserstein Autoencoders",
+          "url": "https://openreview.net/forum?id=sbS10BCtc7"
+        }
+      ]
+    },
+    {
+      "id": "frechet-inception-distance",
+      "personIds": [
+        "maurice-frechet"
+      ],
+      "term": "Fréchet Inception Distance",
+      "zhTerm": "弗雷歇初始距离（FID）",
+      "functionNickname": {
+        "en": "Feature-distribution gap for generated images",
+        "zh": "生成图像特征分布差距"
+      },
+      "question": {
+        "en": "How far is a generator's image-feature distribution from that of real images?",
+        "zh": "生成图像的特征分布与真实图像特征分布相差多远？"
+      },
+      "intuition": {
+        "en": "Embed real and generated images with an Inception network, approximate each feature cloud as Gaussian, then measure their mean-and-covariance gap.",
+        "zh": "用 Inception 网络嵌入真实与生成图像，把两团特征各自近似为高斯分布，再比较均值和协方差。"
+      },
+      "formalDefinition": "$\\mathrm{FID}=\\|\\mu_r-\\mu_g\\|_2^2+\\operatorname{Tr}(\\Sigma_r+\\Sigma_g-2(\\Sigma_r\\Sigma_g)^{1/2})$ for Gaussian fits to real and generated features.",
+      "aiApplications": [
+        {
+          "en": "Benchmarking GANs, diffusion models, and image generators",
+          "zh": "评测 GAN、扩散模型与图像生成器"
+        },
+        {
+          "en": "Monitoring distribution shift in learned visual features",
+          "zh": "监测学习到的视觉特征分布漂移"
+        }
+      ],
+      "category": "statistics",
+      "era": "2017",
+      "relatedConceptIds": [
+        "gaussian-distribution",
+        "wasserstein-distance",
+        "gaussian-mixture-model"
+      ],
+      "aliases": [
+        "FID",
+        "Fréchet Inception metric"
+      ],
+      "tags": [
+        "evaluation",
+        "generative-models",
+        "computer-vision",
+        "distribution-distance"
+      ],
+      "attributionNote": {
+        "en": "Heusel and colleagues introduced FID in 2017. “Fréchet” refers to the underlying Gaussian distribution distance; “Inception” is the feature network, not a person.",
+        "zh": "FID 由 Heusel 等人在 2017 年提出；“弗雷歇”指底层高斯分布距离，“Inception”是特征网络名称而非人名。"
+      },
+      "sourceLinks": [
+        {
+          "label": "NeurIPS 2017 — GANs Trained by a Two Time-Scale Update Rule",
+          "url": "https://proceedings.neurips.cc/paper/2017/hash/8a1d694707eb0fefe65871369074926d-Abstract.html"
+        },
+        {
+          "label": "NeurIPS 2023 — FID metric audit",
+          "url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/1e5fa672b2c35744cbcfacb2e77f1cb0-Paper-Datasets_and_Benchmarks.pdf"
+        }
+      ]
+    },
+    {
+      "id": "bradley-terry-model",
+      "personIds": [
+        "ralph-bradley",
+        "milton-terry"
+      ],
+      "term": "Bradley–Terry model",
+      "zhTerm": "布拉德利–特里模型",
+      "functionNickname": {
+        "en": "Turn latent scores into pairwise preferences",
+        "zh": "把潜在分数变成成对偏好"
+      },
+      "question": {
+        "en": "Given two items with hidden strengths, what is the probability that one is preferred over the other?",
+        "zh": "给定两个具有隐藏实力的对象，其中一个胜过或优于另一个的概率是多少？"
+      },
+      "intuition": {
+        "en": "Only the difference between two latent scores matters; a logistic curve turns that difference into a win probability.",
+        "zh": "真正起作用的是两个潜在分数之差；逻辑函数把这个差转成胜出概率。"
+      },
+      "formalDefinition": "$P(i\\succ j)=\\frac{e^{s_i}}{e^{s_i}+e^{s_j}}=\\sigma(s_i-s_j)$.",
+      "aiApplications": [
+        {
+          "en": "Reward modeling and pairwise human-preference learning for LLM alignment",
+          "zh": "用于大模型对齐的奖励建模与人成对偏好学习"
+        },
+        {
+          "en": "Model comparisons, ranking, and crowdsourced-label aggregation",
+          "zh": "模型比较、排序与众包标签聚合"
+        }
+      ],
+      "category": "statistics",
+      "era": "1952; current alignment use",
+      "relatedConceptIds": [
+        "plackett-luce-model",
+        "elo-rating-system",
+        "bayesian-inference",
+        "gumbel-softmax"
+      ],
+      "aliases": [
+        "Bradley–Terry–Luce model",
+        "BT model",
+        "paired-comparison logit model"
+      ],
+      "tags": [
+        "preference-learning",
+        "ranking",
+        "rlhf",
+        "reward-modeling"
+      ],
+      "attributionNote": {
+        "en": "Named for Bradley and Terry's 1952 analysis. Closely related formulations appeared earlier, including Zermelo's 1929 model, so the eponym does not imply sole invention.",
+        "zh": "名称源自布拉德利与特里 1952 年的分析；泽梅洛 1929 年等更早工作已有密切相关表述，因此该冠名不意味着独立首创。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Bradley & Terry (1952) — Rank analysis of paired comparisons",
+          "url": "https://doi.org/10.2307/2334029"
+        },
+        {
+          "label": "ICLR 2025 — Rethinking Reward Modeling",
+          "url": "https://openreview.net/forum?id=rfdblE10qm"
+        }
+      ]
+    },
+    {
+      "id": "plackett-luce-model",
+      "personIds": [
+        "robin-plackett",
+        "r-duncan-luce"
+      ],
+      "term": "Plackett–Luce model",
+      "zhTerm": "普拉克特–卢斯模型",
+      "functionNickname": {
+        "en": "Build a full ranking one choice at a time",
+        "zh": "逐项选择生成完整排序"
+      },
+      "question": {
+        "en": "How can latent item utilities define a probability distribution over complete or partial rankings?",
+        "zh": "怎样用对象的潜在效用定义完整或部分排序的概率分布？"
+      },
+      "intuition": {
+        "en": "Choose the top item in proportion to its score, remove it, then repeat among the remaining items.",
+        "zh": "先按分数比例选出第一名，把它移除，再在剩余对象中重复选择。"
+      },
+      "formalDefinition": "For ranking $\\pi$, $P(\\pi)=\\prod_{k=1}^{n}\\frac{e^{s_{\\pi_k}}}{\\sum_{j=k}^{n}e^{s_{\\pi_j}}}$.",
+      "aiApplications": [
+        {
+          "en": "Listwise preference optimization and LLM ranking objectives",
+          "zh": "列表式偏好优化与大模型排序目标"
+        },
+        {
+          "en": "Learning-to-rank, recommendation, and choice modeling",
+          "zh": "排序学习、推荐与选择建模"
+        }
+      ],
+      "category": "statistics",
+      "era": "1950s–1970s; current alignment use",
+      "relatedConceptIds": [
+        "bradley-terry-model",
+        "elo-rating-system",
+        "gumbel-softmax"
+      ],
+      "aliases": [
+        "Plackett–Luce ranking model",
+        "Luce choice model",
+        "multinomial logit ranking model"
+      ],
+      "tags": [
+        "ranking",
+        "preference-learning",
+        "llm-alignment",
+        "choice-modeling"
+      ],
+      "attributionNote": {
+        "en": "The name combines Luce's choice axiom with Plackett's likelihood model for rankings. It is a family of later-linked ideas, not a single jointly authored paper.",
+        "zh": "名称把卢斯选择公理与普拉克特的排序似然模型结合起来；它代表后来被联系起来的一组思想，并非一篇两人合著论文。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Plackett (1975) — The Analysis of Permutations",
+          "url": "https://doi.org/10.2307/2346569"
+        },
+        {
+          "label": "ACL 2025 — K-order Ranking Preference Optimization",
+          "url": "https://aclanthology.org/2025.findings-acl.250/"
+        }
+      ]
+    },
+    {
+      "id": "elo-rating-system",
+      "personIds": [
+        "arpad-elo"
+      ],
+      "term": "Elo rating system",
+      "zhTerm": "埃洛等级分系统",
+      "functionNickname": {
+        "en": "Online skill estimator from match results",
+        "zh": "从对局结果在线估计实力"
+      },
+      "question": {
+        "en": "How should competitors' latent ratings update after each pairwise outcome?",
+        "zh": "每次成对胜负之后，应怎样更新竞争者的潜在等级分？"
+      },
+      "intuition": {
+        "en": "Compare the observed result with the result predicted by the rating gap, then move each rating by the prediction error.",
+        "zh": "把实际结果与等级分差预测的结果比较，再按预测误差移动双方等级分。"
+      },
+      "formalDefinition": "$E_i=(1+10^{(R_j-R_i)/400})^{-1}$ and $R_i' = R_i+K(S_i-E_i)$.",
+      "aiApplications": [
+        {
+          "en": "Chatbot arenas and pairwise model leaderboards",
+          "zh": "聊天机器人竞技场与成对模型排行榜"
+        },
+        {
+          "en": "Online evaluation of agents, policies, and game-playing systems",
+          "zh": "智能体、策略与博弈系统的在线评测"
+        }
+      ],
+      "category": "statistics",
+      "era": "1960s",
+      "relatedConceptIds": [
+        "bradley-terry-model",
+        "plackett-luce-model",
+        "kalman-filter"
+      ],
+      "aliases": [
+        "Elo rating",
+        "Elo system"
+      ],
+      "tags": [
+        "rating",
+        "online-learning",
+        "model-evaluation",
+        "pairwise-comparison"
+      ],
+      "attributionNote": {
+        "en": "Developed by Arpad Elo for chess rating and adopted by FIDE. The familiar 400-point logistic scale and update conventions are implementation choices within the broader system.",
+        "zh": "由阿帕德·埃洛为国际象棋等级分开发并被 FIDE 采用；常见的 400 分逻辑尺度与更新约定是该体系中的具体实现选择。"
+      },
+      "sourceLinks": [
+        {
+          "label": "FIDE Rating Regulations (effective 2024)",
+          "url": "https://handbook.fide.com/chapter/B022024"
+        },
+        {
+          "label": "ICML 2024 — Chatbot Arena as an LLM judge platform",
+          "url": "https://proceedings.mlr.press/v235/chiang24b.html"
+        }
+      ]
+    },
+    {
+      "id": "shapley-value",
+      "personIds": [
+        "lloyd-shapley"
+      ],
+      "term": "Shapley value",
+      "zhTerm": "夏普利值",
+      "functionNickname": {
+        "en": "Fair credit by average marginal contribution",
+        "zh": "按平均边际贡献公平分账"
+      },
+      "question": {
+        "en": "How should a total payoff or prediction be attributed among interacting contributors?",
+        "zh": "当多个贡献者相互作用时，怎样把总收益或一次预测归因给每个贡献者？"
+      },
+      "intuition": {
+        "en": "Imagine contributors joining in every possible order and give each one its average extra value when it arrives.",
+        "zh": "设想贡献者以所有可能顺序加入，把每个人加入时带来的额外价值取平均。"
+      },
+      "formalDefinition": "$\\phi_i(v)=\\sum_{S\\subseteq N\\setminus\\{i\\}}\\frac{|S|!(n-|S|-1)!}{n!}\\,[v(S\\cup\\{i\\})-v(S)]$.",
+      "aiApplications": [
+        {
+          "en": "Feature attribution through SHAP-style explanations",
+          "zh": "通过 SHAP 类方法进行特征归因"
+        },
+        {
+          "en": "Data valuation, model-component credit, and multi-agent reward allocation",
+          "zh": "数据估值、模型组件贡献与多智能体奖励分配"
+        }
+      ],
+      "category": "computation",
+      "era": "1950s; modern explainability use",
+      "relatedConceptIds": [],
+      "aliases": [
+        "Shapley allocation",
+        "Shapley feature attribution"
+      ],
+      "tags": [
+        "game-theory",
+        "explainable-ai",
+        "feature-attribution",
+        "data-valuation"
+      ],
+      "attributionNote": {
+        "en": "Shapley defined the cooperative-game allocation in 1953. SHAP and other machine-learning explainers are later adaptations that choose a prediction-specific value function.",
+        "zh": "夏普利于 1953 年定义了合作博弈分配；SHAP 等机器学习解释器是后来的改造，其关键在于为预测问题选择特定价值函数。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Shapley (1952/1953) — A Value for n-Person Games",
+          "url": "https://www.rand.org/pubs/papers/P295.html"
+        },
+        {
+          "label": "NeurIPS 2017 — A Unified Approach to Interpreting Model Predictions",
+          "url": "https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html"
+        },
+        {
+          "label": "ICLR 2022 — FastSHAP",
+          "url": "https://openreview.net/forum?id=Zq2G_VTV53T"
+        }
+      ]
+    },
+    {
+      "id": "hopfield-network",
+      "personIds": [
+        "john-hopfield"
+      ],
+      "term": "Hopfield network",
+      "zhTerm": "霍普菲尔德网络",
+      "functionNickname": {
+        "en": "Memory as an energy attractor",
+        "zh": "把记忆存成能量吸引子"
+      },
+      "question": {
+        "en": "How can a recurrent network retrieve a complete stored pattern from a noisy or partial cue?",
+        "zh": "循环网络怎样从带噪或不完整线索中恢复完整的已存模式？"
+      },
+      "intuition": {
+        "en": "Store memories as low-energy basins; repeated neuron updates roll a corrupted input downhill toward a nearby memorized pattern.",
+        "zh": "把记忆存为低能量盆地；神经元反复更新，让受损输入沿能量下坡落入附近的记忆模式。"
+      },
+      "formalDefinition": "For binary states, $E(s)=-\\tfrac12\\sum_{i\\ne j}w_{ij}s_is_j-\\sum_i b_is_i$; symmetric asynchronous updates do not increase $E$.",
+      "aiApplications": [
+        {
+          "en": "Content-addressable associative memory and pattern completion",
+          "zh": "内容寻址联想记忆与模式补全"
+        },
+        {
+          "en": "Modern continuous Hopfield layers related to attention and retrieval",
+          "zh": "与注意力和检索相关的现代连续霍普菲尔德层"
+        }
+      ],
+      "category": "computation",
+      "era": "1982; modern revival",
+      "relatedConceptIds": [
+        "boltzmann-machine",
+        "lyapunov-function",
+        "gibbs-sampling"
+      ],
+      "aliases": [
+        "Hopfield model",
+        "Hopfield associative memory",
+        "modern Hopfield network"
+      ],
+      "tags": [
+        "neural-networks",
+        "associative-memory",
+        "energy-based-models",
+        "attention"
+      ],
+      "attributionNote": {
+        "en": "Named for Hopfield's 1982 energy-based recurrent network. Associative-memory and spin-system ideas predate it; modern Hopfield networks are later continuous generalizations.",
+        "zh": "名称源自霍普菲尔德 1982 年的能量型循环网络；联想记忆与自旋系统思想早已有之，现代霍普菲尔德网络则是后来的连续推广。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Hopfield (1982) — Neural networks and physical systems",
+          "url": "https://www.pnas.org/doi/10.1073/pnas.79.8.2554"
+        },
+        {
+          "label": "ICLR 2021 — Hopfield Networks is All You Need",
+          "url": "https://openreview.net/forum?id=tL89RnzIiCd"
+        },
+        {
+          "label": "ICML 2025 — Nonparametric Modern Hopfield Models",
+          "url": "https://proceedings.mlr.press/v267/hu25c.html"
+        }
+      ]
+    },
+    {
+      "id": "koopman-operator",
+      "personIds": [
+        "bernard-koopman"
+      ],
+      "term": "Koopman operator",
+      "zhTerm": "库普曼算子",
+      "functionNickname": {
+        "en": "Linear lens on nonlinear dynamics",
+        "zh": "观察非线性动力学的线性透镜"
+      },
+      "question": {
+        "en": "Can nonlinear state evolution be represented linearly by tracking a rich enough set of observables?",
+        "zh": "能否通过追踪足够丰富的观测函数，把非线性状态演化表示成线性过程？"
+      },
+      "intuition": {
+        "en": "Instead of advancing the state directly, advance every measurement of the state by composing it with the dynamics; this operator is linear.",
+        "zh": "不直接推进状态，而是让每个状态观测函数与动力系统复合后推进；这个作用在函数上的算子是线性的。"
+      },
+      "formalDefinition": "For dynamics $x_{t+1}=F(x_t)$ and observable $g$, the Koopman operator is $(\\mathcal K g)(x)=g(F(x))$.",
+      "aiApplications": [
+        {
+          "en": "Learning latent linear dynamics, world models, and system identification",
+          "zh": "学习潜在线性动力学、世界模型与系统辨识"
+        },
+        {
+          "en": "Prediction and control of nonlinear physical systems",
+          "zh": "非线性物理系统的预测与控制"
+        }
+      ],
+      "category": "dynamics",
+      "era": "1931; data-driven revival",
+      "relatedConceptIds": [
+        "fourier-transform",
+        "kalman-filter",
+        "markov-property"
+      ],
+      "aliases": [
+        "Koopman composition operator",
+        "Koopman–von Neumann operator"
+      ],
+      "tags": [
+        "dynamical-systems",
+        "operator-learning",
+        "world-models",
+        "control"
+      ],
+      "attributionNote": {
+        "en": "Koopman introduced the operator representation of classical dynamics in 1931; von Neumann developed the associated spectral framework. Neural Koopman models are later data-driven approximations.",
+        "zh": "库普曼于 1931 年提出经典动力学的算子表示，冯·诺伊曼随后发展其谱框架；神经库普曼模型是后来的数据驱动近似。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Koopman (1931) — Hamiltonian Systems and Hilbert Space",
+          "url": "https://www.pnas.org/doi/10.1073/pnas.17.5.315"
+        },
+        {
+          "label": "NeurIPS 2025 — Koopman operator learning research",
+          "url": "https://proceedings.neurips.cc/paper_files/paper/2025/hash/2a5dd6bad2d10966a8bfa254dfb7dc76-Abstract-Conference.html"
+        }
+      ]
+    },
+    {
+      "id": "lie-group",
+      "personIds": [
+        "sophus-lie"
+      ],
+      "term": "Lie group",
+      "zhTerm": "李群",
+      "functionNickname": {
+        "en": "Smooth space of composable symmetries",
+        "zh": "可平滑组合的对称变换空间"
+      },
+      "question": {
+        "en": "How can continuous transformations be treated simultaneously as algebraic operations and geometric objects?",
+        "zh": "怎样把连续变换同时视为代数运算和几何对象？"
+      },
+      "intuition": {
+        "en": "Rotations and rigid motions can be multiplied like group elements while varying smoothly like points on a manifold.",
+        "zh": "旋转和刚体运动既能像群元素一样相乘，又能像流形上的点一样平滑变化。"
+      },
+      "formalDefinition": "A Lie group $G$ is a smooth manifold with a group structure such that multiplication $(g,h)\\mapsto gh$ and inversion $g\\mapsto g^{-1}$ are smooth.",
+      "aiApplications": [
+        {
+          "en": "Rotation- and pose-equivariant neural networks",
+          "zh": "旋转与姿态等变神经网络"
+        },
+        {
+          "en": "Robotics, geometric deep learning, and manifold-valued neural ODEs",
+          "zh": "机器人、几何深度学习与流形值神经 ODE"
+        }
+      ],
+      "category": "geometry",
+      "era": "Late 19th century",
+      "relatedConceptIds": [
+        "riemannian-manifold",
+        "jacobian-matrix",
+        "noether-theorem",
+        "stiefel-manifold"
+      ],
+      "aliases": [
+        "continuous transformation group",
+        "matrix Lie group"
+      ],
+      "tags": [
+        "symmetry",
+        "equivariance",
+        "geometric-deep-learning",
+        "robotics"
+      ],
+      "attributionNote": {
+        "en": "Named for Sophus Lie's theory of continuous transformation groups. The modern manifold-and-group definition and its machine-learning uses were formalized later.",
+        "zh": "名称源自索菲斯·李的连续变换群理论；现代“流形加群”的定义及其机器学习用途均由后世进一步形式化。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Encyclopedia of Mathematics — Lie group",
+          "url": "https://encyclopediaofmath.org/wiki/Lie_group"
+        },
+        {
+          "label": "ICML 2021 — Neural ODEs on Riemannian Manifolds",
+          "url": "https://proceedings.mlr.press/v139/hutchinson21a.html"
+        }
+      ]
+    },
+    {
+      "id": "weisfeiler-leman-test",
+      "personIds": [
+        "boris-weisfeiler",
+        "andrey-leman"
+      ],
+      "term": "Weisfeiler–Leman test",
+      "zhTerm": "韦斯费勒–莱曼检验",
+      "functionNickname": {
+        "en": "Iterative neighborhood fingerprinting for graphs",
+        "zh": "迭代生成图邻域指纹"
+      },
+      "question": {
+        "en": "Can two graphs be distinguished by repeatedly refining each node's label from its neighborhood?",
+        "zh": "能否通过反复利用邻域细化节点标签来区分两个图？"
+      },
+      "intuition": {
+        "en": "Give every node a color, replace it with a fingerprint of its current color and neighbor-color multiset, and compare the stabilized color counts.",
+        "zh": "给每个节点着色，再用“当前颜色加邻居颜色多重集”的指纹替换它，最后比较稳定后的颜色计数。"
+      },
+      "formalDefinition": "$c_{t+1}(v)=\\operatorname{HASH}\\!\\left(c_t(v),\\multiset{c_t(u):u\\in N(v)}\\right)$; differing color histograms certify non-isomorphism.",
+      "aiApplications": [
+        {
+          "en": "Characterizing the expressive power of message-passing GNNs",
+          "zh": "刻画消息传递图神经网络的表达能力"
+        },
+        {
+          "en": "Graph kernels, graph matching, and structural representation learning",
+          "zh": "图核、图匹配与结构表征学习"
+        }
+      ],
+      "category": "computation",
+      "era": "1968; GNN-era revival",
+      "relatedConceptIds": [
+        "graph-laplacian",
+        "gromov-wasserstein-distance",
+        "dijkstra-algorithm"
+      ],
+      "aliases": [
+        "WL test",
+        "color refinement",
+        "naive vertex classification",
+        "Weisfeiler–Lehman test"
+      ],
+      "tags": [
+        "graphs",
+        "graph-neural-networks",
+        "isomorphism",
+        "expressivity"
+      ],
+      "attributionNote": {
+        "en": "Introduced by Boris Weisfeiler and Andrey Leman in 1968. “Lehman” is a common spelling variant; the test is a benchmark for, not itself an instance of, modern GNN message passing.",
+        "zh": "由鲍里斯·韦斯费勒与安德烈·莱曼于 1968 年提出；“Lehman”是常见拼写变体。该检验是现代 GNN 消息传递的表达力基准，而非神经网络本身。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Weisfeiler & Leman (1968) — English translation",
+          "url": "https://www.iti.zcu.cz/wl2018/pdf/wl_paper_translation.pdf"
+        },
+        {
+          "label": "ICLR 2019 — How Powerful are Graph Neural Networks?",
+          "url": "https://openreview.net/forum?id=ryGs6iA5Km"
+        },
+        {
+          "label": "ICML 2022 — Weisfeiler–Leman and graph learning",
+          "url": "https://proceedings.mlr.press/v162/chen22o.html"
+        }
+      ]
+    },
+    {
+      "id": "stiefel-manifold",
+      "personIds": [
+        "eduard-stiefel"
+      ],
+      "term": "Stiefel manifold",
+      "zhTerm": "斯蒂费尔流形",
+      "functionNickname": {
+        "en": "Curved space of orthonormal frames",
+        "zh": "所有正交标架组成的弯曲空间"
+      },
+      "question": {
+        "en": "What is the geometry of matrices whose columns must remain orthonormal?",
+        "zh": "当矩阵列向量必须始终正交归一时，它们组成怎样的几何空间？"
+      },
+      "intuition": {
+        "en": "Each point is an ordered orthonormal frame; moving on the manifold changes the frame without violating orthogonality.",
+        "zh": "每个点是一组有序正交标架；沿流形移动会改变标架，却不会破坏正交约束。"
+      },
+      "formalDefinition": "$\\mathrm{St}(n,p)=\\{X\\in\\mathbb R^{n\\times p}:X^\\top X=I_p\\}$ for $1\\le p\\le n$.",
+      "aiApplications": [
+        {
+          "en": "Riemannian optimization with orthogonality-constrained weights",
+          "zh": "带正交权重约束的黎曼优化"
+        },
+        {
+          "en": "Low-rank representation learning, subspace methods, and stable neural parameterizations",
+          "zh": "低秩表征学习、子空间方法与稳定神经参数化"
+        }
+      ],
+      "category": "geometry",
+      "era": "20th century",
+      "relatedConceptIds": [
+        "riemannian-manifold",
+        "gram-schmidt-orthogonalization",
+        "lagrange-multipliers",
+        "lie-group"
+      ],
+      "aliases": [
+        "Stiefel space",
+        "orthonormal frame manifold"
+      ],
+      "tags": [
+        "manifold-optimization",
+        "orthogonality",
+        "matrix-geometry",
+        "representation-learning"
+      ],
+      "attributionNote": {
+        "en": "Named for Eduard Stiefel in connection with his topology of frame bundles. Contemporary optimization algorithms on this manifold are later numerical developments.",
+        "zh": "名称源自爱德华·斯蒂费尔关于标架丛拓扑的工作；流形上的现代优化算法属于后来的数值发展。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Encyclopedia of Mathematics — Stiefel manifold",
+          "url": "https://encyclopediaofmath.org/wiki/Stiefel_manifold"
+        },
+        {
+          "label": "OpenReview — Learning with orthogonality constraints",
+          "url": "https://openreview.net/forum?id=vCJ9-Ri-6xU"
+        }
+      ]
+    },
+    {
+      "id": "canny-edge-detector",
+      "personIds": [
+        "john-canny"
+      ],
+      "term": "Canny edge detector",
+      "zhTerm": "坎尼边缘检测器",
+      "functionNickname": {
+        "en": "Thin, connected boundaries from image gradients",
+        "zh": "从图像梯度提取细而连续的边界"
+      },
+      "question": {
+        "en": "How can meaningful image boundaries be detected with good localization and few duplicate responses?",
+        "zh": "怎样以良好定位、较少重复响应检测有意义的图像边界？"
+      },
+      "intuition": {
+        "en": "Smooth away noise, find strong local gradient peaks, thin them, then connect weak edges only when supported by strong ones.",
+        "zh": "先平滑噪声，寻找局部强梯度峰并细化，再只保留与强边相连的弱边。"
+      },
+      "formalDefinition": "Compute $M=\\sqrt{(\\partial_x(G_\\sigma*I))^2+(\\partial_y(G_\\sigma*I))^2}$, then apply non-maximum suppression and dual-threshold hysteresis.",
+      "aiApplications": [
+        {
+          "en": "Classical image preprocessing, boundary labels, and feature extraction",
+          "zh": "经典图像预处理、边界标注与特征提取"
+        },
+        {
+          "en": "Structural conditioning for controllable text-to-image diffusion models",
+          "zh": "可控文生图扩散模型的结构条件输入"
+        }
+      ],
+      "category": "computation",
+      "era": "1986; diffusion-control reuse",
+      "relatedConceptIds": [
+        "gaussian-kernel",
+        "laplacian-operator",
+        "cartesian-coordinate-system"
+      ],
+      "aliases": [
+        "Canny detector",
+        "Canny edge detection"
+      ],
+      "tags": [
+        "computer-vision",
+        "edge-detection",
+        "image-processing",
+        "diffusion-conditioning"
+      ],
+      "attributionNote": {
+        "en": "Introduced by John Canny in 1986 from explicit detection, localization, and single-response criteria. Using its edge maps to condition neural generators is a later application.",
+        "zh": "由约翰·坎尼在 1986 年依据检测、定位与单一响应准则提出；把其边缘图用于神经生成模型条件控制是后来的应用。"
+      },
+      "sourceLinks": [
+        {
+          "label": "Canny (1986) — A Computational Approach to Edge Detection",
+          "url": "https://doi.org/10.1109/TPAMI.1986.4767851"
+        },
+        {
+          "label": "ICCV 2023 — Adding Conditional Control to Text-to-Image Diffusion Models",
+          "url": "https://openaccess.thecvf.com/content/ICCV2023/html/Zhang_Adding_Conditional_Control_to_Text-to-Image_Diffusion_Models_ICCV_2023_paper.html"
+        }
+      ]
     }
   ]
 }

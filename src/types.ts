@@ -47,8 +47,9 @@ export interface Person {
   readonly id: string;
   readonly name: string;
   readonly zhName: string;
-  readonly born: string;
+  readonly born: string | null;
   readonly died: string | null;
+  readonly lifeStatus?: "missing";
   readonly region: string;
   readonly portraitInitials: string;
   readonly summary: LocalizedText;
@@ -113,8 +114,9 @@ export interface PersonGraphNode extends BaseGraphNode {
   readonly kind: "person";
   readonly personId: string;
   readonly meta: {
-    readonly born: string;
+    readonly born: string | null;
     readonly died: string | null;
+    readonly lifeStatus?: "missing";
     readonly region: string;
   };
 }

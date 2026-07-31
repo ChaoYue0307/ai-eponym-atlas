@@ -12,8 +12,8 @@ import { buildEgoGraph } from "./graph";
 
 describe("atlas data integrity", () => {
   it("has a substantial catalog with unique ids", () => {
-    expect(people.length).toBeGreaterThanOrEqual(50);
-    expect(concepts.length).toBeGreaterThanOrEqual(60);
+    expect(people.length).toBeGreaterThanOrEqual(100);
+    expect(concepts.length).toBeGreaterThanOrEqual(120);
     expect(new Set(people.map((person) => person.id)).size).toBe(people.length);
     expect(new Set(concepts.map((concept) => concept.id)).size).toBe(
       concepts.length,
@@ -80,7 +80,7 @@ describe("atlas data integrity", () => {
       expect(concept.intuition.zh.trim()).not.toBe("");
       expect(concept.aiApplications.length).toBeGreaterThan(0);
       expect(categories).toContain(concept.category);
-      expect(concept.sourceLinks.length).toBeGreaterThan(0);
+      expect(concept.sourceLinks.length).toBeGreaterThanOrEqual(2);
       for (const source of concept.sourceLinks) {
         expect(source.label.trim()).not.toBe("");
         expect(source.url).toMatch(/^https?:\/\//);
@@ -90,7 +90,7 @@ describe("atlas data integrity", () => {
 
   it("keeps timeline references valid and chronology stable", () => {
     expect(timelineEvents.length).toBeGreaterThanOrEqual(10);
-    expect(timelineEvents.length).toBeLessThanOrEqual(14);
+    expect(timelineEvents.length).toBeLessThanOrEqual(24);
     expect(new Set(timelineEvents.map((event) => event.kind))).toEqual(
       new Set(["person", "publication", "naming", "ai-adoption"]),
     );

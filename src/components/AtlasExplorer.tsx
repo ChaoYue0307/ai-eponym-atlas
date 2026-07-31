@@ -18,6 +18,7 @@ import type { Locale } from '../copy'
 import { copy } from '../copy'
 import { categories, concepts, conceptsById, peopleById } from '../data/catalog'
 import { navigate } from '../hooks/useHashRoute'
+import { formatLifespan } from '../lib/lifespan'
 import { searchCatalog, type SearchMode } from '../lib/search'
 import { ConceptDetail } from './ConceptDetail'
 import { SectionRule } from './SectionRule'
@@ -288,9 +289,7 @@ export function AtlasExplorer({ locale, params, homePreview = false }: AtlasExpl
                       </span>
                       <span className="result-row__origin">
                         {person.region}
-                        <small>
-                          {person.born}–{person.died ?? (locale === 'zh' ? '至今' : 'present')}
-                        </small>
+                        <small>{formatLifespan(person, locale)}</small>
                       </span>
                       <span className="result-row__application">
                         {locale === 'zh' ? '相关术语' : 'Known here for'}
