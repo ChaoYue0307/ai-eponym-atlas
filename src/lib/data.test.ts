@@ -23,7 +23,12 @@ import {
 } from "../data/constellation";
 import { connectCircleBoundaries } from "./constellationGeometry";
 import { buildEgoGraph } from "./graph";
-import { layoutNodes, mergeGraphs } from "./graphLayout";
+import {
+  graphNodeVisualBounds,
+  layoutNodes,
+  mergeGraphs,
+  routeGraphEdge,
+} from "./graphLayout";
 import { conceptCountDistribution } from "./personConceptStats";
 
 describe("atlas data integrity", () => {
@@ -420,29 +425,32 @@ describe("atlas data integrity", () => {
 
   it("keeps every visible two-hop graph layout collision-free", () => {
     for (const concept of concepts) {
-      const firstHop = buildEgoGraph(concept.id);
+      const firstHop = buildEgoGraph(concept.id, {
+        maxRelatedConcepts: 6,
+        maxApplications: 2,
+      });
       const secondHops = firstHop.nodes
         .flatMap((node) =>
           node.kind === "concept" && node.conceptId !== concept.id
-            ? [buildEgoGraph(node.conceptId)]
+            ? [
+                buildEgoGraph(node.conceptId, {
+                  includePeople: false,
+                  includeApplications: false,
+                  maxRelatedConcepts: 2,
+                }),
+              ]
             : [],
         );
-      const positioned = layoutNodes(
-        mergeGraphs([firstHop, ...secondHops], concept.id).nodes,
-      );
+      const graph = mergeGraphs([firstHop, ...secondHops], concept.id);
+      const positioned = layoutNodes(graph.nodes, graph.edges);
       const boxes = positioned.map((node) => {
-        const [width, height] =
-          node.kind === "person"
-            ? [104, 104]
-            : node.kind === "application"
-              ? [124, 86]
-              : [136, 84];
+        const bounds = graphNodeVisualBounds(node);
         return {
           id: node.id,
-          left: node.x - width / 2,
-          right: node.x + width / 2,
-          top: node.y - height / 2,
-          bottom: node.y + height / 2,
+          left: node.x + bounds.left,
+          right: node.x + bounds.right,
+          top: node.y + bounds.top,
+          bottom: node.y + bounds.bottom,
         };
       });
 
@@ -463,6 +471,71 @@ describe("atlas data integrity", () => {
           ).toBe(false);
         }
       }
+    }
+  });
+
+  it("routes graph edges clear of unrelated node footprints", () => {
+    const segmentHitsBox = (
+      start: { x: number; y: number },
+      end: { x: number; y: number },
+      box: { left: number; right: number; top: number; bottom: number },
+    ) => {
+      const steps = 160;
+      for (let index = 1; index < steps; index += 1) {
+        const ratio = index / steps;
+        const x = start.x + (end.x - start.x) * ratio;
+        const y = start.y + (end.y - start.y) * ratio;
+        if (x > box.left && x < box.right && y > box.top && y < box.bottom) {
+          return true;
+        }
+      }
+      return false;
+    };
+
+    for (const concept of concepts) {
+      const firstHop = buildEgoGraph(concept.id, {
+        maxRelatedConcepts: 6,
+        maxApplications: 2,
+      });
+      const secondHops = firstHop.nodes.flatMap((node) =>
+        node.kind === "concept" && node.conceptId !== concept.id
+          ? [
+              buildEgoGraph(node.conceptId, {
+                includePeople: false,
+                includeApplications: false,
+                maxRelatedConcepts: 2,
+              }),
+            ]
+          : [],
+      );
+      const graph = mergeGraphs([firstHop, ...secondHops], concept.id);
+      const positioned = layoutNodes(graph.nodes, graph.edges);
+      const byId = new Map(positioned.map((node) => [node.id, node]));
+
+      graph.edges.forEach((edge) => {
+        const start = byId.get(edge.source);
+        const end = byId.get(edge.target);
+        expect(start).toBeDefined();
+        expect(end).toBeDefined();
+        if (!start || !end) return;
+        const route = routeGraphEdge(start, end, positioned);
+        positioned.forEach((node) => {
+          if (node.id === start.id || node.id === end.id) return;
+          const bounds = graphNodeVisualBounds(node);
+          const box = {
+            left: node.x + bounds.left,
+            right: node.x + bounds.right,
+            top: node.y + bounds.top,
+            bottom: node.y + bounds.bottom,
+          };
+          for (let index = 1; index < route.length; index += 1) {
+            expect(
+              segmentHitsBox(route[index - 1]!, route[index]!, box),
+              `${concept.id}: ${edge.source} → ${edge.target} crosses ${node.id}; route=${JSON.stringify(route)}`,
+            ).toBe(false);
+          }
+        });
+      });
     }
   });
 

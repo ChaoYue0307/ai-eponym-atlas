@@ -4,12 +4,13 @@ import ChevronRight from 'lucide-react/dist/esm/icons/chevron-right.mjs'
 import RotateCcw from 'lucide-react/dist/esm/icons/rotate-ccw.mjs'
 import Share2 from 'lucide-react/dist/esm/icons/share-2.mjs'
 import X from 'lucide-react/dist/esm/icons/x.mjs'
-import { useEffect, useMemo, useState, type CSSProperties } from 'react'
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import type { Locale } from '../copy'
 import { copy } from '../copy'
 import { conceptsById, peopleById } from '../data/catalog'
 import { timelineEras, timelineEvents } from '../data/timeline'
 import { navigate, useHashRoute } from '../hooks/useHashRoute'
+import { allocateTimelineMarkerLanes } from '../lib/timelineLayout'
 import type { TimelineEraId, TimelineEventKind } from '../types'
 import { PersonPortrait } from './PersonPortrait'
 import './TimelineView.css'
@@ -95,28 +96,10 @@ function positionForYear(year: number) {
   return ((year - firstTimelineYear) / (lastTimelineYear - firstTimelineYear)) * 100
 }
 
-/**
- * Preserve exact x positions while assigning crowded events to small vertical
- * lanes. This keeps 2023–2025 legible without pretending those years are
- * farther apart than they are.
- */
-const markerLanes = (() => {
-  const lastPositionByLane = Array.from({ length: 7 }, () => -Infinity)
-  const offsets = [0, -1, 1, -2, 2, -3, 3]
-  const lanes = new Map<string, number>()
-
-  for (const event of timelineEvents) {
-    const position = positionForYear(event.sortYear)
-    let lane = lastPositionByLane.findIndex(
-      (lastPosition) => position - lastPosition >= 1.25,
-    )
-    if (lane < 0) lane = 0
-    lastPositionByLane[lane] = position
-    lanes.set(event.id, offsets[lane] ?? 0)
-  }
-
-  return lanes
-})()
+const overviewMarkers = timelineEvents.map((event) => ({
+  id: event.id,
+  position: positionForYear(event.sortYear),
+}))
 
 const kindCounts = new Map(
   timelineKinds.map((kind) => [
@@ -169,6 +152,28 @@ function TimelineOverview({
   const [rovingEventId, setRovingEventId] = useState<string | null>(
     selectedEventId ?? navigableEvents[0]?.id ?? null,
   )
+  const plotRef = useRef<HTMLDivElement>(null)
+  const [plotWidth, setPlotWidth] = useState(960)
+
+  useEffect(() => {
+    const plot = plotRef.current
+    if (!plot) return
+    const updateWidth = () => setPlotWidth(Math.max(1, plot.clientWidth))
+    updateWidth()
+    if (typeof ResizeObserver === 'undefined') {
+      window.addEventListener('resize', updateWidth)
+      return () => window.removeEventListener('resize', updateWidth)
+    }
+    const observer = new ResizeObserver(updateWidth)
+    observer.observe(plot)
+    return () => observer.disconnect()
+  }, [])
+
+  const markerLayout = useMemo(
+    () => allocateTimelineMarkerLanes(overviewMarkers, plotWidth),
+    [plotWidth],
+  )
+  const plotHeight = Math.max(82, 70 + (markerLayout.laneCount - 1) * 28)
 
   useEffect(() => {
     if (selectedEventId && visibleEventIds.has(selectedEventId)) {
@@ -212,6 +217,8 @@ function TimelineOverview({
       </div>
       <div
         className="timeline-v2-overview__plot"
+        ref={plotRef}
+        style={{ '--timeline-plot-height': `${plotHeight}px` } as CSSProperties}
         aria-label={
           locale === 'zh'
             ? `从 ${firstTimelineYear} 到 ${lastTimelineYear} 的真实比例事件总览`
@@ -244,7 +251,7 @@ function TimelineOverview({
                 style={
                   {
                     '--timeline-position': `${positionForYear(event.sortYear)}%`,
-                    '--timeline-lane': markerLanes.get(event.id) ?? 0,
+                    '--timeline-lane': markerLayout.lanes.get(event.id) ?? 0,
                   } as CSSProperties
                 }
                 aria-label={`${event.year[locale]} — ${event.title[locale]}`}

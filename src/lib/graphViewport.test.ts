@@ -85,6 +85,12 @@ describe('graph viewport and presentation helpers', () => {
     expect(lines.join('')).toBe(label)
   })
 
+  it('splits an overlong eponym token instead of letting it escape a node', () => {
+    const lines = wrapGraphLabel('Levenberg–Marquardt', 10, 3)
+    expect(lines).toEqual(['Levenberg–', 'Marquardt'])
+    expect(lines.every((line) => Array.from(line).length <= 10)).toBe(true)
+  })
+
   it('returns a bounded fit camera for deterministic layouts', () => {
     const graph = buildEgoGraph('hessian-matrix', {
       maxRelatedConcepts: 6,

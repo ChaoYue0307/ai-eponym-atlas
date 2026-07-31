@@ -66,9 +66,9 @@
   display: grid;
   max-width: var(--max-width);
   min-height: 62px;
-  grid-template-columns: minmax(0, 1fr) minmax(184px, auto) auto auto;
+  grid-template-columns: minmax(0, 1fr) 200px auto auto;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
   margin: 0 auto;
   padding: 8px var(--page-gutter);
   border: 1px solid var(--timeline-hairline);
@@ -81,7 +81,8 @@
 .timeline-v2-filters {
   display: flex;
   min-width: 0;
-  gap: 6px;
+  flex-wrap: nowrap;
+  gap: 4px;
   overflow-x: auto;
   scrollbar-width: none;
 }
@@ -95,8 +96,8 @@
   min-height: 40px;
   flex: 0 0 auto;
   align-items: center;
-  gap: 8px;
-  padding: 0 12px;
+  gap: 6px;
+  padding: 0 8px;
   border: 1px solid transparent;
   border-radius: 3px;
   color: var(--muted);
@@ -246,7 +247,7 @@
 
 .timeline-v2-overview__plot {
   position: relative;
-  height: 82px;
+  height: var(--timeline-plot-height, 82px);
   margin: 5px 7px 0;
 }
 
@@ -296,7 +297,7 @@
 .timeline-v2-overview__event {
   position: absolute;
   z-index: 2;
-  top: calc(46px + (var(--timeline-lane) * 8px));
+  top: calc(46px + (var(--timeline-lane) * 28px));
   left: var(--timeline-position);
   display: grid;
   width: 24px;
@@ -1097,6 +1098,8 @@
 
   .timeline-v2-inline-detail {
     display: grid;
+    grid-column: 1 / -1;
+    grid-row: 2;
   }
 }
 
@@ -1145,8 +1148,8 @@
 
   .timeline-v2-filters {
     grid-column: 1 / -1;
-    margin: 0 -12px;
-    padding: 0 12px 2px;
+    margin: 0;
+    padding: 0 0 2px;
   }
 
   .timeline-v2-filters button {
@@ -1177,7 +1180,7 @@
   }
 
   .timeline-v2-overview__plot {
-    height: 68px;
+    min-height: 68px;
   }
 
   .timeline-v2-overview__axis {
@@ -1190,7 +1193,7 @@
   }
 
   .timeline-v2-overview__event {
-    top: calc(42px + (var(--timeline-lane) * 6px));
+    top: calc(42px + (var(--timeline-lane) * 28px));
     width: 24px;
     height: 24px;
   }
@@ -1410,8 +1413,23 @@
     max-width: 340px;
   }
 
+  .timeline-v2-filters {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+    overflow: visible;
+  }
+
   .timeline-v2-filters button {
+    width: 100%;
+    min-width: 0;
+    justify-content: space-between;
     padding: 0 10px;
+    white-space: normal;
+  }
+
+  .timeline-v2-filters button:first-child {
+    grid-column: 1 / -1;
   }
 
   .timeline-v2-overview {
@@ -1484,7 +1502,8 @@
   }
 
   .timeline-v2-overview__plot {
-    height: 58px;
+    height: var(--timeline-plot-height, 58px);
+    min-height: 58px;
   }
 
   .timeline-v2-overview__axis {
@@ -1497,7 +1516,7 @@
   }
 
   .timeline-v2-overview__event {
-    top: calc(34px + (var(--timeline-lane) * 5px));
+    top: calc(34px + (var(--timeline-lane) * 28px));
   }
 
   .timeline-v2-workspace {

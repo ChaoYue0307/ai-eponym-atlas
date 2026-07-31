@@ -5,11 +5,13 @@ import LocateFixed from 'lucide-react/dist/esm/icons/locate-fixed.mjs'
 import Minus from 'lucide-react/dist/esm/icons/minus.mjs'
 import Plus from 'lucide-react/dist/esm/icons/plus.mjs'
 import RotateCcw from 'lucide-react/dist/esm/icons/rotate-ccw.mjs'
+import { useMemo } from 'react'
 import type { KeyboardEvent, PointerEvent, RefObject, WheelEvent } from 'react'
 import type { Locale } from '../copy'
 import { peopleById } from '../data/catalog'
 import {
   GRAPH_VIEWBOX,
+  routeGraphEdge,
   wrapGraphLabel,
   type PositionedNode,
 } from '../lib/graphLayout'
@@ -19,7 +21,6 @@ import {
   GRAPH_CAMERA_MIN,
   type GraphCamera,
 } from '../lib/graphViewport'
-import { formatLifespan } from '../lib/lifespan'
 import type { Concept, EgoGraph, EgoGraphNode } from '../types'
 
 type Point = {
@@ -192,84 +193,99 @@ export function GraphCanvas({
   const hasActivePath = selectedNode.id !== focusNodeId
   const visibleNodeCount = graph.nodes.length
   const hiddenNodeCount = Math.max(0, availableNodeCount - visibleNodeCount)
+  const edgeRoutes = useMemo(
+    () =>
+      new Map(
+        graph.edges.flatMap((edge) => {
+          const source = positionById.get(edge.source)
+          const target = positionById.get(edge.target)
+          return source && target
+            ? [[edge.id, routeGraphEdge(source, target, positionedNodes)] as const]
+            : []
+        }),
+      ),
+    [graph.edges, positionById, positionedNodes],
+  )
 
   return (
     <section
       className="graph-canvas"
       aria-label={locale === 'zh' ? '关系图画布' : 'Relationship graph canvas'}
     >
-      <ul
-        className="graph-canvas__legend"
-        aria-label={locale === 'zh' ? '关系类型图例' : 'Relationship legend'}
-      >
-        <li>
-          <span
-            className="graph-legend-line graph-legend-line--named-after"
-            aria-hidden="true"
-          />
-          {locale === 'zh' ? '名字来源' : 'Named after'}
-        </li>
-        <li>
-          <span
-            className="graph-legend-line graph-legend-line--related-to"
-            aria-hidden="true"
-          />
-          {locale === 'zh' ? '相关概念' : 'Related'}
-        </li>
-        <li>
-          <span
-            className="graph-legend-line graph-legend-line--applied-in"
-            aria-hidden="true"
-          />
-          {locale === 'zh' ? 'AI 应用' : 'AI use'}
-        </li>
-      </ul>
-
-      <div className="graph-canvas__tools">
-        <button type="button" onClick={onReset}>
-          <RotateCcw aria-hidden="true" />
-          <span>{locale === 'zh' ? '重置' : 'Reset'}</span>
-        </button>
-        <button
-          type="button"
-          onClick={onFit}
-          aria-label={locale === 'zh' ? '适应画布' : 'Fit graph to canvas'}
+      <header className="graph-canvas__chrome">
+        <ul
+          className="graph-canvas__legend"
+          aria-label={locale === 'zh' ? '关系类型图例' : 'Relationship legend'}
         >
-          <LocateFixed aria-hidden="true" />
-          <span>{locale === 'zh' ? '适应' : 'Fit'}</span>
-        </button>
-        <div>
-          <button
-            type="button"
-            onClick={() => onZoomBy(-0.1)}
-            aria-label={locale === 'zh' ? '缩小' : 'Zoom out'}
-            disabled={camera.scale <= GRAPH_CAMERA_MIN}
-          >
-            <Minus aria-hidden="true" />
+          <li>
+            <span
+              className="graph-legend-line graph-legend-line--named-after"
+              aria-hidden="true"
+            />
+            {locale === 'zh' ? '名字来源' : 'Named after'}
+          </li>
+          <li>
+            <span
+              className="graph-legend-line graph-legend-line--related-to"
+              aria-hidden="true"
+            />
+            {locale === 'zh' ? '相关概念' : 'Related'}
+          </li>
+          <li>
+            <span
+              className="graph-legend-line graph-legend-line--applied-in"
+              aria-hidden="true"
+            />
+            {locale === 'zh' ? 'AI 应用' : 'AI use'}
+          </li>
+        </ul>
+
+        <div className="graph-canvas__tools">
+          <button type="button" onClick={onReset}>
+            <RotateCcw aria-hidden="true" />
+            <span>{locale === 'zh' ? '重置' : 'Reset'}</span>
           </button>
-          <span>{Math.round(camera.scale * 100)}%</span>
           <button
             type="button"
-            onClick={() => onZoomBy(0.1)}
-            aria-label={locale === 'zh' ? '放大' : 'Zoom in'}
-            disabled={camera.scale >= GRAPH_CAMERA_MAX}
+            onClick={onFit}
+            aria-label={locale === 'zh' ? '适应画布' : 'Fit graph to canvas'}
           >
-            <Plus aria-hidden="true" />
+            <LocateFixed aria-hidden="true" />
+            <span>{locale === 'zh' ? '适应' : 'Fit'}</span>
+          </button>
+          <div>
+            <button
+              type="button"
+              onClick={() => onZoomBy(-0.1)}
+              aria-label={locale === 'zh' ? '缩小' : 'Zoom out'}
+              disabled={camera.scale <= GRAPH_CAMERA_MIN}
+            >
+              <Minus aria-hidden="true" />
+            </button>
+            <span>{Math.round(camera.scale * 100)}%</span>
+            <button
+              type="button"
+              onClick={() => onZoomBy(0.1)}
+              aria-label={locale === 'zh' ? '放大' : 'Zoom in'}
+              disabled={camera.scale >= GRAPH_CAMERA_MAX}
+            >
+              <Plus aria-hidden="true" />
+            </button>
+          </div>
+          <button type="button" onClick={onCopy} aria-live="polite">
+            {copied ? <Check aria-hidden="true" /> : <Clipboard aria-hidden="true" />}
+            <span className="sr-only">
+              {locale === 'zh'
+                ? copied
+                  ? '已复制'
+                  : '复制链接'
+                : copied
+                  ? 'Copied'
+                  : 'Copy link'}
+            </span>
           </button>
         </div>
-        <button type="button" onClick={onCopy} aria-live="polite">
-          {copied ? <Check aria-hidden="true" /> : <Clipboard aria-hidden="true" />}
-          <span className="sr-only">
-            {locale === 'zh'
-              ? copied
-                ? '已复制'
-                : '复制链接'
-              : copied
-                ? 'Copied'
-                : 'Copy link'}
-          </span>
-        </button>
-      </div>
+      </header>
 
       <div
         className={`graph-canvas__viewport${isDragging ? ' is-dragging' : ''}`}
@@ -343,8 +359,31 @@ export function GraphCanvas({
                 const source = positionById.get(edge.source)
                 const target = positionById.get(edge.target)
                 if (!source || !target) return null
-                const start = nodeBoundaryPoint(source, target)
-                const end = nodeBoundaryPoint(target, source)
+                const route = edgeRoutes.get(edge.id) ?? [source, target]
+                const firstWaypoint = route[1] ?? target
+                const lastWaypoint = route.at(-2) ?? source
+                const start = nodeBoundaryPoint(source, {
+                  ...target,
+                  ...firstWaypoint,
+                })
+                const end = nodeBoundaryPoint(target, {
+                  ...source,
+                  ...lastWaypoint,
+                })
+                const pathPoints = [start, ...route.slice(1, -1), end]
+                const longestSegment = pathPoints.slice(1).reduce(
+                  (best, point, index) => {
+                    const previous = pathPoints[index]!
+                    const length = Math.hypot(
+                      point.x - previous.x,
+                      point.y - previous.y,
+                    )
+                    return length > best.length
+                      ? { start: previous, end: point, length }
+                      : best
+                  },
+                  { start, end, length: 0 },
+                )
                 const isHighlighted =
                   hasActivePath && selectedPath.edgeIds.has(edge.id)
                 const isMuted = hasActivePath && !isHighlighted
@@ -367,7 +406,12 @@ export function GraphCanvas({
                   >
                     <path
                       className={`graph-edge graph-edge--${edge.relation}`}
-                      d={`M ${start.x} ${start.y} L ${end.x} ${end.y}`}
+                      d={pathPoints
+                        .map(
+                          (point, index) =>
+                            `${index === 0 ? 'M' : 'L'} ${point.x} ${point.y}`,
+                        )
+                        .join(' ')}
                       markerEnd={
                         edge.directed
                           ? `url(#graph-arrow-${edge.relation})`
@@ -376,8 +420,8 @@ export function GraphCanvas({
                     />
                     {edge.relation !== 'related-to' || isHighlighted ? (
                       <text
-                        x={(start.x + end.x) / 2}
-                        y={(start.y + end.y) / 2 - 7}
+                        x={(longestSegment.start.x + longestSegment.end.x) / 2}
+                        y={(longestSegment.start.y + longestSegment.end.y) / 2 - 7}
                         textAnchor="middle"
                       >
                         {label}
@@ -390,7 +434,21 @@ export function GraphCanvas({
             <g className="graph-nodes">
               {positionedNodes.map((node) => {
                 const label = locale === 'zh' ? node.zhLabel : node.label
-                const lines = wrapGraphLabel(label, node.isFocus ? 22 : 17, 3)
+                const maxGraphemes =
+                  locale === 'zh'
+                    ? node.kind === 'application'
+                      ? 8
+                      : node.isFocus
+                        ? 11
+                        : 9
+                    : node.kind === 'application'
+                      ? 16
+                      : node.isFocus
+                        ? 22
+                        : 18
+                const maxLines =
+                  node.kind === 'application' || node.isFocus ? 3 : 2
+                const lines = wrapGraphLabel(label, maxGraphemes, maxLines)
                 const person =
                   node.kind === 'person' ? peopleById.get(node.personId) : undefined
                 const isSelected = selectedNode.id === node.id
@@ -399,17 +457,11 @@ export function GraphCanvas({
                   node.kind === 'concept'
                     ? categoryLabels[node.meta.category][locale]
                     : undefined
-                const detail =
-                  node.kind === 'concept'
-                    ? node.meta.functionNickname[locale]
-                    : node.kind === 'application'
-                      ? locale === 'zh'
-                        ? 'AI 应用'
-                        : 'AI application'
-                      : person
-                        ? formatLifespan(person, locale)
-                        : ''
-                const personLines = wrapGraphLabel(label, 20, 2)
+                const personLines = wrapGraphLabel(
+                  label,
+                  locale === 'zh' ? 10 : 18,
+                  2,
+                )
                 return (
                   <g
                     key={node.id}
@@ -471,32 +523,23 @@ export function GraphCanvas({
                             </tspan>
                           ))}
                         </text>
-                        <text
-                          className="graph-node__meta"
-                          y={94 + (personLines.length - 1) * 15}
-                        >
-                          {detail}
-                        </text>
                       </>
                     ) : node.kind === 'application' ? (
                       <>
                         <polygon points="-80,0 -53,-54 53,-54 80,0 53,54 -53,54" />
                         <text
                           className="graph-node__label"
-                          y={-((lines.length - 1) * 8) - 5}
+                          y={5 - ((lines.length - 1) * 17) / 2}
                         >
                           {lines.map((line, index) => (
                             <tspan
                               key={`${line}-${index}`}
                               x="0"
-                              dy={index === 0 ? 0 : 16}
+                              dy={index === 0 ? 0 : 17}
                             >
                               {line}
                             </tspan>
                           ))}
-                        </text>
-                        <text className="graph-node__meta" y="37">
-                          {detail}
                         </text>
                       </>
                     ) : (
@@ -510,29 +553,26 @@ export function GraphCanvas({
                         />
                         <text
                           className="graph-node__label"
-                          y={-((lines.length - 1) * 8) - (node.isFocus ? 13 : 8)}
+                          y={
+                            (node.isFocus ? -8 : -7) -
+                            ((lines.length - 1) * (node.isFocus ? 20 : 17)) / 2
+                          }
                         >
                           {lines.map((line, index) => (
                             <tspan
                               key={`${line}-${index}`}
                               x="0"
-                              dy={index === 0 ? 0 : 16}
+                              dy={index === 0 ? 0 : node.isFocus ? 20 : 17}
                             >
                               {line}
                             </tspan>
                           ))}
                         </text>
-                        {node.isFocus && locale === 'en' ? (
-                          <text className="graph-node__translation" y="19">
-                            {node.zhLabel}
-                          </text>
-                        ) : null}
                         <text
                           className="graph-node__meta"
-                          y={node.isFocus ? 43 : 34}
+                          y={node.isFocus ? 44 : 31}
                         >
-                          {category ? `${category} · ` : ''}
-                          {wrapGraphLabel(detail, node.isFocus ? 27 : 21, 1)}
+                          {category}
                         </text>
                       </>
                     )}
@@ -544,39 +584,41 @@ export function GraphCanvas({
         </svg>
       </div>
 
-      <p className="graph-canvas__count" aria-live="polite">
-        <strong>
-          {locale === 'zh'
-            ? `显示 ${visibleNodeCount} 个相关节点`
-            : `${visibleNodeCount} related nodes shown`}
-        </strong>
-        {hiddenNodeCount > 0 ? (
-          <span>
+      <footer className="graph-canvas__footer">
+        <p className="graph-canvas__count" aria-live="polite">
+          <strong>
             {locale === 'zh'
-              ? `可在关系列表中继续查看另外 ${hiddenNodeCount} 个相关节点。`
-              : `Explore ${hiddenNodeCount} more related nodes in the list.`}
-          </span>
-        ) : (
-          <span>
-            {locale === 'zh'
-              ? '相关节点已全部显示。'
-              : 'All related nodes are shown.'}
-          </span>
-        )}
-      </p>
+              ? `显示 ${visibleNodeCount} 个相关节点`
+              : `${visibleNodeCount} related nodes shown`}
+          </strong>
+          {hiddenNodeCount > 0 ? (
+            <span>
+              {locale === 'zh'
+                ? `可在关系列表中继续查看另外 ${hiddenNodeCount} 个相关节点。`
+                : `Explore ${hiddenNodeCount} more related nodes in the list.`}
+            </span>
+          ) : (
+            <span>
+              {locale === 'zh'
+                ? '相关节点已全部显示。'
+                : 'All related nodes are shown.'}
+            </span>
+          )}
+        </p>
 
-      <p className="graph-canvas__instruction">
-        <Info aria-hidden="true" />
-        <span>
-          {locale === 'zh'
-            ? '选择节点以突出路径；双击概念可重新聚焦。'
-            : 'Select a node to trace its path; double-click a concept to refocus.'}
-        </span>
-        <kbd>F</kbd>
-        <span>{locale === 'zh' ? '适应画布' : 'Fit'}</span>
-        <kbd>＋/－</kbd>
-        <span>{locale === 'zh' ? '缩放' : 'Zoom'}</span>
-      </p>
+        <p className="graph-canvas__instruction">
+          <Info aria-hidden="true" />
+          <span>
+            {locale === 'zh'
+              ? '选择节点以突出路径；双击概念可重新聚焦。'
+              : 'Select a node to trace its path; double-click a concept to refocus.'}
+          </span>
+          <kbd>F</kbd>
+          <span>{locale === 'zh' ? '适应画布' : 'Fit'}</span>
+          <kbd>＋/－</kbd>
+          <span>{locale === 'zh' ? '缩放' : 'Zoom'}</span>
+        </p>
+      </footer>
     </section>
   )
 }

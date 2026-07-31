@@ -963,6 +963,7 @@ html[lang='zh-CN'] .hero__stat dt {
   font-size: 1.05rem;
   font-weight: 500;
   line-height: 1.2;
+  overflow-wrap: anywhere;
 }
 
 .learning-path li p {
@@ -1574,7 +1575,7 @@ html[lang='zh-CN'] .hero__stat dt {
 .people-ranking__columns,
 .people-ranking li {
   display: grid;
-  grid-template-columns: 52px minmax(190px, 0.78fr) minmax(280px, 1.35fr) minmax(150px, 0.8fr) 42px;
+  grid-template-columns: 52px minmax(150px, 0.85fr) minmax(220px, 1.35fr) minmax(100px, 0.8fr) 42px;
   align-items: center;
   gap: 16px;
 }
@@ -1636,21 +1637,23 @@ html[lang='zh-CN'] .hero__stat dt {
 }
 
 .people-ranking__person strong {
-  overflow: hidden;
+  overflow: visible;
   font-family: var(--serif);
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: -0.015em;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 1.16;
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 .people-ranking__person small {
-  overflow: hidden;
+  overflow: visible;
   color: var(--muted);
   font-size: 0.65rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 .people-ranking__concepts {
@@ -1773,13 +1776,14 @@ html[lang='zh-CN'] .hero__stat dt {
 
 .result-row__main strong {
   display: block;
-  overflow: hidden;
+  overflow: visible;
   font-family: var(--serif);
   font-size: 1.03rem;
   font-weight: 600;
   letter-spacing: -0.02em;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 1.18;
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 .result-row__main strong small {
@@ -2030,12 +2034,14 @@ html[lang='zh-CN'] .hero__stat dt {
 }
 
 .concept-detail__title {
+  min-width: 0;
   margin: 0 0 8px;
   font-family: var(--serif);
   font-size: clamp(1.9rem, 2.5vw, 2.9rem);
   font-weight: 500;
   letter-spacing: -0.035em;
   line-height: 1.06;
+  overflow-wrap: anywhere;
 }
 
 .concept-detail__title:focus-visible {
@@ -2408,6 +2414,10 @@ html[lang='zh-CN'] .hero__stat dt {
   text-transform: uppercase;
 }
 
+.person-page__identity {
+  min-width: 0;
+}
+
 .person-page h1 {
   margin-bottom: 18px;
   font-family: var(--serif);
@@ -2415,6 +2425,7 @@ html[lang='zh-CN'] .hero__stat dt {
   font-weight: 500;
   letter-spacing: -0.05em;
   line-height: 0.95;
+  overflow-wrap: anywhere;
 }
 
 .person-page h1 span {
@@ -3714,9 +3725,19 @@ html[lang='zh-CN'] .hero__stat dt {
   .result-row {
     grid-template-columns: 20px minmax(210px, 1.4fr) minmax(130px, 0.7fr) minmax(150px, 0.9fr) 20px;
   }
+
+  .learning-path {
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .learning-path ol {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 20px;
+  }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1160px) {
   .hero {
     display: block;
   }
@@ -3732,15 +3753,6 @@ html[lang='zh-CN'] .hero__stat dt {
     margin: 36px auto 0;
   }
 
-  .learning-path {
-    grid-template-columns: 240px minmax(0, 1fr);
-    gap: 28px;
-  }
-
-  .learning-path ol {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    row-gap: 20px;
-  }
 }
 
 @media (max-width: 1040px) {
@@ -3877,7 +3889,7 @@ html[lang='zh-CN'] .hero__stat dt {
   }
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1080px) {
   :root {
     --header-height: 60px;
     --page-gutter: 20px;
@@ -4219,6 +4231,7 @@ html[lang='zh-CN'] .hero__stat dt {
 
   .concept-detail--page .concept-detail__title {
     font-size: 3rem;
+    overflow-wrap: anywhere;
   }
 
   .concept-detail--page .concept-detail__primary {
@@ -4271,12 +4284,14 @@ html[lang='zh-CN'] .hero__stat dt {
   }
 
   .person-page__identity {
+    min-width: 0;
     grid-column: 2;
     grid-row: 1;
   }
 
   .person-page h1 {
     font-size: clamp(2.4rem, 12vw, 4rem);
+    overflow-wrap: anywhere;
   }
 
   .person-page__intro {
@@ -4547,23 +4562,19 @@ html[lang='zh-CN'] .hero__stat dt {
 
 .graph-page.graph-v2 .graph-node__label,
 .graph-page.graph-v2 .graph-node__person-name {
-  font-size: 16px;
+  font-size: 13px;
 }
 
 .graph-page.graph-v2 .graph-node--focus .graph-node__label {
-  font-size: 19px;
-}
-
-.graph-page.graph-v2 .graph-node__translation {
-  font-size: 14px;
+  font-size: 17px;
 }
 
 .graph-page.graph-v2 .graph-node__meta {
-  font-size: 12px;
+  font-size: 10.5px;
 }
 
 .graph-page.graph-v2 .graph-edge-group text {
-  font-size: 11px;
+  font-size: 9px;
 }
 
 .graph-page.graph-v2 .relationship-group h3 span {
@@ -4590,10 +4601,13 @@ html[lang='zh-CN'] .hero__stat dt {
 
 .timeline-page.timeline-v2 .timeline-v2-filters button,
 .timeline-page.timeline-v2 .timeline-v2-era-select select,
-.timeline-page.timeline-v2 .timeline-v2-toolbar__meta,
-.timeline-page.timeline-v2 .timeline-v2-share {
+.timeline-page.timeline-v2 .timeline-v2-toolbar__meta {
   min-height: 44px;
   font-size: 0.8125rem;
+}
+
+.timeline-page.timeline-v2 .timeline-v2-share {
+  min-height: 44px;
 }
 
 .timeline-page.timeline-v2 .timeline-v2-overview__tick > span,
@@ -4686,7 +4700,7 @@ html[lang='zh-CN'] .hero__stat dt {
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 900px) {
   .people-layout-bar {
     display: grid;
     gap: 12px;
@@ -4736,7 +4750,12 @@ html[lang='zh-CN'] .hero__stat dt {
   }
 
   .coverage-equation__line {
-    grid-template-columns: minmax(64px, 1fr) 20px minmax(92px, 1.2fr) 20px minmax(72px, 1fr);
+    grid-template-columns: minmax(0, 1fr) 18px minmax(0, 1.2fr) 18px minmax(0, 1fr);
+    gap: 3px;
+  }
+
+  .coverage-equation__term {
+    min-width: 0;
   }
 
   .coverage-equation__term strong {

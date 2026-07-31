@@ -152,12 +152,12 @@ export function GraphInspector({
                       <span>
                         <strong>{locale === 'zh' ? node.zhLabel : node.label}</strong>
                         <small>{secondary}</small>
+                        {!isVisible ? (
+                          <small className="relationship-item__availability">
+                            {locale === 'zh' ? '从此展开' : 'Explore from here'}
+                          </small>
+                        ) : null}
                       </span>
-                      {!isVisible ? (
-                        <small className="relationship-item__availability">
-                          {locale === 'zh' ? '从此展开' : 'Explore from here'}
-                        </small>
-                      ) : null}
                       <ChevronRight aria-hidden="true" />
                     </button>
                   )

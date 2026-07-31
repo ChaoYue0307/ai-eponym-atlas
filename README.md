@@ -118,16 +118,12 @@ order—without presenting that order as historical causality.
 
 <table>
   <tr>
-    <td width="68%">
+    <td colspan="2">
       <img src="./docs/images/relationship-graph.jpg" alt="Two-hop relationship graph for the Hessian matrix, showing people, related concepts, AI applications, controls, and an accessible relationship legend">
-    </td>
-    <td width="32%">
-      <img src="./docs/images/timeline-mobile.jpg" alt="Chinese mobile timeline showing the true-scale overview, René Descartes's verified portrait, and the selected 1637 publication event">
     </td>
   </tr>
   <tr>
-    <td><strong>Relationship explorer</strong><br>Choose a concept, trace the people and ideas around it, and open any connection for context.</td>
-    <td><strong>Mobile chronology</strong><br>Compare milestones and open the evidence behind each event on any screen.</td>
+    <td colspan="2"><strong>Relationship explorer</strong><br>Choose a concept, trace the people and ideas around it, and open any connection for context.</td>
   </tr>
   <tr>
     <td>

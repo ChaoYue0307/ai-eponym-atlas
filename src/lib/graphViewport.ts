@@ -1,5 +1,9 @@
 import type { EgoGraph } from '../types'
-import { GRAPH_VIEWBOX, type PositionedNode } from './graphLayout'
+import {
+  GRAPH_VIEWBOX,
+  graphNodeVisualBounds,
+  type PositionedNode,
+} from './graphLayout'
 
 export type GraphCamera = {
   x: number
@@ -25,27 +29,12 @@ export function calculateFitCamera(
   if (!nodes.length) return DEFAULT_GRAPH_CAMERA
   const bounds = nodes.reduce(
     (result, node) => {
-      const halfWidth =
-        node.kind === 'person'
-          ? 62
-          : node.kind === 'application'
-            ? 84
-            : node.isFocus
-              ? 100
-              : 82
-      const halfHeight =
-        node.kind === 'person'
-          ? 92
-          : node.kind === 'application'
-            ? 60
-            : node.isFocus
-              ? 66
-              : 54
+      const visual = graphNodeVisualBounds(node)
       return {
-        left: Math.min(result.left, node.x - halfWidth),
-        right: Math.max(result.right, node.x + halfWidth),
-        top: Math.min(result.top, node.y - halfHeight),
-        bottom: Math.max(result.bottom, node.y + halfHeight),
+        left: Math.min(result.left, node.x + visual.left),
+        right: Math.max(result.right, node.x + visual.right),
+        top: Math.min(result.top, node.y + visual.top),
+        bottom: Math.max(result.bottom, node.y + visual.bottom),
       }
     },
     {
