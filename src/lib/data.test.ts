@@ -14,12 +14,9 @@ import { timelineEvents } from "../data/timeline";
 import {
   constellationConceptIds,
   constellationEdges,
-} from "../components/ConceptConstellation";
-import {
-  layoutNodes,
-  mergeGraphs,
-} from "../components/GraphExplorer";
+} from "../data/constellation";
 import { buildEgoGraph } from "./graph";
+import { layoutNodes, mergeGraphs } from "./graphLayout";
 
 describe("atlas data integrity", () => {
   it("has a substantial catalog with unique ids", () => {
