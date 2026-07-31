@@ -2,7 +2,7 @@
   "id": "./",
   "name": "AI Eponym Atlas",
   "short_name": "Eponym Atlas",
-  "description": "Decoding the people, mathematics, and ideas behind artificial intelligence.",
+  "description": "Understand the ideas behind the names in AI.",
   "lang": "en",
   "start_url": "./",
   "scope": "./",

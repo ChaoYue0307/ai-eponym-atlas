@@ -8,35 +8,35 @@ import { SectionRule } from './SectionRule'
 const principles = [
   {
     id: 'meaning',
-    en: 'Meaning before biography',
-    zh: '意义先于传记',
+    en: 'What it does first',
+    zh: '先看它做什么',
     bodyEn:
-      'Every entry begins with the question the concept answers, a plain-language label, and a 15-second intuition.',
-    bodyZh: '每条记录先回答“它解决什么问题”，再给功能标签与 15 秒直觉。',
+      'Begin with the question the concept answers, its plain-language meaning, and a 15-second intuition.',
+    bodyZh: '先看它回答什么问题，再用一句话含义和 15 秒直觉快速建立理解。',
   },
   {
     id: 'boundary',
-    en: 'Intuition with boundaries',
-    zh: '直觉必须带边界',
+    en: 'Intuition and its limits',
+    zh: '直觉与它的边界',
     bodyEn:
-      'Helpful shortcuts are marked as teaching aids. We also state where an analogy stops being mathematically safe.',
-    bodyZh: '功能标签会明确标为教学辅助；直觉可能失效的条件也必须写清楚。',
+      'Use the shortcut to get oriented, then check where the analogy stops matching the mathematics.',
+    bodyZh: '用直觉快速入门，再查看类比在什么条件下不再成立。',
   },
   {
     id: 'history',
-    en: 'History without hero mythology',
-    zh: '历史不压成英雄神话',
+    en: 'A fuller history',
+    zh: '更完整的历史',
     bodyEn:
-      'Discovery, publication, formalization, popularization, and later naming are recorded as different claims.',
-    bodyZh: '发现、发表、形式化、推广和后世命名是不同主张，不能混成一个“发明者”。',
+      'See discovery, publication, formalization, popularization, and later naming as distinct parts of the story.',
+    bodyZh: '把发现、发表、形式化、推广与后世命名作为不同的历史环节来理解。',
   },
   {
     id: 'evidence',
-    en: 'Sources over confidence',
-    zh: '来源高于自信语气',
+    en: 'Evidence you can follow',
+    zh: '可以继续追查的证据',
     bodyEn:
-      'Definitions, attribution, and AI applications require sources suited to each kind of claim.',
-    bodyZh: '定义、历史归因与 AI 应用必须分别使用适合该类主张的来源。',
+      'Follow separate sources for the formal definition, historical attribution, and modern AI uses.',
+    bodyZh: '形式化定义、历史归属与现代 AI 用途分别链接到相应来源。',
   },
 ]
 
@@ -95,23 +95,23 @@ export function AboutPage({ locale }: { locale: Locale }) {
   return (
     <main className="about-page">
       <header className="page-intro about-page__intro">
-        <p className="section-number">04 — METHOD</p>
+        <p className="section-number">04 — {locale === 'zh' ? '阅读指南' : 'HOW TO READ'}</p>
         <h1>
-          {locale === 'zh' ? '保留名字，也恢复意义。' : 'Keep the names. Restore their meaning.'}
+          {locale === 'zh' ? '看懂名字本身没有说出的内容。' : 'Understand what the name cannot tell you.'}
         </h1>
         <SectionRule />
         <p>
           {locale === 'zh'
-            ? '人名保存了学术史，却很少告诉读者术语真正做什么。这个图谱补上缺失的语义层。'
-            : 'Eponyms preserve intellectual history, but rarely tell a reader what a term actually does. This atlas adds the missing semantic layer.'}
+            ? '每个条目都把人名术语连回它回答的问题、背后的数学、历史脉络与 AI 用途。'
+            : 'Each entry connects a named term to the question it answers, the mathematics behind it, its history, and its uses in AI.'}
         </p>
       </header>
 
       <section className="method-principles" aria-labelledby="principles-title">
         <div className="method-principles__heading">
-          <p className="section-number">EDITORIAL PRINCIPLES</p>
+          <p className="section-number">{locale === 'zh' ? '你会读到什么' : "WHAT YOU'LL FIND"}</p>
           <h2 id="principles-title">
-            {locale === 'zh' ? '一条记录如何建立信任' : 'How an entry earns trust'}
+            {locale === 'zh' ? '每个概念都按清晰的路径展开' : 'A clear path through every concept'}
           </h2>
         </div>
         <ol>
@@ -129,14 +129,14 @@ export function AboutPage({ locale }: { locale: Locale }) {
 
       <section className="entry-anatomy" aria-labelledby="entry-anatomy-title">
         <div className="entry-anatomy__title">
-          <p className="section-number">ENTRY ANATOMY</p>
+          <p className="section-number">{locale === 'zh' ? '如何阅读概念' : 'HOW TO READ A CONCEPT'}</p>
           <h2 id="entry-anatomy-title">
-            {locale === 'zh' ? '从名字到可调用的理解' : 'From a name to usable understanding'}
+            {locale === 'zh' ? '先建立直觉，再深入定义与证据' : 'Start with intuition, then go deeper'}
           </h2>
           <p>
             {locale === 'zh'
-              ? '同一套阅读顺序用于所有概念，先快后深。'
-              : 'Every concept follows the same path, from fast orientation to deeper evidence.'}
+              ? '所有概念都按同一顺序展开，方便你快速定位，也能继续深入。'
+              : 'Every concept follows the same sequence, so you can orient quickly and continue as far as you need.'}
           </p>
         </div>
         <div className="entry-anatomy__example">
@@ -159,12 +159,12 @@ export function AboutPage({ locale }: { locale: Locale }) {
 
       <section className="coverage-band">
         <div>
-          <p className="section-number">EXPANDED EDITION · {meta.lastUpdated}</p>
-          <h2>{locale === 'zh' ? '广泛，但不假装穷尽。' : 'Broad, without pretending to be exhaustive.'}</h2>
+          <p className="section-number">{locale === 'zh' ? '收录范围' : 'COVERAGE'} · {meta.lastUpdated}</p>
+          <h2>{locale === 'zh' ? '从基础概念到现代 AI 应用。' : 'From foundations to modern AI applications.'}</h2>
           <p>
             {locale === 'zh'
-              ? '扩展版兼顾基础概念、专门领域工具与 2020–2026 仍活跃的 AI 用途，并明确记录核查截止日期。'
-              : 'The expanded edition balances foundations, specialist tools, and AI uses active in 2020–2026, with an explicit editorial cutoff.'}
+              ? '涵盖核心数学、专门工具与 2020–2026 年间的 AI 应用；上方日期表示本版内容的最近核查时间。'
+              : 'Coverage spans core mathematics, specialist tools, and AI work from 2020–2026; the date above shows when this edition was last reviewed.'}
           </p>
         </div>
         <dl>

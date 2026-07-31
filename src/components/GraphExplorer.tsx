@@ -361,10 +361,9 @@ export function GraphExplorer({ locale, params }: GraphExplorerProps) {
     selectedConcept?.question[locale] ??
     selectedPerson?.summary[locale] ??
     (locale === 'zh'
-      ? `这个 AI 应用通过 ${focusedConcept.zhTerm} 与当前图谱相连。`
-      : `This AI application is connected to the graph through ${focusedConcept.term}.`)
+      ? `这是 ${focusedConcept.zhTerm} 的一项 AI 应用。`
+      : `An AI application of ${focusedConcept.term}.`)
   const visibleEdgeCount = visualGraph.edges.length
-  const availableEdgeCount = semanticGraph.edges.length
 
   return (
     <main className="graph-page graph-v2">
@@ -554,32 +553,23 @@ export function GraphExplorer({ locale, params }: GraphExplorerProps) {
                   label:
                     locale === 'zh' ? '人物（命名）' : 'People (named after)',
                   value: countByKind(visualGraph, 'person'),
-                  total: countByKind(semanticGraph, 'person'),
                 },
                 {
                   label: locale === 'zh' ? '相关概念' : 'Concepts (related)',
                   value: Math.max(0, countByKind(visualGraph, 'concept') - 1),
-                  total: Math.max(0, countByKind(semanticGraph, 'concept') - 1),
                 },
                 {
                   label: locale === 'zh' ? 'AI 应用' : 'AI applications',
                   value: countByKind(visualGraph, 'application'),
-                  total: countByKind(semanticGraph, 'application'),
                 },
                 {
                   label: locale === 'zh' ? '关系' : 'Relationships',
                   value: visibleEdgeCount,
-                  total: availableEdgeCount,
                 },
               ].map((stat) => (
                 <p key={stat.label}>
                   <span>{stat.label}</span>
-                  <strong>
-                    {stat.value}
-                    {stat.total !== stat.value ? (
-                      <small> / {stat.total}</small>
-                    ) : null}
-                  </strong>
+                  <strong>{stat.value}</strong>
                 </p>
               ))}
             </section>

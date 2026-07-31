@@ -19,7 +19,7 @@ AI Eponym Atlas 仅将生成式图片用于装饰性的编辑插图。定义、�
 | Accessibility | Empty `alt`, `aria-hidden="true"`; hidden in forced-colors and reduced-data modes |
 | Informational role | None; the SVG above it is the sole semantic and interactive layer |
 
-### Production prompt
+### Semantic-strata production prompt
 
 > Use case: stylized-concept. Asset type: subtle decorative underlay for the
 > homepage hero figure of an editorial AI mathematics atlas website. Create an
@@ -89,14 +89,31 @@ be read as a relationship encoded by the atlas.
 | --- | --- |
 | File | `public/og-card.jpg` |
 | Purpose | Open Graph and large Twitter/X link preview |
-| Output | 1200 × 630 JPEG, approximately 60 KB |
-| Generated role | Uses `semantic-strata.webp` as the decorative background |
-| Deterministic role | Real project logo, English title, Chinese title, tagline, URL, typography, spacing, and rule |
-| Rendering | Browser/IAB screenshot at the native 1200 × 630 viewport |
+| Generated | 2026-07-31 with ChatGPT built-in image generation |
+| Source output | 1731 × 909 PNG |
+| Production output | 1200 × 630 JPEG, approximately 182 KB |
+| Text verification | English title, Chinese title, tagline, and URL checked against repository copy |
+| Informational role | Decorative project identity only; it is not mathematical or historical evidence |
 
-The social card does not ask the image model to render typography, the logo, or
-mathematics. Those elements are composited with code-native HTML/CSS so spelling,
-alignment, and brand fidelity remain deterministic.
+The A–I–E mark at the upper left is also cropped into `brand-mark.png`,
+`icon-192.png`, `icon-512.png`, and `apple-touch-icon.png`. The blue **I** keeps
+all three initials legible at small sizes and avoids the previous A–E reading.
+
+### Social-card production prompt
+
+> Use case: ads-marketing. Asset type: GitHub README cover and Open Graph social
+> card for an educational open-source project. Create a premium contemporary
+> editorial cover for AI Eponym Atlas, using a Swiss grid and scientific-atlas
+> visual language. Use warm ivory paper, subtle embossed topographic contours,
+> sparse mathematical arcs and nodes, near-black ink, vivid ultramarine, and one
+> tiny vermilion accent. Use an exact 1200:630 landscape composition with
+> generous margins. Place an original monogram at the upper left that clearly
+> includes **A**, **I**, and **E**, never only A and E. Render exactly once:
+> “AI Eponym Atlas”, “AI 人名概念图谱”, “Understand the ideas behind
+> the names in AI.”, and “chaoyue0307.github.io/ai-eponym-atlas”. Keep the text
+> perfectly legible. No extra words, portraits, fake equations, generic AI
+> brains, circuit-board imagery, neon, mockup frame, 3D logo, watermark, or
+> decorative clutter.
 
 ## Rejected UI concept studies
 
@@ -115,5 +132,5 @@ evaluated directly in React, CSS, semantic HTML, and SVG:
 - Historical portraits come only from the audited media catalog.
 - README images are captures of the working application.
 
-Generated imagery remains limited to the non-informational paper texture
-documented above.
+Generated imagery remains limited to non-informational editorial artwork: the
+paper underlay and the social cover documented above.

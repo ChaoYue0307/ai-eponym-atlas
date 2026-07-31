@@ -35,7 +35,7 @@ const kindLabels: Record<TimelineEventKind, { en: string; zh: string }> = {
 const timelineUi = {
   en: {
     section: '03 — TIMELINE',
-    span: '22 curated events · 1596–2025',
+    span: '22 milestones · 1596–2025',
     filters: 'Filter timeline events',
     era: 'Era',
     allEras: 'All eras',
@@ -45,7 +45,7 @@ const timelineUi = {
     shared: 'Link copied',
     overview: 'True-scale overview',
     overviewNote:
-      'Marker positions are proportional to time. The grouped chapters below are optimized for reading, not equal spacing.',
+      'Markers follow actual year intervals. Events are grouped by era below for easier comparison.',
     eraNavigation: 'Timeline chapters',
     eventDetails: 'Event details',
     chooseEvent: 'Select an event to inspect it',
@@ -63,7 +63,7 @@ const timelineUi = {
   },
   zh: {
     section: '03 — 时间线',
-    span: '22 条精选事件 · 1596–2025',
+    span: '22 个里程碑 · 1596–2025',
     filters: '筛选时间线事件',
     era: '时代',
     allEras: '全部时代',
@@ -72,7 +72,7 @@ const timelineUi = {
     share: '分享当前视图',
     shared: '链接已复制',
     overview: '真实比例总览',
-    overviewNote: '节点按真实年份比例定位；下方按时代分章，以便阅读，并非等距排列。',
+    overviewNote: '节点按真实年份间隔定位；下方按时代分组，方便对照。',
     eraNavigation: '时间线章节',
     eventDetails: '事件详情',
     chooseEvent: '选择一个事件深入阅读',

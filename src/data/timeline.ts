@@ -129,8 +129,8 @@ const curatedTimeline: TimelineEvent[] = [
       zh: "正态曲线逐渐与高斯之名绑定",
     },
     description: {
-      en: "The bell-shaped law predates Gauss, but his error theory makes “Gaussian” the enduring eponym—a reminder that naming is not the same as sole discovery.",
-      zh: "钟形分布早于高斯出现，但他的误差理论使“高斯”成为长期沿用的名称，也提醒我们：命名并不等同于独立发现。",
+      en: "The bell-shaped law predates Gauss, but his error theory made “Gaussian” the enduring eponym. The name does not imply sole discovery.",
+      zh: "钟形分布早于高斯出现，但他的误差理论使“高斯”成为长期沿用的名称。命名并不等于独立发现。",
     },
     personIds: ["carl-friedrich-gauss"],
     conceptIds: ["gaussian-distribution"],

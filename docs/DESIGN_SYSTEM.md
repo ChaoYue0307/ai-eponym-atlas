@@ -75,7 +75,7 @@ historical evidence, or portraits of real people.
 
 ## Core component families
 
-- **Brand:** AE mark, English name, optional Chinese lockup, quiet navigation.
+- **Brand:** A–I–E mark, English name, optional Chinese lockup, quiet navigation.
 - **Page intro:** section number, serif heading, rule, short purpose statement.
 - **Buttons:** primary, secondary, text, and icon variants with consistent focus,
   hover, pressed, disabled, and coarse-pointer behavior.

@@ -2619,6 +2619,16 @@ p {
     font-size: clamp(3rem, 14vw, 4.4rem);
   }
 
+  html[lang='zh-CN'] .hero h1 {
+    font-size: clamp(2.35rem, 11.5vw, 3.15rem);
+    letter-spacing: -0.035em;
+    line-height: 1.08;
+  }
+
+  html[lang='zh-CN'] .hero h1 span {
+    white-space: nowrap;
+  }
+
   .hero__copy > p {
     font-size: 1rem;
   }

@@ -49,7 +49,7 @@ function App() {
       atlas: locale === 'zh' ? '探索图谱 · AI Eponym Atlas' : 'Explore · AI Eponym Atlas',
       graph: locale === 'zh' ? '关系图谱 · AI Eponym Atlas' : 'Graph · AI Eponym Atlas',
       timeline: locale === 'zh' ? '时间线 · AI Eponym Atlas' : 'Timeline · AI Eponym Atlas',
-      about: locale === 'zh' ? '收录方法 · AI Eponym Atlas' : 'Methodology · AI Eponym Atlas',
+      about: locale === 'zh' ? '阅读指南 · AI Eponym Atlas' : 'How to read · AI Eponym Atlas',
     } as const
     document.title = routeTitles[route.name]
   }, [locale, route])

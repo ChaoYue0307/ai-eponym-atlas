@@ -5,6 +5,9 @@ All notable editorial and product changes are recorded here. The catalog's
 
 ## 0.2.0 — 2026-07-31
 
+- Reframed the project around the reader-facing line “Understand the ideas
+  behind the names in AI,” simplified explanatory copy across every major view,
+  and refreshed the cover and icon suite with a legible A–I–E mark.
 - Expanded the atlas from 75 to 120 concepts and from 57 to 117 people.
 - Raised the evidence floor to at least two direct sources per concept, for 247
   source links in the released catalog.

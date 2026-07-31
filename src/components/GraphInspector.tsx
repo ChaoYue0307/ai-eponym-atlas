@@ -97,8 +97,8 @@ export function GraphInspector({
       <div className="graph-inspector__relationships">
         <p className="graph-inspector__count">
           {locale === 'zh'
-            ? `${edges.length} 条语义关系`
-            : `${edges.length} semantic relationships`}
+            ? `${edges.length} 条关联`
+            : `${edges.length} connections`}
         </p>
         {(Object.keys(relationTitles) as Array<keyof typeof relationTitles>).map(
           (relation) => {
@@ -154,7 +154,7 @@ export function GraphInspector({
                       </span>
                       {!isVisible ? (
                         <small className="relationship-item__availability">
-                          {locale === 'zh' ? '在完整图谱中' : 'Full graph'}
+                          {locale === 'zh' ? '从此展开' : 'Explore from here'}
                         </small>
                       ) : null}
                       <ChevronRight aria-hidden="true" />

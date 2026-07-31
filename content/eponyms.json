@@ -2,9 +2,9 @@
   "meta": {
     "title": "AI Eponym Atlas",
     "zhTitle": "AI 人名概念图谱",
-    "subtitle": "Decoding the people, mathematics, and ideas behind artificial intelligence.",
-    "zhSubtitle": "从人名到含义，从数学到人工智能。",
-    "tagline": "From Names to Meaning, From Mathematics to AI.",
+    "subtitle": "Explore the intuition, mathematics, history, connections, and modern AI uses of concepts named after people.",
+    "zhSubtitle": "从直觉、数学、历史与关联出发，理解这些概念如何用于现代 AI。",
+    "tagline": "Understand the ideas behind the names in AI.",
     "description": {
       "en": "A bilingual, structured atlas of eponymous mathematical and technical concepts widely used in artificial intelligence.",
       "zh": "一份双语、结构化的图谱，解释广泛用于人工智能的数学与技术人名概念。"

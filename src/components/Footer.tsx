@@ -8,11 +8,11 @@ export function Footer({ locale }: { locale: Locale }) {
       <Brand />
       <p>
         {locale === 'zh'
-          ? '让名字成为理解的入口，而不是阅读的障碍。'
-          : 'Let names become an entry point to understanding, not an interruption.'}
+          ? '读懂 AI 人名术语背后的思想。'
+          : 'Understand the ideas behind the names in AI.'}
       </p>
       <div className="site-footer__links">
-        <a href="#/about">{locale === 'zh' ? '收录方法' : 'Methodology'}</a>
+        <a href="#/about">{locale === 'zh' ? '阅读指南' : 'How to read'}</a>
         <a
           href="https://github.com/ChaoYue0307/ai-eponym-atlas"
           target="_blank"
@@ -21,7 +21,7 @@ export function Footer({ locale }: { locale: Locale }) {
           {locale === 'zh' ? '参与贡献' : 'Contribute'}
         </a>
         <span>
-          {locale === 'zh' ? `核查至 ${meta.lastUpdated}` : `Reviewed through ${meta.lastUpdated}`}
+          {locale === 'zh' ? `更新于 ${meta.lastUpdated}` : `Updated ${meta.lastUpdated}`}
         </span>
         <span>MIT · CC BY 4.0</span>
       </div>

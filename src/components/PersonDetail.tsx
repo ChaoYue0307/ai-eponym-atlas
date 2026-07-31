@@ -53,7 +53,7 @@ export function PersonDetail({ personId, locale }: { personId: string; locale: L
           <p className="person-page__summary">{person.summary[locale]}</p>
           {person.profileUrl ? (
             <a href={person.profileUrl} target="_blank" rel="noreferrer">
-              {locale === 'zh' ? '查看 Wikidata 身份记录' : 'View verified Wikidata identity'}
+              {locale === 'zh' ? '查看 Wikidata 人物资料' : 'View Wikidata profile'}
               <ExternalLink aria-hidden="true" />
             </a>
           ) : null}
@@ -100,7 +100,7 @@ export function PersonDetail({ personId, locale }: { personId: string; locale: L
             navigate('/about')
           }}
         >
-          {locale === 'zh' ? '阅读收录方法' : 'Read the methodology'}
+          {locale === 'zh' ? '了解人名归属' : 'Learn how names are attributed'}
           <ExternalLink aria-hidden="true" />
         </a>
       </section>

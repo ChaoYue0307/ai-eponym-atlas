@@ -2,8 +2,8 @@
 
 <p align="center">
   <strong>AI 人名概念图谱</strong><br>
-  <em>From Names to Meaning, From Mathematics to AI.</em><br>
-  从人名回到意义，从数学走向 AI。
+  <em>Understand the ideas behind the names in AI.</em><br>
+  读懂 AI 人名术语背后的思想。
 </p>
 
 <p align="center">
@@ -15,7 +15,7 @@
 
 <p align="center">
   <a href="https://chaoyue0307.github.io/ai-eponym-atlas/">
-    <img src="./public/og-card.jpg" alt="AI Eponym Atlas — a bilingual atlas that decodes the people, mathematics, and ideas behind artificial intelligence">
+    <img src="./public/og-card.jpg" alt="AI Eponym Atlas — understand the ideas behind the names in AI">
   </a>
 </p>
 
@@ -29,28 +29,27 @@
   <a href="./CONTRIBUTING.md">🤝 Contribute</a>
 </p>
 
-AI Eponym Atlas is a bilingual, meaning-first reference for mathematical and
-technical concepts named after people and widely used in artificial
-intelligence. It explains what each concept does, how to understand it, where
-it came from, how it connects to other ideas, and where it appears in modern AI.
+AI Eponym Atlas is a bilingual reference for mathematical and technical
+concepts named after people and widely used in artificial intelligence. Start
+with what a concept does, then explore its intuition, formal definition,
+history, connections, and modern applications.
 
-AI Eponym Atlas 面向学习者、研究者与工程师，把以人物命名的数学和技术术语重新翻译成功能、直觉、定义、历史、关系与现代 AI 用途。
+AI Eponym Atlas 是一份双语参考图谱，逐一解释以人物命名、并广泛用于 AI 的数学与技术术语：它解决什么问题、如何定义、从何而来，以及怎样用于现代 AI。
 
 ---
 
 ## 📊 At a glance / 项目概览
 
-Current catalog snapshot: **2026-07-31** · Schema **1.1.0**
+Updated **2026-07-31**
 
 | Coverage / 覆盖 | Evidence / 证据 | Experience / 体验 |
 | :---: | :---: | :---: |
 | **120** concepts / 概念<br>**117** people / 人物 | **247** cited sources / 直接来源<br>**77** verified portraits / 核验肖像 | **9** fields / 领域<br>中文 + English |
 
-Every concept currently has at least two direct references. Historical
-portraits are source-verified open works with file-level attribution; the
-project does **not** generate synthetic portraits of real people.
+Every concept has at least two direct references, and every historical portrait
+links to its source and license.
 
-每个概念目前至少有两条直接来源。历史人物肖像均来自经身份与许可核验的开放素材；本项目不会生成真实人物的虚构肖像。
+每个概念至少有两条直接来源，每幅历史人物肖像都标注原始来源与许可信息。
 
 ## 🧠 Why this exists / 为什么做
 
@@ -58,7 +57,7 @@ Cartesian, Gaussian, Bayesian, Markov, Fourier, Jacobian, Hessian, Hilbert,
 Shannon—these names preserve intellectual history, but the names themselves
 say almost nothing about what the concepts do.
 
-AI Eponym Atlas adds the missing semantic layer:
+Each entry turns an unfamiliar name into a path you can follow:
 
 ```mermaid
 flowchart LR
@@ -80,9 +79,6 @@ distraction from it.
 
 ## 🖼️ See it in action / 产品实景
 
-The images below are captured from the current application—not from generated
-design mockups.
-
 ![The live AI Eponym Atlas homepage showing its meaning-first hero, interactive concept constellation, filters, search, and a Jacobian detail panel](./docs/images/atlas-overview.jpg)
 
 <table>
@@ -95,8 +91,8 @@ design mockups.
     </td>
   </tr>
   <tr>
-    <td><strong>Relationship workspace</strong><br>Deterministic people–concept–application layers, path tracing, real portraits, a complete semantic list, and shareable state.</td>
-    <td><strong>Mobile chronology</strong><br>True-scale orientation and readable event detail in the first viewport.</td>
+    <td><strong>Relationship explorer</strong><br>Choose a concept, trace the people and ideas around it, and open any connection for context.</td>
+    <td><strong>Mobile chronology</strong><br>Compare milestones and open the evidence behind each event on any screen.</td>
   </tr>
   <tr>
     <td>
@@ -107,22 +103,13 @@ design mockups.
     </td>
   </tr>
   <tr>
-    <td><strong>Historical timeline</strong><br>Publication, naming, people, and AI adoption remain distinct across a proportional overview and readable eras.</td>
-    <td><strong>Verified people profiles</strong><br>Responsive biographies, real open portraits, and visible file-level credits.</td>
+    <td><strong>Historical timeline</strong><br>Follow publications, later naming, and AI adoption across more than four centuries.</td>
+    <td><strong>People profiles</strong><br>Meet the people behind familiar terms and continue to the concepts that carry their names.</td>
   </tr>
 </table>
 
-### Visual truth / 图形真实性
-
-- **Real people, real provenance.** Portraits are source-verified open works
-  with file-level identity, creator, license, and source records.
-- **Diagrams are data-native.** Relationships, chronology, labels, formulas,
-  and interaction states are rendered from project data in HTML or SVG.
-- **Generated art is never evidence.** Image generation is limited to clearly
-  documented decorative studies and never substitutes for portraits,
-  publications, mathematics, historical claims, or data visualizations.
-
-人物肖像来自经过核验的开放素材；图谱、时间线、公式与标签由真实数据直接渲染；生成图像只可作为有记录的装饰性设计研究，绝不充当人物、数学或历史证据。
+Portraits, historical claims, and concept relationships link back to documented
+sources. [Read the source and image policy →](./docs/PORTRAITS.md)
 
 ## ✨ What you can do / 核心能力
 
@@ -132,7 +119,7 @@ design mockups.
 | 🧭 **Faceted atlas** — Browse 9 mathematical and AI fields in concept or people mode. | ∑ **Formal definitions** — Read renderable notation and precise mathematical definitions. |
 | 🔗 **Relationship graph** — Follow people, related concepts, and concrete applications. | 📚 **Evidence-aware history** — Keep definition, naming history, and AI evidence distinct. |
 | 🕰️ **Historical timeline** — Separate a person's life, publication, later naming, and AI adoption. | 🌏 **Bilingual reading** — Maintain Chinese and English terminology together. |
-| 👤 **People profiles** — Connect biographies, verified portraits, and named concepts. | ♿ **Progressive and accessible UI** — Use keyboard-navigable HTML/SVG with responsive layouts. |
+| 👤 **People profiles** — Connect biographies, sourced portraits, and named concepts. | ♿ **Keyboard and mobile friendly** — Explore every view with a keyboard or on a small screen. |
 
 ### Three practical ways to use it
 
@@ -143,7 +130,7 @@ design mockups.
 3. **While writing or teaching:** verify spelling, notation, attribution, and
    sources before following the references to primary material.
 
-## 🧭 From name to meaning / 从人名到意义
+## 🧭 Jacobian matrix, decoded / 读懂雅可比矩阵
 
 For example, the atlas does not stop at “Jacobian is named after Jacobi”:
 
@@ -177,9 +164,9 @@ modeling, optimal transport, LLM preference and ranking models, associative
 memory, dynamical and geometric learning, numerical linear algebra,
 statistical bounds, sequence decoding, and classical vision.
 
-“Current” follows the catalog's editorial cutoff. Foundational claims retain
-foundational sources; fast-moving AI relevance is connected to recent primary
-work where practical.
+The date at the top of this README shows when the catalog was last reviewed.
+Foundational claims retain foundational sources; fast-moving AI uses link to
+recent primary work where practical.
 
 > [Read the complete inclusion, exclusion, evidence, preprint, and currency policy →](./docs/COVERAGE.md)
 
@@ -285,10 +272,8 @@ batch of placeholders.
 
 ## 🗺️ Roadmap
 
-- [x] Expanded bilingual catalog, search, people profiles, exact relationship
-  graph, timeline, citations, audited portraits, CI, and GitHub Pages.
-- [x] Shareable Graph V2 and Timeline V2 workspaces with semantic HTML/SVG,
-  responsive inspectors, URL-restorable state, and accessible alternatives.
+- [x] Searchable bilingual atlas with profiles, connections, chronology,
+  sources, and sourced historical portraits.
 - [ ] Typed prerequisite, variant, generalization, duality, and
   easy-to-confuse relationships.
 - [ ] Learning paths, minimal examples, boundary conditions, and

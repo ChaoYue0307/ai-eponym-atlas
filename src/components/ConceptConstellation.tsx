@@ -92,7 +92,7 @@ function ConstellationGraphic({
 
 export function ConceptConstellation({ locale }: { locale: Locale }) {
   const mapLabel =
-    locale === 'zh' ? '权威数据中的概念关系示例' : 'A sample of relationships in the atlas data'
+    locale === 'zh' ? '部分 AI 概念之间的联系' : 'How selected AI concepts connect'
 
   return (
     <div className="constellation">
