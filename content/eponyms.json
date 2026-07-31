@@ -4457,7 +4457,7 @@
         },
         {
           "label": "OpenCV — Hough Line Transform",
-          "url": "https://docs.opencv.org/master/d9/db0/tutorial_hough_lines.html"
+          "url": "https://docs.opencv.org/4.x/d9/db0/tutorial_hough_lines.html"
         }
       ]
     },
