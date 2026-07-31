@@ -1,0 +1,33 @@
+{
+  "name": "ai-eponym-atlas",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "A structured atlas of mathematical and AI concepts named after people.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "tsc -b --pretty false",
+    "test": "vitest",
+    "preview": "vite preview",
+    "check": "npm run lint && npm test -- --run && npm run build"
+  },
+  "dependencies": {
+    "katex": "^0.18.1",
+    "lucide-react": "^1.28.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "@types/node": "^26.1.2",
+    "@vitejs/plugin-react": "^6.0.5",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.0",
+    "vitest": "^4.1.10"
+  },
+  "engines": {
+    "node": ">=20.19"
+  }
+}

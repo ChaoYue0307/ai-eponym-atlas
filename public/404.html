@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>AI Eponym Atlas</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+      }
+
+      body {
+        display: grid;
+        min-height: 100vh;
+        margin: 0;
+        place-items: center;
+        background: #0b1020;
+        color: #f7f8fb;
+      }
+
+      main {
+        max-width: 32rem;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      a {
+        color: #9dd7ff;
+      }
+    </style>
+  </head>
+  <body>
+    <main id="fallback">
+      <p>Loading AI Eponym Atlas…</p>
+      <noscript>
+        JavaScript is required to open this page.
+        <a href="/ai-eponym-atlas/">Return to the atlas</a>.
+      </noscript>
+    </main>
+
+    <script>
+      (() => {
+        const repositoryBase = "/ai-eponym-atlas/";
+        const isProjectPath = window.location.pathname.startsWith(repositoryBase);
+        const basePath = isProjectPath ? repositoryBase : "/";
+        const fallback = document.querySelector("#fallback");
+
+        fetch(`${basePath}index.html`, { cache: "no-cache" })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`Unable to load application (${response.status})`);
+            }
+            return response.text();
+          })
+          .then((html) => {
+            const baseElement = `<base href="${basePath}">`;
+            const page = /<base[\s>]/i.test(html)
+              ? html
+              : html.replace(/<head(\s[^>]*)?>/i, (head) => `${head}${baseElement}`);
+
+            document.open();
+            document.write(page);
+            document.close();
+          })
+          .catch(() => {
+            fallback.innerHTML =
+              `<h1>Page not found</h1>` +
+              `<p>The atlas could not be loaded from this address.</p>` +
+              `<p><a href="${basePath}">Return to AI Eponym Atlas</a></p>`;
+          });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,168 @@
+name: Propose a concept entry
+description: Suggest an eponymous mathematical or technical concept used in AI.
+title: "[Concept]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping expand AI Eponym Atlas. Strong proposals explain what the name does **not** tell a reader: the concept's function, intuition, formal meaning, history, and role in modern AI.
+
+  - type: input
+    id: term
+    attributes:
+      label: Eponymous term
+      description: Give the standard English name and common abbreviations.
+      placeholder: "Example: Fisher information matrix (FIM)"
+    validations:
+      required: true
+
+  - type: input
+    id: namesake
+    attributes:
+      label: Person or people behind the name
+      description: Include full names and, if known, lifespan years.
+      placeholder: "Example: Ronald Aylmer Fisher (1890–1962)"
+    validations:
+      required: true
+
+  - type: input
+    id: functional_alias
+    attributes:
+      label: Functional alias
+      description: Replace the historical label with a short, meaning-rich description.
+      placeholder: "Example: parameter sensitivity / estimability matrix"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: domain
+    attributes:
+      label: Primary domain
+      description: Select the best primary home for this concept.
+      options:
+        - Linear algebra
+        - Calculus and analysis
+        - Probability and statistics
+        - Optimization
+        - Information theory
+        - Geometry and topology
+        - Graphs and discrete mathematics
+        - Signals and transforms
+        - Numerical methods
+        - Logic and computation
+        - Control and dynamical systems
+        - Machine learning and AI
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: concept_type
+    attributes:
+      label: Concept type
+      options:
+        - Theorem or law
+        - Definition or property
+        - Equation or identity
+        - Distribution or stochastic process
+        - Matrix, operator, or tensor
+        - Algorithm or method
+        - Space, geometry, or structure
+        - Metric, divergence, or objective
+        - Model or architecture
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: What question does it answer?
+      description: State the practical problem in plain language.
+      placeholder: "What does this concept let a researcher calculate, compare, predict, or prove?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: intuition
+    attributes:
+      label: One-sentence intuition
+      description: Explain the concept without assuming the reader already knows the eponym.
+      placeholder: "In one or two plain-language sentences..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: formal_definition
+    attributes:
+      label: Formal definition
+      description: Give a precise definition, equation, assumptions, and symbol meanings. LaTeX is welcome.
+      placeholder: |
+        Definition:
+        Assumptions:
+        Symbols:
+    validations:
+      required: true
+
+  - type: textarea
+    id: ai_applications
+    attributes:
+      label: Applications in modern AI
+      description: Name concrete models, algorithms, evaluation methods, or research areas.
+      placeholder: |
+        - Application:
+        - Why the concept matters there:
+    validations:
+      required: true
+
+  - type: textarea
+    id: history
+    attributes:
+      label: Historical origin and attribution
+      description: Explain who introduced, popularized, or independently discovered it, including any naming dispute.
+      placeholder: "Dates, original publication, later naming history, and attribution caveats..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: relationships
+    attributes:
+      label: Related concepts
+      description: List prerequisites, generalizations, special cases, or commonly confused terms.
+      placeholder: |
+        - Prerequisite:
+        - Closely related:
+        - Often confused with:
+    validations:
+      required: true
+
+  - type: textarea
+    id: sources
+    attributes:
+      label: Reliable sources
+      description: Prefer original papers, textbooks, peer-reviewed surveys, and authoritative documentation. Include stable links or DOIs.
+      placeholder: |
+        1. Author, title, year, DOI or URL
+        2. Author, title, year, DOI or URL
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes
+      description: Add pronunciation, alternative names, diagrams worth creating, or implementation references.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Proposal checklist
+      options:
+        - label: I searched existing entries and issues for duplicates.
+          required: true
+        - label: The term is named after a person and is relevant to mathematics, computing, or AI.
+          required: true
+        - label: I distinguished established facts from interpretation and included sources.
+          required: true
+        - label: I agree that code may be published under MIT and original content/data under CC BY 4.0.
+          required: true

@@ -1,0 +1,492 @@
+import Check from 'lucide-react/dist/esm/icons/check.mjs'
+import Clipboard from 'lucide-react/dist/esm/icons/clipboard.mjs'
+import ListTree from 'lucide-react/dist/esm/icons/list-tree.mjs'
+import Minus from 'lucide-react/dist/esm/icons/minus.mjs'
+import Plus from 'lucide-react/dist/esm/icons/plus.mjs'
+import RotateCcw from 'lucide-react/dist/esm/icons/rotate-ccw.mjs'
+import Search from 'lucide-react/dist/esm/icons/search.mjs'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import type { Locale } from '../copy'
+import { copy } from '../copy'
+import { concepts, conceptsById } from '../data/catalog'
+import { buildEgoGraph } from '../lib/graph'
+import type { EgoGraph, EgoGraphEdge, EgoGraphNode } from '../types'
+import { navigate } from '../hooks/useHashRoute'
+import { SectionRule } from './SectionRule'
+
+type GraphExplorerProps = {
+  locale: Locale
+  params: URLSearchParams
+}
+
+type PositionedNode = EgoGraphNode & {
+  x: number
+  y: number
+}
+
+function mergeGraphs(graphs: readonly EgoGraph[], focusConceptId: string): EgoGraph {
+  const nodes = new Map<string, EgoGraphNode>()
+  const edges = new Map<string, EgoGraphEdge>()
+
+  graphs.forEach((graph) => {
+    graph.nodes.forEach((node) =>
+      nodes.set(node.id, {
+        ...node,
+        isFocus: node.kind === 'concept' && node.conceptId === focusConceptId,
+      }),
+    )
+    graph.edges.forEach((edge) => {
+      const key =
+        edge.relation === 'related-to'
+          ? `${[edge.source, edge.target].sort().join('|')}|${edge.relation}`
+          : edge.id
+      if (!edges.has(key)) edges.set(key, edge)
+    })
+  })
+
+  const visibleNodes = [...nodes.values()].slice(0, 16)
+  const visibleNodeIds = new Set(visibleNodes.map((node) => node.id))
+
+  return {
+    focusConceptId,
+    nodes: visibleNodes,
+    edges: [...edges.values()]
+      .filter(
+        (edge) => visibleNodeIds.has(edge.source) && visibleNodeIds.has(edge.target),
+      )
+      .slice(0, 24),
+  }
+}
+
+function layoutNodes(nodes: readonly EgoGraphNode[]): PositionedNode[] {
+  const focus = nodes.find((node) => node.isFocus)
+  const rest = nodes.filter((node) => !node.isFocus)
+  const center = { x: 400, y: 250 }
+
+  const positions = new Map<string, { x: number; y: number }>()
+  if (focus) positions.set(focus.id, center)
+
+  rest.forEach((node, index) => {
+    const angle = -Math.PI / 2 + (Math.PI * 2 * index) / Math.max(rest.length, 1)
+    const radiusX = rest.length > 8 ? 300 : 255
+    const radiusY = rest.length > 8 ? 195 : 165
+    positions.set(node.id, {
+      x: center.x + Math.cos(angle) * radiusX,
+      y: center.y + Math.sin(angle) * radiusY,
+    })
+  })
+
+  return nodes.map((node) => ({ ...node, ...(positions.get(node.id) ?? center) }))
+}
+
+function wrapLabel(label: string, max = 18) {
+  if (label.length <= max) return [label]
+  const words = label.split(' ')
+  const lines: string[] = []
+  let current = ''
+  words.forEach((word) => {
+    if (`${current} ${word}`.trim().length > max && current) {
+      lines.push(current)
+      current = word
+    } else {
+      current = `${current} ${word}`.trim()
+    }
+  })
+  if (current) lines.push(current)
+  return lines.slice(0, 3)
+}
+
+const relationTitles = {
+  'named-after': { en: 'Named after', zh: '名字来源' },
+  'related-to': { en: 'Built from & paired with', zh: '建立在这些概念之上' },
+  'applied-in': { en: 'Applied in', zh: '应用于' },
+} as const
+
+export function GraphExplorer({ locale, params }: GraphExplorerProps) {
+  const t = copy[locale].graph
+  const initialFocus = params.get('focus')
+  const [focusId, setFocusId] = useState(
+    initialFocus && conceptsById.has(initialFocus) ? initialFocus : 'hessian-matrix',
+  )
+  const [depth, setDepth] = useState(params.get('depth') === '2' ? 2 : 1)
+  const [includePeople, setIncludePeople] = useState(true)
+  const [includeConcepts, setIncludeConcepts] = useState(true)
+  const [includeApplications, setIncludeApplications] = useState(true)
+  const [zoom, setZoom] = useState(1)
+  const [searchQuery, setSearchQuery] = useState('')
+  const [copied, setCopied] = useState(false)
+  const relationshipsRef = useRef<HTMLElement>(null)
+
+  const graph = useMemo(() => {
+    const base = buildEgoGraph(focusId, {
+      includePeople,
+      includeRelatedConcepts: includeConcepts,
+      includeApplications,
+      maxRelatedConcepts: 5,
+      maxApplications: 2,
+    })
+
+    if (depth === 1 || !includeConcepts) return base
+
+    const secondary = base.nodes
+      .filter(
+        (node): node is Extract<EgoGraphNode, { kind: 'concept' }> =>
+          node.kind === 'concept' && !node.isFocus,
+      )
+      .slice(0, 5)
+      .map((node) =>
+        buildEgoGraph(node.conceptId, {
+          includePeople: false,
+          includeApplications: false,
+          includeRelatedConcepts: true,
+          maxRelatedConcepts: 2,
+        }),
+      )
+
+    return mergeGraphs([base, ...secondary], focusId)
+  }, [depth, focusId, includeApplications, includeConcepts, includePeople])
+
+  const positionedNodes = useMemo(() => layoutNodes(graph.nodes), [graph.nodes])
+  const positionById = useMemo(
+    () => new Map(positionedNodes.map((node) => [node.id, node])),
+    [positionedNodes],
+  )
+
+  const suggestions = useMemo(() => {
+    const normalized = searchQuery.trim().toLocaleLowerCase()
+    if (!normalized) return []
+    return concepts
+      .filter((concept) =>
+        [concept.term, concept.zhTerm, ...concept.aliases]
+          .join(' ')
+          .toLocaleLowerCase()
+          .includes(normalized),
+      )
+      .slice(0, 6)
+  }, [searchQuery])
+
+  useEffect(() => {
+    const next = new URLSearchParams({ focus: focusId })
+    if (depth !== 1) next.set('depth', String(depth))
+    navigate('/graph', next, true)
+  }, [depth, focusId])
+
+  const selectNode = (node: EgoGraphNode) => {
+    if (node.kind === 'concept') {
+      setFocusId(node.conceptId)
+      setSearchQuery('')
+    } else if (node.kind === 'person') {
+      navigate(`/person/${node.personId}`)
+    }
+  }
+
+  const copyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href)
+      setCopied(true)
+      window.setTimeout(() => setCopied(false), 1600)
+    } catch {
+      window.prompt(locale === 'zh' ? '复制链接：' : 'Copy link:', window.location.href)
+    }
+  }
+
+  const focusedConcept = conceptsById.get(focusId)!
+
+  return (
+    <main className="graph-page">
+      <header className="page-intro page-intro--graph">
+        <p className="section-number">02 — GRAPH</p>
+        <h1>{t.title}</h1>
+        <SectionRule />
+        <p>{t.description}</p>
+      </header>
+
+      <div className="graph-workspace">
+        <aside className="graph-controls">
+          <div className="graph-search">
+            <label className="search-field">
+              <Search aria-hidden="true" />
+              <span className="sr-only">{t.focus}</span>
+              <input
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}
+                placeholder={t.focus}
+              />
+            </label>
+            {suggestions.length ? (
+              <div className="graph-search__suggestions">
+                {suggestions.map((concept) => (
+                  <button
+                    type="button"
+                    key={concept.id}
+                    onClick={() => {
+                      setFocusId(concept.id)
+                      setSearchQuery('')
+                    }}
+                  >
+                    <span>{concept.term}</span>
+                    <small>{concept.zhTerm}</small>
+                  </button>
+                ))}
+              </div>
+            ) : null}
+          </div>
+
+          <fieldset>
+            <legend>{t.depth}</legend>
+            <div className="segmented-control">
+              {[1, 2].map((value) => (
+                <button
+                  type="button"
+                  key={value}
+                  className={depth === value ? 'is-active' : ''}
+                  onClick={() => setDepth(value)}
+                  aria-pressed={depth === value}
+                >
+                  {value} {locale === 'zh' ? '跳' : value === 1 ? 'hop' : 'hops'}
+                </button>
+              ))}
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>{t.show}</legend>
+            {[
+              {
+                key: 'people',
+                label: t.people,
+                value: includePeople,
+                set: setIncludePeople,
+                shape: '○',
+              },
+              {
+                key: 'concepts',
+                label: t.concepts,
+                value: includeConcepts,
+                set: setIncludeConcepts,
+                shape: '▭',
+              },
+              {
+                key: 'applications',
+                label: t.applications,
+                value: includeApplications,
+                set: setIncludeApplications,
+                shape: '⬡',
+              },
+            ].map((item) => (
+              <label className="graph-toggle" key={item.key}>
+                <span aria-hidden="true">{item.shape}</span>
+                <span>{item.label}</span>
+                <input
+                  type="checkbox"
+                  checked={item.value}
+                  onChange={(event) => item.set(event.target.checked)}
+                />
+                <i aria-hidden="true" />
+              </label>
+            ))}
+          </fieldset>
+
+          <button
+            className="button button--primary graph-list-button"
+            type="button"
+            onClick={() => relationshipsRef.current?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            <ListTree aria-hidden="true" />
+            {t.list}
+          </button>
+        </aside>
+
+        <div className="graph-canvas">
+          <div className="graph-canvas__tools">
+            <button type="button" onClick={() => setZoom(1)}>
+              <RotateCcw aria-hidden="true" />
+              {t.reset}
+            </button>
+            <div>
+              <button
+                type="button"
+                onClick={() => setZoom((value) => Math.max(0.7, value - 0.1))}
+                aria-label={locale === 'zh' ? '缩小' : 'Zoom out'}
+              >
+                <Minus aria-hidden="true" />
+              </button>
+              <span>{Math.round(zoom * 100)}%</span>
+              <button
+                type="button"
+                onClick={() => setZoom((value) => Math.min(1.3, value + 0.1))}
+                aria-label={locale === 'zh' ? '放大' : 'Zoom in'}
+              >
+                <Plus aria-hidden="true" />
+              </button>
+            </div>
+            <button type="button" onClick={copyLink}>
+              {copied ? <Check aria-hidden="true" /> : <Clipboard aria-hidden="true" />}
+              <span className="sr-only">
+                {locale === 'zh'
+                  ? copied
+                    ? '已复制'
+                    : '复制链接'
+                  : copied
+                    ? 'Copied'
+                    : 'Copy link'}
+              </span>
+            </button>
+          </div>
+
+          <svg viewBox="0 0 800 500" role="img" aria-labelledby="ego-graph-title">
+            <title id="ego-graph-title">
+              {locale === 'zh'
+                ? `${focusedConcept.zhTerm}的${depth}跳概念关系图，共 ${graph.nodes.length} 个节点`
+                : `${focusedConcept.term} ${depth === 1 ? 'one-hop' : 'two-hop'} concept graph with ${graph.nodes.length} nodes`}
+            </title>
+            <defs>
+              <marker
+                id="graph-arrow"
+                markerWidth="8"
+                markerHeight="8"
+                refX="7"
+                refY="4"
+                orient="auto"
+              >
+                <path d="M0 0 L8 4 L0 8" fill="none" stroke="currentColor" />
+              </marker>
+            </defs>
+            <g
+              className="graph-zoom-layer"
+              style={{
+                transform: `translate(${400 * (1 - zoom)}px, ${250 * (1 - zoom)}px) scale(${zoom})`,
+              }}
+            >
+              <g className="graph-edges">
+                {graph.edges.map((edge) => {
+                  const source = positionById.get(edge.source)
+                  const target = positionById.get(edge.target)
+                  if (!source || !target) return null
+                  return (
+                    <g key={edge.id}>
+                      <line
+                        x1={source.x}
+                        y1={source.y}
+                        x2={target.x}
+                        y2={target.y}
+                        markerEnd={edge.directed ? 'url(#graph-arrow)' : undefined}
+                      />
+                    </g>
+                  )
+                })}
+              </g>
+              <g className="graph-nodes">
+                {positionedNodes.map((node) => {
+                  const label = locale === 'zh' ? node.zhLabel : node.label
+                  const lines = wrapLabel(label)
+                  return (
+                    <g
+                      key={node.id}
+                      className={`graph-node graph-node--${node.kind}${
+                        node.isFocus ? ' graph-node--focus' : ''
+                      }`}
+                      role={node.kind === 'application' ? undefined : 'button'}
+                      tabIndex={node.kind === 'application' ? undefined : 0}
+                      onClick={() => selectNode(node)}
+                      onKeyDown={(event) => {
+                        if (event.key === 'Enter' || event.key === ' ') selectNode(node)
+                      }}
+                      aria-label={label}
+                    >
+                      {node.kind === 'person' ? (
+                        <circle cx={node.x} cy={node.y} r="52" />
+                      ) : node.kind === 'application' ? (
+                        <polygon
+                          points={`${node.x - 62},${node.y} ${node.x - 32},${
+                            node.y - 43
+                          } ${node.x + 32},${node.y - 43} ${node.x + 62},${node.y} ${
+                            node.x + 32
+                          },${node.y + 43} ${node.x - 32},${node.y + 43}`}
+                        />
+                      ) : (
+                        <rect x={node.x - 68} y={node.y - 42} width="136" height="84" rx="5" />
+                      )}
+                      <text x={node.x} y={node.y - ((lines.length - 1) * 8)} textAnchor="middle">
+                        {lines.map((line, index) => (
+                          <tspan key={line} x={node.x} dy={index === 0 ? 0 : 17}>
+                            {line}
+                          </tspan>
+                        ))}
+                      </text>
+                    </g>
+                  )
+                })}
+              </g>
+            </g>
+          </svg>
+          <p className="graph-canvas__summary">
+            <strong>{focusedConcept.term}</strong>
+            <span>{focusedConcept.functionNickname[locale]}</span>
+          </p>
+        </div>
+
+        <section className="relationship-panel" ref={relationshipsRef}>
+          <header>
+            <p>{locale === 'zh' ? '当前概念' : 'Focus concept'}</p>
+            <h2>
+              {focusedConcept.term} <span>/ {focusedConcept.zhTerm}</span>
+            </h2>
+            <p>{focusedConcept.question[locale]}</p>
+          </header>
+          {(Object.keys(relationTitles) as Array<keyof typeof relationTitles>).map((relation) => {
+            const focusNodeId = `concept:${focusId}`
+            const edges = graph.edges.filter(
+              (edge) =>
+                edge.relation === relation &&
+                (edge.source === focusNodeId || edge.target === focusNodeId),
+            )
+            if (!edges.length) return null
+            return (
+              <div className="relationship-group" key={relation}>
+                <h3>{relationTitles[relation][locale]}</h3>
+                {edges.map((edge) => {
+                  const otherId =
+                    edge.source === `concept:${focusId}` ? edge.target : edge.source
+                  const node = positionById.get(otherId)
+                  if (!node) return null
+                  return (
+                    <button key={edge.id} type="button" onClick={() => selectNode(node)}>
+                      <span>
+                        <strong>{locale === 'zh' ? node.zhLabel : node.label}</strong>
+                        <small>
+                          {locale === 'zh'
+                            ? edge.zhNote ?? edge.zhLabel
+                            : edge.note ?? edge.label}{' '}
+                          ·{' '}
+                          {node.kind === 'concept'
+                            ? node.meta.functionNickname[locale]
+                            : node.kind === 'person'
+                              ? `${node.meta.born}–${
+                                  node.meta.died ?? (locale === 'zh' ? '至今' : 'present')
+                                }`
+                              : locale === 'zh'
+                                ? 'AI 应用'
+                                : 'AI application'}
+                        </small>
+                      </span>
+                      <span aria-hidden="true">→</span>
+                    </button>
+                  )
+                })}
+              </div>
+            )
+          })}
+          <button
+            className="text-button relationship-panel__full"
+            type="button"
+            onClick={() => navigate(`/concept/${focusId}`)}
+          >
+            {locale === 'zh' ? '查看完整概念条目' : 'View full concept entry'}
+            <span aria-hidden="true">→</span>
+          </button>
+        </section>
+      </div>
+    </main>
+  )
+}
