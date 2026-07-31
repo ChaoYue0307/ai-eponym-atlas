@@ -1,7 +1,9 @@
 export type ConstellationNode = {
   id: string
-  label: string
-  zh: string
+  labels: Readonly<{
+    en: readonly string[]
+    zh: readonly string[]
+  }>
   x: number
   y: number
   r: number
@@ -10,92 +12,89 @@ export type ConstellationNode = {
 
 export type ConstellationPosition = Pick<ConstellationNode, 'x' | 'y' | 'r'>
 
+export const constellationViewBoxes = {
+  desktop: { width: 720, height: 440 },
+  mobile: { width: 360, height: 405 },
+} as const
+
 export const constellationNodes: readonly ConstellationNode[] = [
   {
     id: 'cartesian-coordinate-system',
-    label: 'Cartesian\ncoordinates',
-    zh: '笛卡尔坐标',
-    x: 112,
-    y: 124,
-    r: 49,
-    formula: '(x, y, z)',
+    labels: { en: ['Cartesian', 'coordinates'], zh: ['笛卡尔', '坐标'] },
+    x: 110,
+    y: 128,
+    r: 54,
+    formula: 'p = (x,y,z)',
   },
   {
     id: 'cartesian-robot-frame',
-    label: 'Robot\nframe',
-    zh: '机器人坐标系',
-    x: 125,
-    y: 281,
-    r: 47,
-    formula: 'T(x)',
+    labels: { en: ['Robot', 'frame'], zh: ['机器人', '坐标系'] },
+    x: 122,
+    y: 286,
+    r: 52,
+    formula: 'pᵂ = T pᴿ',
   },
   {
     id: 'gauss-newton-method',
-    label: 'Gauss–Newton\nmethod',
-    zh: '高斯–牛顿法',
+    labels: { en: ['Gauss–Newton', 'method'], zh: ['高斯–牛顿法'] },
     x: 292,
-    y: 56,
-    r: 48,
-    formula: '(JᵀJ)⁻¹',
+    y: 70,
+    r: 62,
+    formula: 'H ≈ JᵀJ',
   },
   {
     id: 'newton-method',
-    label: 'Newton’s\nmethod',
-    zh: '牛顿法',
-    x: 502,
-    y: 55,
-    r: 49,
-    formula: 'xₖ₊₁',
+    labels: { en: ['Newton’s', 'method'], zh: ['牛顿法'] },
+    x: 506,
+    y: 70,
+    r: 56,
+    formula: 'Δθ = −H⁻¹g',
   },
   {
     id: 'jacobian-matrix',
-    label: 'Jacobian',
-    zh: '雅可比矩阵',
-    x: 407,
+    labels: { en: ['Jacobian'], zh: ['雅可比矩阵'] },
+    x: 410,
     y: 226,
-    r: 59,
-    formula: 'J',
+    r: 64,
+    formula: 'J = ∂f/∂x',
   },
   {
     id: 'hessian-matrix',
-    label: 'Hessian',
-    zh: '海森矩阵',
-    x: 614,
-    y: 231,
-    r: 49,
-    formula: 'H',
+    labels: { en: ['Hessian'], zh: ['海森矩阵'] },
+    x: 616,
+    y: 226,
+    r: 54,
+    formula: 'H = ∇²L',
   },
   {
     id: 'laplace-approximation',
-    label: 'Laplace\napproximation',
-    zh: '拉普拉斯近似',
-    x: 343,
-    y: 377,
-    r: 49,
-    formula: '𝒩(θ̂,H⁻¹)',
+    labels: { en: ['Laplace', 'approximation'], zh: ['拉普拉斯', '近似'] },
+    x: 350,
+    y: 374,
+    r: 60,
+    formula: 'Σ ≈ H⁻¹',
   },
   {
     id: 'gaussian-distribution',
-    label: 'Gaussian\ndistribution',
-    zh: '高斯分布',
-    x: 646,
-    y: 380,
-    r: 49,
-    formula: '𝒩(μ,Σ)',
+    labels: { en: ['Gaussian', 'distribution'], zh: ['高斯分布'] },
+    x: 648,
+    y: 374,
+    r: 56,
+    formula: 'x ∼ 𝒩(μ,Σ)',
   },
 ]
 
 export const mobileConstellationPositions: Readonly<
   Record<string, ConstellationPosition>
 > = {
-  'cartesian-coordinate-system': { x: 60, y: 60, r: 44 },
-  'cartesian-robot-frame': { x: 60, y: 185, r: 44 },
-  'gauss-newton-method': { x: 180, y: 60, r: 44 },
-  'newton-method': { x: 300, y: 60, r: 44 },
-  'jacobian-matrix': { x: 180, y: 185, r: 50 },
-  'hessian-matrix': { x: 300, y: 185, r: 44 },
-  'laplace-approximation': { x: 110, y: 320, r: 44 },
-  'gaussian-distribution': { x: 250, y: 320, r: 44 },
+  'cartesian-coordinate-system': { x: 58, y: 66, r: 52 },
+  'cartesian-robot-frame': { x: 58, y: 202, r: 52 },
+  'gauss-newton-method': { x: 180, y: 66, r: 60 },
+  'newton-method': { x: 302, y: 66, r: 52 },
+  'jacobian-matrix': { x: 180, y: 202, r: 60 },
+  'hessian-matrix': { x: 302, y: 202, r: 52 },
+  'laplace-approximation': { x: 110, y: 342, r: 60 },
+  'gaussian-distribution': { x: 250, y: 342, r: 54 },
 }
 
 export const constellationEdges = [

@@ -495,7 +495,7 @@ html[lang='zh-CN'] .hero__stat dt {
   height: 100%;
   max-width: none;
   object-fit: cover;
-  opacity: 0.52;
+  opacity: 0.24;
   pointer-events: none;
   user-select: none;
 }
@@ -518,7 +518,8 @@ html[lang='zh-CN'] .hero__stat dt {
 
 .constellation__edges line {
   stroke: currentColor;
-  stroke-width: 0.8;
+  stroke-linecap: round;
+  stroke-width: 1.25;
 }
 
 .constellation__edges text {
@@ -527,34 +528,85 @@ html[lang='zh-CN'] .hero__stat dt {
   font-size: 9px;
 }
 
-.constellation__nodes circle {
+.constellation__node {
+  cursor: pointer;
+}
+
+.constellation__node-surface {
   fill: var(--paper);
   stroke: var(--blue);
-  stroke-width: 1.35;
+  stroke-width: 1.5;
+  transform-box: fill-box;
+  transform-origin: center;
   transition:
     fill var(--transition),
-    stroke-width var(--transition);
+    filter var(--transition),
+    stroke-width var(--transition),
+    transform var(--transition);
 }
 
-.constellation__nodes a:hover circle,
-.constellation__nodes a:focus circle {
+.constellation__node-halo {
+  fill: none;
+  stroke: rgb(0 63 199 / 24%);
+  stroke-width: 1;
+}
+
+.constellation__node--focus .constellation__node-surface {
   fill: var(--blue-pale);
   stroke-width: 2;
+  filter: drop-shadow(0 4px 6px rgb(0 44 138 / 10%));
 }
 
-.constellation__nodes text {
+.constellation__node:hover .constellation__node-surface,
+.constellation__node:focus-visible .constellation__node-surface {
+  fill: var(--blue-pale);
+  stroke-width: 2.25;
+  transform: scale(1.025);
+}
+
+.constellation__node:focus-visible {
+  outline: none;
+}
+
+.constellation__node:focus-visible .constellation__node-halo {
+  stroke: var(--focus-ring);
+  stroke-width: 3;
+}
+
+.constellation__node-label,
+.constellation__formula {
   pointer-events: none;
+  text-rendering: geometricPrecision;
+}
+
+.constellation__node-label {
   fill: var(--blue-dark);
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.constellation__node-label--compact {
+  font-size: 13px;
+  letter-spacing: -0.015em;
+}
+
+.constellation__node--focus .constellation__node-label {
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .constellation__nodes .constellation__formula {
   fill: var(--ink);
-  font-size: 12px;
-  font-style: italic;
+  font-family: "KaTeX_Math", "STIX Two Math", "Cambria Math", "Times New Roman", "Noto Serif SC", serif;
+  font-size: 12.5px;
+  font-style: normal;
   font-weight: 400;
+}
+
+.constellation__node--focus .constellation__formula {
+  font-size: 13px;
 }
 
 /* Shared page intro */
@@ -2489,6 +2541,23 @@ html[lang='zh-CN'] .hero__stat dt {
   }
 }
 
+@media (max-width: 1100px) {
+  .hero {
+    display: block;
+  }
+
+  .hero__copy {
+    max-width: 640px;
+  }
+
+  .constellation {
+    width: min(100%, 720px);
+    min-height: 0;
+    aspect-ratio: 720 / 440;
+    margin: 36px auto 0;
+  }
+}
+
 @media (max-width: 1040px) {
   .hero {
     grid-template-columns: minmax(370px, 0.9fr) minmax(450px, 1.1fr);
@@ -2732,7 +2801,8 @@ html[lang='zh-CN'] .hero__stat dt {
 
   .constellation {
     min-height: 0;
-    aspect-ratio: 360 / 380;
+    max-width: 720px;
+    aspect-ratio: 720 / 440;
     margin-top: 30px;
   }
 
@@ -2743,11 +2813,11 @@ html[lang='zh-CN'] .hero__stat dt {
   }
 
   .constellation__graphic--desktop {
-    display: none;
+    display: block;
   }
 
   .constellation__graphic--mobile {
-    display: block;
+    display: none;
     width: 100%;
     height: 100%;
   }
@@ -3126,6 +3196,29 @@ html[lang='zh-CN'] .hero__stat dt {
 
   .site-footer__links {
     align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .constellation {
+    max-width: 420px;
+    aspect-ratio: 360 / 405;
+  }
+
+  .constellation__graphic--desktop {
+    display: none;
+  }
+
+  .constellation__graphic--mobile {
+    display: block;
+  }
+}
+
+@media (max-width: 360px) {
+  .constellation {
+    width: calc(100% + 32px);
+    margin-right: -16px;
+    margin-left: -16px;
   }
 }
 

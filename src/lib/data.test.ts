@@ -15,7 +15,11 @@ import { timelineEvents } from "../data/timeline";
 import {
   constellationConceptIds,
   constellationEdges,
+  constellationNodes,
+  constellationViewBoxes,
+  mobileConstellationPositions,
 } from "../data/constellation";
+import { connectCircleBoundaries } from "./constellationGeometry";
 import { buildEgoGraph } from "./graph";
 import { layoutNodes, mergeGraphs } from "./graphLayout";
 
@@ -249,6 +253,49 @@ describe("atlas data integrity", () => {
       expect(constellationConceptIds).toContain(edge.from);
       expect(constellationConceptIds).toContain(edge.to);
       expect(edge.from).not.toBe(edge.to);
+    }
+
+    for (const node of constellationNodes) {
+      for (const locale of ["en", "zh"] as const) {
+        const lines = node.labels[locale];
+        expect(lines.length).toBeGreaterThanOrEqual(1);
+        expect(lines.length).toBeLessThanOrEqual(2);
+        for (const line of lines) {
+          expect(line.trim()).toBe(line);
+          expect(line).not.toBe("");
+          expect(line).not.toContain("\n");
+        }
+      }
+
+      const mobilePosition = mobileConstellationPositions[node.id];
+      expect(mobilePosition, node.id).toBeDefined();
+      for (const [layout, position] of [
+        ["desktop", node],
+        ["mobile", mobilePosition],
+      ] as const) {
+        const viewBox = constellationViewBoxes[layout];
+        expect(position.x - position.r, `${layout}:${node.id}:left`).toBeGreaterThan(0);
+        expect(position.y - position.r, `${layout}:${node.id}:top`).toBeGreaterThan(0);
+        expect(position.x + position.r, `${layout}:${node.id}:right`).toBeLessThan(
+          viewBox.width,
+        );
+        expect(position.y + position.r, `${layout}:${node.id}:bottom`).toBeLessThan(
+          viewBox.height,
+        );
+      }
+    }
+
+    const nodeById = new Map(constellationNodes.map((node) => [node.id, node]));
+    for (const edge of constellationEdges) {
+      const from = nodeById.get(edge.from)!;
+      const to = nodeById.get(edge.to)!;
+      const connection = connectCircleBoundaries(from, to);
+      expect(Math.hypot(connection.x1 - from.x, connection.y1 - from.y)).toBeCloseTo(
+        from.r,
+      );
+      expect(Math.hypot(connection.x2 - to.x, connection.y2 - to.y)).toBeCloseTo(
+        to.r,
+      );
     }
   });
 

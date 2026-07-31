@@ -16,6 +16,9 @@ All notable editorial and product changes are recorded here. The catalog's
   and linked the README homepage preview directly to the live atlas.
 - Added live coverage totals to the homepage introduction, derived directly
   from the catalog so people, concepts, fields, and citations stay current.
+- Refined the homepage constellation with content-aware node sizing, sans-serif
+  labels, boundary-safe connectors, a clearer Jacobian focus, and stable
+  desktop, tablet, and mobile layouts.
 - Expanded the atlas from 75 to 120 concepts and from 57 to 117 people.
 - Raised the evidence floor to at least two direct sources per concept, for 247
   source links in the released catalog.
