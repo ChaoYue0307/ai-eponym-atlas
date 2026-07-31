@@ -136,16 +136,29 @@ function publicAsset(path: string) {
 
 function portraitAlignment(position?: string) {
   if (!position) return 'xMidYMid slice'
-  const horizontal = position.includes('left')
-    ? 'xMin'
-    : position.includes('right')
-      ? 'xMax'
-      : 'xMid'
-  const vertical = position.includes('top')
-    ? 'YMin'
-    : position.includes('bottom')
-      ? 'YMax'
-      : 'YMid'
+  const [first = 'center', second = 'center'] = position.trim().split(/\s+/)
+  const horizontalToken = /^(?:left|right|center|\d+(?:\.\d+)?%)$/.test(first)
+    ? first
+    : 'center'
+  const verticalToken = second
+  const alignment = (
+    token: string,
+    start: string,
+    middle: string,
+    end: string,
+  ) => {
+    if (token === 'left' || token === 'top') return start
+    if (token === 'right' || token === 'bottom') return end
+    const percentage = token.match(/^(\d+(?:\.\d+)?)%$/)?.[1]
+    if (percentage) {
+      const value = Number(percentage)
+      if (value <= 34) return start
+      if (value >= 66) return end
+    }
+    return middle
+  }
+  const horizontal = alignment(horizontalToken, 'xMin', 'xMid', 'xMax')
+  const vertical = alignment(verticalToken, 'YMin', 'YMid', 'YMax')
   return `${horizontal}${vertical} slice`
 }
 
@@ -436,10 +449,10 @@ export function GraphCanvas({
                         {person?.portrait ? (
                           <image
                             href={publicAsset(person.portrait.file)}
-                            x="-47"
-                            y="-47"
-                            width="94"
-                            height="94"
+                            x={-47 * (person.portrait.cropScale ?? 1)}
+                            y={-47 * (person.portrait.cropScale ?? 1)}
+                            width={94 * (person.portrait.cropScale ?? 1)}
+                            height={94 * (person.portrait.cropScale ?? 1)}
                             preserveAspectRatio={portraitAlignment(
                               person.portrait.objectPosition,
                             )}

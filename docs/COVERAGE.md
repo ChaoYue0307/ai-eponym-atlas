@@ -71,6 +71,12 @@ The 2026-07-31 editorial snapshot contains **117 people, 120 concepts, and 247
 direct source links across nine subject categories**. These counts describe the
 released dataset, not a claim that the universe of AI-relevant eponyms is closed.
 
+Every person profile includes a bilingual introduction, localized lifespan and
+region facts, linked core contributions, deduplicated AI applications, and
+evidence grouped by concept. The current media coverage is **78 verified real
+portraits** plus **39 labelled monogram fallbacks**. The atlas does not generate
+historical likenesses when a reusable portrait cannot be verified.
+
 已发布目录在三层之间保持平衡：
 
 - **核心层：**通用 AI / ML 中反复出现的概念；
@@ -78,6 +84,8 @@ released dataset, not a claim that the universe of AI-relevant eponyms is closed
 - **活跃前沿层：**历史概念在当前 AI 中重新获得关键作用的条目，例如扩散中的 Langevin / Itô、生成运输中的 Schrödinger bridge / Sinkhorn、偏好学习中的 Bradley–Terry，以及现代 Hopfield 记忆网络。
 
 截至 2026-07-31 的编辑快照包含 **117 位人物、120 个概念、247 条直接来源链接和 9 个领域分类**。这些数字描述当前已发布数据集，并不意味着 AI 相关人名概念已经穷尽。
+
+每个人物页都包含双语简介、本地化生卒年份与地区信息、可继续阅读的核心贡献、去重后的 AI 应用，以及按概念分组的证据。当前媒体覆盖包括 **78 幅经核验的真实肖像**和 **39 个明确标注的姓名首字母占位符**；无法核验可复用肖像时，图谱不会生成历史人物形象。
 
 ## Explicit exclusions / 明确排除
 
@@ -113,6 +121,11 @@ Fast-moving entries should include a recent primary AI paper where available.
 Definitions, history, and application are different claims; one convenient
 webpage is not assumed to prove all three.
 
+On a person profile, these citations retain the same scope: they support the
+connected concept's definition, history, attribution, or use claims. They are
+not presented as complete sources for the person's life. A Wikidata link is an
+identity record for disambiguation, not a substitute for a biographical source.
+
 每个概念至少应有两条直接来源：一条原始论文或权威定义，以及一条支持归因、实现或具体 AI 用途的独立来源。快速变化的条目在条件允许时还应包含近年的一手 AI 论文。定义、历史和应用是不同主张，不能默认一张网页同时证明全部内容。
 
 ## Topics not yet covered in depth / 尚待深入的主题
@@ -124,8 +137,8 @@ Coverage is currently thinner in:
 - geometric deep learning representation theory;
 - causal inference, experimental design, and calibration;
 - scientific-ML operators and numerical PDE methods;
-- pronunciation, person-level sources, worked examples, and typed relationship
-  edges;
+- pronunciation, fuller person-level biographical source sets, worked examples,
+  and typed relationship edges;
 - broader review of naming traditions outside the dominant European and North
   American historical canon.
 

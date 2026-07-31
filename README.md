@@ -40,12 +40,20 @@ Sources and applications reviewed through **2026-07-31** / 来源与应用核查
 
 | Coverage / 覆盖 | Evidence / 证据 | Experience / 体验 |
 | :---: | :---: | :---: |
-| **120** concepts / 概念<br>**117** people / 人物 | **247** cited sources / 直接来源<br>**77** verified portraits / 核验肖像 | **9** fields / 领域<br>中文 + English |
+| **120** concepts / 概念<br>**117** people / 人物 | **247** cited sources / 直接来源<br>**78** verified portraits / 核验肖像 | **9** fields / 领域<br>中文 + English |
 
 Every concept has at least two direct references, and every historical portrait
 links to its source and license.
 
 每个概念至少有两条直接来源，每幅历史人物肖像都标注原始来源与许可信息。
+
+All 117 people profiles pair a bilingual introduction with localized lifespan
+and region facts, linked core contributions, deduplicated AI applications, and
+evidence grouped by concept. The atlas uses **78 verified real portraits** and
+**39 clearly labelled monogram fallbacks**; it does not generate historical
+likenesses.
+
+117 个人物页均提供双语简介、本地化生卒年份与地区信息、可继续阅读的核心贡献、去重后的 AI 应用，以及按概念分组的证据。图谱采用 **78 幅经核验的真实肖像**与 **39 个明确标注的姓名首字母占位符**，不生成历史人物形象。
 
 ## 🧠 What the names don't tell you / 名字没有告诉你的内容
 
@@ -94,12 +102,12 @@ begin with its function, then continue to the mathematics, history, and AI use.
       <img src="./docs/images/timeline-overview.jpg" alt="Desktop historical timeline with event-kind filters, a true-scale 1596–2025 overview, four eras, René Descartes's portrait, and a selected event inspector">
     </td>
     <td>
-      <img src="./docs/images/person-profile-mobile.jpg" alt="Mobile profile for René Descartes with a verified historical portrait, attribution, bilingual name, biography, and related AI concepts">
+      <img src="./docs/images/person-profile-mobile.jpg" alt="Top of René Descartes's mobile profile, with a verified historical portrait, bilingual introduction, attribution, profile facts, and evidence totals">
     </td>
   </tr>
   <tr>
     <td><strong>Historical timeline</strong><br>Follow publications, later naming, and AI adoption across more than four centuries.</td>
-    <td><strong>People profiles</strong><br>Meet the people behind familiar terms and continue to the concepts that carry their names.</td>
+    <td><strong>People profiles</strong><br>Read a bilingual introduction and localized facts, then follow core contributions, deduplicated AI uses, and concept-grouped evidence.</td>
   </tr>
 </table>
 
@@ -114,7 +122,7 @@ sources. [Read the source and image policy →](./docs/PORTRAITS.md)
 | 🧭 **Faceted atlas** — Browse 9 mathematical and AI fields in concept or people mode. | ∑ **Formal definitions** — Read renderable notation and precise mathematical definitions. |
 | 🔗 **Relationship graph** — Follow people, related concepts, and concrete applications. | 📚 **Evidence-aware history** — Keep definition, naming history, and AI evidence distinct. |
 | 🕰️ **Historical timeline** — Separate a person's life, publication, later naming, and AI adoption. | 🌏 **Bilingual reading** — Maintain Chinese and English terminology together. |
-| 👤 **People profiles** — Connect biographies, sourced portraits, and named concepts. | ♿ **Keyboard and mobile friendly** — Explore every view with a keyboard or on a small screen. |
+| 👤 **People profiles** — Connect bilingual introductions and localized facts to core contributions, AI uses, and evidence. | ♿ **Keyboard and mobile friendly** — Explore every view with a keyboard or on a small screen. |
 
 ### ✅ Three practical ways to use it / 三种实用方式
 
@@ -217,6 +225,7 @@ Vite prints the local URL, normally `http://localhost:5173`.
 | `npm run build` | Build the static production site into `dist/` |
 | `npm run preview` | Preview the production build locally |
 | `npm run portraits:sync` | Rebuild bounded local portrait assets from audited metadata |
+| `npm run portraits:audit -- --search --accepted-only` | Recheck missing-portrait candidates against Wikidata and Wikimedia Commons |
 
 ### 🧱 How the repository works / 仓库结构
 
@@ -225,6 +234,7 @@ flowchart TD
     E["📚 eponyms.json<br/>people · concepts · citations"]
     P["🖼️ people-media.json<br/>identity · portrait · license"]
     C["Typed catalog<br/>validation · indexes · stable IDs"]
+    R["👤 Person profile selector<br/>contributions · AI uses · evidence"]
     G["🔗 Relationship graph<br/>semantic + visual layers"]
     T["🕰️ Historical timeline<br/>events + eras + URL state"]
     U["🌐 React interface<br/>bilingual · responsive · accessible"]
@@ -233,8 +243,10 @@ flowchart TD
 
     E --> C
     P --> C
+    C --> R
     C --> G
     C --> T
+    R --> U
     G --> U
     T --> U
     C --> Q
@@ -244,7 +256,13 @@ flowchart TD
 
 The site is static and client-side. Stable IDs connect people, concepts,
 timelines, graph edges, and media records. Editorial content lives in the JSON
-catalog rather than being duplicated inside UI components.
+catalog rather than being duplicated inside UI components. Person profiles use
+`src/lib/personProfile.ts` to derive contributions, deduplicated applications,
+and concept-grouped evidence from those canonical concept records.
+
+Concept citations support definition, attribution, history, and use claims for
+the concept under which they appear. A Wikidata link identifies the person; it
+is not presented as a complete biographical source.
 
 > [Read the detailed architecture and source-tree guide →](./docs/ARCHITECTURE.md)
 

@@ -100,6 +100,14 @@ historical evidence, or portraits of real people.
   tab, and understood by assistive technology.
 - **Portrait:** one reusable treatment with monogram fallback and visible
   attribution on profile surfaces.
+- **Person profile:** bilingual introduction and localized lifespan/region facts
+  lead into linked core contributions, deduplicated AI applications, and
+  evidence grouped under the concept whose claims it supports.
+
+Person pages keep identity evidence and concept evidence distinct. Wikidata is
+labelled as an identity record, not a complete biography. Concept links support
+the corresponding definition, history, attribution, or use claims; their visual
+grouping must not imply that they source every biographical statement.
 
 ## Visualization standards
 
@@ -128,7 +136,12 @@ historical evidence, or portraits of real people.
 
 ## Images and generated assets
 
-- Real people use source-verified, openly licensed portraits only.
+- Real people use source-verified, openly licensed portraits only. The current
+  catalog contains 78 verified portraits and 39 visibly labelled monogram
+  fallbacks.
+- Never generate a historical likeness. When identity or globally reusable
+  rights cannot be verified, retain the monogram and explain the fallback on
+  the profile.
 - Generated editorial art may support branding or orientation, but it must not
   fabricate historical people, publications, formulas, evidence, or data.
 - Production screenshots must show the current product state, contain no
@@ -171,4 +184,5 @@ at desktop and mobile sizes. Review:
 5. spacing, alignment, borders, and container model;
 6. focus, selection, filtering, navigation, and URL restoration;
 7. image provenance, crop, loading, and fallbacks;
-8. keyboard, screen-reader, reduced-motion, forced-colors, and zoom behavior.
+8. identity-record, concept-evidence, and biography-source labels;
+9. keyboard, screen-reader, reduced-motion, forced-colors, and zoom behavior.

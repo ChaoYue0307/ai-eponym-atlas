@@ -52,19 +52,29 @@ export function PersonPortrait({
       </span>
     )
 
-  if (showCredit && portrait) {
+  if (showCredit) {
     return (
       <figure className={`person-portrait person-portrait--${variant}`}>
         <span className="person-portrait__visual">{visual}</span>
         <figcaption>
-          <span>{locale === 'zh' ? '肖像：' : 'Portrait: '}</span>
-          <a href={portrait.sourceUrl} target="_blank" rel="noreferrer">
-            {portrait.creator}
-          </a>
-          <span> · </span>
-          <a href={portrait.licenseUrl} target="_blank" rel="noreferrer">
-            {portrait.license}
-          </a>
+          {portrait ? (
+            <>
+              <span>{locale === 'zh' ? '肖像：' : 'Portrait: '}</span>
+              <a href={portrait.sourceUrl} target="_blank" rel="noreferrer">
+                {portrait.creator}
+              </a>
+              <span> · </span>
+              <a href={portrait.licenseUrl} target="_blank" rel="noreferrer">
+                {portrait.license}
+              </a>
+            </>
+          ) : (
+            <span className="person-portrait__unavailable">
+              {locale === 'zh'
+                ? '暂无可核验的开放肖像，以姓名首字母代替。'
+                : 'No verified open portrait is available; initials are shown to prevent misidentification.'}
+            </span>
+          )}
         </figcaption>
       </figure>
     )

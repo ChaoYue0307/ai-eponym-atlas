@@ -13,8 +13,10 @@ AI Eponym Atlas 仅在人物身份与图片再利用条款都可核验时使用�
    statement to locate the candidate Wikimedia Commons file.
 3. Read the file's creator, copyright status, and license through the
    [MediaWiki Imageinfo API](https://www.mediawiki.org/wiki/API:Imageinfo).
-4. Accept only public-domain, CC0, CC BY, or CC BY-SA material whose identity
-   match is sufficiently clear.
+4. Accept only material whose normalized license name exactly matches the
+   public-domain, CC0, CC BY, or CC BY-SA allowlist and whose identity match is
+   sufficiently clear. Exact matching prevents restricted variants such as
+   CC BY-NC from passing a prefix check.
 5. Save a bounded Wikimedia-generated thumbnail in `public/portraits/` and
    record the exact source URL, file-description page, creator, license, license
    link, accessible bilingual alt text, and verification date in
@@ -27,6 +29,18 @@ Run `npm run portraits:sync` to restore missing local files. Maintainers can
 run `npm run portraits:sync -- --force --refresh-thumbnails` to refresh all
 source URLs through the Commons API and rebuild the local copies as
 web-sized 320 px thumbnails.
+
+Run `npm run portraits:audit` to recheck Wikidata P18 candidates for profiles
+that still use initials. For a broader discovery pass, use
+`npm run portraits:audit -- --search --accepted-only`. Commons search results
+are always reported as `IDENTITY_REVIEW_REQUIRED`: an acceptable license does
+not establish that the pictured person is the atlas namesake. Known disputed
+files remain explicit `KNOWN_REJECT` results with a recorded reason.
+
+Every atlas person has a record in `content/people-media.json`, including
+entries without a verified Wikidata identity or portrait. A person-only record
+is an explicit unresolved state, not an invitation to infer an identity from a
+similar name.
 
 The policy follows Wikimedia Commons' own
 [reuse guidance](https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia/en):

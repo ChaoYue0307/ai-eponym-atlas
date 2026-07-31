@@ -36,6 +36,13 @@ The website treats `content/eponyms.json` as the canonical editorial source and
 `content/people-media.json` as the auditable media catalog. Do not duplicate
 entries inside React components.
 
+人物页由 `src/lib/personProfile.ts` 从关联概念中派生核心贡献、去重后的 AI 应用和按概念分组的证据。新增或修订内容时应更新权威概念记录，不要在人物页组件中另写一套容易漂移的表述。
+
+`src/lib/personProfile.ts` derives each profile's core contributions,
+deduplicated AI applications, and concept-grouped evidence from the linked
+concept records. Update the canonical concept data instead of maintaining a
+second set of profile claims in the UI.
+
 顶层结构：
 
 ```json
@@ -97,10 +104,22 @@ entries inside React components.
 - 下载有界缩略图到 `public/portraits/`；
 - 在 `content/people-media.json` 中完整填写人物 ID、本地文件、原始缩略图 URL、Commons 文件页、创作者、许可、许可链接、双语 alt text 和核验日期；
 - 不确定时保留 `portraitInitials`，不要猜测。
+- 不生成历史人物形象；身份或全球可复用许可无法核实时，应继续使用有明确说明的姓名首字母占位符。
 
 Every accepted portrait needs a clear identity match and a complete,
 file-specific attribution record. A monogram is the correct fallback when no
-reliable open portrait is available.
+reliable open portrait is available. Generated historical likenesses are not
+accepted.
+
+可使用以下命令检查 Wikidata 与 Wikimedia Commons 中的新候选图像：
+
+```bash
+npm run portraits:audit -- --search --accepted-only
+```
+
+The audit report is discovery support, not approval. Manually confirm the
+person's identity and the exact Commons file's globally reusable license before
+editing `content/people-media.json`.
 
 ## 概念记录 / Concept record
 
@@ -245,9 +264,14 @@ statistics
 
 来源必须直接支持条目中的主张。不要只链接搜索结果、营销博客、AI 生成摘要或无法定位具体内容的首页。
 
+人物页会按概念展示这些链接，因此其证据范围不变：它们支持相应概念的定义、历史归因或 AI 用途，并不自动成为完整人物传记的来源。`profileUrl` 中的 Wikidata 链接用于身份消歧，也不能替代专门的人物传记来源。
+
 对快速变化的 AI 用途，应尽量补充 2020 年以来的一手论文；预印本需要在来源标签中明确说明。经典定义和历史事实不因来源年代久远而降级，但“当前仍活跃”的判断需要近期证据。完整边界见 [`docs/COVERAGE.md`](./docs/COVERAGE.md)。
 
 *Use at least two direct sources: primary literature where practical, authoritative mathematical references for definitions, and reliable historical sources for attribution. Fast-moving AI relevance should normally have a recent primary source.*
+
+*On person profiles, these remain concept citations. A Wikidata profile is an
+identity record, not a full biography source.*
 
 ## 双语写作 / Bilingual writing
 
@@ -289,6 +313,7 @@ npm run build
 - 图谱有等价的关系列表，不依赖 hover；
 - 键盘焦点清晰；
 - 外部来源确实打开到预期材料。
+- 人物页中的核心贡献、AI 应用和证据与关联概念一致，没有重复或跨概念误归类。
 
 ## Git 与 PR 流程 / Git and pull requests
 
@@ -322,6 +347,8 @@ chore/     工具与维护
 - [ ] 归因说明区分直接贡献、后世命名与争议。
 - [ ] 每条关键主张有直接支持它的来源。
 - [ ] 没有复制无法授权的图片或长篇版权文本。
+- [ ] 人物身份记录、概念证据与人物传记来源没有被混为一谈。
+- [ ] 肖像已核验身份与逐图许可；没有合格肖像时保留有说明的姓名首字母，不生成历史人物形象。
 - [ ] `npm run check` 通过。
 - [ ] 在桌面、移动端和键盘操作下检查了相关页面。
 

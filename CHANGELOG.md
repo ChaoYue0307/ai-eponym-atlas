@@ -16,6 +16,12 @@ All notable editorial and product changes are recorded here. The catalog's
   and linked the README homepage preview directly to the live atlas.
 - Added live coverage totals to the homepage introduction, derived directly
   from the catalog so people, concepts, fields, and citations stay current.
+- Expanded all 117 people profiles with bilingual introductions, localized
+  lifespan and region facts, linked core contributions, deduplicated AI
+  applications, and concept-grouped evidence and attribution.
+- Kept profile evidence scopes explicit: concept citations support the linked
+  concept's definition, history, and use claims, while Wikidata is labelled as
+  an identity record rather than a complete biography source.
 - Refined the homepage constellation with content-aware node sizing, sans-serif
   labels, boundary-safe connectors, a clearer Jacobian focus, and stable
   desktop, tablet, and mobile layouts.
@@ -32,8 +38,9 @@ All notable editorial and product changes are recorded here. The catalog's
 - Added explicit coverage and currency policy, nullable or missing life-date
   handling, an expanded timeline, and regression tests for current AI search
   terms.
-- Added 77 source-verified open portraits with file-level attribution and
-  monogram fallbacks.
+- Added 78 source-verified open portraits with file-level attribution, plus 39
+  labelled monogram fallbacks and a repeatable portrait-candidate audit. No
+  generated historical likenesses are used.
 - Rebuilt the relationship graph as a deterministic, shareable exploration
   workspace with semantic and visual layers, real portraits, path emphasis,
   keyboard camera controls, fit/reset actions, and a responsive inspector.

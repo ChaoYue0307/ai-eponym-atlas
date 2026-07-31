@@ -240,7 +240,7 @@
         "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/99/ClaudeShannon_MFO3807.jpg",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:ClaudeShannon_MFO3807.jpg",
         "creator": "Jacobs, Konrad",
-        "license": "CC BY-SA 2.0 de",
+        "license": "CC BY-SA 2.0 DE",
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
         "alt": {
           "en": "Portrait of Claude Shannon",
@@ -325,7 +325,7 @@
         "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/43/Andrej_Nikolajewitsch_Kolmogorov.jpg",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Andrej_Nikolajewitsch_Kolmogorov.jpg",
         "creator": "Konrad Jacobs",
-        "license": "CC BY-SA 2.0 de",
+        "license": "CC BY-SA 2.0 DE",
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
         "alt": {
           "en": "Portrait of Andrey Kolmogorov",
@@ -497,6 +497,9 @@
       "profileUrl": "https://www.wikidata.org/wiki/Q1607017"
     },
     {
+      "personId": "donald-whitney"
+    },
+    {
       "personId": "norbert-wiener",
       "profileUrl": "https://www.wikidata.org/wiki/Q178577",
       "portrait": {
@@ -504,7 +507,7 @@
         "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Norbert_wiener.jpg",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Norbert_wiener.jpg",
         "creator": "Konrad Jacobs",
-        "license": "CC BY-SA 2.0 de",
+        "license": "CC BY-SA 2.0 DE",
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
         "alt": {
           "en": "Portrait of Norbert Wiener",
@@ -521,7 +524,7 @@
         "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Rudolf_Kalman.jpg",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rudolf_Kalman.jpg",
         "creator": "Greuel, Gert-Martin",
-        "license": "CC BY-SA 2.0 de",
+        "license": "CC BY-SA 2.0 DE",
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
         "alt": {
           "en": "Portrait of Rudolf E. Kálmán",
@@ -644,7 +647,7 @@
         "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/16/Erhard_Schmidt.jpg",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Erhard_Schmidt.jpg",
         "creator": "Konrad Jacobs",
-        "license": "CC BY-SA 2.0 de",
+        "license": "CC BY-SA 2.0 DE",
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
         "alt": {
           "en": "Portrait of Erhard Schmidt",
@@ -811,7 +814,7 @@
         "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Nesterov_yurii.jpg/330px-Nesterov_yurii.jpg",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nesterov_yurii.jpg",
         "creator": "Renate Schmid",
-        "license": "CC BY-SA 2.0 de",
+        "license": "CC BY-SA 2.0 DE",
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
         "alt": {
           "en": "Portrait of Yurii Nesterov",
@@ -921,7 +924,7 @@
         "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Oskar_Perron.jpg/330px-Oskar_Perron.jpg",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oskar_Perron.jpg",
         "creator": "Jacobs, Konrad",
-        "license": "CC BY-SA 2.0 de",
+        "license": "CC BY-SA 2.0 DE",
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
         "alt": {
           "en": "Portrait of Oskar Perron",
@@ -1052,7 +1055,7 @@
         "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/David_Blackwell.jpg/330px-David_Blackwell.jpg",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:David_Blackwell.jpg",
         "creator": "Konrad Jacobs, Erlangen, Copyright is MFO",
-        "license": "CC BY-SA 2.0 de",
+        "license": "CC BY-SA 2.0 DE",
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
         "alt": {
           "en": "Portrait of David Blackwell",
@@ -1432,7 +1435,22 @@
     },
     {
       "personId": "sophus-lie",
-      "profileUrl": "https://www.wikidata.org/wiki/Q30769"
+      "profileUrl": "https://www.wikidata.org/wiki/Q30769",
+      "portrait": {
+        "file": "portraits/sophus-lie.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Das_Fotoalbum_f%C3%BCr_Weierstra%C3%9F_043_%28Sophus_Lie%29.jpg/330px-Das_Fotoalbum_f%C3%BCr_Weierstra%C3%9F_043_%28Sophus_Lie%29.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Das_Fotoalbum_f%C3%BCr_Weierstra%C3%9F_043_(Sophus_Lie).jpg",
+        "creator": "Ludwik Szaciński",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Photographic portrait of Norwegian mathematician Sophus Lie in 1881.",
+          "zh": "挪威数学家索菲斯·李于 1881 年拍摄的肖像。"
+        },
+        "objectPosition": "center 32%",
+        "cropScale": 1.2,
+        "verifiedOn": "2026-07-31"
+      }
     },
     {
       "personId": "boris-weisfeiler",

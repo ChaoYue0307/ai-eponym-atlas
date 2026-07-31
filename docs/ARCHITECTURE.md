@@ -13,6 +13,7 @@ flowchart LR
     E["content/eponyms.json<br/>people · concepts · citations"]
     M["content/people-media.json<br/>identity · portraits · licenses"]
     C["src/data/catalog.ts<br/>typed catalog + indexes"]
+    R["src/lib/personProfile.ts<br/>derived profile selector"]
     T["timeline + constellation data"]
     U["React UI<br/>atlas · details · graph · timeline"]
     Q["Vitest integrity checks"]
@@ -21,7 +22,9 @@ flowchart LR
 
     E --> C
     M --> C
+    C --> R
     C --> U
+    R --> U
     T --> U
     C --> Q
     T --> Q
@@ -34,8 +37,8 @@ flowchart LR
 
 | Source | Responsibility |
 | --- | --- |
-| `content/eponyms.json` | Project metadata, people, concepts, relationships, bilingual explanations, and direct sources |
-| `content/people-media.json` | Verified identities, local portrait files, original URLs, creators, licenses, alt text, and verification dates |
+| `content/eponyms.json` | Project metadata, people, concepts, relationships, bilingual explanations, and concept-level direct sources |
+| `content/people-media.json` | Wikidata identity records, verified local portrait files, original URLs, creators, licenses, alt text, and verification dates |
 | `src/data/timeline.ts` | Curated publication, naming, people, and AI-adoption events |
 | `src/data/constellation.ts` | Small, editorial homepage sample derived from valid catalog concept IDs |
 
@@ -44,6 +47,11 @@ belong in the canonical JSON catalogs.
 
 组件不应复制编辑条目；新增人物与概念必须进入权威 JSON 目录。
 
+Concept citations support the definition, historical attribution, and modern
+use claims attached to that concept. They are not silently promoted into
+full-person biography citations. Likewise, a Wikidata URL is an identity record
+used to disambiguate the person, not a complete biographical source.
+
 ## Runtime modules / 运行模块
 
 | Area | Key files |
@@ -51,7 +59,7 @@ belong in the canonical JSON catalogs.
 | Routing and composition | `src/App.tsx`, `src/hooks/useHashRoute.ts` |
 | Typed catalog | `src/data/catalog.ts`, `src/types.ts` |
 | Atlas search and filters | `src/components/AtlasExplorer.tsx`, `src/lib/search.ts` |
-| Concept and person details | `src/components/ConceptDetail.tsx`, `src/components/PersonDetail.tsx` |
+| Concept and person details | `src/components/ConceptDetail.tsx`, `src/components/PersonDetail.tsx`, `src/lib/personProfile.ts` |
 | Relationship graph | `src/components/GraphExplorer.tsx`, `src/components/GraphExplorer.css`, `src/lib/graph.ts`, `src/lib/graphLayout.ts`, `src/lib/graphViewport.ts` |
 | Timeline | `src/components/TimelineView.tsx`, `src/components/TimelineView.css`, `src/data/timeline.ts` |
 | Localization | `src/copy.ts` and bilingual catalog fields |
@@ -67,7 +75,7 @@ GitHub Pages hosting.
 | `#/` | Homepage and atlas preview |
 | `#/atlas` | Searchable concept and people atlas |
 | `#/concept/:id` | Concept detail |
-| `#/person/:id` | Person profile |
+| `#/person/:id` | Person profile with bilingual introduction, localized facts, linked contributions, deduplicated AI applications, and concept-grouped evidence |
 | `#/graph` | One- or two-hop relationship graph |
 | `#/timeline` | Filterable historical timeline |
 | `#/about` | Editorial method |
@@ -81,7 +89,10 @@ polluting browser history.
 
 - Definitions, formulas, labels, relationship edges, timelines, and controls
   are code-native HTML or SVG.
-- Historical portraits are real, source-verified open works.
+- The current catalog uses 78 real, source-verified open portraits and 39
+  labelled monogram fallbacks.
+- Generated historical likenesses are not used; a monogram remains visible
+  when identity or globally reusable image rights cannot be verified.
 - Generated imagery is permitted only as a decorative editorial layer with no
   informational role.
 - Generated-asset prompts and transformations are recorded in
@@ -94,12 +105,20 @@ polluting browser history.
 - unique and bidirectional IDs;
 - valid related-concept and timeline references;
 - bilingual fields and source minimums;
+- complete person-profile derivation, application deduplication, and source
+  grouping;
 - portrait identity, provenance, license, and local-file records;
 - relationship-graph semantics and collision-free two-hop layouts;
 - graph camera bounds, viewport transforms, and deterministic layout;
 - timeline event chronology, era membership, kind totals, and localized years;
 - homepage constellation/catalog synchronization; and
 - generated visual asset paths, formats, and size budgets.
+
+Portrait discovery remains an explicit maintenance operation rather than a
+runtime dependency. Run
+`npm run portraits:audit -- --search --accepted-only` to report candidates from
+Wikidata and Wikimedia Commons; every reported image still requires manual
+identity and file-license review before it enters the media catalog.
 
 ## Repository map / 仓库地图
 
@@ -115,7 +134,7 @@ ai-eponym-atlas/
 │   ├── components/          React views and reusable UI
 │   ├── data/                typed catalog, timeline, and small UI datasets
 │   ├── hooks/               hash routing and interface state
-│   ├── lib/                 search, graphs, layout, and tests
+│   ├── lib/                 profile selectors, search, graphs, layout, and tests
 │   ├── App.tsx
 │   └── styles.css
 ├── scripts/                 auditable asset-maintenance scripts

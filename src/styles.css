@@ -1456,12 +1456,12 @@ html[lang='zh-CN'] .hero__stat dt {
   grid-template-columns: 180px 1fr;
   align-items: start;
   column-gap: 44px;
-  row-gap: 0;
+  row-gap: 22px;
   margin: 40px 0 72px;
 }
 
 .person-portrait--profile {
-  grid-row: 1 / span 2;
+  grid-row: 1 / span 3;
   width: 180px;
 }
 
@@ -1488,6 +1488,12 @@ html[lang='zh-CN'] .hero__stat dt {
   text-decoration: underline;
   text-decoration-color: color-mix(in srgb, var(--blue) 30%, transparent);
   text-underline-offset: 2px;
+}
+
+.person-portrait__unavailable {
+  display: block;
+  padding-left: 10px;
+  border-left: 2px solid var(--blue);
 }
 
 .person-page__identity > p:first-child {
@@ -1520,9 +1526,10 @@ html[lang='zh-CN'] .hero__stat dt {
 
 .person-page__summary {
   max-width: 740px;
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   color: var(--muted);
   font-size: 1.08rem;
+  line-height: 1.65;
 }
 
 .person-page__intro {
@@ -1553,21 +1560,69 @@ html[lang='zh-CN'] .hero__stat dt {
   height: 13px;
 }
 
-.person-page__concepts,
-.person-page__method-note {
+.person-page__facts {
+  display: grid;
+  grid-column: 2;
+  grid-template-columns: 1fr 1.6fr 0.8fr 0.8fr 0.8fr;
+  margin: 2px 0 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.person-page__facts > div {
+  min-width: 0;
+  padding: 13px 16px 14px;
+  border-right: 1px solid var(--line);
+}
+
+.person-page__facts > div:first-child {
+  padding-left: 0;
+}
+
+.person-page__facts > div:last-child {
+  border-right: 0;
+}
+
+.person-page__facts dt {
+  margin-bottom: 5px;
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: 0.59rem;
+  font-weight: 650;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.person-page__facts dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+  font-family: var(--serif);
+  font-size: 0.93rem;
+  line-height: 1.3;
+}
+
+.person-page__section {
   display: grid;
   grid-template-columns: 130px minmax(250px, 0.8fr) minmax(420px, 1.2fr);
   gap: 28px;
-  padding: 34px 0;
+  padding: 42px 0 46px;
   border-top: 1px solid var(--line-strong);
 }
 
-.person-page__concepts h2,
-.person-page__method-note h2 {
+.person-page__section-heading h2 {
+  margin-bottom: 12px;
   font-family: var(--serif);
   font-size: 2rem;
   font-weight: 500;
   line-height: 1.1;
+}
+
+.person-page__section-heading > p {
+  max-width: 310px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.55;
 }
 
 .person-concept-list {
@@ -1577,15 +1632,25 @@ html[lang='zh-CN'] .hero__stat dt {
 .person-concept-list button {
   display: grid;
   width: 100%;
-  min-height: 74px;
-  grid-template-columns: minmax(170px, 0.8fr) 1fr 20px;
+  min-height: 94px;
+  grid-template-columns: minmax(150px, 0.72fr) minmax(210px, 1.18fr) minmax(100px, 0.55fr) 20px;
   align-items: center;
-  gap: 18px;
-  padding: 10px 0;
+  gap: 16px;
+  padding: 14px 10px 14px 0;
   border-bottom: 1px solid var(--line);
   background: transparent;
   text-align: left;
   cursor: pointer;
+  transition:
+    color var(--transition),
+    background var(--transition),
+    padding var(--transition);
+}
+
+.person-concept-list button:hover {
+  padding-left: 10px;
+  color: var(--blue);
+  background: var(--blue-pale);
 }
 
 .person-concept-list strong,
@@ -1604,17 +1669,142 @@ html[lang='zh-CN'] .hero__stat dt {
   font-size: 0.73rem;
 }
 
+.person-concept-list__meaning strong {
+  margin-bottom: 4px;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 650;
+}
+
+.person-concept-list__meaning small {
+  line-height: 1.45;
+}
+
+.person-concept-list__field {
+  color: var(--blue) !important;
+  font-family: var(--mono);
+  font-size: 0.62rem !important;
+  line-height: 1.35;
+}
+
 .person-concept-list svg {
   width: 16px;
   height: 16px;
   color: var(--blue);
 }
 
-.person-page__method-note > p:not(.section-number) {
+.person-application-list {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+
+.person-application-list li {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.person-application-list li > span {
+  padding-top: 3px;
+  color: var(--blue);
+  font-family: var(--mono);
+  font-size: 0.65rem;
+}
+
+.person-application-list p {
+  margin-bottom: 5px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.person-application-list small {
+  color: var(--muted);
+  font-size: 0.69rem;
+}
+
+.person-evidence-list {
+  border-top: 1px solid var(--line);
+}
+
+.person-evidence-list article {
+  padding: 18px 0 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.person-evidence-list article > header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 8px;
+}
+
+.person-evidence-list h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  font-weight: 550;
+}
+
+.person-evidence-list header button,
+.person-evidence-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--blue);
+  font-size: 0.7rem;
+}
+
+.person-evidence-list header button {
+  flex: 0 0 auto;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.person-evidence-list header svg,
+.person-evidence-list a svg {
+  width: 12px;
+  height: 12px;
+}
+
+.person-evidence-list article > p {
+  margin-bottom: 13px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.person-evidence-list ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.person-evidence-list li {
+  min-width: 0;
+}
+
+.person-evidence-list a {
+  align-items: flex-start;
+  overflow-wrap: anywhere;
+  line-height: 1.4;
+}
+
+.person-page__method-copy > p {
+  margin-bottom: 14px;
   color: var(--muted);
 }
 
-.person-page__method-note a {
+.person-page__method-copy a {
   display: inline-flex;
   align-items: center;
   gap: 7px;
@@ -1622,7 +1812,7 @@ html[lang='zh-CN'] .hero__stat dt {
   font-size: 0.82rem;
 }
 
-.person-page__method-note svg {
+.person-page__method-copy svg {
   width: 15px;
   height: 15px;
 }
@@ -2976,16 +3166,17 @@ html[lang='zh-CN'] .hero__stat dt {
 
   .person-page__header {
     grid-template-columns: 96px 1fr;
-    gap: 18px;
+    gap: 18px 14px;
     margin: 28px 0 52px;
   }
 
   .person-portrait--profile {
-    grid-row: 1;
-    width: 96px;
+    display: contents;
   }
 
   .person-portrait--profile .person-portrait__visual {
+    grid-column: 1;
+    grid-row: 1;
     width: 80px;
     height: 80px;
   }
@@ -2995,9 +3186,16 @@ html[lang='zh-CN'] .hero__stat dt {
   }
 
   .person-portrait--profile figcaption {
-    width: 96px;
-    margin-top: 7px;
-    font-size: 0.75rem;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: auto;
+    margin: -6px 0 2px;
+    font-size: 0.69rem;
+  }
+
+  .person-page__identity {
+    grid-column: 2;
+    grid-row: 1;
   }
 
   .person-page h1 {
@@ -3006,30 +3204,70 @@ html[lang='zh-CN'] .hero__stat dt {
 
   .person-page__intro {
     grid-column: 1 / -1;
-    margin-top: 18px;
+    grid-row: 3;
+    margin-top: 4px;
   }
 
-  .person-page__concepts,
-  .person-page__method-note {
+  .person-page__facts {
+    grid-column: 1 / -1;
+    grid-row: 4;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .person-page__facts > div,
+  .person-page__facts > div:first-child {
+    padding: 11px 10px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .person-page__facts > div:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .person-page__facts > div:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+
+  .person-page__facts > div:last-child {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--line);
+  }
+
+  .person-page__section {
     display: block;
+    padding: 34px 0 38px;
   }
 
-  .person-page__concepts > h2,
-  .person-page__method-note > h2 {
+  .person-page__section-heading {
     margin-bottom: 24px;
+  }
+
+  .person-page__section-heading > p {
+    max-width: none;
   }
 
   .person-concept-list button {
     grid-template-columns: 1fr 18px;
+    gap: 8px 14px;
+    padding: 14px 0;
   }
 
   .person-concept-list__meaning {
     grid-column: 1;
   }
 
+  .person-concept-list__field {
+    grid-column: 1;
+  }
+
   .person-concept-list svg {
     grid-column: 2;
-    grid-row: 1 / 3;
+    grid-row: 1 / 4;
+  }
+
+  .person-evidence-list ul {
+    grid-template-columns: 1fr;
   }
 
   .graph-workspace {

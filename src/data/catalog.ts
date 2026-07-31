@@ -129,6 +129,10 @@ export const catalogStats = Object.freeze({
   people: people.length,
   concepts: concepts.length,
   fields: categories.length,
+  verifiedPortraits: people.filter((person) => person.portrait !== undefined)
+    .length,
+  portraitFallbacks: people.filter((person) => person.portrait === undefined)
+    .length,
   sourceCitations: concepts.reduce(
     (total, concept) => total + concept.sourceLinks.length,
     0,

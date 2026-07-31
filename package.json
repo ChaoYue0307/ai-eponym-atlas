@@ -10,6 +10,7 @@
     "lint": "tsc -b --pretty false",
     "lint:docs": "markdownlint-cli2",
     "links:check": "node scripts/check-source-links.mjs",
+    "portraits:audit": "node scripts/audit-portrait-candidates.mjs",
     "test": "vitest",
     "portraits:sync": "node scripts/sync-portrait-assets.mjs",
     "preview": "vite preview",

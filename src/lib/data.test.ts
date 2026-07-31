@@ -1,4 +1,4 @@
-import { existsSync, readFileSync, statSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 
@@ -37,6 +37,12 @@ describe("atlas data integrity", () => {
     expect(catalogStats.people).toBe(people.length);
     expect(catalogStats.concepts).toBe(concepts.length);
     expect(catalogStats.fields).toBe(categories.length);
+    expect(catalogStats.verifiedPortraits).toBe(
+      people.filter((person) => person.portrait !== undefined).length,
+    );
+    expect(catalogStats.portraitFallbacks).toBe(
+      people.filter((person) => person.portrait === undefined).length,
+    );
     expect(catalogStats.sourceCitations).toBe(
       concepts.reduce(
         (total, concept) => total + concept.sourceLinks.length,
@@ -114,7 +120,7 @@ describe("atlas data integrity", () => {
   });
 
   it("keeps portrait identity, provenance, licenses, and local files auditable", () => {
-    expect(mediaCatalog.profiles.length).toBeGreaterThanOrEqual(110);
+    expect(mediaCatalog.profiles).toHaveLength(people.length);
     const portraitProfiles = mediaCatalog.profiles.filter(
       (profile) => profile.portrait !== undefined,
     );
@@ -122,14 +128,38 @@ describe("atlas data integrity", () => {
     expect(
       new Set(mediaCatalog.profiles.map((profile) => profile.personId)).size,
     ).toBe(mediaCatalog.profiles.length);
+    expect(new Set(mediaCatalog.profiles.map((profile) => profile.personId))).toEqual(
+      new Set(people.map((person) => person.id)),
+    );
+
+    const acceptedLicenses = new Set([
+      "Public domain",
+      "CC0",
+      "CC0 1.0",
+      "CC BY 1.0",
+      "CC BY 2.0",
+      "CC BY 2.5",
+      "CC BY 3.0",
+      "CC BY 4.0",
+      "CC BY-SA 1.0",
+      "CC BY-SA 2.0",
+      "CC BY-SA 2.0 DE",
+      "CC BY-SA 2.5",
+      "CC BY-SA 3.0",
+      "CC BY-SA 4.0",
+    ]);
 
     const portraitFiles = new Set<string>();
+    const profileUrls = new Set<string>();
+    const sourceUrls = new Set<string>();
     for (const profile of mediaCatalog.profiles) {
       expect(peopleById.get(profile.personId), profile.personId).toBeDefined();
       if (profile.profileUrl) {
         expect(profile.profileUrl).toMatch(
           /^https:\/\/www\.wikidata\.org\/wiki\/Q\d+$/,
         );
+        expect(profileUrls.has(profile.profileUrl), profile.profileUrl).toBe(false);
+        profileUrls.add(profile.profileUrl);
       }
 
       const portrait = profile.portrait;
@@ -150,11 +180,11 @@ describe("atlas data integrity", () => {
       expect(portrait.sourceUrl).toMatch(
         /^https:\/\/commons\.wikimedia\.org\/wiki\/File:/,
       );
+      expect(sourceUrls.has(portrait.sourceUrl), portrait.sourceUrl).toBe(false);
+      sourceUrls.add(portrait.sourceUrl);
       expect(portrait.creator.trim()).not.toBe("");
-      expect(portrait.license).toMatch(
-        /^(?:Public domain|CC0|CC BY(?:-SA)?)/,
-      );
-      expect(portrait.license).not.toBe("Public domain in the United States");
+      expect(acceptedLicenses.has(portrait.license), portrait.license).toBe(true);
+      expect(portrait.license).not.toMatch(/(?:-NC|-ND)/);
       expect(portrait.licenseUrl).toMatch(/^https:\/\//);
       expect(portrait.alt.en.trim()).not.toBe("");
       expect(portrait.alt.zh.trim()).not.toBe("");
@@ -162,8 +192,23 @@ describe("atlas data integrity", () => {
         expect(portrait.cropScale).toBeGreaterThanOrEqual(1);
         expect(portrait.cropScale).toBeLessThanOrEqual(2);
       }
+      if (portrait.objectPosition !== undefined) {
+        expect(portrait.objectPosition).toMatch(
+          /^(?:(?:left|center|right|\d+(?:\.\d+)?%)\s+(?:top|center|bottom|\d+(?:\.\d+)?%))$/,
+        );
+      }
+      expect(statSync(resolve("public", portrait.file)).size).toBeLessThanOrEqual(
+        200 * 1024,
+      );
       expect(portrait.verifiedOn).toMatch(/^\d{4}-\d{2}-\d{2}$/);
     }
+
+    const checkedInPortraits = new Set(
+      readdirSync(resolve("public", "portraits")).map(
+        (fileName) => `portraits/${fileName}`,
+      ),
+    );
+    expect(checkedInPortraits).toEqual(portraitFiles);
   });
 
   it("keeps the decorative hero artwork local and lightweight", () => {
