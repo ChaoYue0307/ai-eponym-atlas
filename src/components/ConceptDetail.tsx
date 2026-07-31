@@ -11,6 +11,7 @@ import { conceptsById, peopleById } from '../data/catalog'
 import { navigate } from '../hooks/useHashRoute'
 import { formatLifespan } from '../lib/lifespan'
 import { FormulaText } from './FormulaText'
+import { PersonPortrait } from './PersonPortrait'
 
 type ConceptDetailProps = {
   conceptId: string
@@ -214,7 +215,7 @@ export function ConceptDetail({
                   key={person.id}
                   onClick={() => navigate(`/person/${person.id}`)}
                 >
-                  <span className="namesake-list__initials">{person.portraitInitials}</span>
+                  <PersonPortrait person={person} locale={locale} />
                   <span>
                     <strong>{person.name}</strong>
                     <small>

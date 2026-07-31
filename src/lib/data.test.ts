@@ -1,9 +1,12 @@
+import { existsSync } from "node:fs";
+import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 
 import {
   categories,
   concepts,
   conceptsById,
+  mediaCatalog,
   people,
   peopleById,
 } from "../data/catalog";
@@ -85,6 +88,59 @@ describe("atlas data integrity", () => {
         expect(source.label.trim()).not.toBe("");
         expect(source.url).toMatch(/^https?:\/\//);
       }
+    }
+  });
+
+  it("keeps portrait identity, provenance, licenses, and local files auditable", () => {
+    expect(mediaCatalog.profiles.length).toBeGreaterThanOrEqual(110);
+    const portraitProfiles = mediaCatalog.profiles.filter(
+      (profile) => profile.portrait !== undefined,
+    );
+    expect(portraitProfiles.length).toBeGreaterThanOrEqual(70);
+    expect(
+      new Set(mediaCatalog.profiles.map((profile) => profile.personId)).size,
+    ).toBe(mediaCatalog.profiles.length);
+
+    const portraitFiles = new Set<string>();
+    for (const profile of mediaCatalog.profiles) {
+      expect(peopleById.get(profile.personId), profile.personId).toBeDefined();
+      if (profile.profileUrl) {
+        expect(profile.profileUrl).toMatch(
+          /^https:\/\/www\.wikidata\.org\/wiki\/Q\d+$/,
+        );
+      }
+
+      const portrait = profile.portrait;
+      if (!portrait) continue;
+
+      expect(profile.profileUrl, profile.personId).toBeDefined();
+      expect(portrait.file).toMatch(
+        /^portraits\/[a-z0-9-]+\.(?:jpe?g|png|webp)$/,
+      );
+      expect(portraitFiles.has(portrait.file), portrait.file).toBe(false);
+      portraitFiles.add(portrait.file);
+      expect(existsSync(resolve("public", portrait.file)), portrait.file).toBe(
+        true,
+      );
+      expect(portrait.sourceImageUrl).toMatch(
+        /^https:\/\/upload\.wikimedia\.org\//,
+      );
+      expect(portrait.sourceUrl).toMatch(
+        /^https:\/\/commons\.wikimedia\.org\/wiki\/File:/,
+      );
+      expect(portrait.creator.trim()).not.toBe("");
+      expect(portrait.license).toMatch(
+        /^(?:Public domain|CC0|CC BY(?:-SA)?)/,
+      );
+      expect(portrait.license).not.toBe("Public domain in the United States");
+      expect(portrait.licenseUrl).toMatch(/^https:\/\//);
+      expect(portrait.alt.en.trim()).not.toBe("");
+      expect(portrait.alt.zh.trim()).not.toBe("");
+      if (portrait.cropScale !== undefined) {
+        expect(portrait.cropScale).toBeGreaterThanOrEqual(1);
+        expect(portrait.cropScale).toBeLessThanOrEqual(2);
+      }
+      expect(portrait.verifiedOn).toMatch(/^\d{4}-\d{2}-\d{2}$/);
     }
   });
 

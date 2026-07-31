@@ -1,0 +1,1480 @@
+{
+  "schemaVersion": "1.0.0",
+  "lastVerified": "2026-07-31",
+  "sourcePolicy": {
+    "en": "Portraits are accepted only after identity and reuse terms are verified from Wikidata and the Wikimedia Commons file page. Entries without a sufficiently reliable open portrait keep the monogram fallback.",
+    "zh": "肖像仅在通过 Wikidata 与 Wikimedia Commons 文件页核验人物身份和再利用条款后收录；没有足够可靠开放肖像的条目继续使用姓名首字母占位。"
+  },
+  "profiles": [
+    {
+      "personId": "rene-descartes",
+      "profileUrl": "https://www.wikidata.org/wiki/Q9191",
+      "portrait": {
+        "file": "portraits/rene-descartes.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg/330px-Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg",
+        "creator": "After Frans Hals",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of René Descartes",
+          "zh": "勒内·笛卡尔肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "euclid",
+      "profileUrl": "https://www.wikidata.org/wiki/Q8747",
+      "portrait": {
+        "file": "portraits/euclid.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Euklid2.jpg/330px-Euklid2.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Euklid2.jpg",
+        "creator": "Justus van Gent",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Later artistic depiction traditionally representing Euclid",
+          "zh": "后世传统上用于表现欧几里得的艺术作品"
+        },
+        "objectPosition": "center 28%",
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "carl-friedrich-gauss",
+      "profileUrl": "https://www.wikidata.org/wiki/Q6722",
+      "portrait": {
+        "file": "portraits/carl-friedrich-gauss.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Carl_Friedrich_Gauss.jpg/330px-Carl_Friedrich_Gauss.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carl_Friedrich_Gauss.jpg",
+        "creator": "Gottlieb Biermann / After Christian Albrecht Jensen",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Carl Friedrich Gauss",
+          "zh": "卡尔·弗里德里希·高斯肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "thomas-bayes",
+      "profileUrl": "https://www.wikidata.org/wiki/Q208452"
+    },
+    {
+      "personId": "andrey-markov",
+      "profileUrl": "https://www.wikidata.org/wiki/Q176659",
+      "portrait": {
+        "file": "portraits/andrey-markov.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/AAMarkov.jpg/330px-AAMarkov.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:AAMarkov.jpg",
+        "creator": "Unknown author",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Andrey Markov",
+          "zh": "安德烈·马尔可夫肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "joseph-fourier",
+      "profileUrl": "https://www.wikidata.org/wiki/Q8772",
+      "portrait": {
+        "file": "portraits/joseph-fourier.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Fourier2.jpg/330px-Fourier2.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fourier2.jpg",
+        "creator": "Julien-Léopold Boilly",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Joseph Fourier",
+          "zh": "约瑟夫·傅里叶肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "pierre-simon-laplace",
+      "profileUrl": "https://www.wikidata.org/wiki/Q44481",
+      "portrait": {
+        "file": "portraits/pierre-simon-laplace.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Pierre-Simon%2C_marquis_de_Laplace_%281745-1827%29_-_Gu%C3%A9rin.jpg/330px-Pierre-Simon%2C_marquis_de_Laplace_%281745-1827%29_-_Gu%C3%A9rin.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pierre-Simon,_marquis_de_Laplace_(1745-1827)_-_Gu%C3%A9rin.jpg",
+        "creator": "Jean-Baptiste Paulin Guérin",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Pierre-Simon Laplace",
+          "zh": "皮埃尔-西蒙·拉普拉斯肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "brook-taylor",
+      "profileUrl": "https://www.wikidata.org/wiki/Q212085",
+      "portrait": {
+        "file": "portraits/brook-taylor.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/25/BTaylor.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:BTaylor.jpg",
+        "creator": "Unknown creator",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Brook Taylor",
+          "zh": "布鲁克·泰勒肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "isaac-newton",
+      "profileUrl": "https://www.wikidata.org/wiki/Q935",
+      "portrait": {
+        "file": "portraits/isaac-newton.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/GodfreyKneller-IsaacNewton-1689.jpg/330px-GodfreyKneller-IsaacNewton-1689.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:GodfreyKneller-IsaacNewton-1689.jpg",
+        "creator": "James Thronill after Sir Godfrey Kneller",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Isaac Newton",
+          "zh": "艾萨克·牛顿肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "joseph-louis-lagrange",
+      "profileUrl": "https://www.wikidata.org/wiki/Q80222",
+      "portrait": {
+        "file": "portraits/joseph-louis-lagrange.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/46/%D0%9B%D0%B0%D0%B3%D1%80%D0%B0%D0%BD%D0%B6.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%9B%D0%B0%D0%B3%D1%80%D0%B0%D0%BD%D0%B6.jpg",
+        "creator": "Unknown author",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Joseph-Louis Lagrange",
+          "zh": "约瑟夫-路易·拉格朗日肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "carl-gustav-jacobi",
+      "profileUrl": "https://www.wikidata.org/wiki/Q76564",
+      "portrait": {
+        "file": "portraits/carl-gustav-jacobi.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Carl_Gustav_Jacob_Jacobi_portrait_1843_%28cropped%29.jpg/330px-Carl_Gustav_Jacob_Jacobi_portrait_1843_%28cropped%29.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carl_Gustav_Jacob_Jacobi_portrait_1843_(cropped).jpg",
+        "creator": "August Kaselowsky ; Giesecke u. Devrient (heliogr.)",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Carl Gustav Jacob Jacobi",
+          "zh": "卡尔·古斯塔夫·雅可比肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "ludwig-otto-hesse",
+      "profileUrl": "https://www.wikidata.org/wiki/Q60397",
+      "portrait": {
+        "file": "portraits/ludwig-otto-hesse.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/65/Ludwig_Otto_Hesse.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ludwig_Otto_Hesse.jpg",
+        "creator": "Unknown author",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Ludwig Otto Hesse",
+          "zh": "路德维希·奥托·黑塞肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "bernhard-riemann",
+      "profileUrl": "https://www.wikidata.org/wiki/Q42299",
+      "portrait": {
+        "file": "portraits/bernhard-riemann.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Georg_Friedrich_Bernhard_Riemann.jpeg/330px-Georg_Friedrich_Bernhard_Riemann.jpeg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Georg_Friedrich_Bernhard_Riemann.jpeg",
+        "creator": "Unknown creator",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Bernhard Riemann",
+          "zh": "伯恩哈德·黎曼肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "david-hilbert",
+      "profileUrl": "https://www.wikidata.org/wiki/Q41585",
+      "portrait": {
+        "file": "portraits/david-hilbert.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Hilbert.jpg/330px-Hilbert.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hilbert.jpg",
+        "creator": "Unknown author",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of David Hilbert",
+          "zh": "大卫·希尔伯特肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "claude-shannon",
+      "profileUrl": "https://www.wikidata.org/wiki/Q92760",
+      "portrait": {
+        "file": "portraits/claude-shannon.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/99/ClaudeShannon_MFO3807.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:ClaudeShannon_MFO3807.jpg",
+        "creator": "Jacobs, Konrad",
+        "license": "CC BY-SA 2.0 de",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
+        "alt": {
+          "en": "Portrait of Claude Shannon",
+          "zh": "克劳德·香农肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "johan-jensen",
+      "profileUrl": "https://www.wikidata.org/wiki/Q434385",
+      "portrait": {
+        "file": "portraits/johan-jensen.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Johan_Ludvig_William_Valdemar_Jensen_by_Vilhelm_Rieger.jpg/330px-Johan_Ludvig_William_Valdemar_Jensen_by_Vilhelm_Rieger.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Johan_Ludvig_William_Valdemar_Jensen_by_Vilhelm_Rieger.jpg",
+        "creator": "Rieger, Theodor Vilhelm",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Johan Jensen",
+          "zh": "约翰·延森肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "ronald-fisher",
+      "profileUrl": "https://www.wikidata.org/wiki/Q216723",
+      "portrait": {
+        "file": "portraits/ronald-fisher.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Youngronaldfisher2.JPG",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Youngronaldfisher2.JPG",
+        "creator": "Unknown author",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Ronald A. Fisher",
+          "zh": "罗纳德·费舍尔肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "solomon-kullback",
+      "profileUrl": "https://www.wikidata.org/wiki/Q896641",
+      "portrait": {
+        "file": "portraits/solomon-kullback.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Solomon-kullback.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Solomon-kullback.jpg",
+        "creator": "National Security Agency",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Solomon Kullback",
+          "zh": "所罗门·库尔贝克肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "richard-leibler",
+      "profileUrl": "https://www.wikidata.org/wiki/Q2150086",
+      "portrait": {
+        "file": "portraits/richard-leibler.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Dr._Richard_A._Leibler.jpg/330px-Dr._Richard_A._Leibler.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dr._Richard_A._Leibler.jpg",
+        "creator": "National Security Agency",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Richard A. Leibler",
+          "zh": "理查德·莱布勒肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "andrey-kolmogorov",
+      "profileUrl": "https://www.wikidata.org/wiki/Q153224",
+      "portrait": {
+        "file": "portraits/andrey-kolmogorov.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/43/Andrej_Nikolajewitsch_Kolmogorov.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Andrej_Nikolajewitsch_Kolmogorov.jpg",
+        "creator": "Konrad Jacobs",
+        "license": "CC BY-SA 2.0 de",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
+        "alt": {
+          "en": "Portrait of Andrey Kolmogorov",
+          "zh": "安德雷·柯尔莫哥洛夫肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "vladimir-arnold",
+      "profileUrl": "https://www.wikidata.org/wiki/Q157642",
+      "portrait": {
+        "file": "portraits/vladimir-arnold.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Vladimir_Arnold-1.jpg/330px-Vladimir_Arnold-1.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vladimir_Arnold-1.jpg",
+        "creator": "Svetlana Tretyakova (Светлана Третьякова)",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "alt": {
+          "en": "Portrait of Vladimir Arnold",
+          "zh": "弗拉基米尔·阿诺尔德肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "emmy-noether",
+      "profileUrl": "https://www.wikidata.org/wiki/Q7099",
+      "portrait": {
+        "file": "portraits/emmy-noether.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Noether.jpg/330px-Noether.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Noether.jpg",
+        "creator": "Unknown photographer",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Emmy Noether",
+          "zh": "埃米·诺特肖像"
+        },
+        "objectPosition": "center 18%",
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "george-boole",
+      "profileUrl": "https://www.wikidata.org/wiki/Q134661",
+      "portrait": {
+        "file": "portraits/george-boole.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/George_Boole_color.jpg/330px-George_Boole_color.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:George_Boole_color.jpg",
+        "creator": "Unknown author",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of George Boole",
+          "zh": "乔治·布尔肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "alan-turing",
+      "profileUrl": "https://www.wikidata.org/wiki/Q7251",
+      "portrait": {
+        "file": "portraits/alan-turing.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Alan_Turing_%281951%29_%28crop%29.jpg/330px-Alan_Turing_%281951%29_%28crop%29.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alan_Turing_(1951)_(crop).jpg",
+        "creator": "Elliott & Fry",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Alan Turing",
+          "zh": "艾伦·图灵肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "john-von-neumann",
+      "profileUrl": "https://www.wikidata.org/wiki/Q17455",
+      "portrait": {
+        "file": "portraits/john-von-neumann.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/John_von_Neumann.jpg/330px-John_von_Neumann.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:John_von_Neumann.jpg",
+        "creator": "wikispaces (as credited on Wikimedia Commons)",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "alt": {
+          "en": "Portrait of John von Neumann",
+          "zh": "约翰·冯·诺依曼肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "simeon-denis-poisson",
+      "profileUrl": "https://www.wikidata.org/wiki/Q190772",
+      "portrait": {
+        "file": "portraits/simeon-denis-poisson.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Simeon_Poisson_%28cropped%29.jpg/330px-Simeon_Poisson_%28cropped%29.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Simeon_Poisson_(cropped).jpg",
+        "creator": "François-Séraphin Delpech / After Nicolas Eustache Maurin",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Siméon Denis Poisson",
+          "zh": "西莫恩·德尼·泊松肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "jacob-bernoulli",
+      "profileUrl": "https://www.wikidata.org/wiki/Q122392",
+      "portrait": {
+        "file": "portraits/jacob-bernoulli.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Jakob_Bernoulli.jpg/330px-Jakob_Bernoulli.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jakob_Bernoulli.jpg",
+        "creator": "Niklaus Bernoulli (1662-1716)",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Jacob Bernoulli",
+          "zh": "雅各布·伯努利肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "karl-pearson",
+      "profileUrl": "https://www.wikidata.org/wiki/Q310794",
+      "portrait": {
+        "file": "portraits/karl-pearson.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Karl_Pearson.jpg/330px-Karl_Pearson.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Karl_Pearson.jpg",
+        "creator": "Unknown author",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Karl Pearson",
+          "zh": "卡尔·皮尔逊肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "william-gosset",
+      "profileUrl": "https://www.wikidata.org/wiki/Q334375",
+      "portrait": {
+        "file": "portraits/william-gosset.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/William_Sealy_Gosset.jpg/330px-William_Sealy_Gosset.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:William_Sealy_Gosset.jpg",
+        "creator": "Unknown photographer; scan credited to Wujaszek",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of William Sealy Gosset",
+          "zh": "威廉·西利·戈塞特肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "frank-wilcoxon",
+      "profileUrl": "https://www.wikidata.org/wiki/Q617374"
+    },
+    {
+      "personId": "henry-mann",
+      "profileUrl": "https://www.wikidata.org/wiki/Q1607017"
+    },
+    {
+      "personId": "norbert-wiener",
+      "profileUrl": "https://www.wikidata.org/wiki/Q178577",
+      "portrait": {
+        "file": "portraits/norbert-wiener.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Norbert_wiener.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Norbert_wiener.jpg",
+        "creator": "Konrad Jacobs",
+        "license": "CC BY-SA 2.0 de",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
+        "alt": {
+          "en": "Portrait of Norbert Wiener",
+          "zh": "诺伯特·维纳肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "rudolf-kalman",
+      "profileUrl": "https://www.wikidata.org/wiki/Q384687",
+      "portrait": {
+        "file": "portraits/rudolf-kalman.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Rudolf_Kalman.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rudolf_Kalman.jpg",
+        "creator": "Greuel, Gert-Martin",
+        "license": "CC BY-SA 2.0 de",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
+        "alt": {
+          "en": "Portrait of Rudolf E. Kálmán",
+          "zh": "鲁道夫·卡尔曼肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "richard-bellman",
+      "profileUrl": "https://www.wikidata.org/wiki/Q441199"
+    },
+    {
+      "personId": "edsger-dijkstra",
+      "profileUrl": "https://www.wikidata.org/wiki/Q8556",
+      "portrait": {
+        "file": "portraits/edsger-dijkstra.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Edsger_Dijkstra_1994.jpg/330px-Edsger_Dijkstra_1994.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Edsger_Dijkstra_1994.jpg",
+        "creator": "Andreas F. Borchert",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "alt": {
+          "en": "Portrait of Edsger W. Dijkstra",
+          "zh": "艾兹赫尔·戴克斯特拉肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "carl-runge",
+      "profileUrl": "https://www.wikidata.org/wiki/Q57564",
+      "portrait": {
+        "file": "portraits/carl-runge.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Voit_202_Karl_Runge.jpg/330px-Voit_202_Karl_Runge.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Voit_202_Karl_Runge.jpg",
+        "creator": "Peter Matzen",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Carl Runge",
+          "zh": "卡尔·龙格肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "martin-kutta",
+      "profileUrl": "https://www.wikidata.org/wiki/Q61769",
+      "portrait": {
+        "file": "portraits/martin-kutta.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Martin_Wilhelm_Kutta.jpg/330px-Martin_Wilhelm_Kutta.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Martin_Wilhelm_Kutta.jpg",
+        "creator": "Unknown author",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Martin Kutta",
+          "zh": "马丁·库塔肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "stefan-banach",
+      "profileUrl": "https://www.wikidata.org/wiki/Q180217",
+      "portrait": {
+        "file": "portraits/stefan-banach.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Stefana_Banach_-_%D8%B3%D8%AA%D9%8A%D9%81%D8%A7%D9%86_%D8%A8%D9%86%D8%A7%D8%AE.jpg/330px-Stefana_Banach_-_%D8%B3%D8%AA%D9%8A%D9%81%D8%A7%D9%86_%D8%A8%D9%86%D8%A7%D8%AE.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stefana_Banach_-_%D8%B3%D8%AA%D9%8A%D9%81%D8%A7%D9%86_%D8%A8%D9%86%D8%A7%D8%AE.jpg",
+        "creator": "nieznany/unknown",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Stefan Banach",
+          "zh": "斯特凡·巴拿赫肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "hermann-minkowski",
+      "profileUrl": "https://www.wikidata.org/wiki/Q57246",
+      "portrait": {
+        "file": "portraits/hermann-minkowski.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/De_Raum_zeit_Minkowski_Bild.jpg/330px-De_Raum_zeit_Minkowski_Bild.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:De_Raum_zeit_Minkowski_Bild.jpg",
+        "creator": "Hermann Minkowski",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Hermann Minkowski",
+          "zh": "赫尔曼·闵可夫斯基的肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "jorgen-gram",
+      "profileUrl": "https://www.wikidata.org/wiki/Q957238",
+      "portrait": {
+        "file": "portraits/jorgen-gram.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/J%C3%B8rgen_Pedersen_Gram_by_Johannes_Hauerslev.jpg/330px-J%C3%B8rgen_Pedersen_Gram_by_Johannes_Hauerslev.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:J%C3%B8rgen_Pedersen_Gram_by_Johannes_Hauerslev.jpg",
+        "creator": "Johannes Hauerslev",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Jørgen Pedersen Gram",
+          "zh": "约尔根·格拉姆的肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "erhard-schmidt",
+      "profileUrl": "https://www.wikidata.org/wiki/Q61766",
+      "portrait": {
+        "file": "portraits/erhard-schmidt.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/16/Erhard_Schmidt.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Erhard_Schmidt.jpg",
+        "creator": "Konrad Jacobs",
+        "license": "CC BY-SA 2.0 de",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
+        "alt": {
+          "en": "Portrait of Erhard Schmidt",
+          "zh": "埃哈德·施密特的肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "prasanta-mahalanobis",
+      "profileUrl": "https://www.wikidata.org/wiki/Q561478",
+      "portrait": {
+        "file": "portraits/prasanta-mahalanobis.png",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a3/%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%B8%E0%A4%A8%E0%A5%8D%E0%A4%A4_%E0%A4%9A%E0%A4%A8%E0%A5%8D%E0%A4%A6%E0%A5%8D%E0%A4%B0_%E0%A4%AE%E0%A4%B9%E0%A4%B2%E0%A4%A8%E0%A5%8B%E0%A4%AC%E0%A4%BF%E0%A4%B8%E0%A5%8D.png",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%B8%E0%A4%A8%E0%A5%8D%E0%A4%A4_%E0%A4%9A%E0%A4%A8%E0%A5%8D%E0%A4%A6%E0%A5%8D%E0%A4%B0_%E0%A4%AE%E0%A4%B9%E0%A4%B2%E0%A4%A8%E0%A5%8B%E0%A4%AC%E0%A4%BF%E0%A4%B8%E0%A5%8D.png",
+        "creator": "Parinitha Ravi",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "alt": {
+          "en": "Portrait of Prasanta Chandra Mahalanobis",
+          "zh": "普拉桑塔·钱德拉·马哈拉诺比斯的肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "emil-gumbel",
+      "profileUrl": "https://www.wikidata.org/wiki/Q63826",
+      "portrait": {
+        "file": "portraits/emil-gumbel.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Emil_Julius_Gumbel.jpg/330px-Emil_Julius_Gumbel.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Emil_Julius_Gumbel.jpg",
+        "creator": "Anonymous / unknown",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Emil Julius Gumbel",
+          "zh": "埃米尔·贡贝尔的肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "jacques-hadamard",
+      "profileUrl": "https://www.wikidata.org/wiki/Q164425",
+      "portrait": {
+        "file": "portraits/jacques-hadamard.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/01/Hadamard_retouched.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hadamard_retouched.jpg",
+        "creator": "Matankic",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "alt": {
+          "en": "Portrait of Jacques Hadamard",
+          "zh": "雅克·阿达马的肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "james-mercer",
+      "profileUrl": "https://www.wikidata.org/wiki/Q3710021"
+    },
+    {
+      "personId": "andre-cholesky",
+      "profileUrl": "https://www.wikidata.org/wiki/Q516458",
+      "portrait": {
+        "file": "portraits/andre-cholesky.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Andre_Cholesky.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Andre_Cholesky.jpg",
+        "creator": "Unknown creator",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of André-Louis Cholesky",
+          "zh": "安德烈-路易·乔列斯基的肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "lev-bregman",
+      "profileUrl": "https://www.wikidata.org/wiki/Q16105569"
+    },
+    {
+      "personId": "alfred-renyi",
+      "profileUrl": "https://www.wikidata.org/wiki/Q465715",
+      "portrait": {
+        "file": "portraits/alfred-renyi.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Alfred_Kato_Renyi.jpg/330px-Alfred_Kato_Renyi.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alfred_Kato_Renyi.jpg",
+        "creator": "Konrad Jacobs",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "alt": {
+          "en": "Alfréd Rényi seated at the right side of a table",
+          "zh": "坐在餐桌右侧的阿尔弗雷德·雷尼"
+        },
+        "objectPosition": "100% center",
+        "cropScale": 1.28,
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "josiah-gibbs",
+      "profileUrl": "https://www.wikidata.org/wiki/Q153243",
+      "portrait": {
+        "file": "portraits/josiah-gibbs.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Josiah_Willard_Gibbs_-from_MMS-.jpg/330px-Josiah_Willard_Gibbs_-from_MMS-.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Josiah_Willard_Gibbs_-from_MMS-.jpg",
+        "creator": "Unknown. Uploaded by Serge Lachinov (обработка для wiki)",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Josiah Willard Gibbs",
+          "zh": "约西亚·威拉德·吉布斯的肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "ludwig-boltzmann",
+      "profileUrl": "https://www.wikidata.org/wiki/Q84296",
+      "portrait": {
+        "file": "portraits/ludwig-boltzmann.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Boltzmann-Ludwig.jpg/330px-Boltzmann-Ludwig.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Boltzmann-Ludwig.jpg",
+        "creator": "Unknown author",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Ludwig Boltzmann",
+          "zh": "路德维希·玻尔兹曼的肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "nicholas-metropolis",
+      "profileUrl": "https://www.wikidata.org/wiki/Q92928",
+      "portrait": {
+        "file": "portraits/nicholas-metropolis.png",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/56/Nicholas_Metropolis_cropped.PNG",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nicholas_Metropolis_cropped.PNG",
+        "creator": "Nicholas_Metropolis.jpeg : Los Alamos National Laboratory derivative work: Avi ( talk )",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Nicholas Metropolis",
+          "zh": "尼古拉斯·梅特罗波利斯的肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "wilfred-hastings",
+      "profileUrl": "https://www.wikidata.org/wiki/Q17126163"
+    },
+    {
+      "personId": "yurii-nesterov",
+      "profileUrl": "https://www.wikidata.org/wiki/Q3573263",
+      "portrait": {
+        "file": "portraits/yurii-nesterov.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Nesterov_yurii.jpg/330px-Nesterov_yurii.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nesterov_yurii.jpg",
+        "creator": "Renate Schmid",
+        "license": "CC BY-SA 2.0 de",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
+        "alt": {
+          "en": "Portrait of Yurii Nesterov",
+          "zh": "尤里·涅斯捷罗夫的肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "aleksandr-lyapunov",
+      "profileUrl": "https://www.wikidata.org/wiki/Q310788",
+      "portrait": {
+        "file": "portraits/aleksandr-lyapunov.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Aleksandr_Lyapunov.jpg/330px-Aleksandr_Lyapunov.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aleksandr_Lyapunov.jpg",
+        "creator": "Unknown author",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Aleksandr Lyapunov",
+          "zh": "亚历山大·李雅普诺夫的肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "vladimir-vapnik",
+      "profileUrl": "https://www.wikidata.org/wiki/Q983367"
+    },
+    {
+      "personId": "alexey-chervonenkis",
+      "profileUrl": "https://www.wikidata.org/wiki/Q2450560"
+    },
+    {
+      "personId": "augustin-louis-cauchy",
+      "profileUrl": "https://www.wikidata.org/wiki/Q8814",
+      "portrait": {
+        "file": "portraits/augustin-louis-cauchy.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Augustin-Louis_Cauchy_1901.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Augustin-Louis_Cauchy_1901.jpg",
+        "creator": "Creator not stated on Wikimedia Commons",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Augustin-Louis Cauchy",
+          "zh": "奥古斯丁-路易·柯西的肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "hermann-amandus-schwarz",
+      "profileUrl": "https://www.wikidata.org/wiki/Q61223",
+      "portrait": {
+        "file": "portraits/hermann-amandus-schwarz.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Hermann_Amand_Schwarz_%281843-1921%29_by_Louis_Zipfel.jpg/330px-Hermann_Amand_Schwarz_%281843-1921%29_by_Louis_Zipfel.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hermann_Amand_Schwarz_(1843-1921)_by_Louis_Zipfel.jpg",
+        "creator": "Louis Zipfel / Adam Cuerden",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Hermann Amandus Schwarz",
+          "zh": "赫尔曼·阿曼杜斯·施瓦茨的肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "eliakim-hastings-moore",
+      "profileUrl": "https://www.wikidata.org/wiki/Q736064",
+      "portrait": {
+        "file": "portraits/eliakim-hastings-moore.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/96/Moore_Eliakim_2.jpeg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Moore_Eliakim_2.jpeg",
+        "creator": "Unknown -- Historical photo",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Eliakim Hastings Moore",
+          "zh": "伊莱贾金·黑斯廷斯·穆尔的肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "roger-penrose",
+      "profileUrl": "https://www.wikidata.org/wiki/Q193803",
+      "portrait": {
+        "file": "portraits/roger-penrose.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Roger_Penrose_9560.JPG/330px-Roger_Penrose_9560.JPG",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Roger_Penrose_9560.JPG",
+        "creator": "Biswarup Ganguly",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "alt": {
+          "en": "Portrait of Roger Penrose",
+          "zh": "罗杰·彭罗斯的肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "oskar-perron",
+      "profileUrl": "https://www.wikidata.org/wiki/Q65189",
+      "portrait": {
+        "file": "portraits/oskar-perron.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Oskar_Perron.jpg/330px-Oskar_Perron.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oskar_Perron.jpg",
+        "creator": "Jacobs, Konrad",
+        "license": "CC BY-SA 2.0 de",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
+        "alt": {
+          "en": "Portrait of Oskar Perron",
+          "zh": "奥斯卡·佩龙的肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "ferdinand-georg-frobenius",
+      "profileUrl": "https://www.wikidata.org/wiki/Q57228",
+      "portrait": {
+        "file": "portraits/ferdinand-georg-frobenius.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/77/GeorgFrobenius_%28cropped%29.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:GeorgFrobenius_(cropped).jpg",
+        "creator": "Furfur",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "alt": {
+          "en": "Portrait of Ferdinand Georg Frobenius",
+          "zh": "费迪南德·格奥尔格·弗罗贝尼乌斯的肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "alston-scott-householder",
+      "profileUrl": "https://www.wikidata.org/wiki/Q432800",
+      "portrait": {
+        "file": "portraits/alston-scott-householder.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Alston_Householder.jpg/330px-Alston_Householder.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alston_Householder.jpg",
+        "creator": "Unknown creator",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Alston Scott Householder",
+          "zh": "阿尔斯通·斯科特·豪斯霍尔德的肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "cornelius-lanczos",
+      "profileUrl": "https://www.wikidata.org/wiki/Q1068631"
+    },
+    {
+      "personId": "alexei-krylov",
+      "profileUrl": "https://www.wikidata.org/wiki/Q552691",
+      "portrait": {
+        "file": "portraits/alexei-krylov.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/63/%D0%90._%D0%9D._%D0%9A%D1%80%D1%8B%D0%BB%D0%BE%D0%B2_%286%29.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%90._%D0%9D._%D0%9A%D1%80%D1%8B%D0%BB%D0%BE%D0%B2_(6).jpg",
+        "creator": "Unknown author",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Alexei Nikolaevich Krylov",
+          "zh": "阿列克谢·尼古拉耶维奇·克雷洛夫的肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "walter-edwin-arnoldi",
+      "profileUrl": "https://www.wikidata.org/wiki/Q7964752"
+    },
+    {
+      "personId": "evert-johannes-nystrom",
+      "profileUrl": "https://www.wikidata.org/wiki/Q11856434"
+    },
+    {
+      "personId": "peter-gustav-lejeune-dirichlet",
+      "profileUrl": "https://www.wikidata.org/wiki/Q29193",
+      "portrait": {
+        "file": "portraits/peter-gustav-lejeune-dirichlet.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Peter_Gustav_Lejeune_Dirichlet.jpg/330px-Peter_Gustav_Lejeune_Dirichlet.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Peter_Gustav_Lejeune_Dirichlet.jpg",
+        "creator": "Unknown author",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Peter Gustav Lejeune Dirichlet",
+          "zh": "彼得·古斯塔夫·勒热纳·狄利克雷的肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "harald-cramer",
+      "profileUrl": "https://www.wikidata.org/wiki/Q471777",
+      "portrait": {
+        "file": "portraits/harald-cramer.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Harald_Cram%C3%A9r.jpg/330px-Harald_Cram%C3%A9r.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Harald_Cram%C3%A9r.jpg",
+        "creator": "Unknown photographer",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Harald Cramér",
+          "zh": "哈拉尔德·克拉梅尔的肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "calyampudi-radhakrishna-rao",
+      "profileUrl": "https://www.wikidata.org/wiki/Q711237",
+      "portrait": {
+        "file": "portraits/calyampudi-radhakrishna-rao.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Calyampudi_Radhakrishna_Rao_at_ISI_Chennai.JPG/330px-Calyampudi_Radhakrishna_Rao_at_ISI_Chennai.JPG",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Calyampudi_Radhakrishna_Rao_at_ISI_Chennai.JPG",
+        "creator": "Prateek Karandikar",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "alt": {
+          "en": "Portrait of Calyampudi Radhakrishna Rao",
+          "zh": "卡利安普迪·拉达克里希纳·拉奥的肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "david-blackwell",
+      "profileUrl": "https://www.wikidata.org/wiki/Q525037",
+      "portrait": {
+        "file": "portraits/david-blackwell.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/David_Blackwell.jpg/330px-David_Blackwell.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:David_Blackwell.jpg",
+        "creator": "Konrad Jacobs, Erlangen, Copyright is MFO",
+        "license": "CC BY-SA 2.0 de",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
+        "alt": {
+          "en": "Portrait of David Blackwell",
+          "zh": "戴维·布莱克韦尔的肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "wassily-hoeffding",
+      "profileUrl": "https://www.wikidata.org/wiki/Q323204"
+    },
+    {
+      "personId": "william-karush",
+      "profileUrl": "https://www.wikidata.org/wiki/Q4216313"
+    },
+    {
+      "personId": "harold-kuhn",
+      "profileUrl": "https://www.wikidata.org/wiki/Q454529"
+    },
+    {
+      "personId": "albert-tucker",
+      "profileUrl": "https://www.wikidata.org/wiki/Q777234",
+      "portrait": {
+        "file": "portraits/albert-tucker.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/TuckerAlbertWilliam_Moscow1935.tif/lossy-page1-120px-TuckerAlbertWilliam_Moscow1935.tif.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:TuckerAlbertWilliam_Moscow1935.tif",
+        "creator": "Creator not stated on Wikimedia Commons",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Portrait of Albert W. Tucker",
+          "zh": "阿尔伯特·塔克的肖像"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "charles-broyden",
+      "profileUrl": "https://www.wikidata.org/wiki/Q5077997"
+    },
+    {
+      "personId": "roger-fletcher",
+      "profileUrl": "https://www.wikidata.org/wiki/Q7358195"
+    },
+    {
+      "personId": "donald-goldfarb",
+      "profileUrl": "https://www.wikidata.org/wiki/Q15806309"
+    },
+    {
+      "personId": "david-shanno",
+      "profileUrl": "https://www.wikidata.org/wiki/Q15804821"
+    },
+    {
+      "personId": "kenneth-levenberg",
+      "profileUrl": "https://www.wikidata.org/wiki/Q3195185"
+    },
+    {
+      "personId": "donald-marquardt",
+      "profileUrl": "https://www.wikidata.org/wiki/Q3036061"
+    },
+    {
+      "personId": "jean-jacques-moreau",
+      "profileUrl": "https://www.wikidata.org/wiki/Q6170886",
+      "portrait": {
+        "file": "portraits/jean-jacques-moreau.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Jean-Jacques_Moreau.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jean-Jacques_Moreau.jpg",
+        "creator": "Family of Nick1999~frwiki",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "alt": {
+          "en": "Portrait of mathematician Jean-Jacques Moreau in La Flèche, France, around 1954.",
+          "zh": "数学家让-雅克·莫罗约于 1954 年在法国拉弗莱什的肖像。"
+        },
+        "objectPosition": "center 20%",
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "werner-fenchel",
+      "profileUrl": "https://www.wikidata.org/wiki/Q1820746",
+      "portrait": {
+        "file": "portraits/werner-fenchel.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/42/Werner_Fenchel.jpeg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Werner_Fenchel.jpeg",
+        "creator": "Konrad Jacobs, Erlangen",
+        "license": "CC BY-SA 2.0 DE",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
+        "alt": {
+          "en": "Portrait of mathematician Werner Fenchel in 1972.",
+          "zh": "数学家维尔纳·芬切尔于 1972 年的肖像。"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "herbert-robbins",
+      "profileUrl": "https://www.wikidata.org/wiki/Q951395"
+    },
+    {
+      "personId": "sutton-monro",
+      "profileUrl": "https://www.wikidata.org/wiki/Q138248057"
+    },
+    {
+      "personId": "alfred-haar",
+      "profileUrl": "https://www.wikidata.org/wiki/Q551909",
+      "portrait": {
+        "file": "portraits/alfred-haar.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Haar_Alfr%C3%A9d.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Haar_Alfr%C3%A9d.jpg",
+        "creator": "Unknown author",
+        "license": "Public domain",
+        "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Public_domain",
+        "alt": {
+          "en": "Black-and-white portrait of Hungarian mathematician Alfréd Haar.",
+          "zh": "匈牙利数学家阿尔弗雷德·哈尔的黑白肖像。"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "dennis-gabor",
+      "profileUrl": "https://www.wikidata.org/wiki/Q155786"
+    },
+    {
+      "personId": "paul-hough",
+      "profileUrl": "https://www.wikidata.org/wiki/Q113998467"
+    },
+    {
+      "personId": "paul-erdos",
+      "profileUrl": "https://www.wikidata.org/wiki/Q173746",
+      "portrait": {
+        "file": "portraits/paul-erdos.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Erdos_head_budapest_fall_1992.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Erdos_head_budapest_fall_1992.jpg",
+        "creator": "Topsy Kretts",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+        "alt": {
+          "en": "Close portrait of mathematician Paul Erdős in Budapest in autumn 1992.",
+          "zh": "数学家保罗·埃尔德什于 1992 年秋在布达佩斯的近景肖像。"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "andrew-viterbi",
+      "profileUrl": "https://www.wikidata.org/wiki/Q505358",
+      "portrait": {
+        "file": "portraits/andrew-viterbi.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6d/10-08ViterbiBIG.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:10-08ViterbiBIG.jpg",
+        "creator": "Canyigitozen",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "alt": {
+          "en": "Portrait of electrical engineer Andrew Viterbi.",
+          "zh": "电气工程师安德鲁·维特比的肖像。"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "leonard-baum",
+      "profileUrl": "https://www.wikidata.org/wiki/Q6525255"
+    },
+    {
+      "personId": "lloyd-welch",
+      "profileUrl": "https://www.wikidata.org/wiki/Q13989101"
+    },
+    {
+      "personId": "paul-langevin",
+      "profileUrl": "https://www.wikidata.org/wiki/Q25320",
+      "portrait": {
+        "file": "portraits/paul-langevin.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Paul_Langevin_Wellcome2.jpg/330px-Paul_Langevin_Wellcome2.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paul_Langevin_Wellcome2.jpg",
+        "creator": "Henri Manuel",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "alt": {
+          "en": "Studio portrait of French physicist Paul Langevin by Henri Manuel.",
+          "zh": "亨利·马努埃尔拍摄的法国物理学家保罗·朗之万影棚肖像。"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "kiyosi-ito",
+      "profileUrl": "https://www.wikidata.org/wiki/Q455616",
+      "portrait": {
+        "file": "portraits/kiyosi-ito.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/25/Kiyoshi_Ito_cropped_3_Kiyosi_Ito.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kiyoshi_Ito_cropped_3_Kiyosi_Ito.jpg",
+        "creator": "Konrad Jacobs",
+        "license": "CC BY-SA 2.0 DE",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
+        "alt": {
+          "en": "Portrait of mathematician Kiyosi Itô at Cornell University in 1970.",
+          "zh": "数学家伊藤清于 1970 年在康奈尔大学的肖像。"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "adriaan-fokker",
+      "profileUrl": "https://www.wikidata.org/wiki/Q367575",
+      "portrait": {
+        "file": "portraits/adriaan-fokker.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Adriaan_Dani%C3%ABl_Fokker.jpg/330px-Adriaan_Dani%C3%ABl_Fokker.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Adriaan_Dani%C3%ABl_Fokker.jpg",
+        "creator": "Paul Ehrenfest's designee",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "alt": {
+          "en": "Adriaan Fokker seated in the front row of a group photograph at Leiden's Kamerlingh-Onnes Laboratory.",
+          "zh": "阿德里安·福克坐在莱顿卡末林-昂内斯实验室集体照的前排。"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "max-planck",
+      "profileUrl": "https://www.wikidata.org/wiki/Q9021",
+      "portrait": {
+        "file": "portraits/max-planck.png",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/32/Max_Planck.png",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Max_Planck.png",
+        "creator": "Clendening History of Medicine Library, University of Kansas Medical Center (courtesy credit; photographer not identified)",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "alt": {
+          "en": "Black-and-white portrait of physicist Max Planck.",
+          "zh": "物理学家马克斯·普朗克的黑白肖像。"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "erwin-schrodinger",
+      "profileUrl": "https://www.wikidata.org/wiki/Q9130",
+      "portrait": {
+        "file": "portraits/erwin-schrodinger.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Erwin_Schr%C3%B6dinger_-_Narodowe_Archiwum_Cyfrowe_%281-E-939%29.jpg/330px-Erwin_Schr%C3%B6dinger_-_Narodowe_Archiwum_Cyfrowe_%281-E-939%29.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Erwin_Schr%C3%B6dinger_-_Narodowe_Archiwum_Cyfrowe_(1-E-939).jpg",
+        "creator": "Unknown author; National Digital Archive of Poland source",
+        "license": "Public domain",
+        "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Public_domain",
+        "alt": {
+          "en": "Portrait of Austrian physicist Erwin Schrödinger in 1933.",
+          "zh": "奥地利物理学家埃尔温·薛定谔于 1933 年的肖像。"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "joseph-doob",
+      "profileUrl": "https://www.wikidata.org/wiki/Q1384876",
+      "portrait": {
+        "file": "portraits/joseph-doob.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/96/Joseph_Doob.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Joseph_Doob.jpg",
+        "creator": "Konrad Jacobs",
+        "license": "CC BY-SA 2.0 DE",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
+        "alt": {
+          "en": "Portrait of mathematician Joseph Doob in Tokyo in 1969.",
+          "zh": "数学家约瑟夫·杜布于 1969 年在东京的肖像。"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "maurice-tweedie",
+      "profileUrl": "https://www.wikidata.org/wiki/Q16997451"
+    },
+    {
+      "personId": "leonid-vaserstein",
+      "profileUrl": "https://www.wikidata.org/wiki/Q6526507"
+    },
+    {
+      "personId": "richard-sinkhorn",
+      "profileUrl": "https://www.wikidata.org/wiki/Q102157073"
+    },
+    {
+      "personId": "mikhail-gromov",
+      "profileUrl": "https://www.wikidata.org/wiki/Q353451",
+      "portrait": {
+        "file": "portraits/mikhail-gromov.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mikhael_Gromov.jpg/330px-Mikhael_Gromov.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mikhael_Gromov.jpg",
+        "creator": "Institut des Hautes Études Scientifiques",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+        "alt": {
+          "en": "Mathematician Mikhail Gromov giving a lecture in 2014.",
+          "zh": "数学家米哈伊尔·格罗莫夫于 2014 年讲学。"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "maurice-frechet",
+      "profileUrl": "https://www.wikidata.org/wiki/Q22662",
+      "portrait": {
+        "file": "portraits/maurice-frechet.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Frechet.jpeg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Frechet.jpeg",
+        "creator": "Unknown author",
+        "license": "Public domain",
+        "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Public_domain",
+        "alt": {
+          "en": "Black-and-white portrait of French mathematician Maurice Fréchet.",
+          "zh": "法国数学家莫里斯·弗雷歇的黑白肖像。"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "ralph-bradley",
+      "profileUrl": "https://www.wikidata.org/wiki/Q102189861"
+    },
+    {
+      "personId": "milton-terry",
+      "profileUrl": "https://www.wikidata.org/wiki/Q102207468"
+    },
+    {
+      "personId": "robin-plackett",
+      "profileUrl": "https://www.wikidata.org/wiki/Q7352718"
+    },
+    {
+      "personId": "r-duncan-luce",
+      "profileUrl": "https://www.wikidata.org/wiki/Q531192"
+    },
+    {
+      "personId": "arpad-elo",
+      "profileUrl": "https://www.wikidata.org/wiki/Q326557"
+    },
+    {
+      "personId": "lloyd-shapley",
+      "profileUrl": "https://www.wikidata.org/wiki/Q244739",
+      "portrait": {
+        "file": "portraits/lloyd-shapley.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Shapley%2C_Lloyd_%281980%29.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shapley,_Lloyd_(1980).jpg",
+        "creator": "Konrad Jacobs, Erlangen; copyright held by Mathematisches Forschungsinstitut Oberwolfach",
+        "license": "CC BY-SA 2.0 DE",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
+        "alt": {
+          "en": "Portrait of mathematician and economist Lloyd Shapley in 1980.",
+          "zh": "数学家兼经济学家劳埃德·沙普利于 1980 年的肖像。"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "john-hopfield",
+      "profileUrl": "https://www.wikidata.org/wiki/Q391237",
+      "portrait": {
+        "file": "portraits/john-hopfield.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/John_J._Hopfield%2C_2024_Nobel_Prize_Laureate_in_Physics_1_%28cropped%29.jpg/330px-John_J._Hopfield%2C_2024_Nobel_Prize_Laureate_in_Physics_1_%28cropped%29.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:John_J._Hopfield,_2024_Nobel_Prize_Laureate_in_Physics_1_(cropped).jpg",
+        "creator": "Arthur Petron",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "alt": {
+          "en": "John Hopfield at a Nobel Prize press conference in Stockholm in 2024.",
+          "zh": "约翰·霍普菲尔德于 2024 年在斯德哥尔摩出席诺贝尔奖新闻发布会。"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "bernard-koopman",
+      "profileUrl": "https://www.wikidata.org/wiki/Q822529"
+    },
+    {
+      "personId": "sophus-lie",
+      "profileUrl": "https://www.wikidata.org/wiki/Q30769"
+    },
+    {
+      "personId": "boris-weisfeiler",
+      "profileUrl": "https://www.wikidata.org/wiki/Q451733"
+    },
+    {
+      "personId": "andrey-leman",
+      "profileUrl": "https://www.wikidata.org/wiki/Q123238798"
+    },
+    {
+      "personId": "eduard-stiefel",
+      "profileUrl": "https://www.wikidata.org/wiki/Q122724",
+      "portrait": {
+        "file": "portraits/eduard-stiefel.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Eduard_Stiefel_ETH-Bib_Portr_00817.jpg/330px-Eduard_Stiefel_ETH-Bib_Portr_00817.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eduard_Stiefel_ETH-Bib_Portr_00817.jpg",
+        "creator": "Pleyer Photo / ETH Zürich",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "alt": {
+          "en": "Portrait of Swiss mathematician Eduard Stiefel.",
+          "zh": "瑞士数学家爱德华·施蒂费尔的肖像。"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    },
+    {
+      "personId": "john-canny",
+      "profileUrl": "https://www.wikidata.org/wiki/Q6225059",
+      "portrait": {
+        "file": "portraits/john-canny.jpg",
+        "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/John_Canny_in_his_office_at_UC_Berkeley.jpg/330px-John_Canny_in_his_office_at_UC_Berkeley.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:John_Canny_in_his_office_at_UC_Berkeley.jpg",
+        "creator": "Derrick Coetzee",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "alt": {
+          "en": "Computer scientist John Canny in his office at UC Berkeley.",
+          "zh": "计算机科学家约翰·坎尼在加州大学伯克利分校办公室内。"
+        },
+        "verifiedOn": "2026-07-31"
+      }
+    }
+  ]
+}

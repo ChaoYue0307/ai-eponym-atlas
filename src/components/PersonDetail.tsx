@@ -5,6 +5,7 @@ import type { Locale } from '../copy'
 import { conceptsById, peopleById } from '../data/catalog'
 import { navigate } from '../hooks/useHashRoute'
 import { formatLifespan } from '../lib/lifespan'
+import { PersonPortrait } from './PersonPortrait'
 
 export function PersonDetail({ personId, locale }: { personId: string; locale: Locale }) {
   const person = peopleById.get(personId)
@@ -36,17 +37,26 @@ export function PersonDetail({ personId, locale }: { personId: string; locale: L
         {locale === 'zh' ? '返回人物列表' : 'Back to people'}
       </a>
       <header className="person-page__header">
-        <div className="person-monogram" aria-hidden="true">
-          {person.portraitInitials}
-        </div>
-        <div>
+        <PersonPortrait person={person} locale={locale} variant="profile" showCredit />
+        <div className="person-page__identity">
           <p>
             {person.region} · {formatLifespan(person, locale)}
           </p>
           <h1>
             {person.name} <span>/ {person.zhName}</span>
           </h1>
+        </div>
+        <div className="person-page__intro">
+          <p className="person-page__intro-label">
+            {locale === 'zh' ? '人物简介' : 'Brief introduction'}
+          </p>
           <p className="person-page__summary">{person.summary[locale]}</p>
+          {person.profileUrl ? (
+            <a href={person.profileUrl} target="_blank" rel="noreferrer">
+              {locale === 'zh' ? '查看 Wikidata 身份记录' : 'View verified Wikidata identity'}
+              <ExternalLink aria-hidden="true" />
+            </a>
+          ) : null}
         </div>
       </header>
       <section className="person-page__concepts">

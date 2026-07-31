@@ -1,4 +1,5 @@
 import rawAtlas from "../../content/eponyms.json";
+import rawPeopleMedia from "../../content/people-media.json";
 import {
   conceptCategoryIds,
   type AtlasData,
@@ -6,6 +7,8 @@ import {
   type Concept,
   type ConceptCategory,
   type Person,
+  type PersonMediaCatalog,
+  type PersonMediaRecord,
 } from "../types";
 
 /**
@@ -27,6 +30,7 @@ interface RawAtlasData {
 }
 
 const input: RawAtlasData = rawAtlas;
+const mediaInput: PersonMediaCatalog = rawPeopleMedia;
 const categoryIdSet: ReadonlySet<string> = new Set(conceptCategoryIds);
 
 function parseCategory(value: string): ConceptCategory {
@@ -50,6 +54,21 @@ function parsePerson(person: RawPerson): Person {
   };
 }
 
+function indexMediaByPersonId(
+  entries: readonly PersonMediaRecord[],
+): ReadonlyMap<string, PersonMediaRecord> {
+  const index = new Map<string, PersonMediaRecord>();
+
+  for (const entry of entries) {
+    if (index.has(entry.personId)) {
+      throw new TypeError(`Duplicate media profile id: ${entry.personId}`);
+    }
+    index.set(entry.personId, entry);
+  }
+
+  return index;
+}
+
 function indexById<T extends { readonly id: string }>(
   entries: readonly T[],
 ): ReadonlyMap<string, T> {
@@ -67,8 +86,20 @@ function indexById<T extends { readonly id: string }>(
 
 export const meta: AtlasMeta = Object.freeze(input.meta);
 
+export const mediaCatalog: PersonMediaCatalog = Object.freeze(mediaInput);
+const mediaByPersonId = indexMediaByPersonId(mediaCatalog.profiles);
+
 export const people: readonly Person[] = Object.freeze(
-  input.people.map((person) => Object.freeze(parsePerson(person))),
+  input.people.map((rawPerson) => {
+    const person = parsePerson(rawPerson);
+    const media = mediaByPersonId.get(person.id);
+
+    return Object.freeze({
+      ...person,
+      profileUrl: media?.profileUrl,
+      portrait: media?.portrait,
+    });
+  }),
 );
 
 export const concepts: readonly Concept[] = Object.freeze(

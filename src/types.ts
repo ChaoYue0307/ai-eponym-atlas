@@ -16,6 +16,40 @@ export interface SourceLink {
   readonly url: string;
 }
 
+export interface PersonPortrait {
+  /** Repository-local path under `public/`, without a leading slash. */
+  readonly file: string;
+  /** Exact Wikimedia thumbnail URL used to create the repository-local copy. */
+  readonly sourceImageUrl: string;
+  /** Wikimedia Commons file-description page. */
+  readonly sourceUrl: string;
+  readonly creator: string;
+  readonly license: string;
+  readonly licenseUrl: string;
+  readonly alt: LocalizedText;
+  /** Optional CSS crop focus for portraits whose subject is not centered. */
+  readonly objectPosition?: string;
+  /** Optional restrained zoom for a subject inside a wider archival photograph. */
+  readonly cropScale?: number;
+  readonly verifiedOn: string;
+}
+
+export interface PersonMedia {
+  readonly profileUrl?: string;
+  readonly portrait?: PersonPortrait;
+}
+
+export interface PersonMediaRecord extends PersonMedia {
+  readonly personId: string;
+}
+
+export interface PersonMediaCatalog {
+  readonly schemaVersion: string;
+  readonly lastVerified: string;
+  readonly sourcePolicy: LocalizedText;
+  readonly profiles: readonly PersonMediaRecord[];
+}
+
 export interface AtlasMeta {
   readonly title: string;
   readonly zhTitle: string;
@@ -54,6 +88,8 @@ export interface Person {
   readonly portraitInitials: string;
   readonly summary: LocalizedText;
   readonly concepts: readonly string[];
+  readonly profileUrl?: string;
+  readonly portrait?: PersonPortrait;
 }
 
 export interface Concept {

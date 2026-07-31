@@ -24,9 +24,17 @@ AI Eponym Atlas 的重点不是尽可能多地收集名字，而是建立**可�
 content/eponyms.json
 ```
 
-网站通过 `src/data/catalog.ts` 对这份 JSON 做严格类型化。不要在组件里复制条目，也不要另建平行数据文件。
+经核验的人物身份链接、肖像来源与逐图许可保存在：
 
-The website treats `content/eponyms.json` as the canonical editorial source. Do not duplicate entries inside React components.
+```text
+content/people-media.json
+```
+
+网站通过 `src/data/catalog.ts` 对两份 JSON 做严格类型化并按人物 ID 合并。不要在组件里复制条目；`eponyms.json` 是文字与概念的权威数据源，`people-media.json` 仅存放可独立审计的第三方媒体元数据。
+
+The website treats `content/eponyms.json` as the canonical editorial source and
+`content/people-media.json` as the auditable media catalog. Do not duplicate
+entries inside React components.
 
 顶层结构：
 
@@ -77,6 +85,22 @@ The website treats `content/eponyms.json` as the canonical editorial source. Do 
 - `portraitInitials`：用于无照片人物标记，通常为 2 个字母。
 - `summary`：只写与图谱条目相关的贡献，不写泛化传记。
 - `concepts`：反向指向该人物关联的概念 ID。
+
+### 人物肖像 / Person portrait
+
+不要把未经核验的网络图片放进仓库。肖像贡献必须遵循
+[`docs/PORTRAITS.md`](./docs/PORTRAITS.md)：
+
+- 先用姓名与生卒年确认 Wikidata 身份；
+- 从该实体的 P18 进入 Wikimedia Commons 文件页；
+- 仅接受 public domain、CC0、CC BY 或 CC BY-SA 图片；
+- 下载有界缩略图到 `public/portraits/`；
+- 在 `content/people-media.json` 中完整填写人物 ID、本地文件、原始缩略图 URL、Commons 文件页、创作者、许可、许可链接、双语 alt text 和核验日期；
+- 不确定时保留 `portraitInitials`，不要猜测。
+
+Every accepted portrait needs a clear identity match and a complete,
+file-specific attribution record. A monogram is the correct fallback when no
+reliable open portrait is available.
 
 ## 概念记录 / Concept record
 

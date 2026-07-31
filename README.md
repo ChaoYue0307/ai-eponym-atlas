@@ -23,7 +23,7 @@ AI Eponym Atlas 是一份面向学习者、研究者和工程师的结构化概�
 >
 > A structured atlas of mathematical and AI concepts named after people, covering their intuitive meaning, formal definition, historical origin, relationships, and applications in modern AI.
 
-[在线网站](https://chaoyue0307.github.io/ai-eponym-atlas/) · [浏览方法](#如何使用--how-to-use) · [覆盖与时效](./docs/COVERAGE.md) · [数据模板](#条目数据模板--entry-template) · [版本记录](./CHANGELOG.md) · [参与贡献](./CONTRIBUTING.md) · [路线图](#路线图--roadmap)
+[在线网站](https://chaoyue0307.github.io/ai-eponym-atlas/) · [浏览方法](#如何使用--how-to-use) · [覆盖与时效](./docs/COVERAGE.md) · [肖像来源与许可](./docs/PORTRAITS.md) · [肖像核验审计](./docs/PORTRAIT_AUDIT.md) · [数据模板](#条目数据模板--entry-template) · [版本记录](./CHANGELOG.md) · [参与贡献](./CONTRIBUTING.md) · [路线图](#路线图--roadmap)
 
 ---
 
@@ -94,7 +94,7 @@ AI Eponym Atlas 希望补上这层缺失的信息。这里不会只说“Jacobia
 ## 首版功能 / Core features
 
 - **概念速查卡 / Concept cards**：功能性名字、核心问题、直觉、公式和典型 AI 用途。
-- **人物档案 / Person profiles**：双语生平概览、相关术语和在图谱中的贡献脉络。
+- **人物档案 / Person profiles**：双语人物简介、经核验的开放肖像与逐图许可、相关术语和在图谱中的贡献脉络；无可靠开放肖像时自动使用首字母占位。
 - **双向关系 / Bidirectional links**：人物与概念互相可追溯；`relatedConceptIds` 在关系图中按无向关系解析，并连接到具体 AI 应用。
 - **分类浏览 / Faceted browsing**：在概念与人物模式之间切换，并按 9 个数学 / AI 领域筛选。
 - **全文搜索 / Full-text search**：支持人名、术语、别名、功能性名字和应用关键词。
@@ -103,7 +103,7 @@ AI Eponym Atlas 希望补上这层缺失的信息。这里不会只说“Jacobia
 - **中英双语 / Bilingual content**：术语、功能标签、问题、直觉、应用和归因说明均有中英版本；公式、年代与部分来源标题保留规范原文。
 - **渐进式阅读 / Progressive disclosure**：先给“现在需要知道的”，再展开严谨细节。
 
-*The released site centers on searchable concept cards, person profiles, bidirectional relationships, filters, timelines, citations, bilingual content, and progressive explanations from intuition to formal detail.*
+*The released site centers on searchable concept cards, bilingual person profiles, verified and individually licensed open portraits with monogram fallbacks, bidirectional relationships, filters, timelines, citations, and progressive explanations from intuition to formal detail.*
 
 ## 当前条目告诉你什么？ / What an entry tells you today
 

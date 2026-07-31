@@ -21,6 +21,7 @@ import { navigate } from '../hooks/useHashRoute'
 import { formatLifespan } from '../lib/lifespan'
 import { searchCatalog, type SearchMode } from '../lib/search'
 import { ConceptDetail } from './ConceptDetail'
+import { PersonPortrait } from './PersonPortrait'
 import { SectionRule } from './SectionRule'
 
 type AtlasExplorerProps = {
@@ -278,9 +279,7 @@ export function AtlasExplorer({ locale, params, homePreview = false }: AtlasExpl
                       key={person.id}
                       onClick={() => chooseResult('person', person.id)}
                     >
-                      <span className="result-row__marker person-initials">
-                        {person.portraitInitials}
-                      </span>
+                      <PersonPortrait person={person} locale={locale} />
                       <span className="result-row__main">
                         <strong>
                           {person.name} <small>/ {person.zhName}</small>

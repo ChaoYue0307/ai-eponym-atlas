@@ -9,6 +9,7 @@
     "build": "tsc -b && vite build",
     "lint": "tsc -b --pretty false",
     "test": "vitest",
+    "portraits:sync": "node scripts/sync-portrait-assets.mjs",
     "preview": "vite preview",
     "check": "npm run lint && npm test -- --run && npm run build"
   },
