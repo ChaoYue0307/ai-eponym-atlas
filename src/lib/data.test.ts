@@ -3,6 +3,7 @@ import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 
 import {
+  catalogStats,
   categories,
   concepts,
   conceptsById,
@@ -25,6 +26,18 @@ describe("atlas data integrity", () => {
     expect(new Set(people.map((person) => person.id)).size).toBe(people.length);
     expect(new Set(concepts.map((concept) => concept.id)).size).toBe(
       concepts.length,
+    );
+  });
+
+  it("derives reader-facing coverage totals from the catalog", () => {
+    expect(catalogStats.people).toBe(people.length);
+    expect(catalogStats.concepts).toBe(concepts.length);
+    expect(catalogStats.fields).toBe(categories.length);
+    expect(catalogStats.sourceCitations).toBe(
+      concepts.reduce(
+        (total, concept) => total + concept.sourceLinks.length,
+        0,
+      ),
     );
   });
 

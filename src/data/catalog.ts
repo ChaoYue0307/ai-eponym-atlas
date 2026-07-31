@@ -124,6 +124,17 @@ export const categories: readonly ConceptCategory[] = Object.freeze(
   conceptCategoryIds.filter((category) => categoriesPresent.has(category)),
 );
 
+/** Reader-facing coverage totals, derived from the catalog to prevent drift. */
+export const catalogStats = Object.freeze({
+  people: people.length,
+  concepts: concepts.length,
+  fields: categories.length,
+  sourceCitations: concepts.reduce(
+    (total, concept) => total + concept.sourceLinks.length,
+    0,
+  ),
+});
+
 export const catalog: AtlasData = Object.freeze({
   meta,
   people,

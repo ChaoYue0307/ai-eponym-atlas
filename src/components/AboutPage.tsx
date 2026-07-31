@@ -1,6 +1,6 @@
 import ArrowUpRight from 'lucide-react/dist/esm/icons/arrow-up-right.mjs'
 import type { Locale } from '../copy'
-import { concepts, meta, people } from '../data/catalog'
+import { catalogStats, meta } from '../data/catalog'
 import { navigate } from '../hooks/useHashRoute'
 import { SectionRule } from './SectionRule'
 
@@ -198,15 +198,15 @@ export function AboutPage({ locale }: { locale: Locale }) {
         </div>
         <dl>
           <div>
-            <dt>{people.length}</dt>
+            <dt>{catalogStats.people}</dt>
             <dd>{locale === 'zh' ? '位人物' : 'people'}</dd>
           </div>
           <div>
-            <dt>{concepts.length}</dt>
+            <dt>{catalogStats.concepts}</dt>
             <dd>{locale === 'zh' ? '个概念' : 'concepts'}</dd>
           </div>
           <div>
-            <dt>{concepts.reduce((sum, concept) => sum + concept.sourceLinks.length, 0)}</dt>
+            <dt>{catalogStats.sourceCitations}</dt>
             <dd>{locale === 'zh' ? '条参考来源' : 'references'}</dd>
           </div>
         </dl>
