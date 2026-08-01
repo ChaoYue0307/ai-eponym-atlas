@@ -2,6 +2,7 @@ import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right.mjs'
 import type { Locale } from '../copy'
 import { conceptsById } from '../data/catalog'
 import { buildHref } from '../hooks/useHashRoute'
+import { ConceptIcon } from './ConceptIcon'
 
 const featuredConceptIds = [
   'jacobian-matrix',
@@ -88,7 +89,14 @@ export function HomeGuide({ locale }: { locale: Locale }) {
             return (
               <li key={concept.id}>
                 <a href={buildHref(`/concept/${concept.id}`)}>
-                  <span>{String(index + 1).padStart(2, '0')}</span>
+                  <span className="featured-concepts__number">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <ConceptIcon
+                    conceptId={concept.id}
+                    locale={locale}
+                    size="row"
+                  />
                   <div>
                     <h3>
                       {locale === 'zh' ? concept.zhTerm : concept.term}{' '}

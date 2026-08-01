@@ -3,6 +3,7 @@ import type { Locale } from '../copy'
 import { conceptsById } from '../data/catalog'
 import { learningPaths } from '../data/learningPaths'
 import { buildHref } from '../hooks/useHashRoute'
+import { ConceptIcon } from './ConceptIcon'
 import { SectionRule } from './SectionRule'
 
 export function LearningPathsPage({ locale }: { locale: Locale }) {
@@ -63,7 +64,15 @@ export function LearningPathsPage({ locale }: { locale: Locale }) {
                         new URLSearchParams({ path: path.id }),
                       )}
                     >
-                      <span>{conceptIndex + 1}</span>
+                      <span className="learning-path__step-number">
+                        {conceptIndex + 1}
+                      </span>
+                      <ConceptIcon
+                        conceptId={concept.id}
+                        locale={locale}
+                        size="small"
+                        className="learning-path__concept-icon"
+                      />
                       <h3>{locale === 'zh' ? concept.zhTerm : concept.term}</h3>
                       <p>{concept.functionNickname[locale]}</p>
                     </a>

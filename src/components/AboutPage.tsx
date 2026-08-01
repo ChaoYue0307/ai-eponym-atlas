@@ -1,8 +1,24 @@
 import ArrowUpRight from 'lucide-react/dist/esm/icons/arrow-up-right.mjs'
 import type { Locale } from '../copy'
-import { catalogStats, meta } from '../data/catalog'
-import { navigate } from '../hooks/useHashRoute'
+import { catalogStats, conceptsById, meta } from '../data/catalog'
+import { buildHref, navigate } from '../hooks/useHashRoute'
+import { ConceptIcon } from './ConceptIcon'
 import { SectionRule } from './SectionRule'
+
+const fieldGuideConceptIds = [
+  'cartesian-coordinate-system',
+  'euclidean-distance',
+  'gaussian-distribution',
+  'bayes-theorem',
+  'markov-chain',
+  'fourier-transform',
+  'jacobian-matrix',
+  'hessian-matrix',
+  'newton-method',
+  'shannon-entropy',
+  'kullback-leibler-divergence',
+  'wasserstein-distance',
+] as const
 
 const principles = [
   {
@@ -224,6 +240,57 @@ export function AboutPage({ locale }: { locale: Locale }) {
             <ArrowUpRight aria-hidden="true" />
           </button>
         </div>
+      </section>
+
+      <section className="icon-field-guide" aria-labelledby="icon-field-guide-title">
+        <header>
+          <p className="section-number">
+            <span className="section-number__emoji" aria-hidden="true">👁️</span>
+            <span>{locale === 'zh' ? '视觉直觉' : 'VISUAL INTUITION'}</span>
+          </p>
+          <h2 id="icon-field-guide-title">
+            {locale === 'zh'
+              ? '让每个概念都有一幅视觉记忆。'
+              : 'Give every concept a visual memory.'}
+          </h2>
+          <p>
+            {locale === 'zh'
+              ? '每幅无文字微插图都抓住一个核心动作，并与正式术语和功能标签一起阅读。'
+              : 'Each text-free micro-illustration captures one central action and stays paired with the formal term and functional label.'}
+          </p>
+        </header>
+        <ol>
+          {fieldGuideConceptIds.map((conceptId, index) => {
+            const concept = conceptsById.get(conceptId)
+            if (!concept) return null
+            return (
+              <li key={concept.id}>
+                <a href={buildHref(`/concept/${concept.id}`)}>
+                  <span className="icon-field-guide__number">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <ConceptIcon
+                    conceptId={concept.id}
+                    locale={locale}
+                    size="hero"
+                  />
+                  <div>
+                    <h3>
+                      {locale === 'zh' ? concept.zhTerm : concept.term}
+                      <small> / {locale === 'zh' ? concept.term : concept.zhTerm}</small>
+                    </h3>
+                    <p>{concept.functionNickname[locale]}</p>
+                  </div>
+                  <ArrowUpRight aria-hidden="true" />
+                </a>
+              </li>
+            )
+          })}
+        </ol>
+        <a className="icon-field-guide__all" href={buildHref('/atlas')}>
+          {locale === 'zh' ? '探索全部 120 个概念' : 'Explore all 120 concepts'}
+          <ArrowUpRight aria-hidden="true" />
+        </a>
       </section>
 
       <section className="coverage-band">

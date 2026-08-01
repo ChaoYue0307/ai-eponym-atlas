@@ -690,6 +690,11 @@
   height: 44px;
 }
 
+.graph-v2 .graph-inspector__concept-icon {
+  width: 44px;
+  height: 44px;
+}
+
 .graph-v2 .graph-inspector__header p:first-child {
   margin: 0 0 5px;
   color: var(--blue);
@@ -797,10 +802,15 @@
   -webkit-line-clamp: 2;
 }
 
-.graph-v2 .relationship-group button > svg {
+.graph-v2 .relationship-group button > svg:last-child {
   width: 14px;
   height: 14px;
   color: var(--blue);
+}
+
+.graph-v2 .relationship-item__concept-icon {
+  width: 34px;
+  height: 34px;
 }
 
 .graph-v2 .relationship-item__shape {

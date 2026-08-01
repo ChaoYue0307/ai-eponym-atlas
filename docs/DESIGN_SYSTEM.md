@@ -86,6 +86,29 @@ the mark a stable atlas frame.
 Generated images must never replace data-bound diagrams, mathematical figures,
 historical evidence, or portraits of real people.
 
+### Concept micro-illustrations
+
+Every catalog concept has a text-free semantic icon that previews the idea's
+function before the reader reaches its formal definition. The icons follow the
+approved **editorial micro-illustration** direction documented in
+[`docs/design/concept-icon-field-guide-option-3.png`](design/concept-icon-field-guide-option-3.png).
+
+- Native canvas: `48 × 48`, with a `4–6 px` safe area.
+- Drawing: `1.5–1.7 px` rounded strokes, two to six legible primitives, and no
+  letters, formulas, numerals, or decorative containers.
+- Color: cobalt carries the central mathematical action, ink provides context,
+  and vermilion marks at most one decisive update, gap, path, or correction.
+- Semantics: shape, fill, and dash differences preserve meaning without color.
+- Pairing: an icon always appears beside the formal term or functional label;
+  it never replaces either one.
+- Scale: the same source glyph has `24`, `34`, `40–44`, `72–112 px` responsive
+  presentations for graphs, paths, lists, and concept headers.
+- Accessibility: repeated icons are decorative; standalone detail icons expose
+  the localized term and functional label as their accessible name.
+
+The implementation is catalog-bound and tested for one-to-one coverage, so a
+new concept cannot silently ship without an icon.
+
 ## Core component families
 
 - **Brand:** A–I–E mark, English name, optional Chinese lockup, quiet navigation.

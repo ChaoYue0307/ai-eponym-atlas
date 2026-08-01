@@ -83,6 +83,41 @@ be read as a relationship encoded by the atlas.
   threshold.
 - The page omits the asset in reduced-data and forced-colors modes.
 
+## Concept-icon field guide / 概念图标视觉规范
+
+| Field | Record |
+| --- | --- |
+| File | `docs/design/concept-icon-field-guide-option-3.png` |
+| Purpose | Approved visual direction for the catalog's semantic concept micro-illustrations |
+| Generated | 2026-08-01 with ChatGPT built-in image generation |
+| Source output | 1487 × 1058 PNG |
+| Production role | Design reference only; it is not loaded by the website |
+| Informational role | None; all shipped icons are catalog-bound, text-free vectors with accessible labels |
+
+The approved direction is an open, ruled 3 × 4 editorial field guide using
+true white paper, near-black structural lines, cobalt mathematical actions,
+and restrained vermilion emphasis. Its twelve reference metaphors cover
+coordinates, distance, distributions, evidence updating, state transitions,
+frequency decomposition, local deformation, curvature, tangent steps,
+uncertainty, directed divergence, and optimal transport.
+
+### Field-guide production brief
+
+> Create a clean editorial micro-illustration field guide for mathematical
+> concepts used in AI. Use a true-white open layout, a restrained 3 × 4 ruled
+> grid, serif concept names, concise functional labels, and small line-art
+> diagrams with 1.5–1.7 px rounded strokes. Keep every illustration legible at
+> icon scale with two to six primitives, generous whitespace, cobalt as the
+> primary action color, near-black for structure, and a single restrained
+> vermilion accent only when it clarifies an update or mismatch. Avoid cards,
+> gradients, shadows, portraits, decorative formulas, crowded annotations, and
+> any text that crosses cell boundaries.
+
+The production website does not crop or rasterize this board. It implements
+each catalog concept as a dedicated `48 × 48` vector micro-illustration so the
+mathematical metaphor remains sharp, selectable by the data layer, accessible,
+and responsive from graph nodes to detail-page headers.
+
 ## Social preview / 社交分享图
 
 | Field | Record |

@@ -13,6 +13,7 @@ import { learningPaths } from '../data/learningPaths'
 import { buildHref, navigate } from '../hooks/useHashRoute'
 import { formatLifespan } from '../lib/lifespan'
 import { FormulaText } from './FormulaText'
+import { ConceptIcon } from './ConceptIcon'
 import { PersonPortrait } from './PersonPortrait'
 
 type ConceptDetailProps = {
@@ -155,24 +156,33 @@ export function ConceptDetail({
       </div>
 
       <header className="concept-detail__header">
-        <p className="concept-detail__index" aria-hidden="true">
-          {concept.category.toUpperCase()} · {concept.era}
-        </p>
-        <TitleHeading
-          className="concept-detail__title"
-          id="concept-detail-title"
-          ref={headingRef}
-          tabIndex={-1}
-        >
-          {concept.term}
-          <span> / {concept.zhTerm}</span>
-        </TitleHeading>
-        <p className="concept-detail__nickname">
-          {getLocaleText(concept.functionNickname, locale)}
-        </p>
-        <p className="concept-detail__nickname-label">
-          {copy[locale].atlas.plainLabel}
-        </p>
+        <div className="concept-detail__visual">
+          <ConceptIcon
+            conceptId={concept.id}
+            locale={locale}
+            size="hero"
+          />
+        </div>
+        <div className="concept-detail__heading">
+          <p className="concept-detail__index" aria-hidden="true">
+            {concept.category.toUpperCase()} · {concept.era}
+          </p>
+          <TitleHeading
+            className="concept-detail__title"
+            id="concept-detail-title"
+            ref={headingRef}
+            tabIndex={-1}
+          >
+            {concept.term}
+            <span> / {concept.zhTerm}</span>
+          </TitleHeading>
+          <p className="concept-detail__nickname">
+            {getLocaleText(concept.functionNickname, locale)}
+          </p>
+          <p className="concept-detail__nickname-label">
+            {copy[locale].atlas.plainLabel}
+          </p>
+        </div>
       </header>
 
       {!embedded && learningPath ? (

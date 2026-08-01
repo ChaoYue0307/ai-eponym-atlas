@@ -22,6 +22,7 @@ import {
   type GraphCamera,
 } from '../lib/graphViewport'
 import type { Concept, EgoGraph, EgoGraphNode } from '../types'
+import { ConceptIcon } from './ConceptIcon'
 
 type Point = {
   x: number
@@ -551,10 +552,20 @@ export function GraphCanvas({
                           height={node.isFocus ? 120 : 96}
                           rx={node.isFocus ? 7 : 5}
                         />
+                        <ConceptIcon
+                          conceptId={node.conceptId}
+                          locale={locale}
+                          size="micro"
+                          className="graph-node__concept-icon"
+                          x={-12}
+                          y={node.isFocus ? -56 : -45}
+                          width={24}
+                          height={24}
+                        />
                         <text
                           className="graph-node__label"
                           y={
-                            (node.isFocus ? -8 : -7) -
+                            (node.isFocus ? 8 : 5) -
                             ((lines.length - 1) * (node.isFocus ? 20 : 17)) / 2
                           }
                         >
@@ -570,7 +581,7 @@ export function GraphCanvas({
                         </text>
                         <text
                           className="graph-node__meta"
-                          y={node.isFocus ? 44 : 31}
+                          y={node.isFocus ? 48 : 36}
                         >
                           {category}
                         </text>

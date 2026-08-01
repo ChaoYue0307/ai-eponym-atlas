@@ -31,6 +31,7 @@ import { formatLifespan } from '../lib/lifespan'
 import { formatRegion } from '../lib/personProfile'
 import { searchCatalog, type SearchMode } from '../lib/search'
 import { ConceptDetail } from './ConceptDetail'
+import { ConceptIcon } from './ConceptIcon'
 import { PeopleCoverageSummary } from './PeopleCoverageSummary'
 import { PeopleRanking } from './PeopleRanking'
 import { PersonPortrait } from './PersonPortrait'
@@ -554,7 +555,12 @@ export function AtlasExplorer({ locale, params }: AtlasExplorerProps) {
                       onClick={() => chooseResult('concept', concept.id)}
                       aria-pressed={focusId === concept.id}
                     >
-                      <span className="result-row__marker" aria-hidden="true" />
+                      <ConceptIcon
+                        conceptId={concept.id}
+                        locale={locale}
+                        size="row"
+                        className="result-row__concept-icon"
+                      />
                       <span className="result-row__main">
                         <strong>
                           {locale === 'zh' ? concept.zhTerm : concept.term}{' '}

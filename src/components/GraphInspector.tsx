@@ -3,12 +3,13 @@ import ExternalLink from 'lucide-react/dist/esm/icons/external-link.mjs'
 import LocateFixed from 'lucide-react/dist/esm/icons/locate-fixed.mjs'
 import type { RefObject } from 'react'
 import type { Locale } from '../copy'
-import { peopleById } from '../data/catalog'
+import { conceptsById, peopleById } from '../data/catalog'
 import { navigate } from '../hooks/useHashRoute'
 import type { PositionedNode } from '../lib/graphLayout'
 import { formatLifespan } from '../lib/lifespan'
 import { formatRegion } from '../lib/personProfile'
 import type { EgoGraphEdge, EgoGraphNode } from '../types'
+import { ConceptIcon } from './ConceptIcon'
 import { PersonPortrait } from './PersonPortrait'
 
 type GraphInspectorProps = {
@@ -60,12 +61,23 @@ export function GraphInspector({
 }: GraphInspectorProps) {
   const selectedPerson =
     selectedNode.kind === 'person' ? peopleById.get(selectedNode.personId) : undefined
+  const selectedConcept =
+    selectedNode.kind === 'concept'
+      ? conceptsById.get(selectedNode.conceptId)
+      : undefined
 
   return (
     <aside className="graph-inspector" ref={inspectorRef}>
       <header className="graph-inspector__header">
         {selectedPerson ? (
           <PersonPortrait person={selectedPerson} locale={locale} variant="avatar" />
+        ) : selectedConcept ? (
+          <ConceptIcon
+            conceptId={selectedConcept.id}
+            locale={locale}
+            size="row"
+            className="graph-inspector__concept-icon"
+          />
         ) : null}
         <div>
           <p>
@@ -143,6 +155,13 @@ export function GraphInspector({
                     >
                       {person ? (
                         <PersonPortrait person={person} locale={locale} variant="avatar" />
+                      ) : node.kind === 'concept' ? (
+                        <ConceptIcon
+                          conceptId={node.conceptId}
+                          locale={locale}
+                          size="small"
+                          className="relationship-item__concept-icon"
+                        />
                       ) : (
                         <span
                           className={`relationship-item__shape relationship-item__shape--${node.kind}`}

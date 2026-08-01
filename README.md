@@ -33,9 +33,10 @@ AI Eponym Atlas is an open-source AI mathematics reference and interactive
 glossary of eponymous concepts widely used in artificial intelligence and
 machine learning. Each entry begins with what the concept does, then explains
 its intuition, formal definition, history, relationships, and modern AI
-applications with verifiable sources.
+applications with verifiable sources. A dedicated semantic micro-illustration
+gives every concept a visual foothold before the notation begins.
 
-AI 人名概念图谱逐一解释以人物命名、并广泛用于 AI 的数学与技术术语：它解决什么问题、如何定义、从何而来，以及怎样用于现代 AI。
+AI 人名概念图谱逐一解释以人物命名、并广泛用于 AI 的数学与技术术语：它解决什么问题、如何定义、从何而来，以及怎样用于现代 AI。每个概念还配有一幅语义微插图，让读者在进入符号与公式之前先建立视觉直觉。
 
 ---
 
@@ -45,7 +46,7 @@ Catalog snapshot: **2026-07-31** / 目录快照：**2026-07-31**
 
 | Coverage / 覆盖 | Evidence / 证据 | Experience / 体验 |
 | :---: | :---: | :---: |
-| **120** concepts / 概念<br>**117** people / 人物<br>**149** person–concept links / 人物—概念连接 | **247** citation links / 引用链接<br>**235** unique source URLs / 唯一来源<br>**78** verified portraits / 核验肖像 | **9** fields / 领域<br>**4** learning paths / 学习路径 |
+| **120** concepts / 概念<br>**117** people / 人物<br>**149** person–concept links / 人物—概念连接 | **247** citation links / 引用链接<br>**235** unique source URLs / 唯一来源<br>**78** verified portraits / 核验肖像 | **120** concept micro-illustrations / 概念微插图<br>**9** fields / 领域<br>**4** learning paths / 学习路径 |
 
 Every concept has at least two reference links. References are attached at the
 concept level and may support a definition, naming history, implementation, or
@@ -110,9 +111,9 @@ begin with its function, then continue to the mathematics, history, and AI use.
 
 ## 🧭 Choose how you explore / 选择探索方式
 
-[![The live AI Eponym Atlas homepage showing its meaning-first hero, coverage totals, interactive constellation, reader routes, and six starting concepts](./docs/images/atlas-overview.jpg)](https://chaoyue0307.github.io/ai-eponym-atlas/)
+[![The live AI Eponym Atlas homepage showing three reader routes and six starting concepts, each with a semantic micro-illustration](./docs/images/atlas-overview.jpg)](https://chaoyue0307.github.io/ai-eponym-atlas/)
 
-[![Four guided learning paths connecting geometry to gradients, evidence to uncertainty, signals to representations, and noise to generative models](./docs/images/learning-paths.jpg)](https://chaoyue0307.github.io/ai-eponym-atlas/paths/)
+[![Four guided learning paths connecting geometry to gradients, evidence to uncertainty, signals to representations, and noise to generative models through concept micro-illustrations](./docs/images/learning-paths.jpg)](https://chaoyue0307.github.io/ai-eponym-atlas/paths/)
 
 **Guided learning paths** connect short sequences of concepts in a pedagogical
 order—without presenting that order as historical causality.
@@ -154,6 +155,7 @@ sources. [Read the source and image policy →](./docs/PORTRAITS.md)
 | 🕰️ **Historical timeline** — Separate a person's life, publication, later naming, and AI adoption. | 🧾 **Canonical terminology** — Keep formal names, aliases, and plain-language labels together. |
 | 👤 **People profiles** — Connect concise introductions and localized facts to the terms carrying each name, AI uses, and evidence. | ♿ **Keyboard and mobile friendly** — Explore every view with a keyboard or on a small screen. |
 | 📊 **Coverage ranking** — Compare all 117 people by current catalog entries, with search and field-aware counts. | 🔢 **Relationship audit** — See why 120 unique concepts form 149 people-to-concept links. |
+| 🎨 **Semantic concept icons** — Recognize all 120 ideas through consistent, text-free micro-illustrations. | 👁️ **Visual intuition** — Pair each icon with the formal term and functional label instead of replacing either one. |
 
 ### ✅ Three practical ways to use it / 三种实用方式
 
